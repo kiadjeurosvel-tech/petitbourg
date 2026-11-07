@@ -31,3 +31,9 @@ jobs:
           echo '{"last_day": ${{ steps.gate.outputs.day }}, "last_date": "${{ steps.gate.outputs.date }}"}' > state.json
           git config user.name "petitbourg-bot"; git config user.email "bot@users.noreply.github.com"
           git add state.json && git commit -m "Jour ${{ steps.gate.outputs.day }} publié" && git push
+      - name: Sauver la voix (évite de repayer ElevenLabs)
+        if: always()
+        run: |
+          git config user.name "petitbourg-bot"; git config user.email "bot@users.noreply.github.com"
+          git pull -q --rebase || true
+          git add episodes/voice_cache 2>/dev/null && git commit -qm "cache voix" && git push -q || true

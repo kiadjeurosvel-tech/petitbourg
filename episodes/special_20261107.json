@@ -1,64 +1,444 @@
 {
-  "out_name": "petitbourg_special_2026-11-07",
-  "weather": "clear",
-  "highlight": ["215", "120", "prêtre.", "toi", "maélia", "assistante", "piscine,", "violette", "saucisson.", "noté.", "colocataire.", "acceptes", "bâtiments.", "impôts.", "10", "stade,", "école,", "commissariat", "jour", "top"],
-  "characters": {
-    "priest": {"coat": [30, 30, 35], "collar": true, "hair": [90, 70, 50]},
-    "maelia": {"coat": [200, 90, 150], "long_hair": [110, 60, 30], "hair": [110, 60, 30]},
-    "ilyes": {"coat": [200, 120, 60], "hair": [30, 25, 20]},
-    "ami": {"coat": [90, 160, 200], "hat": "cap", "hair": [60, 40, 20]},
-    "doc": {"coat": [245, 245, 245], "hair": [50, 40, 30]},
-    "pompier": {"coat": [190, 40, 40], "hat": "helmet"}
+ "out_name": "petitbourg_special_2026-11-07",
+ "weather": "clear",
+ "highlight": [
+  "215",
+  "120",
+  "prêtre.",
+  "toi",
+  "maélia",
+  "assistante",
+  "piscine,",
+  "violette",
+  "saucisson.",
+  "noté.",
+  "colocataire.",
+  "acceptes",
+  "bâtiments.",
+  "impôts.",
+  "10",
+  "stade,",
+  "école,",
+  "commissariat",
+  "jour",
+  "top"
+ ],
+ "characters": {
+  "priest": {
+   "coat": [
+    30,
+    30,
+    35
+   ],
+   "collar": true,
+   "hair": [
+    90,
+    70,
+    50
+   ]
   },
-  "scenes": [
-    {"type": "title", "bg": "wide", "badge": "ÉDITION SPÉCIALE", "badge_size": 100,
-     "chars": [{"kind": "mayor", "x": 540, "y": 1560, "scale": 0.7, "talk": true, "enter": "left", "jump_line": 0}],
-     "lines": ["Édition spéciale ! En une journée, Petitbourg passe de 38… à 215 habitants !"],
-     "counter": {"from": 38, "to": 215, "suffix": "HABITANTS", "y": 620, "at_line": 0}},
-    {"type": "place", "build": {"type": "desk"}, "letters": true,
-     "chars": [{"kind": "mayor", "x": 540, "y": 1700, "scale": 0.8, "talk": true, "jump_line": 1}],
-     "lines": ["La mairie a reçu plus de 120 demandes.", "Le maire est complètement débordé."],
-     "badge": {"text": "+120 DEMANDES !", "color": "red", "size": 70}},
-    {"type": "place", "build": {"type": "chapel", "x": 1250},
-     "chars": [{"kind": "priest", "x": 760, "y": 1600, "scale": 0.6, "enter": "right", "enter_line": 1}, {"kind": "mayor", "x": 240, "y": 1600, "scale": 0.6, "talk": true}],
-     "lines": ["Première nomination : la chapelle a enfin son prêtre.", "Amau, c'est toi !"],
-     "comment": {"user": "amau.6983", "text": "je peux le prêtre ?", "likes": 24, "top": true}, "comment_until_line": 1,
-     "badge2": {"text": "PRÊTRE DE PETITBOURG", "sub": "@amau.6983", "color": "white", "at_line": 1, "y": 330, "confetti": true}},
-    {"type": "place", "build": {"type": "desk"},
-     "chars": [{"kind": "maelia", "x": 720, "y": 1700, "scale": 0.75, "enter": "right", "enter_line": 1, "jump_line": 1}, {"kind": "mayor", "x": 260, "y": 1700, "scale": 0.75, "talk": true}],
-     "lines": ["Pour s'en sortir, le maire engage une assistante :", "Maélia ! Sa mission : enregistrer chaque habitant et chaque demande de maison."],
-     "comment": {"user": "m2aa9711", "text": "Je veux être l’assistante du maire stp j’m’appelle Maélia", "likes": 1}, "comment_until_line": 1,
-     "badge2": {"text": "ASSISTANTE DU MAIRE", "sub": "@m2aa9711", "color": "green", "at_line": 1, "y": 330, "confetti": true}},
-    {"type": "cards", "bg": "houses",
-     "lines": ["Et vous êtes créatifs : une villa avec piscine, une maison violette avec un golden retriever, une maison en pain d'épices… et même une maison saucisson.", "Tout est noté. Chaque maison sera construite selon votre description, une par une."],
-     "cards": [{"user": "adam51693", "text": "moi je veux une villa avec piscine stp", "likes": 1},
-               {"user": "lara.fardeau", "text": "je peux avoir une maison en violet pastel avec un golden retriever stp", "likes": 4},
-               {"user": "usr.ysl1", "text": "une maison en pain d'épice stp", "likes": 3},
-               {"user": "cristal_bnt7", "text": "Moi stpp une maison saucisson", "likes": 1}],
-     "card_gap": 1.4, "end_badge": {"text": "TOUT EST NOTÉ !"}},
-    {"type": "place", "build": {"type": "house", "x": 1300},
-     "chars": [{"kind": "ilyes", "x": 220, "y": 1620, "scale": 0.6}, {"kind": "ami", "x": 470, "y": 1620, "scale": 0.6, "enter": "left", "enter_line": 0, "jump_line": 1}],
-     "lines": ["Un ami d'Ilyes veut agrandir sa maison pour devenir son colocataire.", "Ilyes, tu acceptes ?"],
-     "comment": {"user": "matemat734", "text": "En tant qu'ami d'Ilyes, je voudrais agrandir sa maison et devenir son colocataire stp", "likes": 5},
-     "badge2": {"text": "ILYES, TU ACCEPTES ?", "color": "blue", "at_line": 1, "y": 660}},
-    {"type": "panel", "bg": "road", "title": "MÉTIERS DEMANDÉS", "raw": true, "scroll": 55,
-     "chars": [{"kind": "doc", "x": 200, "y": 1700, "scale": 0.45, "enter": "left"}, {"kind": "pompier", "x": 880, "y": 1700, "scale": 0.45, "enter": "right"}],
-     "names": ["Médecin – @uji4248", "Pharmacien – @telxtz", "Pompière – @cindydoudie", "Policière – @louh5812", "Boulanger – @rafael_cnx", "Agriculteur – @nico.lfutur.agri", "Électricien – @polish_tim49", "Banquier – @at_30k4", "Taxi – @izkoo0", "Épicier – @yani..21"],
-     "lines": ["Les métiers aussi : médecins, pharmacien, pompiers, boulangers…", "On a besoin de vous, mais il faut d'abord les bâtiments."]},
-    {"type": "place", "bg": "kasse", "kasse": true,
-     "chars": [{"kind": "mayor", "x": 200, "y": 1620, "scale": 0.65, "talk": true}],
-     "lines": ["Et quelqu'un veut vivre dans la rue pour ne pas payer d'impôts.", "Désolé : à Petitbourg, tout le monde paie ses 10 euros !"],
-     "comment": {"user": "aime_le_sausison", "text": "je peux vivre à la rue pour pas payer les impôts stp", "likes": 2},
-     "stamp": {"text": "REFUSÉ", "at_line": 1, "y": 760}},
-    {"type": "panel", "bg": "wide", "title": "IDÉES EN ATTENTE", "raw": true, "scroll": 30,
-     "names": ["Stade de foot – @sidyyyy013", "École – @chr6ist", "Hôtel – @l0r3lyn3", "Refuge animaux – @malo..02234", "Salle gaming – @goku25603", "Port – @manoa.prive"],
-     "lines": ["Vous voulez aussi un stade, une école, un hôtel et un refuge pour animaux. On garde tout pour la suite."]},
-    {"type": "place", "bg": "wide",
-     "chars": [{"kind": "mayor", "x": 540, "y": 1700, "scale": 0.75, "talk": true}],
-     "lines": ["Et le vote ? Pour l'instant, le commissariat est en tête… mais rien n'est joué.", "Résultat demain, dans le Jour 3 ! Le top commentaire décide."],
-     "bars": {"title": "TENDANCE DU VOTE", "at_line": 0, "items": [["COMMISSARIAT", 0.55], ["PARC D'ATTRACTIONS", 0.25], ["BAR", 0.2]]},
-     "badge2": {"text": "RÉSULTAT DEMAIN !", "color": "red", "at_line": 1, "y": 920}}
-  ],
-  "description": "Édition spéciale 🏡 Petitbourg passe de 38 à 215 habitants ! Merci à tous 🙏 Amau devient prêtre ⛪ Maélia devient assistante du maire 📋 Toutes vos maisons sont notées. Vote en cours : commissariat, bar ou parc ? Résultat demain dans le Jour 3 👇 #petitbourg #village #animation #communaute #tudecides #fyp #pourtoi",
-  "pinned_comment": "Décris ta maison ou ton métier ici 👇 La mairie note tout 📋"
+  "maelia": {
+   "coat": [
+    200,
+    90,
+    150
+   ],
+   "long_hair": [
+    110,
+    60,
+    30
+   ],
+   "hair": [
+    110,
+    60,
+    30
+   ]
+  },
+  "ilyes": {
+   "coat": [
+    200,
+    120,
+    60
+   ],
+   "hair": [
+    30,
+    25,
+    20
+   ]
+  },
+  "ami": {
+   "coat": [
+    90,
+    160,
+    200
+   ],
+   "hat": "cap",
+   "hair": [
+    60,
+    40,
+    20
+   ]
+  },
+  "doc": {
+   "coat": [
+    245,
+    245,
+    245
+   ],
+   "hair": [
+    50,
+    40,
+    30
+   ]
+  },
+  "pompier": {
+   "coat": [
+    190,
+    40,
+    40
+   ],
+   "hat": "helmet"
+  }
+ },
+ "scenes": [
+  {
+   "type": "title",
+   "bg": "wide",
+   "badge": "ÉDITION SPÉCIALE",
+   "badge_size": 100,
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "y": 1600,
+     "scale": 0.56,
+     "talk": true,
+     "enter": "left",
+     "jump_line": 0
+    }
+   ],
+   "lines": [
+    "Édition spéciale ! En une journée, Petitbourg passe de 38… à 215 habitants !"
+   ],
+   "counter": {
+    "from": 38,
+    "to": 215,
+    "suffix": "HABITANTS",
+    "y": 620,
+    "at_line": 0
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "desk"
+   },
+   "letters": true,
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "y": 1740,
+     "scale": 0.64,
+     "talk": true,
+     "jump_line": 1
+    }
+   ],
+   "lines": [
+    "La mairie a reçu plus de 120 demandes.",
+    "Le maire est complètement débordé."
+   ],
+   "badge": {
+    "text": "+120 DEMANDES !",
+    "color": "red",
+    "size": 70
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "chapel",
+    "x": 1250
+   },
+   "chars": [
+    {
+     "kind": "priest",
+     "x": 760,
+     "y": 1640,
+     "scale": 0.48,
+     "enter": "right",
+     "enter_line": 1
+    },
+    {
+     "kind": "mayor",
+     "x": 240,
+     "y": 1640,
+     "scale": 0.48,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Première nomination : la chapelle a enfin son prêtre.",
+    "Amau, c'est toi !"
+   ],
+   "comment": {
+    "user": "amau.6983",
+    "text": "je peux le prêtre ?",
+    "likes": 24,
+    "top": true
+   },
+   "comment_until_line": 1,
+   "badge2": {
+    "text": "PRÊTRE DE PETITBOURG",
+    "sub": "@amau.6983",
+    "color": "white",
+    "at_line": 1,
+    "y": 330,
+    "confetti": true
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "desk"
+   },
+   "chars": [
+    {
+     "kind": "maelia",
+     "x": 720,
+     "y": 1740,
+     "scale": 0.6,
+     "enter": "right",
+     "enter_line": 1,
+     "jump_line": 1
+    },
+    {
+     "kind": "mayor",
+     "x": 260,
+     "y": 1740,
+     "scale": 0.6,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Pour s'en sortir, le maire engage une assistante :",
+    "Maélia ! Sa mission : enregistrer chaque habitant et chaque demande de maison."
+   ],
+   "comment": {
+    "user": "m2aa9711",
+    "text": "Je veux être l’assistante du maire stp j’m’appelle Maélia",
+    "likes": 1
+   },
+   "comment_until_line": 1,
+   "badge2": {
+    "text": "ASSISTANTE DU MAIRE",
+    "sub": "@m2aa9711",
+    "color": "green",
+    "at_line": 1,
+    "y": 330,
+    "confetti": true
+   }
+  },
+  {
+   "type": "cards",
+   "bg": "houses",
+   "lines": [
+    "Et vous êtes créatifs : une villa avec piscine, une maison violette avec un golden retriever, une maison en pain d'épices… et même une maison saucisson.",
+    "Tout est noté. Chaque maison sera construite selon votre description, une par une."
+   ],
+   "cards": [
+    {
+     "user": "adam51693",
+     "text": "moi je veux une villa avec piscine stp",
+     "likes": 1
+    },
+    {
+     "user": "lara.fardeau",
+     "text": "je peux avoir une maison en violet pastel avec un golden retriever stp",
+     "likes": 4
+    },
+    {
+     "user": "usr.ysl1",
+     "text": "une maison en pain d'épice stp",
+     "likes": 3
+    },
+    {
+     "user": "cristal_bnt7",
+     "text": "Moi stpp une maison saucisson",
+     "likes": 1
+    }
+   ],
+   "card_gap": 1.4,
+   "end_badge": {
+    "text": "TOUT EST NOTÉ !"
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "house",
+    "x": 1300
+   },
+   "chars": [
+    {
+     "kind": "ilyes",
+     "x": 220,
+     "y": 1660,
+     "scale": 0.48
+    },
+    {
+     "kind": "ami",
+     "x": 470,
+     "y": 1660,
+     "scale": 0.48,
+     "enter": "left",
+     "enter_line": 0,
+     "jump_line": 1
+    }
+   ],
+   "lines": [
+    "Un ami d'Ilyes veut agrandir sa maison pour devenir son colocataire.",
+    "Ilyes, tu acceptes ?"
+   ],
+   "comment": {
+    "user": "matemat734",
+    "text": "En tant qu'ami d'Ilyes, je voudrais agrandir sa maison et devenir son colocataire stp",
+    "likes": 5
+   },
+   "badge2": {
+    "text": "ILYES, TU ACCEPTES ?",
+    "color": "blue",
+    "at_line": 1,
+    "y": 660
+   }
+  },
+  {
+   "type": "panel",
+   "bg": "road",
+   "title": "MÉTIERS DEMANDÉS",
+   "raw": true,
+   "scroll": 55,
+   "chars": [
+    {
+     "kind": "doc",
+     "x": 200,
+     "y": 1740,
+     "scale": 0.36,
+     "enter": "left"
+    },
+    {
+     "kind": "pompier",
+     "x": 880,
+     "y": 1740,
+     "scale": 0.36,
+     "enter": "right"
+    }
+   ],
+   "names": [
+    "Médecin – @uji4248",
+    "Pharmacien – @telxtz",
+    "Pompière – @cindydoudie",
+    "Policière – @louh5812",
+    "Boulanger – @rafael_cnx",
+    "Agriculteur – @nico.lfutur.agri",
+    "Électricien – @polish_tim49",
+    "Banquier – @at_30k4",
+    "Taxi – @izkoo0",
+    "Épicier – @yani..21"
+   ],
+   "lines": [
+    "Les métiers aussi : médecins, pharmacien, pompiers, boulangers…",
+    "On a besoin de vous, mais il faut d'abord les bâtiments."
+   ]
+  },
+  {
+   "type": "place",
+   "bg": "kasse",
+   "kasse": true,
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 200,
+     "y": 1660,
+     "scale": 0.52,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Et quelqu'un veut vivre dans la rue pour ne pas payer d'impôts.",
+    "Désolé : à Petitbourg, tout le monde paie ses 10 euros !"
+   ],
+   "comment": {
+    "user": "aime_le_sausison",
+    "text": "je peux vivre à la rue pour pas payer les impôts stp",
+    "likes": 2
+   },
+   "stamp": {
+    "text": "REFUSÉ",
+    "at_line": 1,
+    "y": 760
+   }
+  },
+  {
+   "type": "panel",
+   "bg": "wide",
+   "title": "IDÉES EN ATTENTE",
+   "raw": true,
+   "scroll": 30,
+   "names": [
+    "Stade de foot – @sidyyyy013",
+    "École – @chr6ist",
+    "Hôtel – @l0r3lyn3",
+    "Refuge animaux – @malo..02234",
+    "Salle gaming – @goku25603",
+    "Port – @manoa.prive"
+   ],
+   "lines": [
+    "Vous voulez aussi un stade, une école, un hôtel et un refuge pour animaux. On garde tout pour la suite."
+   ]
+  },
+  {
+   "type": "place",
+   "bg": "wide",
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "y": 1740,
+     "scale": 0.6,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Et le vote ? Pour l'instant, le commissariat est en tête… mais rien n'est joué.",
+    "Résultat demain, dans le Jour 3 ! Le top commentaire décide."
+   ],
+   "bars": {
+    "title": "TENDANCE DU VOTE",
+    "at_line": 0,
+    "items": [
+     [
+      "COMMISSARIAT",
+      0.55
+     ],
+     [
+      "PARC D'ATTRACTIONS",
+      0.25
+     ],
+     [
+      "BAR",
+      0.2
+     ]
+    ]
+   },
+   "badge2": {
+    "text": "RÉSULTAT DEMAIN !",
+    "color": "red",
+    "at_line": 1,
+    "y": 920
+   }
+  }
+ ],
+ "description": "Édition spéciale 🏡 Petitbourg passe de 38 à 215 habitants ! Merci à tous 🙏 Amau devient prêtre ⛪ Maélia devient assistante du maire 📋 Toutes vos maisons sont notées. Vote en cours : commissariat, bar ou parc ? Résultat demain dans le Jour 3 👇 #petitbourg #village #animation #communaute #tudecides #fyp #pourtoi",
+ "pinned_comment": "Décris ta maison ou ton métier ici 👇 La mairie note tout 📋"
 }

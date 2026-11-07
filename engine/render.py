@@ -172,7 +172,7 @@ def background(sc):
     kind = sc.get("bg", "road"); build = sc.get("build")
     key = json.dumps([kind, build], sort_keys=True)
     if key in BGCACHE: return BGCACHE[key]
-    if build is None and kind in ("wide", "road", "schild", "well", "houses", "grid", "rathaus", "kasse", "night"):
+    if build is None and kind in ("wide", "road", "schild", "well", "grid", "rathaus", "kasse", "night"):
         im = bg(kind)
     else:
         w, h = W * 2, H * 2
@@ -182,6 +182,9 @@ def background(sc):
         grass(d, 1650, w, h); road(d, 2700, 3300, w)
         b = build or {}
         t = b.get("type")
+        if kind == "houses" and not t:
+            for i, x in enumerate([260, 1080, 1900]):
+                house(d, x, 2560, 2.7, roof=[(150, 52, 40), (60, 110, 160), (140, 80, 40)][i], lit=True)
         if t == "chapel": chapel(d, b.get("x", 1080), 2700, 4.6)
         elif t == "house": house(d, b.get("x", 1080), 2700, 4.2, roof=col(b.get("roof"), (60, 110, 160)), lit=True)
         elif t == "shop": shop(d, b.get("x", 1080), 2700, 3.8, b.get("label", ""), roof=col(b.get("roof"), (120, 60, 50)))
@@ -240,7 +243,14 @@ def main():
             parts.append(ln); pos += len(ln) + 1
     text = " ".join(parts)
     mp3 = os.path.join(out_dir, "voice.mp3")
-    dur, starts = tts(text, ep.get("voice_id", DEFAULT_VOICE), mp3, dry=dry)
+    cache = os.path.join(ROOT, "episodes", "voice_cache", out_name)
+    if not dry and os.path.exists(cache + ".json") and json.load(open(cache + ".json"))["text"] == text:
+        import shutil; shutil.copy(cache + ".mp3", mp3); dur, starts = json.load(open(cache + ".json"))["timing"]
+    else:
+        dur, starts = tts(text, ep.get("voice_id", DEFAULT_VOICE), mp3, dry=dry)
+        if not dry:
+            os.makedirs(os.path.dirname(cache), exist_ok=True); import shutil; shutil.copy(mp3, cache + ".mp3")
+            json.dump({"text": text, "timing": [dur, starts]}, open(cache + ".json", "w"))
     line_t = [starts[o] for o in offs]
     DUR = dur + 0.7
     for si, sc in enumerate(scenes):
@@ -287,7 +297,7 @@ def main():
         if not CLEAR: rain(fr, t, 60 if sc.get("bg") == "night" else 110)
         # camera: slow pan + zoom + punch on badge2
         pan = sc.get("pan", [.45, .55] if CLEAR else [.5, .5]); pk = ease((t - a) / L)
-        z = 1 + sc.get("zoom", 0.06) * pk
+        z = 1 + sc.get("zoom", 0.025) * pk
         if sc.get("badge2"):
             dt = t - at(sc, sc["badge2"].get("at_line", 1))
             if 0 < dt < .4: z += .05 * (1 - dt / .4)
@@ -397,7 +407,7 @@ def main():
     p.stdin.close(); p.wait()
     out = os.path.join(out_dir, f"{out_name}.mp4")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", vid, "-i", mp3, "-f", "lavfi", "-i",
-                    f"anoisesrc=color=pink:amplitude=0.25:d={DUR},lowpass=f=3500,highpass=f=300,volume=0.25",
+                    (f"anoisesrc=color=pink:amplitude=0.25:d={DUR},lowpass=f=3500,highpass=f=300,volume=0.25" if not CLEAR else f"anullsrc=r=44100:cl=mono,atrim=0:{DUR}"),
                     "-filter_complex", f"[1:a]apad=whole_dur={DUR},volume=1.6[v];[v][2:a]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[a]",
                     "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-t", str(DUR), out], check=True)
     open(os.path.join(out_dir, "description.txt"), "w").write(ep.get("description", "") + "\n\nCommentaire à épingler :\n" + ep.get("pinned_comment", "") + "\n")
