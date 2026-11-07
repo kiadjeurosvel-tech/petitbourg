@@ -209,6 +209,10 @@ def sprite(kind, mouth=0, scale=1.0):
         ax = cx + sgn * (bw + 6) * S
         d.rounded_rectangle([ax - 22 * S, 360 * S, ax + 22 * S, 540 * S], 22 * S, fill=p["coat"], outline=OUTL, width=lw)
         d.ellipse([ax - 24 * S, 520 * S, ax + 24 * S, 568 * S], fill=skin, outline=OUTL, width=lw)
+    if p.get("collar"):
+        d.rectangle([cx - 40 * S, 330 * S, cx + 40 * S, 352 * S], fill=WHITE, outline=OUTL, width=4 * S)
+    if p.get("long_hair"):
+        d.rounded_rectangle([cx - 150 * S, 110 * S, cx + 150 * S, 420 * S], 90 * S, fill=p["long_hair"], outline=OUTL, width=lw)
     # head
     hx0, hy0, hx1, hy1 = cx - 125 * S, 70 * S, cx + 125 * S, 350 * S
     d.ellipse([hx0 - 18 * S, 190 * S, hx0 + 22 * S, 250 * S], fill=skin, outline=OUTL, width=lw)

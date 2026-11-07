@@ -80,6 +80,7 @@ def av_img(user, size):
     return im
 
 def ccard(user, text, likes, top=False, w=860):
+    text = "".join(ch for ch in text if ord(ch) < 0x2000 or ch in "’…").strip()
     f = font(40); lines = []; cur = ""
     for wd in text.split():
         t = (cur + " " + wd).strip()
@@ -137,7 +138,35 @@ def coin(d, x, y, r=26):
     d.ellipse([x - r, y - r, x + r, y + r], fill=(250, 200, 40), outline=(150, 100, 20), width=4)
     d.text((x, y), "€", font=font(int(r * 1.1)), fill=(150, 100, 20), anchor="mm")
 
+
+def daysky(d, w, h, top=(105, 175, 240), bot=(205, 232, 250), hz=900):
+    for y in range(hz):
+        k = y / hz
+        d.line([(0, y), (w, y)], fill=tuple(int(top[i] + (bot[i] - top[i]) * k) for i in range(3)))
+    d.ellipse([w - 520, 160, w - 240, 440], fill=(255, 236, 140))
+
+CLOUDS = [(random.Random(i).uniform(0, 1400), random.Random(i + 9).uniform(80, 520), random.Random(i + 3).uniform(.7, 1.3)) for i in range(5)]
+def clouds(fr, t):
+    d = ImageDraw.Draw(fr)
+    for x0, y, s in CLOUDS:
+        x = (x0 + t * 25 * s) % 1500 - 200
+        for dx, dy, r in ((0, 0, 60), (55, -25, 70), (115, 0, 58), (60, 15, 60)):
+            d.ellipse([x + dx * s - r * s, y + dy * s - r * s, x + dx * s + r * s, y + dy * s + r * s], fill=(255, 255, 255))
+
+def envelope(d, x, y, a=0):
+    d.rectangle([x - 50, y - 32, x + 50, y + 32], fill=WHITE, outline=OUTL, width=4)
+    d.line([(x - 50, y - 32), (x, y + 5), (x + 50, y - 32)], fill=OUTL, width=4)
+
+def confetti(fr, t, t0):
+    if t < t0 or t > t0 + 2.2: return
+    d = ImageDraw.Draw(fr); r = random.Random(7); cols = [(250, 80, 80), (80, 200, 90), (250, 210, 60), (80, 150, 250), (230, 120, 220)]
+    for i in range(70):
+        x0 = r.uniform(0, W); v = r.uniform(500, 900); y = -40 + (t - t0) * v + r.uniform(-200, 0)
+        x = x0 + math.sin((t - t0) * 6 + i) * 30
+        d.rectangle([x, y, x + 16, y + 26], fill=cols[i % 5])
+
 BGCACHE = {}
+CLEAR = True
 def background(sc):
     """sc['bg'] = base kind or dict {kind, build}"""
     kind = sc.get("bg", "road"); build = sc.get("build")
@@ -153,9 +182,19 @@ def background(sc):
         grass(d, 1650, w, h); road(d, 2700, 3300, w)
         b = build or {}
         t = b.get("type")
-        if t == "chapel": chapel(d, 1080, 2700, 2.6)
-        elif t == "house": house(d, 1080, 2620, 2.4, roof=col(b.get("roof"), (60, 110, 160)), lit=True)
-        elif t == "shop": shop(d, 1080, 2650, 2.2, b.get("label", ""), roof=col(b.get("roof"), (120, 60, 50)))
+        if t == "chapel": chapel(d, b.get("x", 1080), 2700, 4.6)
+        elif t == "house": house(d, b.get("x", 1080), 2700, 4.2, roof=col(b.get("roof"), (60, 110, 160)), lit=True)
+        elif t == "shop": shop(d, b.get("x", 1080), 2700, 3.8, b.get("label", ""), roof=col(b.get("roof"), (120, 60, 50)))
+        elif t == "desk":
+            d.rectangle([0, 0, w, h], fill=(236, 220, 190))
+            d.rectangle([0, 2600, w, h], fill=(170, 120, 80))
+            d.rectangle([300, 500, 1000, 1300], fill=(150, 210, 250), outline=OUTL, width=14)
+            d.line([(650, 500), (650, 1300)], fill=OUTL, width=12); d.line([(300, 900), (1000, 900)], fill=OUTL, width=12)
+            d.rounded_rectangle([1250, 600, 1900, 1100], 20, fill=(60, 120, 60), outline=OUTL, width=12)
+            d.text((1575, 850), "MAIRIE", font=font(110), fill=WHITE, anchor="mm")
+            d.rectangle([200, 2350, 1960, 2520], fill=(140, 90, 50), outline=OUTL, width=12)
+            d.rectangle([260, 2520, 340, 3000], fill=(120, 75, 40), outline=OUTL, width=10); d.rectangle([1820, 2520, 1900, 3000], fill=(120, 75, 40), outline=OUTL, width=10)
+            for i in range(6): d.rectangle([1300 + i * 12, 2200 - i * 30, 1700 + i * 12, 2350 - i * 30], fill=WHITE, outline=OUTL, width=5)
         elif t == "lot":
             d.rectangle([1250, 2250, 2000, 2650], fill=(120, 90, 60))
             for i in range(10): d.line([(1250 + i * 75, 2250), (1250 + i * 75, 2650)], fill=(150, 120, 80), width=6)
@@ -183,9 +222,14 @@ def main():
     preview = None
     if "--preview" in sys.argv: preview = [float(x) for x in sys.argv[sys.argv.index("--preview") + 1].split(",")]
     ep = json.load(open(ep_path))
+    global CLEAR
+    CLEAR = ep.get("weather", "clear") != "rain"
+    if CLEAR:
+        B.sky = daysky; globals()["sky"] = daysky
     os.makedirs(out_dir, exist_ok=True)
     for k, v in ep.get("characters", {}).items():
         CH[k] = {kk: (tuple(vv) if isinstance(vv, list) else vv) for kk, vv in v.items()}
+    out_name = ep.get("out_name") or f"petitbourg_jour{ep['day']}"
 
     # script text + line offsets
     scenes = ep["scenes"]; parts = []; offs = []; pos = 0
@@ -202,58 +246,122 @@ def main():
     for si, sc in enumerate(scenes):
         sc["_t"] = 0.0 if si == 0 else max(0.0, line_t[sc["_lines"][0]] - 0.15)
         sc["_lt"] = [line_t[i] for i in sc["_lines"]]
+    for si, sc in enumerate(scenes):
+        sc["_end"] = scenes[si + 1]["_t"] if si + 1 < len(scenes) else DUR
     caps = build_captions(text, starts, DUR, ep.get("highlight", []))
 
     def at(sc, idx):  # time of line idx within scene
         idx = max(0, min(idx, len(sc["_lt"]) - 1)); return sc["_lt"][idx]
 
+    def place_char(fr, c, i, t, sc):
+        x, y, s = c.get("x", 540), c.get("y", 1520), c.get("scale", .9)
+        ang = 0
+        if c.get("enter"):
+            t_in = at(sc, c.get("enter_line", 0)); x0 = -260 if c["enter"] == "left" else W + 260
+            k = ease((t - t_in) / .9)
+            if k < 1:
+                x = x0 + (x - x0) * k; y -= abs(math.sin(t * 11)) * 14 * s; ang = math.sin(t * 11) * 5
+        if c.get("jump_line") is not None:
+            dt = t - at(sc, c["jump_line"])
+            if 0 < dt < .55: y -= math.sin(dt / .55 * math.pi) * 90 * s
+        talk = c.get("talk", False)
+        mouth = 1 if talk and int(t * 9 + i) % 2 == 0 else 0
+        sp = sprite(c["kind"], mouth, round(s, 2))
+        bob = math.sin(t * 3 + i) * 4 * s
+        if talk and not ang: ang = math.sin(t * 2.3 + i) * 2.5
+        if ang: sp = sp.rotate(ang, resample=Image.BICUBIC, expand=True)
+        fr.alpha_composite(sp, (int(x - sp.width / 2), int(y - sp.height + bob)))
+
     def draw_scene(sc, t):
-        a = sc["_t"]; typ = sc.get("type", "place")
+        a = sc["_t"]; typ = sc.get("type", "place"); L = max(.5, sc["_end"] - a)
         fr = background(sc).copy()
-        for i, c in enumerate(sc.get("chars", [])):
-            put_char(fr, c["kind"], c.get("x", 540), c.get("y", 1520), c.get("scale", .9), t, talk=c.get("talk", False), phase=i)
+        if CLEAR and sc.get("build", {}).get("type") != "desk": clouds(fr, t)
+        if sc.get("letters"):
+            d = ImageDraw.Draw(fr); r = random.Random(3)
+            for k in range(14):
+                yy = ((t - a) * r.uniform(250, 420) + r.uniform(-900, 0)) % 1500 - 100
+                envelope(d, r.uniform(80, 1000) + math.sin(t * 2 + k) * 40, yy)
+        for i, c in enumerate(sc.get("chars", [])): place_char(fr, c, i, t, sc)
         if sc.get("kasse"):
             k = kasse_img(); k = k.resize((k.width // 2, k.height // 2)); fr.alpha_composite(k, (640, 1180))
-        rain(fr, t, 60 if sc.get("bg") == "night" else 110)
-        z = sc.get("zoom", 0.04)
-        fr = zoom(fr, 1 + z * min(1, (t - a) / 4), .5, .55)
+        if not CLEAR: rain(fr, t, 60 if sc.get("bg") == "night" else 110)
+        # camera: slow pan + zoom + punch on badge2
+        pan = sc.get("pan", [.45, .55] if CLEAR else [.5, .5]); pk = ease((t - a) / L)
+        z = 1 + sc.get("zoom", 0.06) * pk
+        if sc.get("badge2"):
+            dt = t - at(sc, sc["badge2"].get("at_line", 1))
+            if 0 < dt < .4: z += .05 * (1 - dt / .4)
+        fr = zoom(fr, z, pan[0] + (pan[1] - pan[0]) * pk, .55)
+        d = ImageDraw.Draw(fr)
         if typ == "title":
-            pop(fr, badge_img([sc.get("badge", f"JOUR {ep['day']}")], size=150), 540, 300, a + .05, t)
+            pop(fr, badge_img([sc.get("badge", f"JOUR {ep.get('day', '')}")], size=sc.get("badge_size", 150)), 540, 300, a + .05, t)
         elif sc.get("badge"):
-            pop(fr, mkbadge(sc["badge"]), 540, 300, at(sc, sc.get("badge_at_line", 0)) + .1, t)
+            pop(fr, mkbadge(sc["badge"]), 540, sc.get("badge_y", 300), at(sc, sc.get("badge_at_line", 0)) + .1, t)
+        if sc.get("counter"):
+            cn = sc["counter"]; ta = at(sc, cn.get("at_line", 0))
+            if t > ta:
+                p = ease((t - ta) / 1.8); v = cn["from"] + (cn["to"] - cn["from"]) * p
+                sz = int(230 * (1 + (.15 * math.sin(min(1, (t - ta - 1.8) / .3) * math.pi) if t - ta > 1.8 else 0)))
+                text_stroke(d, (540, cn.get("y", 560)), f"{int(round(v))}", sz, col(cn.get("color"), GREEN), 14)
+                text_stroke(d, (540, cn.get("y", 560) + 170), cn.get("suffix", ""), 70, WHITE, 8)
         if sc.get("comment"):
             c = sc["comment"]
-            if t < at(sc, sc.get("comment_until_line", 99)) or "comment_until_line" not in sc:
+            if "comment_until_line" not in sc or t < at(sc, sc["comment_until_line"]):
                 pop(fr, ccard(c["user"], c["text"], c.get("likes", 0), c.get("top", False)), 540, sc.get("comment_y", 600 if typ == "title" else 330), at(sc, c.get("at_line", 0)) + .05, t)
         if sc.get("badge2"):
             b2 = sc["badge2"]
             pop(fr, mkbadge(b2), 540, b2.get("y", 620), at(sc, b2.get("at_line", 1)), t)
+            if b2.get("confetti"): confetti(fr, t, at(sc, b2.get("at_line", 1)))
         if typ == "cards":
-            cs = sc["cards"]; n = len(cs); t0 = at(sc, 0)
+            cs = sc["cards"]; n = len(cs); t0 = at(sc, sc.get("cards_line", 0))
+            step = min(270, 1050 // max(1, n))
             for i, c in enumerate(cs):
                 im = ccard(c["user"], c["text"], c.get("likes", 0), w=760)
-                pop(fr, im, 540, 280 + i * min(270, 1000 // max(1, n)), t0 + .1 + i * .7, t)
+                if n > 4: im = im.resize((int(im.width * .85), int(im.height * .85)))
+                pop(fr, im, 540, 270 + i * step, t0 + .1 + i * sc.get("card_gap", .7), t)
             if sc.get("end_badge"):
-                pop(fr, mkbadge(sc["end_badge"]), 540, 1260, at(sc, sc.get("end_badge_line", len(sc["_lt"]) - 1)), t)
+                pop(fr, mkbadge(sc["end_badge"]), 540, 1300, at(sc, sc.get("end_badge_line", len(sc["_lt"]) - 1)), t)
         if typ == "panel":
-            d = ImageDraw.Draw(fr)
             d.rounded_rectangle([140, 300, 940, 1180], 30, fill=(250, 245, 230), outline=OUTL, width=8)
-            names = [f"• @{n}" for n in sc.get("names", [])] + ([sc["extra"]] if sc.get("extra") else [])
-            off = max(0, (t - a - .6) * 75)
+            names = [(f"• {n}" if sc.get("raw") else f"• @{n}") for n in sc.get("names", [])] + ([sc["extra"]] if sc.get("extra") else [])
+            off = max(0, (t - a - .6) * sc.get("scroll", 75))
             lay = Image.new("RGBA", (800, 740), (0, 0, 0, 0)); ld = ImageDraw.Draw(lay)
             for i, n in enumerate(names):
-                y = 40 + i * 64 - off
-                if -60 < y < 760: ld.text((60, y), n, font=font(40), fill=OUTL)
+                yy = 40 + i * 64 - off
+                if -60 < yy < 760: ld.text((60, yy), n, font=font(40), fill=OUTL)
             fr.alpha_composite(lay, (140, 425))
             d.rounded_rectangle([140, 300, 940, 420], 30, fill=(60, 170, 50), outline=OUTL, width=8)
-            d.text((540, 360), sc.get("title", ""), font=font(64), fill=WHITE, anchor="mm")
+            d.text((540, 360), sc.get("title", ""), font=font(56), fill=WHITE, anchor="mm")
+        if sc.get("bars"):
+            br = sc["bars"]; tb = at(sc, br.get("at_line", 0))
+            if t > tb:
+                kk = ease((t - tb) / 1.4)
+                d.rounded_rectangle([90, 280, 990, 330 + 140 * len(br["items"])], 30, fill=(250, 245, 230), outline=OUTL, width=8)
+                d.text((540, 330), br.get("title", "VOTE EN COURS"), font=font(50), fill=OUTL, anchor="mm")
+                for i, (lab, v) in enumerate(br["items"]):
+                    y0 = 400 + i * 140
+                    d.text((130, y0), lab, font=font(40), fill=OUTL, anchor="lm")
+                    d.rounded_rectangle([130, y0 + 30, 950, y0 + 80], 20, fill=(220, 215, 200))
+                    d.rounded_rectangle([130, y0 + 30, 130 + max(40, 820 * v * kk), y0 + 80], 20, fill=[(40, 60, 140), (60, 170, 50), (230, 150, 40)][i % 3])
         if sc.get("amount"):
             am = sc["amount"]; ta = at(sc, am.get("at_line", 0))
             if t > ta:
                 p = min(1, (t - ta) / 1.6); v = am.get("from", 0) + (am["to"] - am.get("from", 0)) * p
-                d = ImageDraw.Draw(fr); text_stroke(d, (540, am.get("y", 560)), f"{int(round(v))} €", 160, col(am.get("color"), GREEN), 12)
+                text_stroke(d, (540, am.get("y", 560)), f"{int(round(v))} €", 160, col(am.get("color"), GREEN), 12)
                 if am["to"] > am.get("from", 0):
                     for i in range(8): coin(d, 380 + i * 50, 680 + ((t * 600 + i * 120) % 300))
+        if sc.get("stamp"):
+            st = sc["stamp"]; ts_ = at(sc, st.get("at_line", 1))
+            if t > ts_:
+                k = min(1, (t - ts_) / .22); sc_ = 2.6 - 1.6 * k
+                im = Image.new("RGBA", (620, 200), (0, 0, 0, 0)); sd = ImageDraw.Draw(im)
+                c_ = col(st.get("color", "red"))
+                sd.rounded_rectangle([10, 10, 610, 190], 24, outline=c_, width=16)
+                sd.text((310, 100), st["text"], font=font(110), fill=c_, anchor="mm")
+                im = im.resize((int(620 * sc_), int(200 * sc_))).rotate(-12, resample=Image.BICUBIC, expand=True)
+                fr.alpha_composite(im, (int(540 - im.width / 2), int(st.get("y", 900) - im.height / 2)))
+                if t - ts_ < .3:
+                    fr = fr.transform(fr.size, Image.AFFINE, (1, 0, math.sin(t * 90) * 10, 0, 1, 0))
         if typ == "vote":
             opts = sc["options"]; tv = at(sc, sc.get("options_line", 1)); n = len(opts)
             xs = [230, 540, 850] if n == 3 else ([330, 750] if n == 2 else [540])
@@ -287,7 +395,7 @@ def main():
     for i in range(int(DUR * FPS)):
         p.stdin.write(frame(i / FPS).tobytes())
     p.stdin.close(); p.wait()
-    out = os.path.join(out_dir, f"petitbourg_jour{ep['day']}.mp4")
+    out = os.path.join(out_dir, f"{out_name}.mp4")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", vid, "-i", mp3, "-f", "lavfi", "-i",
                     f"anoisesrc=color=pink:amplitude=0.25:d={DUR},lowpass=f=3500,highpass=f=300,volume=0.25",
                     "-filter_complex", f"[1:a]apad=whole_dur={DUR},volume=1.6[v];[v][2:a]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[a]",

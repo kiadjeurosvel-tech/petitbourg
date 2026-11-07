@@ -1,0 +1,27 @@
+name: Produire une édition spéciale
+on:
+  push:
+    paths: ["episodes/special_*.json"]
+permissions:
+  contents: write
+concurrency: episode
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 2 }
+      - id: f
+        run: |
+          F=$(git diff --name-only HEAD~1 HEAD -- 'episodes/special_*.json' | tail -1)
+          echo "file=$F" >> $GITHUB_OUTPUT
+          echo "name=$(python3 -c "import json;print(json.load(open('$F'))['out_name'])")" >> $GITHUB_OUTPUT
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install -q pillow numpy
+      - env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: python3 engine/render.py ${{ steps.f.outputs.file }} out
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${{ steps.f.outputs.name }}" out/${{ steps.f.outputs.name }}.mp4 --title "${{ steps.f.outputs.name }}" --notes-file out/description.txt
