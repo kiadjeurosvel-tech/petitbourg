@@ -24,7 +24,7 @@ jobs:
         run: python3 engine/render.py ${{ steps.f.outputs.file }} out
       - env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "${{ steps.f.outputs.name }}" out/${{ steps.f.outputs.name }}.mp4 --title "${{ steps.f.outputs.name }}" --notes-file out/description.txt
+        run: gh release delete "${{ steps.f.outputs.name }}" --yes --cleanup-tag 2>/dev/null; gh release create "${{ steps.f.outputs.name }}" out/${{ steps.f.outputs.name }}.mp4 --title "${{ steps.f.outputs.name }}" --notes-file out/description.txt
       - name: Sauver la voix (évite de repayer ElevenLabs)
         if: always()
         run: |
