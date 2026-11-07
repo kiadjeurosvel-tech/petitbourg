@@ -1,0 +1,33 @@
+name: Produire un épisode
+on:
+  push:
+    paths: ["episodes/*.json"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: episode
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - id: gate
+        run: python3 scripts/gate.py
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install -q pillow numpy
+      - name: Rendu (voix Liam via ElevenLabs)
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: python3 engine/render.py ${{ steps.gate.outputs.episode }} out
+      - name: Publier dans Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "jour-${{ steps.gate.outputs.day }}" out/petitbourg_jour${{ steps.gate.outputs.day }}.mp4 \
+            --title "Jour ${{ steps.gate.outputs.day }} — ${{ steps.gate.outputs.date }}" --notes-file out/description.txt
+      - name: Mettre à jour state.json
+        run: |
+          echo '{"last_day": ${{ steps.gate.outputs.day }}, "last_date": "${{ steps.gate.outputs.date }}"}' > state.json
+          git config user.name "petitbourg-bot"; git config user.email "bot@users.noreply.github.com"
+          git add state.json && git commit -m "Jour ${{ steps.gate.outputs.day }} publié" && git push
