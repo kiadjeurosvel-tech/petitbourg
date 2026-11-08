@@ -487,6 +487,26 @@ def stade(p, **o):
         p.ell(-8 + 20 * math.cos(math.radians(a)) - 8, -364 + 20 * math.sin(math.radians(a)) - 8, -8 + 20 * math.cos(math.radians(a)) + 16, -364 + 20 * math.sin(math.radians(a)) + 8, (30, 30, 36), ol=False)
     p.ell(-10, -372, 10, -356, (30, 30, 36), ol=False)
 
+def mairie(p, **o):
+    from base import font
+    p.shadow(400)
+    cream = (240, 226, 192)
+    p.grad(-330, -430, 330, 0, (246, 236, 208), (222, 204, 166))
+    p.grad(-380, -300, -330, 0, (236, 222, 188), (210, 192, 154)); p.grad(330, -300, 380, 0, (236, 222, 188), (210, 192, 154))
+    p.poly([(-350, -430), (350, -430), (0, -560)], (150, 56, 46)); p.poly([(0, -560), (350, -430), (120, -470)], (126, 44, 38), ol=False)
+    p.ell(-46, -548, 46, -456, (255, 255, 255)); p.line([(0, -502), (0, -532)], OUTL, 1.4); p.line([(0, -502), (22, -494)], OUTL, 1.4)
+    p.rr(-250, -400, 250, -330, 12, (24, 110, 56))
+    p.d.text((p.X(0), p.Y(-365)), "MAIRIE DE PETITBOURG", font=font(int(40 * p.k)), fill=(255, 255, 255), anchor="mm")
+    for cx in (-250, -125, 125, 250):
+        win(p, cx, -260, 70, 110, True, frame=(60, 110, 190)); p.rect(cx - 52, -300, cx - 38, -206, (60, 110, 190), ol=False); p.rect(cx + 38, -300, cx + 52, -206, (60, 110, 190), ol=False)
+    p.rect(-110, -300, 110, -250, (230, 214, 180), ol=False)
+    for cx in (-250, -125, 125, 250): win(p, cx, -110, 70, 100, True, frame=(60, 110, 190))
+    p.rr(-60, -220, 60, 0, 40, (110, 66, 40)); p.line([(0, -215), (0, 0)], OUTL, 1.4)
+    for i in range(4): p.rect(-120 + i * 0, -18 + i * 0, 120, 0, (200, 196, 190)) if False else None
+    p.rect(-140, -16, 140, 0, (206, 202, 196)); p.rect(-170, -8, 170, 0, (190, 186, 180))
+    p.line([(-300, -430), (-300, -640)], (130, 130, 140), 2.4); p.anchor('flag', -300, -640, (40, 80, 200))
+    p.line([(300, -430), (300, -640)], (130, 130, 140), 2.4); p.anchor('flag', 300, -640, (230, 50, 50))
+
 def better_house(p, wall=(236, 220, 186), roof=(170, 60, 46), **o):
     p.shadow(230)
     p.grad(-140, -200, 140, 0, mix(wall, WHITE, .3), dk(wall, .92))
@@ -502,10 +522,10 @@ def better_house(p, wall=(236, 220, 186), roof=(170, 60, 46), **o):
 STYLES = {"villa": villa, "pastel": pastel, "pain_depices": gingerbread, "saucisson": sausage, "miel": honey, "licorne": unicorn,
           "cabane": treehouse, "bunker": bunker, "eponge": sponge, "chalet": chalet, "banane": banana, "oeuf": egg,
           "speculoos": speculoos, "napolitain": napolitain, "tacos": tacos, "pizza": pizza, "chocolat": choco, "chat": kitty,
-          "poupee": poupee, "musique": musique, "capybara": capybara, "poulailler": poulailler, "mosquee": mosque, "commissariat": commissariat, "stade": stade, "maison": better_house}
+          "poupee": poupee, "musique": musique, "capybara": capybara, "poulailler": poulailler, "mosquee": mosque, "commissariat": commissariat, "stade": stade, "mairie": mairie, "maison": better_house}
 WIDTH = {"villa": 640, "pastel": 560, "pain_depices": 540, "saucisson": 460, "miel": 500, "licorne": 700, "cabane": 460, "bunker": 520,
          "eponge": 500, "chalet": 580, "banane": 520, "oeuf": 420, "speculoos": 400, "napolitain": 380, "tacos": 440, "pizza": 420,
-         "chocolat": 560, "chat": 400, "poupee": 540, "musique": 520, "capybara": 640, "poulailler": 520, "mosquee": 660, "commissariat": 520, "stade": 760, "maison": 520}
+         "chocolat": 560, "chat": 400, "poupee": 540, "musique": 520, "capybara": 640, "poulailler": 520, "mosquee": 660, "commissariat": 520, "stade": 760, "mairie": 760, "maison": 520}
 
 def draw_style(layer, name, x, ground, target_px, anchors=None, **opts):
     """dessine le style `name` centré en x, posé sur y=ground, large d'environ target_px (px 2x)."""

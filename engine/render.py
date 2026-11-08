@@ -181,7 +181,7 @@ def layers(sc):
         opts = b.get("opts") or [{} for _ in styles]
     n = len(styles)
     xs = [1080] if n == 1 else [int(w * (i + .5) / n) for i in range(n)]
-    tgt = 1900 if n == 1 else int(w / n * 1.02)
+    tgt = 2150 if n == 1 else int(w / n * 1.22)
     anch = []
     for st, x, o in zip(styles, xs, opts): BL.draw_style(full, st, x, 2700, tgt, anchors=anch, **o)
     base = base.resize((W, H), Image.LANCZOS).convert("RGBA"); full = full.resize((W, H), Image.LANCZOS).convert("RGBA")
@@ -337,6 +337,7 @@ def main():
 
     def place_char(fr, c, i, t, sc):
         x, y, s = c.get("x", 540), c.get("y", 1520), c.get("scale", .9)
+        if (sc.get("build") or {}).get("type") in NEWT: s *= sc.get("char_k", .78)
         ang = 0; walk = False; wave = False
         if c.get("enter"):
             t_in = at(sc, c.get("enter_line", 0)); x0 = -260 if c["enter"] == "left" else W + 260
@@ -359,7 +360,7 @@ def main():
             sp = 70 + 22 * n; d_ = 1 if n % 2 == 0 else -1
             x = (n * 420 + t * sp * d_) % (W + 400) - 200
             yy = 1690 + n * 28 + abs(math.sin(t * 8 + n)) * -10
-            draw_char(fr, kd, x, yy, .3 + .03 * n, t, False, n + 5, math.sin(t * 8 + n) * 4, d_ < 0, False, True)
+            draw_char(fr, kd, x, yy, .24 + .02 * n, t, False, n + 5, math.sin(t * 8 + n) * 4, d_ < 0, False, True)
 
     def draw_scene(sc, t):
         a = sc["_t"]; typ = sc.get("type", "place"); L = max(.5, sc["_end"] - a)
@@ -378,7 +379,7 @@ def main():
         # camera: slow pan + zoom + punch on badge2
         newb = (sc.get("build") or {}).get("type") in NEWT
         pan = sc.get("pan", [.3, .7] if newb else ([.45, .55] if CLEAR else [.5, .5])); pk = ease((t - a) / L)
-        z = (sc.get("base_zoom", 1.14 if len((sc["build"].get("styles") or [1])) == 1 else 1.08) if newb else 1) + sc.get("zoom", 0.025) * pk
+        z = (sc.get("base_zoom", 1.0 if len((sc["build"].get("styles") or [1])) == 1 else 1.04) if newb else 1) + sc.get("zoom", 0.025) * pk
         if sc.get("badge2"):
             dt = t - at(sc, sc["badge2"].get("at_line", 1))
             if 0 < dt < .4: z += .05 * (1 - dt / .4)

@@ -1,0 +1,194 @@
+{
+ "out_name": "petitbourg_explication_20261108",
+ "weather": "clear",
+ "day": 3,
+ "date": "2026-11-08",
+ "highlight": [
+  "stop",
+  "annonce",
+  "400",
+  "impossible",
+  "jour",
+  "tout",
+  "pris",
+  "compte",
+  "patience",
+  "demain"
+ ],
+ "characters": {},
+ "scenes": [
+  {
+   "type": "place",
+   "build": {
+    "type": "custom",
+    "styles": [
+     "mairie"
+    ],
+    "anim": true
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "scale": 0.62,
+     "y": 1790,
+     "talk": true,
+     "jump_line": 0
+    }
+   ],
+   "lines": [
+    "Stop ! Le maire a une annonce importante.",
+    "Écoutez bien, habitants de Petitbourg !"
+   ],
+   "badge": {
+    "text": "ANNONCE DU MAIRE",
+    "color": "red",
+    "size": 80
+   },
+   "walkers": false
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "custom",
+    "styles": [
+     "mairie"
+    ],
+    "anim": false
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "scale": 0.62,
+     "y": 1790,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Vous avez écrit plus de quatre cents demandes : des maisons, des métiers, des bâtiments.",
+    "Merci, c'est incroyable !"
+   ],
+   "counter": {
+    "from": 0,
+    "to": 400,
+    "at_line": 0,
+    "y": 520,
+    "suffix": "DEMANDES",
+    "color": "green"
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "custom",
+    "styles": [
+     "mairie"
+    ],
+    "anim": false
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "scale": 0.62,
+     "y": 1790,
+     "talk": true,
+     "jump_line": 0
+    }
+   ],
+   "lines": [
+    "Mais un maire ne peut pas tout construire en une seule journée.",
+    "Même avec toute la bonne volonté du monde !"
+   ],
+   "badge2": {
+    "text": "IMPOSSIBLE EN 1 JOUR",
+    "color": "red",
+    "at_line": 0,
+    "y": 520
+   }
+  },
+  {
+   "type": "panel",
+   "bg": "wide",
+   "lines": [
+    "Alors voilà comment ça marche :",
+    "Le top commentaire décide du grand bâtiment.",
+    "Trois maisons par vidéo, classées par likes.",
+    "Chaque demande est notée, et personne n'est oublié."
+   ],
+   "title": "COMMENT ÇA MARCHE",
+   "raw": true,
+   "scroll": 0,
+   "names": [
+    "1. Top commentaire = bâtiment",
+    "2. Trois maisons par vidéo",
+    "3. Chaque demande est notée",
+    "4. Tout le monde sera construit"
+   ]
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "custom",
+    "styles": [
+     "mairie"
+    ],
+    "anim": false
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "scale": 0.62,
+     "y": 1790,
+     "talk": true,
+     "jump_line": 1
+    }
+   ],
+   "lines": [
+    "Aujourd'hui : commissariat, mosquée, stade, et douze maisons.",
+    "Les autres arrivent dans les prochains jours."
+   ],
+   "badge2": {
+    "text": "TOUT EST PRIS EN COMPTE",
+    "color": "green",
+    "at_line": 1,
+    "y": 520,
+    "confetti": true
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "custom",
+    "styles": [
+     "mairie"
+    ],
+    "anim": false
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "scale": 0.62,
+     "y": 1790,
+     "talk": true,
+     "jump_line": 1
+    }
+   ],
+   "lines": [
+    "Alors patience, et continuez à commenter !",
+    "Rendez-vous demain pour le Jour 4."
+   ],
+   "badge2": {
+    "text": "JOUR 4 · DEMAIN",
+    "color": "blue",
+    "at_line": 1,
+    "y": 520
+   }
+  }
+ ],
+ "description": "Le maire ne peut pas tout construire en une journée, mais TOUT est pris en compte : chaque demande est dans la file d'attente. 1 abonné = 1 habitant, le top commentaire décide. #petitbourg #village #dessinanime #pourtoi",
+ "pinned_comment": "Ta demande est notée ! Écris-la ici, le maire s'en occupe 👇"
+}
