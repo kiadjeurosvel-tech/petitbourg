@@ -1,0 +1,266 @@
+{
+ "day": 3,
+ "date": "2026-11-08",
+ "characters": {
+  "batchess": {
+   "coat": [
+    30,
+    40,
+    90
+   ],
+   "hat": "police",
+   "hair": [
+    30,
+    30,
+    30
+   ]
+  },
+  "louh": {
+   "coat": [
+    30,
+    40,
+    90
+   ],
+   "hat": "police",
+   "long_hair": true,
+   "hair": [
+    60,
+    30,
+    20
+   ]
+  },
+  "kenzo": {
+   "coat": [
+    60,
+    70,
+    60
+   ],
+   "hat": "police",
+   "hair": [
+    40,
+    30,
+    20
+   ]
+  },
+  "ilyes": {
+   "coat": [
+    200,
+    120,
+    60
+   ],
+   "hair": [
+    30,
+    25,
+    20
+   ]
+  },
+  "matemat": {
+   "coat": [
+    60,
+    130,
+    170
+   ],
+   "hat": "cap",
+   "hair": [
+    30,
+    30,
+    30
+   ]
+  },
+  "sidy": {
+   "coat": [
+    200,
+    40,
+    40
+   ],
+   "hair": [
+    30,
+    25,
+    20
+   ],
+   "hat": "cap"
+  },
+  "evan": {
+   "coat": [
+    40,
+    60,
+    140
+   ],
+   "hair": [
+    40,
+    30,
+    20
+   ]
+  }
+ },
+ "highlight": [
+  "commissariat",
+  "police",
+  "mosquée",
+  "stade",
+  "maisons",
+  "villa",
+  "lac",
+  "vote",
+  "top",
+  "école",
+  "parc",
+  "bar"
+ ],
+ "pinned_comment": "Tu veux un rôle ou une maison à Petitbourg ? Écris-le ici 👇",
+ "out_name": "petitbourg_jour3_partie2",
+ "scenes": [
+  {
+   "type": "title",
+   "bg": "wide",
+   "badge": "JOUR 3 · 2/3",
+   "badge_size": 105,
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "y": 1300,
+     "scale": 0.7,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Partie 2 : la mosquée de Petitbourg !",
+    "Vous étiez nombreux à la demander."
+   ],
+   "comment": {
+    "user": "sidyyyy013",
+    "text": "Mosquee stp",
+    "likes": 7,
+    "top": true,
+    "at_line": 0
+   }
+  },
+  {
+   "type": "cards",
+   "bg": "road",
+   "lines": [
+    "Sidyyyy, Manissa, Sofiane, Butters, et bien d'autres l'ont demandée.",
+    "Le maire a entendu : on la construit !",
+    "Plus de dix habitants l'ont réclamée."
+   ],
+   "cards": [
+    {
+     "user": "manissa.f",
+     "text": "une mosquée stpppp",
+     "likes": 0
+    },
+    {
+     "user": "7icyn",
+     "text": "Une mosquée",
+     "likes": 4
+    },
+    {
+     "user": "sofianekassar",
+     "text": "Une. Mosquée.",
+     "likes": 1
+    }
+   ],
+   "end_badge": {
+    "text": "DEMANDÉE PAR TOUS"
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "mosque"
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 190,
+     "scale": 0.56,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Douze cents euros, et la mosquée de Petitbourg est construite.",
+    "Ouverte à tous les habitants.",
+    "Un lieu de rassemblement pour tout le village."
+   ],
+   "badge2": {
+    "text": "MOSQUÉE DE PETITBOURG",
+    "color": "green",
+    "at_line": 1,
+    "y": 520,
+    "confetti": true
+   }
+  },
+  {
+   "type": "place",
+   "bg": "kasse",
+   "kasse": true,
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 170,
+     "scale": 0.7,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Dans la caisse : deux mille cent euros, moins douze cents.",
+    "Il reste neuf cents euros.",
+    "Chaque euro compte, la caisse se vide vite."
+   ],
+   "badge": {
+    "text": "CAISSE : 900 €",
+    "color": "white"
+   },
+   "amount": {
+    "from": 2100,
+    "to": 900,
+    "at_line": 1
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "custom",
+    "styles": [
+     "villa",
+     "maison",
+     "pastel"
+    ],
+    "opts": [
+     {},
+     {},
+     {}
+    ]
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "scale": 0.48,
+     "y": 1780,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Première série de maisons sur mesure !",
+    "La villa de 23_fg_29, la maison de Kvn, et la maison violette de Lara avec son golden retriever.",
+    "Règle : une villa, trois habitants maximum.",
+    "Chacun est construit selon sa description, avec ses détails !"
+   ],
+   "badge": {
+    "text": "VILLA : 3 PERS. MAX",
+    "color": "green",
+    "size": 70
+   },
+   "badge2": {
+    "text": "3 MAISONS CONSTRUITES",
+    "color": "blue",
+    "at_line": 1,
+    "y": 520,
+    "confetti": true
+   }
+  }
+ ],
+ "description": "Jour 3 (2/3) : la mosquée de Petitbourg est construite, et les premières maisons sur mesure. #petitbourg #jour3 #village #dessinanime #pourtoi"
+}

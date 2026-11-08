@@ -181,7 +181,7 @@ def layers(sc):
         opts = b.get("opts") or [{} for _ in styles]
     n = len(styles)
     xs = [1080] if n == 1 else [int(w * (i + .5) / n) for i in range(n)]
-    tgt = 1700 if n == 1 else int(w / n * 1.12)
+    tgt = 1900 if n == 1 else int(w / n * 1.02)
     for st, x, o in zip(styles, xs, opts): BL.draw_style(full, st, x, 2700, tgt, **o)
     base = base.resize((W, H), Image.LANCZOS).convert("RGBA"); full = full.resize((W, H), Image.LANCZOS).convert("RGBA")
     bb = ImageChops.difference(base.convert("RGB"), full.convert("RGB")).getbbox() or (0, 0, W, H)
@@ -344,8 +344,9 @@ def main():
             k = kasse_img(); k = k.resize((k.width // 2, k.height // 2)); fr.alpha_composite(k, (640, 1180))
         if not CLEAR: rain(fr, t, 60 if sc.get("bg") == "night" else 110)
         # camera: slow pan + zoom + punch on badge2
-        pan = sc.get("pan", [.45, .55] if CLEAR else [.5, .5]); pk = ease((t - a) / L)
-        z = 1 + sc.get("zoom", 0.025) * pk
+        newb = (sc.get("build") or {}).get("type") in NEWT
+        pan = sc.get("pan", [.3, .7] if newb else ([.45, .55] if CLEAR else [.5, .5])); pk = ease((t - a) / L)
+        z = (sc.get("base_zoom", 1.14 if len((sc["build"].get("styles") or [1])) == 1 else 1.0) if newb else 1) + sc.get("zoom", 0.025) * pk
         if sc.get("badge2"):
             dt = t - at(sc, sc["badge2"].get("at_line", 1))
             if 0 < dt < .4: z += .05 * (1 - dt / .4)

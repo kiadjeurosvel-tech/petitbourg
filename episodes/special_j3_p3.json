@@ -1,0 +1,375 @@
+{
+ "day": 3,
+ "date": "2026-11-08",
+ "characters": {
+  "batchess": {
+   "coat": [
+    30,
+    40,
+    90
+   ],
+   "hat": "police",
+   "hair": [
+    30,
+    30,
+    30
+   ]
+  },
+  "louh": {
+   "coat": [
+    30,
+    40,
+    90
+   ],
+   "hat": "police",
+   "long_hair": true,
+   "hair": [
+    60,
+    30,
+    20
+   ]
+  },
+  "kenzo": {
+   "coat": [
+    60,
+    70,
+    60
+   ],
+   "hat": "police",
+   "hair": [
+    40,
+    30,
+    20
+   ]
+  },
+  "ilyes": {
+   "coat": [
+    200,
+    120,
+    60
+   ],
+   "hair": [
+    30,
+    25,
+    20
+   ]
+  },
+  "matemat": {
+   "coat": [
+    60,
+    130,
+    170
+   ],
+   "hat": "cap",
+   "hair": [
+    30,
+    30,
+    30
+   ]
+  },
+  "sidy": {
+   "coat": [
+    200,
+    40,
+    40
+   ],
+   "hair": [
+    30,
+    25,
+    20
+   ],
+   "hat": "cap"
+  },
+  "evan": {
+   "coat": [
+    40,
+    60,
+    140
+   ],
+   "hair": [
+    40,
+    30,
+    20
+   ]
+  }
+ },
+ "highlight": [
+  "commissariat",
+  "police",
+  "mosquée",
+  "stade",
+  "maisons",
+  "villa",
+  "lac",
+  "vote",
+  "top",
+  "école",
+  "parc",
+  "bar"
+ ],
+ "pinned_comment": "Le FC Petitbourg cherche des joueurs ! Écris ton poste ici 👇",
+ "out_name": "petitbourg_jour3_partie3",
+ "scenes": [
+  {
+   "type": "title",
+   "bg": "wide",
+   "badge": "JOUR 3 · 3/3",
+   "badge_size": 105,
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "y": 1300,
+     "scale": 0.7,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Partie 3 : les maisons de la communauté !",
+    "Et le stade de foot !"
+   ],
+   "comment": {
+    "user": "the_t0710",
+    "text": "une vila avec spa a coté d’un lac où il y a des fêtes aquatiques",
+    "likes": 0,
+    "top": true,
+    "at_line": 0
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "custom",
+    "styles": [
+     "pain_depices",
+     "napolitain",
+     "saucisson"
+    ]
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "scale": 0.48,
+     "y": 1780,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Trois maisons de rêve : pain d'épices, gâteau napolitain, saucisson !",
+    "Chaque maison est unique, comme ses habitants."
+   ],
+   "badge2": {
+    "text": "3 MAISONS SUR MESURE",
+    "color": "blue",
+    "at_line": 0,
+    "y": 520,
+    "confetti": true
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "custom",
+    "styles": [
+     "villa",
+     "musique",
+     "licorne"
+    ],
+    "opts": [
+     {
+      "lake": true
+     },
+     {},
+     {}
+    ]
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "scale": 0.44,
+     "y": 1790,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Villa avec lac et jeux aquatiques, maison pop star, maison licorne.",
+    "Avec la piscine, le toboggan et les bouées !"
+   ],
+   "badge2": {
+    "text": "VILLA + LAC",
+    "sub": "@the_t0710 · @pikta",
+    "color": "blue",
+    "at_line": 0,
+    "y": 520,
+    "confetti": true
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "custom",
+    "styles": [
+     "banane",
+     "cabane",
+     "chalet"
+    ]
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "scale": 0.44,
+     "y": 1790,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Maison banane, cabane dans les arbres, chalet avec cheminée.",
+    "Rien n'est trop fou à Petitbourg."
+   ],
+   "badge2": {
+    "text": "BANANE · CABANE · CHALET",
+    "color": "green",
+    "at_line": 0,
+    "y": 520
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "custom",
+    "styles": [
+     "chocolat",
+     "capybara",
+     "poulailler"
+    ]
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "scale": 0.44,
+     "y": 1790,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Fontaine au chocolat, maison capybara, maison poulet !",
+    "Toutes les demandes sont dans la file."
+   ],
+   "badge2": {
+    "text": "CHOCOLAT · CAPYBARA · POULET",
+    "color": "orange",
+    "at_line": 0,
+    "y": 520
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "custom",
+    "styles": [
+     "stade"
+    ]
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 200,
+     "scale": 0.55,
+     "y": 1790,
+     "talk": true
+    },
+    {
+     "kind": "sidy",
+     "x": 820,
+     "scale": 0.55,
+     "y": 1790
+    },
+    {
+     "kind": "evan",
+     "x": 620,
+     "scale": 0.55,
+     "y": 1790
+    }
+   ],
+   "lines": [
+    "Et le stade de foot ! Un stade immense, le FC Petitbourg est né pour huit cents euros.",
+    "Capitaine : Sidyyyy. Coach : Evan.",
+    "Mais il nous manque des joueurs : écrivez votre poste en commentaire pour rejoindre l'équipe !"
+   ],
+   "comment": {
+    "user": "sidyyyy013",
+    "text": "Je veut un stade de foot",
+    "likes": 4
+   },
+   "comment_until_line": 0,
+   "badge2": {
+    "text": "STADE FC PETITBOURG",
+    "sub": "Capitaine @sidyyyy013 · Coach @evan62444",
+    "color": "red",
+    "at_line": 1,
+    "y": 520,
+    "confetti": true
+   },
+   "base_zoom": 1.0,
+   "zoom": 0.0,
+   "pan": [
+    0.5,
+    0.5
+   ],
+   "badge": {
+    "text": "ON RECHERCHE DES JOUEURS",
+    "color": "red",
+    "size": 62
+   },
+   "badge_at_line": 2,
+   "badge_y": 300
+  },
+  {
+   "type": "vote",
+   "bg": "kasse",
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 260,
+     "scale": 1.0,
+     "y": 1540,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Il reste cent euros dans la caisse.",
+    "On construit quoi ensuite ? Un parc, un bar, ou une école ?",
+    "Le top commentaire décide !"
+   ],
+   "options": [
+    {
+     "label": [
+      "PARC",
+      "D'ATTRACTIONS ?"
+     ],
+     "color": "green"
+    },
+    {
+     "label": [
+      "UN BAR ?"
+     ],
+     "icon": "beer"
+    },
+    {
+     "label": [
+      "UNE ÉCOLE ?"
+     ],
+     "color": "navy"
+    }
+   ],
+   "end_badge": {
+    "text": "DÉCIDE EN COMMENTAIRE"
+   }
+  }
+ ],
+ "description": "Jour 3 (3/3) : maisons de la communauté, le stade FC Petitbourg, et nouveau vote ! 1 abonné = 1 habitant. #petitbourg #jour3 #village #dessinanime #pourtoi"
+}

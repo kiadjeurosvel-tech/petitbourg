@@ -1,0 +1,294 @@
+{
+ "day": 3,
+ "date": "2026-11-08",
+ "characters": {
+  "batchess": {
+   "coat": [
+    30,
+    40,
+    90
+   ],
+   "hat": "police",
+   "hair": [
+    30,
+    30,
+    30
+   ]
+  },
+  "louh": {
+   "coat": [
+    30,
+    40,
+    90
+   ],
+   "hat": "police",
+   "long_hair": true,
+   "hair": [
+    60,
+    30,
+    20
+   ]
+  },
+  "kenzo": {
+   "coat": [
+    60,
+    70,
+    60
+   ],
+   "hat": "police",
+   "hair": [
+    40,
+    30,
+    20
+   ]
+  },
+  "ilyes": {
+   "coat": [
+    200,
+    120,
+    60
+   ],
+   "hair": [
+    30,
+    25,
+    20
+   ]
+  },
+  "matemat": {
+   "coat": [
+    60,
+    130,
+    170
+   ],
+   "hat": "cap",
+   "hair": [
+    30,
+    30,
+    30
+   ]
+  },
+  "sidy": {
+   "coat": [
+    200,
+    40,
+    40
+   ],
+   "hair": [
+    30,
+    25,
+    20
+   ],
+   "hat": "cap"
+  },
+  "evan": {
+   "coat": [
+    40,
+    60,
+    140
+   ],
+   "hair": [
+    40,
+    30,
+    20
+   ]
+  }
+ },
+ "highlight": [
+  "commissariat",
+  "police",
+  "mosquée",
+  "stade",
+  "maisons",
+  "villa",
+  "lac",
+  "vote",
+  "top",
+  "école",
+  "parc",
+  "bar"
+ ],
+ "pinned_comment": "Tu veux un rôle ou une maison à Petitbourg ? Écris-le ici 👇",
+ "out_name": "petitbourg_jour3_partie1",
+ "scenes": [
+  {
+   "type": "title",
+   "bg": "wide",
+   "badge": "JOUR 3 · 1/3",
+   "badge_size": 105,
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 540,
+     "y": 1300,
+     "scale": 0.7,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Jour 3 : vous avez voté… le commissariat !",
+    "Merci à tous les habitants."
+   ],
+   "comment": {
+    "user": "nastasieiosif.0",
+    "text": "comisaria",
+    "likes": 6,
+    "top": true,
+    "at_line": 0
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "custom",
+    "styles": [
+     "commissariat"
+    ]
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 200,
+     "scale": 0.56,
+     "talk": true
+    },
+    {
+     "kind": "batchess",
+     "x": 860,
+     "scale": 0.64,
+     "enter": "right",
+     "enter_line": 1
+    }
+   ],
+   "lines": [
+    "Quinze cents euros plus tard, le commissariat de Petitbourg est construit !",
+    "Batchess en devient le chef.",
+    "Les habitants dorment enfin en sécurité."
+   ],
+   "comment": {
+    "user": "batchess4",
+    "text": "Un commissariat !! sypp",
+    "likes": 2
+   },
+   "comment_until_line": 1,
+   "badge2": {
+    "text": "COMMISSARIAT",
+    "sub": "Chef : @batchess4",
+    "color": "navy",
+    "at_line": 1,
+    "y": 560,
+    "confetti": true
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "custom",
+    "styles": [
+     "commissariat"
+    ],
+    "anim": false
+   },
+   "chars": [
+    {
+     "kind": "louh",
+     "x": 260,
+     "scale": 0.64
+    },
+    {
+     "kind": "kenzo",
+     "x": 800,
+     "scale": 0.64
+    },
+    {
+     "kind": "mayor",
+     "x": 540,
+     "scale": 0.48,
+     "y": 1760,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Louh devient policière, et Kenzo, sergent K9 avec son labrador beige.",
+    "La police est au complet !",
+    "Une équipe soudée pour protéger le village."
+   ],
+   "badge2": {
+    "text": "POLICE : LOUH + KENZO K9",
+    "color": "navy",
+    "at_line": 1,
+    "y": 520
+   }
+  },
+  {
+   "type": "place",
+   "build": {
+    "type": "house"
+   },
+   "chars": [
+    {
+     "kind": "ilyes",
+     "x": 330,
+     "scale": 0.64
+    },
+    {
+     "kind": "matemat",
+     "x": 760,
+     "scale": 0.64,
+     "enter": "right",
+     "enter_line": 1
+    },
+    {
+     "kind": "mayor",
+     "x": 560,
+     "scale": 0.44,
+     "y": 1780,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Ilyes accepte Matemat comme colocataire.",
+    "Sa maison s'agrandit : deux habitants !",
+    "Premier colocataire de l'histoire de Petitbourg !"
+   ],
+   "comment": {
+    "user": "matemat734",
+    "text": "je voudrais devenir son colocataire stp",
+    "likes": 5
+   },
+   "comment_until_line": 1,
+   "badge2": {
+    "text": "COLOCATAIRE : @matemat734",
+    "color": "blue",
+    "at_line": 1,
+    "y": 560
+   }
+  },
+  {
+   "type": "place",
+   "bg": "kasse",
+   "kasse": true,
+   "chars": [
+    {
+     "kind": "mayor",
+     "x": 170,
+     "scale": 0.7,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Dans la caisse : trois mille six cents euros d'impôts, moins quinze cents.",
+    "Il reste deux mille cent euros. Partie 2 : la mosquée !"
+   ],
+   "badge": {
+    "text": "CAISSE : 2 100 €",
+    "color": "white"
+   },
+   "amount": {
+    "from": 3600,
+    "to": 2100,
+    "at_line": 1
+   }
+  }
+ ],
+ "description": "Jour 3 (1/3) : le commissariat est construit, Batchess chef de police, Louh et Kenzo K9, Ilyes et Matemat colocataires. #petitbourg #jour3 #village #dessinanime #pourtoi"
+}

@@ -140,7 +140,14 @@ def villa(p, **o):
     for i in range(9): p.line([(-214 + i * 10, -150), (-214 + i * 10, -190)], (90, 96, 112), .8)
     door(p, 160, 38, 90, (60, 66, 82), arch=False)
     palm(p, 270); palm(p, -270, 250)
-    if o.get("pool", True):
+    if o.get("lake"):
+        p.ell(-330, 20, 330, 150, (60, 160, 215)); p.ell(-300, 34, 300, 130, (110, 205, 240), ol=False)
+        p.poly([(180, 18), (240, 18), (300, -120), (270, -120)], (250, 120, 60)); p.poly([(240, 18), (260, 18), (330, 30), (300, 40)], (250, 200, 60), ol=False)
+        p.rect(268, -126, 306, -118, (200, 200, 210)); p.ell(-120, 64, -50, 100, (255, 90, 110)); p.ell(-98, 72, -72, 92, (110, 205, 240), ol=False)
+        p.ell(-10, 70, 70, 106, (250, 220, 70)); p.ell(100, 60, 150, 92, (255, 255, 255))
+        p.ell(-250, 50, -190, 90, (255, 160, 60)); p.ell(-240, 58, -200, 82, (110, 205, 240), ol=False)
+        p.rr(-210, 112, -150, 140, 14, (170, 220, 240)); p.ell(-200, 100, -190, 112, (255, 255, 255), ol=False)
+    elif o.get("pool", True):
         pool(p, -170, 34, 90, 100)
         p.rr(112, 40, 190, 58, 6, (250, 250, 250)); p.rr(112, 64, 190, 82, 6, (250, 250, 250))
         p.ell(-40, 42, -10, 60, (255, 120, 120), ol=False)
@@ -441,6 +448,43 @@ def mosque(p, **o):
     p.d.arc([p.X(-48), p.Y(-216), p.X(48), p.Y(-110)], 180, 360, fill=teal, width=int(5 * p.k))
     for i in range(7): p.ell(-130 + i * 40, -20, -110 + i * 40, 6, (84, 150, 60), ol=False)
 
+def commissariat(p, **o):
+    from base import font
+    p.shadow(340)
+    p.grad(-200, -240, 200, 0, (226, 232, 244), (178, 188, 210))
+    p.rect(-216, -262, 216, -236, (30, 50, 110)); p.rect(-216, -262, 216, -250, (60, 90, 170), ol=False)
+    p.rr(-130, -214, 130, -150, 10, (30, 50, 110))
+    p.d.text((p.X(0), p.Y(-182)), "POLICE", font=font(int(54 * p.k)), fill=(255, 255, 255), anchor="mm")
+    for cx in (-135, 135):
+        win(p, cx, -80, 64, 90, True)
+        for i in (-1, 0, 1): p.line([(cx + i * 18, -125), (cx + i * 18, -35)], (60, 60, 70), 1.1)
+    door(p, 0, 76, 110, (40, 60, 130), arch=False); p.ell(-12, -104, 12, -88, (255, 255, 255), ol=False)
+    p.rect(-12, -300, 12, -262, (140, 140, 150)); p.ell(-34, -330, 34, -292, (60, 120, 255)); p.ell(-18, -318, 18, -300, (160, 200, 255), ol=False)
+    p.line([(-170, -262), (-170, -400)], (130, 130, 140), 2.4); p.poly([(-170, -400), (-110, -386), (-170, -372)], (40, 80, 200))
+    p.rect(-30, -60, 30, -46, (250, 250, 250), ol=False)
+    for i in range(8): p.rect(-216 + i * 54, -20, -176 + i * 54, 0, (250, 205, 60), ol=False)
+
+def stade(p, **o):
+    from base import font
+    p.shadow(420)
+    for sx in (-380, 380):
+        p.rect(sx - 10, -470, sx + 10, 0, (150, 152, 160))
+        p.rr(sx - 50, -540, sx + 50, -470, 8, (70, 74, 84))
+        for i in range(3):
+            for j in range(2): p.ell(sx - 40 + i * 30, -530 + j * 30, sx - 18 + i * 30, -510 + j * 30, (255, 244, 170), ol=False)
+    p.grad(-340, -150, 340, 0, (190, 192, 200), (150, 152, 162))
+    for i in range(9): p.rr(-310 + i * 74, -110, -262 + i * 74, 0, 22, (60, 64, 78))
+    p.rect(-340, -150, 340, -130, (230, 60, 60), ol=False)
+    p.grad(-320, -260, 320, -150, (210, 50, 50), (170, 36, 40))
+    for i in range(1, 14): p.line([(-320 + i * 46, -260), (-320 + i * 46, -150)], (255, 255, 255, 190), 2)
+    p.poly([(-350, -262), (350, -262), (300, -330), (-300, -330)], (245, 246, 250))
+    p.rr(-210, -250, 210, -176, 12, (30, 40, 90))
+    p.d.text((p.X(0), p.Y(-213)), "FC PETITBOURG", font=font(int(46 * p.k)), fill=(255, 255, 255), anchor="mm")
+    p.ell(-36, -400, 36, -328, (255, 255, 255))
+    for a in range(0, 360, 72):
+        p.ell(-8 + 20 * math.cos(math.radians(a)) - 8, -364 + 20 * math.sin(math.radians(a)) - 8, -8 + 20 * math.cos(math.radians(a)) + 16, -364 + 20 * math.sin(math.radians(a)) + 8, (30, 30, 36), ol=False)
+    p.ell(-10, -372, 10, -356, (30, 30, 36), ol=False)
+
 def better_house(p, wall=(236, 220, 186), roof=(170, 60, 46), **o):
     p.shadow(230)
     p.grad(-140, -200, 140, 0, mix(wall, WHITE, .3), dk(wall, .92))
@@ -456,10 +500,10 @@ def better_house(p, wall=(236, 220, 186), roof=(170, 60, 46), **o):
 STYLES = {"villa": villa, "pastel": pastel, "pain_depices": gingerbread, "saucisson": sausage, "miel": honey, "licorne": unicorn,
           "cabane": treehouse, "bunker": bunker, "eponge": sponge, "chalet": chalet, "banane": banana, "oeuf": egg,
           "speculoos": speculoos, "napolitain": napolitain, "tacos": tacos, "pizza": pizza, "chocolat": choco, "chat": kitty,
-          "poupee": poupee, "musique": musique, "capybara": capybara, "poulailler": poulailler, "mosquee": mosque, "maison": better_house}
+          "poupee": poupee, "musique": musique, "capybara": capybara, "poulailler": poulailler, "mosquee": mosque, "commissariat": commissariat, "stade": stade, "maison": better_house}
 WIDTH = {"villa": 640, "pastel": 560, "pain_depices": 540, "saucisson": 460, "miel": 500, "licorne": 700, "cabane": 460, "bunker": 520,
          "eponge": 500, "chalet": 580, "banane": 520, "oeuf": 420, "speculoos": 400, "napolitain": 380, "tacos": 440, "pizza": 420,
-         "chocolat": 560, "chat": 400, "poupee": 540, "musique": 520, "capybara": 640, "poulailler": 520, "mosquee": 660, "maison": 520}
+         "chocolat": 560, "chat": 400, "poupee": 540, "musique": 520, "capybara": 640, "poulailler": 520, "mosquee": 660, "commissariat": 520, "stade": 760, "maison": 520}
 
 def draw_style(layer, name, x, ground, target_px, **opts):
     """dessine le style `name` centré en x, posé sur y=ground, large d'environ target_px (px 2x)."""
