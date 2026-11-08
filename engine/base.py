@@ -173,7 +173,7 @@ CH = {
 }
 
 @lru_cache(maxsize=None)
-def sprite(kind, mouth=0, scale=1.0):
+def sprite(kind, mouth=0, scale=1.0, noarms=False, blink=False):
     p = CH[kind]; S = 2
     w, h = 420 * S, 760 * S
     im = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
@@ -205,7 +205,7 @@ def sprite(kind, mouth=0, scale=1.0):
             if not p.get("apron") and not p.get("chain"):
                 d.ellipse([cx - 8 * S, by * S - 8 * S, cx + 8 * S, by * S + 8 * S], fill=(40, 40, 40))
     # arms
-    for sgn in (-1, 1):
+    for sgn in (() if noarms else (-1, 1)):
         ax = cx + sgn * (bw + 6) * S
         d.rounded_rectangle([ax - 22 * S, 360 * S, ax + 22 * S, 540 * S], 22 * S, fill=p["coat"], outline=OUTL, width=lw)
         d.ellipse([ax - 24 * S, 520 * S, ax + 24 * S, 568 * S], fill=skin, outline=OUTL, width=lw)
@@ -222,6 +222,8 @@ def sprite(kind, mouth=0, scale=1.0):
         d.chord([hx0, hy0, hx1, hy1 - 60 * S], 180, 360, fill=p["hair"], outline=OUTL, width=lw)
     # eyes
     for ex in (-48, 48):
+        if blink:
+            d.arc([cx + (ex - 30) * S, 170 * S, cx + (ex + 30) * S, 226 * S], 20, 160, fill=OUTL, width=7 * S); continue
         d.ellipse([cx + (ex - 30) * S, 170 * S, cx + (ex + 30) * S, 236 * S], fill=WHITE, outline=OUTL, width=5 * S)
         d.ellipse([cx + (ex - 11) * S, 192 * S, cx + (ex + 11) * S, 216 * S], fill=BLACK)
     if p.get("glasses"):
@@ -270,6 +272,17 @@ def sprite(kind, mouth=0, scale=1.0):
         d.rounded_rectangle([cx - 10 * S, 132 * S, cx + 170 * S, 152 * S], 10 * S, fill=(240, 240, 240), outline=OUTL, width=5 * S)
     out = im.resize((int(w / S * scale), int(h / S * scale)), Image.LANCZOS)
     return out
+
+@lru_cache(maxsize=None)
+def arm_sprite(kind, scale):
+    p = CH[kind]; S = 2; R = 260
+    im = Image.new("RGBA", (2 * R * S, 2 * R * S), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    c = R * S; lw = 7 * S; skin = (244, 200, 160)
+    d.rounded_rectangle([c - 22 * S, c - 25 * S, c + 22 * S, c + 155 * S], 22 * S, fill=p["coat"], outline=OUTL, width=lw)
+    d.ellipse([c - 24 * S, c + 135 * S, c + 24 * S, c + 183 * S], fill=skin, outline=OUTL, width=lw)
+    return im.resize((int(2 * R * scale), int(2 * R * scale)), Image.LANCZOS)
+
+def arm_bw(kind): return 150 if CH[kind].get("belly") else 120
 
 def put_char(fr, kind, x, y, scale, t, talk=False, phase=0):
     bob = math.sin(t * 3 + phase) * 4 * scale

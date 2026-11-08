@@ -182,26 +182,32 @@ def layers(sc):
     n = len(styles)
     xs = [1080] if n == 1 else [int(w * (i + .5) / n) for i in range(n)]
     tgt = 1900 if n == 1 else int(w / n * 1.02)
-    for st, x, o in zip(styles, xs, opts): BL.draw_style(full, st, x, 2700, tgt, **o)
+    anch = []
+    for st, x, o in zip(styles, xs, opts): BL.draw_style(full, st, x, 2700, tgt, anchors=anch, **o)
     base = base.resize((W, H), Image.LANCZOS).convert("RGBA"); full = full.resize((W, H), Image.LANCZOS).convert("RGBA")
     bb = ImageChops.difference(base.convert("RGB"), full.convert("RGB")).getbbox() or (0, 0, W, H)
-    LCACHE[key] = (base, full, bb); return LCACHE[key]
+    mask = ImageChops.difference(base.convert("RGB"), full.convert("RGB")).convert("L").point(lambda v: 255 if v > 6 else 0)
+    layer = full.copy(); layer.putalpha(mask)
+    anch = [(a[0], a[1] / 2, a[2] / 2, a[3] / 2) + tuple(a[4:]) for a in anch]
+    LCACHE[key] = (base, full, bb, anch, layer); return LCACHE[key]
 
 def scene_bg(sc, t, a):
     b = sc.get("build") or {}
     if b.get("type") not in NEWT: return background(sc).copy()
-    base, full, bb = layers(sc)
-    p = ease((t - a - .3) / b.get("dur", 2.6)) if b.get("anim", True) else 1
+    base, full, bb, anch, layer = layers(sc)
+    dur = b.get("dur", 2.6)
+    p = ease((t - a - .3) / dur) if b.get("anim", True) else 1
+    cxb = (bb[0] + bb[2]) / 2; gy = bb[3]
     if p >= 1:
-        fr = full.copy()
-        dt = t - a - .3 - b.get("dur", 2.6)
-        if 0 < dt < .5:  # petit rebond final
-            k = 1 + .02 * math.sin(dt / .5 * math.pi); cx = (bb[0] + bb[2]) // 2
-            sub = full.crop(bb); sub = sub.resize((int(sub.width * k), int(sub.height * k)))
-            fr = base.copy(); fr.alpha_composite(sub, (cx - sub.width // 2, bb[3] - sub.height))
+        td = t - a - .3 - (dur if b.get("anim", True) else 0)
+        sy = 1 + .007 * math.sin(td * 2.6) + (.05 * math.sin(td / .6 * math.pi) * math.exp(-td * 3) if 0 < td < .8 else 0)
+        sx = 1 - .004 * math.sin(td * 2.6) - (.03 * math.sin(td / .6 * math.pi) * math.exp(-td * 3) if 0 < td < .8 else 0)
+        sub = layer.crop(bb); sub = sub.resize((max(1, int(sub.width * sx)), max(1, int(sub.height * sy))), Image.BICUBIC)
+        fr = base.copy(); fr.alpha_composite(sub, (int(cxb - sub.width / 2), int(gy - sub.height)))
+        BL.animate(fr, anch, t, lambda x, y: (cxb + (x - cxb) * sx, gy + (y - gy) * sy))
         return fr
     fr = base.copy(); cut = int(bb[3] - (bb[3] - bb[1]) * p)
-    if cut < bb[3]: fr.alpha_composite(full.crop((0, cut, W, bb[3])), (0, cut))
+    if cut < bb[3]: fr.alpha_composite(layer.crop((0, cut, W, bb[3])), (0, cut))
     d = ImageDraw.Draw(fr, "RGBA")
     for x in range(bb[0], bb[2] + 1, 70):   # échafaudage
         d.line([(x, cut - 40), (x, bb[3])], fill=(150, 110, 60, 230), width=7)
@@ -311,24 +317,49 @@ def main():
     def at(sc, idx):  # time of line idx within scene
         idx = max(0, min(idx, len(sc["_lt"]) - 1)); return sc["_lt"][idx]
 
+    def draw_char(fr, kind, x, y, s, t, talk=False, i=0, ang=0, flip=False, wave=False, walk=False):
+        s = round(s, 2); sq = 1 + (.018 * math.sin(t * 9 + i) if talk else .008 * math.sin(t * 3 + i))
+        mouth = 1 if talk and int(t * 9 + i) % 2 == 0 else 0
+        blink = (t * .9 + i * 1.7) % 3.1 < .13
+        body = sprite(kind, mouth, s, noarms=True, blink=blink).copy()
+        bw = B.arm_bw(kind); arm = B.arm_sprite(kind, s)
+        for sgn in (-1, 1):
+            if wave and sgn == 1: th = 150 + 22 * math.sin(t * 13)
+            elif walk: th = sgn * 30 * math.sin(t * 9 + i)
+            elif talk: th = 14 + 24 * (.5 + .5 * math.sin(t * 3.6 + i + (1.7 if sgn > 0 else 0))) + 8 * math.sin(t * 8 + sgn)
+            else: th = 6 + 4 * math.sin(t * 1.8 + i + sgn)
+            a = arm.rotate(sgn * th, resample=Image.BICUBIC)
+            body.alpha_composite(a, (int((210 + sgn * (bw + 6)) * s - a.width / 2), int(385 * s - a.height / 2)))
+        sp = body.resize((body.width, max(1, int(body.height * sq))), Image.BICUBIC)
+        if flip: sp = sp.transpose(Image.FLIP_LEFT_RIGHT)
+        if ang: sp = sp.rotate(ang, resample=Image.BICUBIC, expand=True)
+        fr.alpha_composite(sp, (int(x - sp.width / 2), int(y - sp.height)))
+
     def place_char(fr, c, i, t, sc):
         x, y, s = c.get("x", 540), c.get("y", 1520), c.get("scale", .9)
-        ang = 0
+        ang = 0; walk = False; wave = False
         if c.get("enter"):
             t_in = at(sc, c.get("enter_line", 0)); x0 = -260 if c["enter"] == "left" else W + 260
             k = ease((t - t_in) / .9)
             if k < 1:
-                x = x0 + (x - x0) * k; y -= abs(math.sin(t * 11)) * 14 * s; ang = math.sin(t * 11) * 5
+                x = x0 + (x - x0) * k; y -= abs(math.sin(t * 11)) * 14 * s; ang = math.sin(t * 11) * 5; walk = True
         if c.get("jump_line") is not None:
             dt = t - at(sc, c["jump_line"])
             if 0 < dt < .55: y -= math.sin(dt / .55 * math.pi) * 90 * s
+            if 0 < dt < 1.8: wave = True
         talk = c.get("talk", False)
-        mouth = 1 if talk and int(t * 9 + i) % 2 == 0 else 0
-        sp = sprite(c["kind"], mouth, round(s, 2))
-        bob = math.sin(t * 3 + i) * 4 * s
         if talk and not ang: ang = math.sin(t * 2.3 + i) * 2.5
-        if ang: sp = sp.rotate(ang, resample=Image.BICUBIC, expand=True)
-        fr.alpha_composite(sp, (int(x - sp.width / 2), int(y - sp.height + bob)))
+        if talk and not wave and (t * .5 + i) % 4 < .9 and not walk: wave = True
+        y += math.sin(t * 3 + i) * 4 * s
+        draw_char(fr, c["kind"], x, y, s, t, talk, i, ang, False, wave, walk)
+
+    def walkers(fr, t, sc):
+        kinds = [k for k in ("v1", "v2", "v3", "v4") if k in CH]
+        for n, kd in enumerate(kinds[:2]):
+            sp = 70 + 22 * n; d_ = 1 if n % 2 == 0 else -1
+            x = (n * 420 + t * sp * d_) % (W + 400) - 200
+            yy = 1690 + n * 28 + abs(math.sin(t * 8 + n)) * -10
+            draw_char(fr, kd, x, yy, .3 + .03 * n, t, False, n + 5, math.sin(t * 8 + n) * 4, d_ < 0, False, True)
 
     def draw_scene(sc, t):
         a = sc["_t"]; typ = sc.get("type", "place"); L = max(.5, sc["_end"] - a)
@@ -339,6 +370,7 @@ def main():
             for k in range(14):
                 yy = ((t - a) * r.uniform(250, 420) + r.uniform(-900, 0)) % 1500 - 100
                 envelope(d, r.uniform(80, 1000) + math.sin(t * 2 + k) * 40, yy)
+        if (sc.get("build") or {}).get("type") in NEWT and sc.get("walkers", True): walkers(fr, t, sc)
         for i, c in enumerate(sc.get("chars", [])): place_char(fr, c, i, t, sc)
         if sc.get("kasse"):
             k = kasse_img(); k = k.resize((k.width // 2, k.height // 2)); fr.alpha_composite(k, (640, 1180))
@@ -346,11 +378,11 @@ def main():
         # camera: slow pan + zoom + punch on badge2
         newb = (sc.get("build") or {}).get("type") in NEWT
         pan = sc.get("pan", [.3, .7] if newb else ([.45, .55] if CLEAR else [.5, .5])); pk = ease((t - a) / L)
-        z = (sc.get("base_zoom", 1.14 if len((sc["build"].get("styles") or [1])) == 1 else 1.0) if newb else 1) + sc.get("zoom", 0.025) * pk
+        z = (sc.get("base_zoom", 1.14 if len((sc["build"].get("styles") or [1])) == 1 else 1.08) if newb else 1) + sc.get("zoom", 0.025) * pk
         if sc.get("badge2"):
             dt = t - at(sc, sc["badge2"].get("at_line", 1))
             if 0 < dt < .4: z += .05 * (1 - dt / .4)
-        fr = zoom(fr, z, pan[0] + (pan[1] - pan[0]) * pk, .55)
+        fr = zoom(fr, z, pan[0] + (pan[1] - pan[0]) * pk + .012 * math.sin(t * .9), .55 + .006 * math.sin(t * .7))
         fr.alpha_composite(BL.vignette(W, H))
         d = ImageDraw.Draw(fr)
         if typ == "title":

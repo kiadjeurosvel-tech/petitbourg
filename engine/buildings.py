@@ -13,7 +13,7 @@ def mix(a, b, k): return tuple(int(a[i] + (b[i] - a[i]) * k) for i in range(3))
 
 class P:
     def __init__(s, im, x, y, k):
-        s.im = im; s.d = ImageDraw.Draw(im, "RGBA"); s.x = x; s.y = y; s.k = k; s.ow = max(3, int(k * 1.7))
+        s.im = im; s.d = ImageDraw.Draw(im, "RGBA"); s.x = x; s.y = y; s.k = k; s.ow = max(3, int(k * 1.7)); s.anchors = []
     def X(s, v): return s.x + v * s.k
     def Y(s, v): return s.y + v * s.k
     def rect(s, a, b, c, e, fill, ol=True):
@@ -36,11 +36,13 @@ class P:
         if ol: s.d.rectangle([x0, y0, x1, y1], outline=OUTL, width=s.ow)
     def pie(s, a, b, c, e, st, en, fill):
         s.d.pieslice([s.X(a), s.Y(b), s.X(c), s.Y(e)], st, en, fill=fill, outline=OUTL, width=s.ow)
+    def anchor(s, kind, u, v, *extra): s.anchors.append((kind, s.X(u), s.Y(v), s.k) + extra)
     def shadow(s, w):
         s.d.ellipse([s.X(-w), s.Y(-14), s.X(w), s.Y(26)], fill=(0, 0, 0, 80))
 
 # ------------------------------------------------------------------ éléments communs
 def win(p, cx, cy, w, h, lit=True, rnd=False, frame=(250, 250, 245)):
+    if lit: p.anchor("glow", cx, cy, w, h)
     glass = [(255, 226, 130), (255, 190, 90)] if lit else [(150, 195, 235), (90, 140, 200)]
     if rnd:
         p.ell(cx - w / 2 - 4, cy - h / 2 - 4, cx + w / 2 + 4, cy + h / 2 + 4, frame)
@@ -157,7 +159,7 @@ def pastel(p, wall=(196, 160, 232), dogcol=(222, 170, 80), with_dog=True, **o):
     roof = dk(wall, .72)
     p.grad(-130, -190, 130, 0, mix(wall, WHITE, .35), wall)
     shingles(p, [(-170, -190), (170, -190), (0, -340)], roof, 6)
-    p.rect(70, -330, 108, -240, dk(wall, .8)); smoke(p, 90, -330)
+    p.rect(70, -330, 108, -240, dk(wall, .8)); smoke(p, 90, -330); p.anchor('smoke', 90, -330)
     win(p, 0, -278, 56, 56, True, rnd=True)
     win(p, -70, -120, 56, 62); win(p, 70, -120, 56, 62)
     for cx in (-70, 70): p.rr(cx - 34, -92, cx + 34, -78, 4, (236, 120, 160)); [heart(p, cx - 18 + i * 18, -96, 8, (255, 150, 190)) for i in range(3)]
@@ -193,7 +195,7 @@ def sausage(p, **o):
     p.line(pts, (245, 205, 50), 5)
     win(p, -120, -110, 54, 54, True, rnd=True); win(p, 120, -110, 54, 54, True, rnd=True)
     door(p, 0, 54, 96, (96, 56, 36))
-    p.rect(150, -240, 186, -182, (120, 120, 130)); smoke(p, 168, -240)
+    p.rect(150, -240, 186, -182, (120, 120, 130)); smoke(p, 168, -240); p.anchor('smoke', 168, -240)
 
 def honey(p, **o):
     p.shadow(250)
@@ -235,7 +237,7 @@ def treehouse(p, **o):
     win(p, -45, -340, 40, 40); door(p, 50, 38, 62, (96, 56, 36))
     p.line([(70, -272), (84, -20)], (200, 170, 110), 2); p.line([(100, -272), (110, -20)], (200, 170, 110), 2)
     for i in range(6): p.line([(78 + i * 5, -250 + i * 40), (104 + i * 2, -250 + i * 40)], (160, 110, 60), 3)
-    p.line([(-100, -450), (-100, -520)], (110, 70, 40), 3); p.poly([(-100, -520), (-60, -508), (-100, -496)], (240, 70, 70))
+    p.line([(-100, -450), (-100, -520)], (110, 70, 40), 3); p.anchor('flag', -100, -520, (240, 70, 70))
 
 def bunker(p, **o):
     p.shadow(300)
@@ -272,7 +274,7 @@ def chalet(p, **o):
     p.poly([(-120, -270), (120, -270), (60, -310), (-60, -310)], (250, 252, 255), ol=False)
     p.rect(98, -330, 140, -200, (150, 150, 158))
     for i in range(5): p.line([(98, -330 + i * 26), (140, -330 + i * 26)], (110, 110, 118), 1)
-    smoke(p, 118, -330)
+    smoke(p, 118, -330); p.anchor('smoke', 118, -330)
     win(p, -80, -110, 70, 66, True)
     p.ell(-114, -146, -46, -74, (255, 150, 60, 120), ol=False)
     door(p, 60, 52, 94, (92, 56, 34))
@@ -384,7 +386,7 @@ def poupee(p, **o):
     for cx in (-120, 0, 120): p.rect(cx - 10, -200, cx + 10, 0, WHITE)
     for cx in (-170, -60, 60, 170): win(p, cx, -100, 50, 70, True, frame=WHITE)
     heart(p, 0, -250, 34, (255, 255, 255)); win(p, -110, -270, 44, 56, True, frame=WHITE); win(p, 110, -270, 44, 56, True, frame=WHITE)
-    door(p, 0, 50, 100, (255, 255, 255)); p.line([(0, -344), (0, -410)], (110, 110, 118), 3); p.poly([(0, -410), (50, -394), (0, -378)], (240, 60, 130))
+    door(p, 0, 50, 100, (255, 255, 255)); p.line([(0, -344), (0, -410)], (110, 110, 118), 3); p.anchor('flag', 0, -410, (240, 60, 130))
     pool(p, 90, 34, 250, 90); star(p, -170, 56, 30, (255, 235, 120))
 
 def musique(p, **o):
@@ -459,8 +461,8 @@ def commissariat(p, **o):
         win(p, cx, -80, 64, 90, True)
         for i in (-1, 0, 1): p.line([(cx + i * 18, -125), (cx + i * 18, -35)], (60, 60, 70), 1.1)
     door(p, 0, 76, 110, (40, 60, 130), arch=False); p.ell(-12, -104, 12, -88, (255, 255, 255), ol=False)
-    p.rect(-12, -300, 12, -262, (140, 140, 150)); p.ell(-34, -330, 34, -292, (60, 120, 255)); p.ell(-18, -318, 18, -300, (160, 200, 255), ol=False)
-    p.line([(-170, -262), (-170, -400)], (130, 130, 140), 2.4); p.poly([(-170, -400), (-110, -386), (-170, -372)], (40, 80, 200))
+    p.rect(-12, -300, 12, -262, (140, 140, 150)); p.anchor('siren', 0, -311); p.ell(-34, -330, 34, -292, (60, 120, 255)); p.ell(-18, -318, 18, -300, (160, 200, 255), ol=False)
+    p.line([(-170, -262), (-170, -400)], (130, 130, 140), 2.4); p.anchor('flag', -170, -400, (40, 80, 200))
     p.rect(-30, -60, 30, -46, (250, 250, 250), ol=False)
     for i in range(8): p.rect(-216 + i * 54, -20, -176 + i * 54, 0, (250, 205, 60), ol=False)
 
@@ -469,7 +471,7 @@ def stade(p, **o):
     p.shadow(420)
     for sx in (-380, 380):
         p.rect(sx - 10, -470, sx + 10, 0, (150, 152, 160))
-        p.rr(sx - 50, -540, sx + 50, -470, 8, (70, 74, 84))
+        p.rr(sx - 50, -540, sx + 50, -470, 8, (70, 74, 84)); p.anchor('flood', sx, -505)
         for i in range(3):
             for j in range(2): p.ell(sx - 40 + i * 30, -530 + j * 30, sx - 18 + i * 30, -510 + j * 30, (255, 244, 170), ol=False)
     p.grad(-340, -150, 340, 0, (190, 192, 200), (150, 152, 162))
@@ -489,7 +491,7 @@ def better_house(p, wall=(236, 220, 186), roof=(170, 60, 46), **o):
     p.shadow(230)
     p.grad(-140, -200, 140, 0, mix(wall, WHITE, .3), dk(wall, .92))
     shingles(p, [(-176, -200), (176, -200), (0, -340)], roof, 6)
-    p.rect(80, -330, 118, -240, dk(wall, .78)); smoke(p, 99, -330)
+    p.rect(80, -330, 118, -240, dk(wall, .78)); smoke(p, 99, -330); p.anchor('smoke', 99, -330)
     for cx in (-70, 70):
         win(p, cx, -120, 56, 66); p.rr(cx - 34, -88, cx + 34, -72, 4, (200, 70, 80))
         for i in range(3): p.ell(cx - 24 + i * 20, -100, cx - 12 + i * 20, -88, [(255, 120, 150), (250, 220, 70), (255, 140, 190)][i], ol=False)
@@ -505,11 +507,12 @@ WIDTH = {"villa": 640, "pastel": 560, "pain_depices": 540, "saucisson": 460, "mi
          "eponge": 500, "chalet": 580, "banane": 520, "oeuf": 420, "speculoos": 400, "napolitain": 380, "tacos": 440, "pizza": 420,
          "chocolat": 560, "chat": 400, "poupee": 540, "musique": 520, "capybara": 640, "poulailler": 520, "mosquee": 660, "commissariat": 520, "stade": 760, "maison": 520}
 
-def draw_style(layer, name, x, ground, target_px, **opts):
+def draw_style(layer, name, x, ground, target_px, anchors=None, **opts):
     """dessine le style `name` centré en x, posé sur y=ground, large d'environ target_px (px 2x)."""
     k = target_px / WIDTH.get(name, 480)
     p = P(layer, x, ground, k)
     STYLES.get(name, better_house)(p, **opts)
+    if anchors is not None: anchors.extend(p.anchors)
 
 # ------------------------------------------------------------------ décor amélioré
 def scenery(w, h, ground=2650):
@@ -575,3 +578,31 @@ def birds(fr, t):
         x = (t * (70 + 15 * i) + i * 330) % 1300 - 120; y = 330 + i * 90 + math.sin(t * 2 + i) * 18
         wv = math.sin(t * 9 + i) * 8
         d.line([(x - 22, y - wv), (x, y), (x + 22, y - wv)], fill=(50, 50, 70), width=4)
+
+
+def animate(fr, anchors, t, tf=lambda x, y: (x, y), kk=1.0):
+    """anime fumée, drapeaux, gyrophare, projecteurs, fenêtres — anchors en px 1x."""
+    d = ImageDraw.Draw(fr, "RGBA")
+    for a in anchors:
+        kind, x, y, k = a[:4]; x, y = tf(x, y); k = k * kk
+        if kind == "smoke":
+            for i in range(6):
+                ph = (t * .45 + i / 6) % 1; r = (10 + 26 * ph) * k * 1.6
+                cx = x + math.sin(t * 1.5 + i) * 10 * k + ph * 50 * k; cy = y - 20 * k - ph * 330 * k * .6
+                d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=(238, 238, 244, int(190 * (1 - ph))))
+        elif kind == "flag":
+            col = a[4]; L = 62 * k * 1.3; n = 9; top = []; bot = []
+            for j in range(n + 1):
+                f = j / n; off = math.sin(t * 6 - f * 4) * 9 * k * f * 1.4
+                top.append((x + f * L, y + off)); bot.append((x + f * L, y + off + 34 * k * 1.3 * (1 - .15 * f)))
+            d.polygon(top + bot[::-1], fill=col, outline=OUTL)
+        elif kind == "siren":
+            on = int(t * 4) % 2; c = (60, 120, 255) if on else (255, 60, 60); g = 15 * k
+            d.ellipse([x - g, y - g, x + g, y + g], fill=c + (70,)); d.ellipse([x - g * .5, y - g * .5, x + g * .5, y + g * .5], fill=c + (130,))
+        elif kind == "flood":
+            g = (24 + 3 * math.sin(t * 3)) * k
+            d.ellipse([x - g, y - g, x + g, y + g], fill=(255, 250, 190, 60)); d.ellipse([x - g * .5, y - g * .5, x + g * .5, y + g * .5], fill=(255, 255, 220, 90))
+        elif kind == "glow":
+            w, h = a[4] * k, a[5] * k; al = int(34 + 30 * math.sin(t * 2.2 + x * .013 + y * .007))
+            if (t * 3 + x * .01) % 11 < .12: al = 5
+            d.rectangle([x - w / 2, y - h / 2, x + w / 2, y + h / 2], fill=(255, 238, 150, max(0, al)))
