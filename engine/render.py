@@ -6,7 +6,8 @@ import sys, os, json, math, re, base64, subprocess, random
 sys.path.insert(0, os.path.dirname(__file__))
 import base as B
 from base import *  # noqa
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageChops
+import buildings as BL
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 AV_DIR = os.path.join(ROOT, "assets", "avatars")
@@ -165,6 +166,53 @@ def confetti(fr, t, t0):
         x = x0 + math.sin((t - t0) * 6 + i) * 30
         d.rectangle([x, y, x + 16, y + 26], fill=cols[i % 5])
 
+NEWT = ("custom", "mosque", "house")
+LCACHE = {}
+def layers(sc):
+    b = sc["build"]; key = json.dumps(b, sort_keys=True)
+    if key in LCACHE: return LCACHE[key]
+    w, h = W * 2, H * 2
+    base = BL.scenery(w, h); BL.road_strip(base, 3300, h)
+    full = base.copy()
+    if b["type"] == "house":
+        styles = ["maison"]; opts = [{"roof": col(b.get("roof"), (170, 60, 46))}]
+    else:
+        styles = b.get("styles") or [b.get("style", "mosquee" if b["type"] == "mosque" else "maison")]
+        opts = b.get("opts") or [{} for _ in styles]
+    n = len(styles)
+    xs = [1080] if n == 1 else [int(w * (i + .5) / n) for i in range(n)]
+    tgt = 1700 if n == 1 else int(w / n * 1.12)
+    for st, x, o in zip(styles, xs, opts): BL.draw_style(full, st, x, 2700, tgt, **o)
+    base = base.resize((W, H), Image.LANCZOS).convert("RGBA"); full = full.resize((W, H), Image.LANCZOS).convert("RGBA")
+    bb = ImageChops.difference(base.convert("RGB"), full.convert("RGB")).getbbox() or (0, 0, W, H)
+    LCACHE[key] = (base, full, bb); return LCACHE[key]
+
+def scene_bg(sc, t, a):
+    b = sc.get("build") or {}
+    if b.get("type") not in NEWT: return background(sc).copy()
+    base, full, bb = layers(sc)
+    p = ease((t - a - .3) / b.get("dur", 2.6)) if b.get("anim", True) else 1
+    if p >= 1:
+        fr = full.copy()
+        dt = t - a - .3 - b.get("dur", 2.6)
+        if 0 < dt < .5:  # petit rebond final
+            k = 1 + .02 * math.sin(dt / .5 * math.pi); cx = (bb[0] + bb[2]) // 2
+            sub = full.crop(bb); sub = sub.resize((int(sub.width * k), int(sub.height * k)))
+            fr = base.copy(); fr.alpha_composite(sub, (cx - sub.width // 2, bb[3] - sub.height))
+        return fr
+    fr = base.copy(); cut = int(bb[3] - (bb[3] - bb[1]) * p)
+    if cut < bb[3]: fr.alpha_composite(full.crop((0, cut, W, bb[3])), (0, cut))
+    d = ImageDraw.Draw(fr, "RGBA")
+    for x in range(bb[0], bb[2] + 1, 70):   # échafaudage
+        d.line([(x, cut - 40), (x, bb[3])], fill=(150, 110, 60, 230), width=7)
+    for y in range(bb[3], cut - 40, -90):
+        d.line([(bb[0], y), (bb[2], y)], fill=(150, 110, 60, 230), width=7)
+    r = random.Random(int(t * 12))
+    for _ in range(14):  # poussière
+        x = r.uniform(bb[0], bb[2]); y = bb[3] - r.uniform(0, 60); rr = r.uniform(18, 46)
+        d.ellipse([x - rr, y - rr, x + rr, y + rr], fill=(235, 225, 205, 150))
+    return fr
+
 BGCACHE = {}
 CLEAR = True
 def background(sc):
@@ -284,8 +332,8 @@ def main():
 
     def draw_scene(sc, t):
         a = sc["_t"]; typ = sc.get("type", "place"); L = max(.5, sc["_end"] - a)
-        fr = background(sc).copy()
-        if CLEAR and sc.get("build", {}).get("type") != "desk": clouds(fr, t)
+        fr = scene_bg(sc, t, a)
+        if CLEAR and sc.get("build", {}).get("type") != "desk": clouds(fr, t); BL.birds(fr, t)
         if sc.get("letters"):
             d = ImageDraw.Draw(fr); r = random.Random(3)
             for k in range(14):
@@ -302,6 +350,7 @@ def main():
             dt = t - at(sc, sc["badge2"].get("at_line", 1))
             if 0 < dt < .4: z += .05 * (1 - dt / .4)
         fr = zoom(fr, z, pan[0] + (pan[1] - pan[0]) * pk, .55)
+        fr.alpha_composite(BL.vignette(W, H))
         d = ImageDraw.Draw(fr)
         if typ == "title":
             pop(fr, badge_img([sc.get("badge", f"JOUR {ep.get('day', '')}")], size=sc.get("badge_size", 150)), 540, 300, a + .05, t)
