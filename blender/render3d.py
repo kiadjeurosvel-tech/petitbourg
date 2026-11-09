@@ -18,14 +18,23 @@ try: sc.view_settings.view_transform = 'Standard'; sc.view_settings.look = 'None
 except Exception: pass
 
 # --- camera, light, sky
-cam = bpy.data.objects.new("cam", bpy.data.cameras.new("cam")); sc.collection.objects.link(cam); sc.camera = cam; cam.data.lens = 35; cam.data.clip_end = 1500
+cam = bpy.data.objects.new("cam", bpy.data.cameras.new("cam")); sc.collection.objects.link(cam); sc.camera = cam; cam.data.lens = 50; cam.data.clip_end = 1500
 L.TRACK["cam"] = cam
 tgt = bpy.data.objects.new("tgt", None); sc.collection.objects.link(tgt)
 tc = cam.constraints.new('TRACK_TO'); tc.target = tgt; tc.track_axis = 'TRACK_NEGATIVE_Z'; tc.up_axis = 'UP_Y'
-sun = bpy.data.lights.new("sun", 'SUN'); sun.energy = 2.6; sun.angle = .08
+sun = bpy.data.lights.new("sun", 'SUN'); sun.energy = 3.4; sun.angle = .08
 so = bpy.data.objects.new("sun", sun); sc.collection.objects.link(so); so.rotation_euler = (math.radians(48), math.radians(8), math.radians(28))
 w = bpy.data.worlds.new("w"); sc.world = w; w.use_nodes = True
-w.node_tree.nodes["Background"].inputs[0].default_value = (.42, .62, 1, 1); w.node_tree.nodes["Background"].inputs[1].default_value = 1.0
+w.node_tree.nodes["Background"].inputs[0].default_value = (.42, .62, 1, 1); w.node_tree.nodes["Background"].inputs[1].default_value = .45
+
+def join(rt):
+    ms = [o for o in bpy.data.objects if o.parent == rt and o.type == 'MESH']
+    if len(ms) > 1:
+        try:
+            with bpy.context.temp_override(active_object=ms[0], selected_editable_objects=ms, selected_objects=ms): bpy.ops.object.join()
+        except Exception as ex: print("join fail", ex)
+def joinall():
+    for o in [o for o in bpy.data.objects if o.type == 'EMPTY' and o.name not in ("tgt",)]: join(o)
 
 # --- city layout
 def P(i, j): return (CELL * i, CELL * j)
@@ -80,6 +89,8 @@ for n, (cid, tag, num, col, (dx, dy)) in enumerate(TEAM):
     mk(cid, tag, (sx + dx, sy + dy - 4), coat=col, hair=hair(n), pants=(1, 1, 1), number=num)
 mk("evan", "Coach Evan", (sx - 11, sy - 12), coat=(.1, .1, .12), pants=(.1, .1, .12), hair=hair(1))
 mk("gilet", "@billiejean130", (6, 311), coat=(1, .85, .1), hair=hair(2))
+
+joinall()
 
 # --- animation helpers
 def F(t): return int(round(t * FPS)) + 1
