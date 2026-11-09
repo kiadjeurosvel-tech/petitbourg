@@ -69,6 +69,6 @@ jobs:
           $r = Invoke-WebRequest http://127.0.0.1:8765/api/health -UseBasicParsing
           Write-Host $r.Content
           if ($r.StatusCode -ne 200) { exit 1 }
-          Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -like "*-m serveur*" } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }
+          Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -like "*-m serveur*" } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
       - name: Production en ligne de commande
         run: .venv\Scripts\python.exe -m serveur produire "Léa et Hugo se disputent au restaurant, 15 secondes" --qualite brouillon --donnees "$env:RUNNER_TEMP\d" --sortie "$env:RUNNER_TEMP\out\video.mp4"
