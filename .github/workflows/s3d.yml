@@ -32,9 +32,12 @@ jobs:
     if: needs.plan.outputs.files != '[]'
     runs-on: ubuntu-latest
     timeout-minutes: 75
+    env:
+      RMODE: ${{ needs.plan.outputs.mode }}
     strategy:
       fail-fast: false
-      matrix: { file: "${{ fromJson(needs.plan.outputs.files) }}" }
+      matrix:
+        file: ${{ fromJson(needs.plan.outputs.files) }}
     steps:
       - uses: actions/checkout@v4
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq blender ffmpeg xvfb libgl1-mesa-dri libegl1 && pip install -q pillow numpy
@@ -45,7 +48,8 @@ jobs:
           python3 scripts/prep3d.py ${{ matrix.file }} work $DRY
       - name: Rendu 3D
         run: |
-          mkdir -p fr; xvfb-run -a blender -b -noaudio -P blender/render3d.py -- ${{ matrix.file }} work/timing.json fr ${{ needs.plan.outputs.mode == 'preview' && 'preview' || 'full' }} 2>&1 | grep -v "^Fra:\|^Time:\|Saved:" | tail -30
+          [ "$RMODE" != "preview" ] && RMODE=full
+          mkdir -p fr; xvfb-run -a blender -b -noaudio -P blender/render3d.py -- ${{ matrix.file }} work/timing.json fr $RMODE 2>&1 | grep -v "^Fra:\|^Time:\|Saved:" | tail -30
       - name: Aperçu (planche)
         if: needs.plan.outputs.mode == 'preview'
         env: { GH_TOKEN: "${{ github.token }}" }
