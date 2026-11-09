@@ -3,7 +3,7 @@
  "weather": "clear",
  "day": 4,
  "date": "2026-11-09",
- "rev": 5,
+ "rev": 6,
  "highlight": [
   "jour",
   "école",
@@ -30,6 +30,55 @@
     60,
     40,
     25
+   ]
+  },
+  "gk": {
+   "coat": [
+    40,
+    170,
+    70
+   ],
+   "hair": [
+    40,
+    30,
+    20
+   ],
+   "hat": "cap"
+  },
+  "pl": {
+   "coat": [
+    30,
+    90,
+    200
+   ],
+   "hair": [
+    50,
+    35,
+    25
+   ]
+  },
+  "pl2": {
+   "coat": [
+    30,
+    90,
+    200
+   ],
+   "hair": [
+    200,
+    160,
+    60
+   ]
+  },
+  "att": {
+   "coat": [
+    220,
+    40,
+    40
+   ],
+   "hair": [
+    30,
+    30,
+    30
    ]
   }
  },
@@ -134,7 +183,7 @@
      [
       0,
       1470,
-      2880,
+      2640,
       2.0
      ]
     ],
@@ -147,17 +196,48 @@
     {
      "kind": "mayor",
      "wx": 1470,
-     "wy": 2926,
+     "wy": 2870,
      "ws": 0.09,
      "talk": true
+    },
+    {
+     "kind": "gk",
+     "wx": 1400,
+     "wy": 2700,
+     "ws": 0.07
+    },
+    {
+     "kind": "gk",
+     "wx": 1470,
+     "wy": 2690,
+     "ws": 0.07,
+     "talk": false
+    },
+    {
+     "kind": "gk",
+     "wx": 1540,
+     "wy": 2700,
+     "ws": 0.07
+    },
+    {
+     "kind": "pl",
+     "wx": 1370,
+     "wy": 2770,
+     "ws": 0.07
+    },
+    {
+     "kind": "pl2",
+     "wx": 1570,
+     "wy": 2770,
+     "ws": 0.07
     }
    ],
    "lines": [
     "Dans les cages : Gaëtan, Timéo et Dan, nos trois gardiens.",
     "Latéral droit : Robin. Milieu défensif : Brjc.",
     "Merci à tous pour vos candidatures !",
-    "Gaëtan, Timéo et Dan se battent pour le maillot numéro un.",
-    "En défense, Robin et Brjc protègent déjà la ligne."
+    "Gardiens en vert, défenseurs en bleu : ils s'entraînent dès demain.",
+    "Le coach Evan composera la défense avec vous, en commentaire."
    ],
    "cards": [
     {
@@ -211,7 +291,7 @@
      [
       0,
       1470,
-      2880,
+      2640,
       2.0
      ]
     ],
@@ -224,17 +304,35 @@
     {
      "kind": "mayor",
      "wx": 1470,
-     "wy": 2926,
+     "wy": 2870,
      "ws": 0.09,
      "talk": true
+    },
+    {
+     "kind": "att",
+     "wx": 1400,
+     "wy": 2740,
+     "ws": 0.07
+    },
+    {
+     "kind": "att",
+     "wx": 1470,
+     "wy": 2720,
+     "ws": 0.07
+    },
+    {
+     "kind": "att",
+     "wx": 1540,
+     "wy": 2740,
+     "ws": 0.07
     }
    ],
    "lines": [
     "Ailier droit, numéro onze : Eden.",
     "Et en attaque : Mak et Marlon !",
     "Le match d'ouverture approche à grands pas.",
-    "Eden, ailier droit, portera le numéro onze.",
-    "Mak et Marlon, deux attaquants, se partagent le côté droit."
+    "Les attaquants en rouge : ils joueront en 4-4-2.",
+    "Le match d'ouverture aura lieu au stade de Petitbourg."
    ],
    "cards": [
     {
