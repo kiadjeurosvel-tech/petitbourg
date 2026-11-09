@@ -303,24 +303,25 @@ def person(name, coat=(.3, .5, .9), hair=(.2, .13, .08), skin=(.95, .73, .55), p
     r = root(name)
     for sx in (-.2, .2): box(r, sx * s, 0, 0, .3 * s, .3 * s, .85 * s, pants)
     if mayor:
-        sph(r, 0, 0, 1.2 * s, .62 * s, coat, (1, .8, 1.0))
+        sph(r, 0, 0, 1.0 * s, .6 * s, coat, (1, .8, .9))
         box(r, 0, -.5 * s, 1.1 * s, .2 * s, .1 * s, .9 * s, (.85, .15, .15))
     else:
         box(r, 0, 0, .8 * s, .72 * s, .42 * s, .8 * s, coat, .5)
     for sx in (-1, 1):
         box(r, sx * .5 * s, 0, .85 * s, .2 * s, .22 * s, .7 * s, coat if not mayor else coat); sph(r, sx * .5 * s, 0, .8 * s, .13 * s, skin, seg=10)
-    sph(r, 0, 0, 1.58 * s, .26 * s, skin, seg=16)
-    sph(r, -.09 * s, -.23 * s, 1.62 * s, .04 * s, (0, 0, 0), seg=8); sph(r, .09 * s, -.23 * s, 1.62 * s, .04 * s, (0, 0, 0), seg=8)
+    hz, hr = (1.72, .3) if mayor else (1.58, .26)
+    sph(r, 0, 0, hz * s, hr * s, skin, seg=16)
+    sph(r, -.09 * s, -(hr - .03) * s, (hz + .04) * s, .04 * s, (0, 0, 0), seg=8); sph(r, .09 * s, -(hr - .03) * s, (hz + .04) * s, .04 * s, (0, 0, 0), seg=8)
     if mayor:
-        box(r, 0, -.24 * s, 1.5 * s, .26 * s, .06 * s, .06 * s, (.45, .22, .08))
-        box(r, 0, 0, 1.8 * s, .75 * s, .75 * s, .05 * s, (.1, .3, .15)); box(r, 0, 0, 1.82 * s, .46 * s, .46 * s, .32 * s, (.1, .3, .15))
+        box(r, 0, -.28 * s, 1.62 * s, .3 * s, .06 * s, .07 * s, (.45, .22, .08))
+        box(r, 0, 0, 1.98 * s, .85 * s, .85 * s, .05 * s, (.1, .3, .15)); box(r, 0, 0, 2.0 * s, .52 * s, .52 * s, .34 * s, (.1, .3, .15))
         for sx in (-.1, .1):
-            sph(r, sx * s, -.25 * s, 1.63 * s, .07 * s, (1, .8, .1), (1, .3, 1), seg=10)
+            sph(r, sx * s, -.3 * s, 1.77 * s, .08 * s, (1, .8, .1), (1, .3, 1), seg=10)
     elif hat == "cap": box(r, 0, 0, 1.78 * s, .5 * s, .5 * s, .12 * s, coat)
     elif hat == "hair": sph(r, 0, .03 * s, 1.68 * s, .27 * s, hair, (1, 1, .7), seg=12)
     else: sph(r, 0, .03 * s, 1.68 * s, .27 * s, hair, (1, 1, .7), seg=12)
     if number is not None: text(r, str(number), 0, -.23 * s, 1.15 * s, .45 * s, (1, 1, 1))
-    if tag: nametag(r, tag, 2.35 * s)
+    if tag: nametag(r, tag, (2.75 if mayor else 2.35) * s)
     return r
 
 TRACK = {"cam": None}

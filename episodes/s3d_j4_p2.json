@@ -2,7 +2,7 @@
  "out_name": "petitbourg_jour4_partie2",
  "day": 4,
  "date": "2026-11-09",
- "rev": 1,
+ "rev": 2,
  "highlight": [
   "jour",
   "école",
@@ -327,8 +327,8 @@
    "shots": [
     {
      "lot": "mairie",
-     "d0": 16,
-     "d1": 9,
+     "d0": 28.8,
+     "d1": 16.2,
      "a0": -14,
      "a1": -4,
      "e0": 8,
@@ -336,7 +336,7 @@
      "mayor": "mairie",
      "dx": 2,
      "dy": -6,
-     "cz": 1.6
+     "cz": 3.2
     }
    ],
    "overlays": [
