@@ -63,10 +63,16 @@ if ($LASTEXITCODE -eq 0) { Ok "voix Piper" } else { Ko "Piper indisponible : vid
 
 Etape 5 "Votre mot de passe"
 if (-not (Test-Path "donnees\config.json") -or -not (Select-String -Path "donnees\config.json" -Pattern "password_hash" -Quiet)) {
-  do {
-    $s = Read-Host "   Choisissez un mot de passe (10 caracteres minimum)" -AsSecureString
-    $mdp = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($s))
-  } while ($mdp.Length -lt 10)
+  Write-Host "   Le mot de passe protege votre studio. Il doit faire AU MOINS 10 caracteres."
+  Write-Host "   Exemple : MonStudio2026   (il reste visible pendant la saisie pour eviter les erreurs)"
+  while ($true) {
+    $mdp = (Read-Host "   Tapez votre mot de passe puis Entree").Trim()
+    if ($mdp.Length -lt 10) { Ko "Trop court : $($mdp.Length) caractere(s). Il en faut au moins 10."; continue }
+    $conf = (Read-Host "   Retapez-le pour confirmer").Trim()
+    if ($conf -ne $mdp) { Ko "Les deux saisies sont differentes. Recommencez."; continue }
+    break
+  }
+  Clear-Host
   $OutputEncoding = New-Object System.Text.UTF8Encoding $false
   $mdp | & $VPy -m serveur mot-de-passe --stdin
   Ok "mot de passe enregistre (notez-le !)"
