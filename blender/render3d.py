@@ -1,4 +1,6 @@
-import bpy, sys, json, math, os, random
+import bpy, sys, json, math, os, random, time
+T0 = time.time()
+def lg(m): print(f'[T {time.time()-T0:6.1f}s] {m}', flush=True)
 sys.path.insert(0, os.path.dirname(__file__))
 import lib3d as L
 A = sys.argv[sys.argv.index("--") + 1:]
@@ -9,7 +11,7 @@ sc = bpy.context.scene
 for eng in ('BLENDER_EEVEE_NEXT', 'BLENDER_EEVEE'):
     try: sc.render.engine = eng; break
     except Exception: pass
-for k, v in (("taa_render_samples", 6), ("use_gtao", True), ("gtao_distance", 2.5), ("use_soft_shadows", True), ("shadow_cascade_size", '2048'), ("shadow_cube_size", '1024')):
+for k, v in (("taa_render_samples", 6), ("use_gtao", True), ("gtao_distance", 2.5), ("use_soft_shadows", True), ("shadow_cascade_size", '1024'), ("shadow_cube_size", '1024')):
     try: setattr(sc.eevee, k, v)
     except Exception: pass
 sc.render.resolution_x, sc.render.resolution_y = 540, 960
@@ -25,7 +27,7 @@ tc = cam.constraints.new('TRACK_TO'); tc.target = tgt; tc.track_axis = 'TRACK_NE
 sun = bpy.data.lights.new("sun", 'SUN'); sun.energy = 3.4; sun.angle = .08
 so = bpy.data.objects.new("sun", sun); sc.collection.objects.link(so); so.rotation_euler = (math.radians(48), math.radians(8), math.radians(28))
 w = bpy.data.worlds.new("w"); sc.world = w; w.use_nodes = True
-w.node_tree.nodes["Background"].inputs[0].default_value = (.42, .62, 1, 1); w.node_tree.nodes["Background"].inputs[1].default_value = .45
+w.node_tree.nodes["Background"].inputs[0].default_value = (.5, .72, 1, 1); w.node_tree.nodes["Background"].inputs[1].default_value = .7
 
 def join(rt):
     ms = [o for o in bpy.data.objects if o.parent == rt and o.type == 'MESH']
@@ -82,15 +84,15 @@ for n, (k, (tag, coat)) in enumerate(owners.items()):
     if k in ("hopital", "parc", "caserne"): off = (0, -19)
     mk("o_" + k, tag, lotp(k, *off), coat=coat, hair=hair(n), pants=(.2, .2, .3))
 sx, sy = pos["stade"]
-TEAM = [("gaetan", "Gaetan  GK", 1, GRN, (-6, -3)), ("timeo", "Timeo  GK", 16, GRN, (-2, -3)), ("dan", "Dan  GK", 12, GRN, (2, -3)),
-        ("robin", "Robin  LD", 2, BLUE, (-7, -8)), ("brjc", "Brjc  MDC", 6, BLUE, (-3.5, -8)), ("sidy", "Sidy  CAPITAINE", 10, BLUE, (0, -8)),
-        ("eden", "Eden  AD", 11, RED, (3.5, -8)), ("mak", "Mak  ATT", 9, RED, (7, -8)), ("marlon", "Marlon  ATT", 7, RED, (10.5, -8))]
+TEAM = [("gaetan", "Gaetan  GK", 1, GRN, (-8, -3)), ("timeo", "Timeo  GK", 16, GRN, (-4, -3)), ("dan", "Dan  GK", 12, GRN, (0, -3)),
+        ("robin", "Robin  LD", 2, BLUE, (-8, -8)), ("brjc", "Brjc  MDC", 6, BLUE, (-4, -8)), ("sidy", "Sidy  CAPITAINE", 10, BLUE, (0, -8)),
+        ("eden", "Eden  AD", 11, RED, (4, -8)), ("mak", "Mak  ATT", 9, RED, (8, -8)), ("marlon", "Marlon  ATT", 7, RED, (12, -8))]
 for n, (cid, tag, num, col, (dx, dy)) in enumerate(TEAM):
     mk(cid, tag, (sx + dx, sy + dy - 4), coat=col, hair=hair(n), pants=(1, 1, 1), number=num)
 mk("evan", "Coach Evan", (sx - 11, sy - 12), coat=(.1, .1, .12), pants=(.1, .1, .12), hair=hair(1))
 mk("gilet", "@billiejean130", (6, 311), coat=(1, .85, .1), hair=hair(2))
 
-joinall()
+lg('built'); joinall(); lg('joined')
 
 # --- animation helpers
 def F(t): return int(round(t * FPS)) + 1
@@ -154,6 +156,8 @@ if MODE == "preview":
         f0 = F(TS[si]["t0"]); f1 = F(TS[si]["t1"]); n = len(s["shots"]); wts = [sh.get("w", 1) for sh in s["shots"]]; tot = sum(wts); acc = 0
         for k in range(n): fl.append(f0 + int((f1 - f0) * (acc + wts[k] * .45) / tot)); acc += wts[k]
     for k, f in enumerate(fl):
-        sc.frame_set(f); sc.render.filepath = f"{OUT}/p_{k:03d}.png"; bpy.ops.render.render(write_still=True)
+        sc.frame_set(f); bpy.context.view_layer.update(); sc.render.filepath = f"{OUT}/p_{k:03d}.png"
+        lg(f"frame {f} cam={tuple(round(v,1) for v in cam.matrix_world.translation)} tgt={tuple(round(v,1) for v in tgt.matrix_world.translation)}")
+        bpy.ops.render.render(write_still=True); lg("rendered")
 else:
     sc.render.filepath = OUT + "/f_"; bpy.ops.render.render(animation=True)

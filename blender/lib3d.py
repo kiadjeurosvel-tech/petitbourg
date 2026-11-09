@@ -309,7 +309,7 @@ def person(name, coat=(.3, .5, .9), hair=(.2, .13, .08), skin=(.95, .73, .55), p
     return r
 
 TRACK = {"cam": None}
-def nametag(par, s, z, size=.55, bg=(.08, .08, .1), fg=(1, 1, 1)):
+def nametag(par, s, z, size=.4, bg=(.08, .08, .1), fg=(1, 1, 1)):
     t = root("tag"); t.parent = par; t.location = (0, 0, z)
     w = max(2.0, len(s) * size * .58 + .5)
     box(t, 0, 0, -.09, w, size * 1.15, .05, bg, .8)
