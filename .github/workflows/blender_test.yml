@@ -1,0 +1,20 @@
+name: Test rendu 3D
+on:
+  workflow_dispatch:
+  push:
+    paths: ["blender/**"]
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq blender ffmpeg
+      - run: mkdir -p fr && blender -b -noaudio -P blender/town_test.py -- fr 2>&1 | tail -5
+      - run: ffmpeg -loglevel error -y -framerate 12 -i fr/f_%04d.png -vf "minterpolate=fps=30,format=yuv420p" -c:v libx264 test3d.mp4
+      - env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          gh release delete test3d --yes --cleanup-tag 2>/dev/null || true
+          gh release create test3d test3d.mp4 --title test3d --notes "Test rendu 3D"
