@@ -6,8 +6,12 @@ FPS, SEC = 12, 6
 sc = bpy.context.scene
 bpy.ops.wm.read_factory_settings(use_empty=True)
 sc = bpy.context.scene
-sc.render.engine = 'CYCLES'; sc.cycles.samples = 48; sc.cycles.device = 'CPU'
-try: sc.cycles.use_denoising = False
+for eng in ('BLENDER_EEVEE_NEXT','BLENDER_EEVEE'):
+    try: sc.render.engine = eng; break
+    except Exception: pass
+try: sc.eevee.taa_render_samples = 16
+except Exception: pass
+try: sc.eevee.use_shadows = True
 except Exception: pass
 sc.render.resolution_x, sc.render.resolution_y = 540, 960
 sc.render.fps = FPS; sc.frame_start, sc.frame_end = 1, FPS*SEC
