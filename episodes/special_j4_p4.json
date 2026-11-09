@@ -3,7 +3,7 @@
  "weather": "clear",
  "day": 4,
  "date": "2026-11-09",
- "rev": 3,
+ "rev": 5,
  "highlight": [
   "jour",
   "école",
@@ -95,7 +95,9 @@
    "lines": [
     "Partie 4 : tous les autres projets !",
     "Rien n'est oublié, tout est noté.",
-    "On va tout construire, étape par étape."
+    "On va tout construire, étape par étape.",
+    "Plus de quatre cents demandes, c'est beaucoup, mais chacune compte.",
+    "Alors voici les grands chantiers qui démarrent aujourd'hui."
    ],
    "badge": {
     "text": "JOUR 4 · 4/4",
@@ -191,7 +193,10 @@
    "lines": [
     "Un hôpital pour I-Abdhi, un parc d'attractions pour Lacsorbx.",
     "Une caserne pour Cindy, un cinéma pour Nathan, une clinique vétérinaire pour Raph.",
-    "Tous les chantiers sont ouverts !"
+    "Tous les chantiers sont ouverts !",
+    "I-Abdhi sera cheffe de l'hôpital, et Lacsorbx reversera les recettes du parc à la ville.",
+    "Cindy offre déjà trois mille euros pour sa caserne, merci !",
+    "D'autres idées sont dans la file : un centre commercial, un aéroport, une usine, une salle d'arcade."
    ],
    "badge2": {
     "text": "TOUT EST PRIS EN COMPTE",
@@ -266,8 +271,9 @@
    ],
    "lines": [
     "Il reste trois mille six cents euros.",
+    "Le parc coûterait plus cher, l'hôpital aussi, la caserne un peu moins.",
     "On construit quoi en premier ? Le parc, l'hôpital ou la caserne ?",
-    "Le top commentaire décide !"
+    "Écrivez votre choix en commentaire, et le top commentaire décide !"
    ],
    "options": [
     {
@@ -292,7 +298,8 @@
    ],
    "end_badge": {
     "text": "DÉCIDE EN COMMENTAIRE"
-   }
+   },
+   "options_line": 2
   }
  ],
  "description": "Jour 4 (4/4) : tous les projets sont lancés, nouveau vote : parc, hôpital ou caserne ? #petitbourg #jour4 #village #dessinanime #pourtoi",

@@ -3,7 +3,7 @@
  "weather": "clear",
  "day": 4,
  "date": "2026-11-09",
- "rev": 3,
+ "rev": 5,
  "highlight": [
   "jour",
   "école",
@@ -89,7 +89,9 @@
    "lines": [
     "Jour 4 : l'école de Petitbourg !",
     "Le vote est tombé.",
-    "Merci d'être aussi nombreux, Petitbourg grandit chaque jour."
+    "Merci d'être aussi nombreux, Petitbourg grandit chaque jour.",
+    "Hier, vous deviez choisir entre un parc, un bar et une école.",
+    "Résultat : l'école gagne de justesse, trois votes contre deux pour le parc."
    ],
    "badge": {
     "text": "JOUR 4 · 1/4",
@@ -166,7 +168,9 @@
    "lines": [
     "Vous avez voté l'école, et elle sort de terre !",
     "Deux mille euros pour apprendre à tous les habitants.",
-    "Chaque classe sera pleine d'habitants motivés."
+    "Chaque classe sera pleine d'habitants motivés.",
+    "Elle accueillera les enfants de Petitbourg, de la maternelle jusqu'au lycée.",
+    "Merci à La Vie en Couleur pour cette belle idée !"
    ],
    "badge2": {
     "text": "ÉCOLE CONSTRUITE",
@@ -225,7 +229,8 @@
    "lines": [
     "Mais la caisse est presque vide : cent euros seulement.",
     "Heureusement, des mécènes ont répondu à l'appel !",
-    "Chaque euro compte pour construire la ville de vos rêves."
+    "Chaque euro compte pour construire la ville de vos rêves.",
+    "Merci à Je Reviens, deux mille euros. Merci à Cindy, trois mille euros pour sa caserne. Et merci à Riad, cinq cents euros."
    ],
    "cards": [
     {

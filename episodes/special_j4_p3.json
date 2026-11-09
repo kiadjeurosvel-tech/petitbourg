@@ -3,7 +3,7 @@
  "weather": "clear",
  "day": 4,
  "date": "2026-11-09",
- "rev": 4,
+ "rev": 5,
  "highlight": [
   "jour",
   "école",
@@ -90,7 +90,8 @@
    "lines": [
     "Partie 3 : les maisons de la communauté !",
     "Ça fait des jours que vous attendez.",
-    "Merci pour votre patience, voici vos maisons."
+    "Merci pour votre patience, voici vos maisons.",
+    "Rappel : chaque villa accueille trois habitants au maximum."
    ],
    "badge": {
     "text": "JOUR 4 · 3/4",
@@ -160,7 +161,9 @@
    "lines": [
     "La maison d'Omar, avec son chat et sa balançoire.",
     "La villa rose avec piscine de nd.k601.",
-    "Chaque maison est construite selon sa description."
+    "Chaque maison est construite selon sa description.",
+    "Omar avait demandé un chat et une balançoire.",
+    "Et nd.k601 rêvait d'une grande villa rose avec piscine."
    ],
    "badge2": {
     "text": "3 PERS. MAX PAR VILLA",
@@ -233,7 +236,9 @@
    "lines": [
     "La villa d'Elina, avec piscine et jacuzzi.",
     "Un igloo pour Keiton, qui n'aura jamais chaud !",
-    "Les villas hébergent trois habitants au maximum."
+    "Les villas hébergent trois habitants au maximum.",
+    "Elina voulait un peu de luxe : piscine et jacuzzi !",
+    "Keiton, lui, a demandé un igloo, ça change des maisons classiques."
    ],
    "badge2": {
     "text": "VILLA + JACUZZI · IGLOO",
@@ -304,7 +309,9 @@
    "lines": [
     "Et une maison moderne avec un husky pour Raph.",
     "Partie 4 : tous les autres projets.",
-    "Mais ce n'est pas fini : d'autres maisons arrivent bientôt."
+    "Mais ce n'est pas fini : d'autres maisons arrivent bientôt.",
+    "Raph voulait une maison moderne avec un husky, c'est fait.",
+    "Ceux qui attendent encore leur maison : patience, vous êtes tous dans la file."
    ],
    "badge2": {
     "text": "MAISON MODERNE + HUSKY",

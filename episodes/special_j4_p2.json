@@ -3,7 +3,7 @@
  "weather": "clear",
  "day": 4,
  "date": "2026-11-09",
- "rev": 3,
+ "rev": 5,
  "highlight": [
   "jour",
   "école",
@@ -93,7 +93,9 @@
    "lines": [
     "Partie 2 : l'équipe du FC Petitbourg !",
     "Vous êtes nombreux à vouloir jouer.",
-    "Chaque poste sera décidé avec le coach Evan et le capitaine Sidy."
+    "Chaque poste sera décidé avec le coach Evan et le capitaine Sidy.",
+    "Le stade est prêt, il ne manque plus que les joueurs.",
+    "Plus de dix d'entre vous se sont proposés en commentaire."
    ],
    "badge": {
     "text": "JOUR 4 · 2/4",
@@ -153,7 +155,9 @@
    "lines": [
     "Dans les cages : Gaëtan, Timéo et Dan, nos trois gardiens.",
     "Latéral droit : Robin. Milieu défensif : Brjc.",
-    "Merci à tous pour vos candidatures !"
+    "Merci à tous pour vos candidatures !",
+    "Gaëtan, Timéo et Dan se battent pour le maillot numéro un.",
+    "En défense, Robin et Brjc protègent déjà la ligne."
    ],
    "cards": [
     {
@@ -228,7 +232,9 @@
    "lines": [
     "Ailier droit, numéro onze : Eden.",
     "Et en attaque : Mak et Marlon !",
-    "Le match d'ouverture approche à grands pas."
+    "Le match d'ouverture approche à grands pas.",
+    "Eden, ailier droit, portera le numéro onze.",
+    "Mak et Marlon, deux attaquants, se partagent le côté droit."
    ],
    "cards": [
     {
@@ -306,7 +312,9 @@
    "lines": [
     "Et un habitant en gilet jaune arrive en ville !",
     "Bienvenue ! Partie 3 : les maisons.",
-    "Il portera le gilet jaune avec fierté."
+    "Il portera le gilet jaune avec fierté.",
+    "Cet habitant a demandé en message privé à rejoindre la ville.",
+    "Il s'installe près de la mairie et vous salue tous."
    ],
    "badge2": {
     "text": "GILET JAUNE · @billiejean130",
