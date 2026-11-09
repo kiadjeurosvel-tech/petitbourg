@@ -20,6 +20,13 @@ Commandes : Créer une vidéo · Continuer une histoire · Modifier une scène �
 
 ## Installation (une fois)
 
+**Windows — le plus simple :** téléchargez le projet (bouton vert *Code → Download ZIP* sur GitHub), faites
+« Extraire tout », puis double-cliquez sur **`studio/INSTALLER_WINDOWS.bat`**. Tout s'installe tout seul
+(Python, FFmpeg, Blender, voix, Tailscale) ; une icône **Mon Studio** apparaît sur le Bureau.
+Pas à pas illustré : [LISEZ-MOI_WINDOWS.txt](LISEZ-MOI_WINDOWS.txt).
+
+Installation manuelle :
+
 | | Linux / macOS | Windows |
 |---|---|---|
 | Prérequis | Python 3.10+, FFmpeg, Blender 3.6+ (4.x recommandé), espeak-ng | idem (`winget install Gyan.FFmpeg BlenderFoundation.Blender`) |
