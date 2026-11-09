@@ -42,6 +42,28 @@ def ensure_password(cfg: Config) -> None:
     cfg.save()
 
 
+def setup_logging(cfg: Config) -> None:
+    """Journal permanent (donnees/journal.log, rotation) + trace des plantages brutaux (donnees/plantage.log)."""
+    import faulthandler
+    import logging
+    import logging.handlers
+    import threading
+    h = logging.handlers.RotatingFileHandler(cfg.data_dir / "journal.log", maxBytes=2_000_000, backupCount=3, encoding="utf-8")
+    h.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(name)s : %(message)s"))
+    root = logging.getLogger()
+    root.addHandler(h)
+    root.setLevel(logging.INFO)
+    for name in ("uvicorn", "uvicorn.error"):
+        logging.getLogger(name).addHandler(h)
+    crash = open(cfg.data_dir / "plantage.log", "a", encoding="utf-8")  # noqa: SIM115 — reste ouvert pour faulthandler
+    faulthandler.enable(file=crash)
+    log = logging.getLogger("studio")
+    sys.excepthook = lambda t, v, tb: log.critical("Erreur fatale", exc_info=(t, v, tb))
+    threading.excepthook = lambda a: log.critical("Erreur dans %s", a.thread.name if a.thread else "?",
+                                                  exc_info=(a.exc_type, a.exc_value, a.exc_traceback))
+    log.info("Démarrage du studio (données : %s)", cfg.data_dir)
+
+
 def cmd_password(cfg: Config, from_stdin=False):
     if from_stdin:  # utilisé par l'installateur Windows (le mot de passe n'apparaît pas dans la ligne de commande)
         raw = sys.stdin.buffer.readline()
@@ -133,6 +155,7 @@ def main():
     if a.action == "produire":
         return cmd_produce(cfg, a)
     ensure_password(cfg)
+    setup_logging(cfg)
     import uvicorn
     from serveur.app import create_app
     print(f"Studio : http://{'127.0.0.1' if a.hote in ('0.0.0.0', '::') else a.hote}:{a.port}")

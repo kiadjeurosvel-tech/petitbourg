@@ -96,13 +96,22 @@ class Studio:
         self._wake.set()
 
     def _loop(self):
+        import logging
+        log = logging.getLogger("studio")
         while not self._stop:
-            job = self.db.one("SELECT * FROM jobs WHERE status='queued' ORDER BY id LIMIT 1")
-            if not job:
-                self._wake.wait(2)
-                self._wake.clear()
-                continue
-            self.run_job(job)
+            try:
+                self._tick()
+            except Exception:  # noqa: BLE001 — le moteur ne doit jamais s'arrêter sur une erreur imprévue
+                log.exception("Erreur dans la boucle du moteur")
+                time.sleep(2)
+
+    def _tick(self):
+        job = self.db.one("SELECT * FROM jobs WHERE status='queued' ORDER BY id LIMIT 1")
+        if not job:
+            self._wake.wait(2)
+            self._wake.clear()
+            return
+        self.run_job(job)
 
     def submit(self, kind: str, params: dict, title: str) -> dict:
         jid = self.db.insert("jobs", kind=kind, status="queued", params=params, title=title,
@@ -158,6 +167,8 @@ class Studio:
         except Exception as ex:  # noqa: BLE001
             msg = str(ex) if isinstance(ex, (UserError, RuntimeError, ValueError)) else f"{type(ex).__name__}: {ex}"
             rep.log(traceback.format_exc())
+            import logging
+            logging.getLogger("studio").error("Tâche %s en échec : %s\n%s", jid, msg, traceback.format_exc())
             for st in rep.stages:
                 if st["status"] == "running":
                     st["status"] = "error"

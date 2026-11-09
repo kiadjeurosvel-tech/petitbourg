@@ -6,6 +6,7 @@ $Url = "http://127.0.0.1:8765"
 function Up { try { (Invoke-WebRequest "$Url/api/health" -UseBasicParsing -TimeoutSec 2).StatusCode -eq 200 } catch { $false } }
 if (-not (Up)) {
   New-Item -ItemType Directory -Force donnees | Out-Null
+  foreach ($f in "serveur.log", "serveur_erreurs.log") { if (Test-Path "donnees\$f") { Move-Item -Force "donnees\$f" "donnees\$f.precedent" } }
   Start-Process -FilePath "$Studio\.venv\Scripts\python.exe" -ArgumentList "-m", "serveur" -WorkingDirectory $Studio `
     -WindowStyle Hidden -RedirectStandardOutput "donnees\serveur.log" -RedirectStandardError "donnees\serveur_erreurs.log"
   for ($i = 0; $i -lt 60 -and -not (Up); $i++) { Start-Sleep -Milliseconds 500 }
