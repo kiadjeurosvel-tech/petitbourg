@@ -98,7 +98,7 @@ function Run-WithLink($argList, $msg) {
   for ($i = 0; $i -lt 300 -and -not $p.HasExited; $i++) {
     Start-Sleep 1
     $txt = (Get-Content $out, "$out.err" -Raw -ErrorAction SilentlyContinue) -join " "
-    if (-not $opened -and $txt -match "(https://login\.tailscale\.com/\S+)") { Write-Host "   $msg"; Start-Process $Matches[1]; $opened = $true }
+    if (-not $opened -and $txt -match "(https://login\.tailscale\.com/\S+)") { Write-Host "   $msg"; Write-Host "   Si rien ne s'ouvre, copiez ce lien dans votre navigateur :" -ForegroundColor Cyan; Write-Host "   $($Matches[1])" -ForegroundColor Cyan; Write-Host "   (ou activez 'HTTPS Certificates' sur https://login.tailscale.com/admin/dns)"; Start-Process $Matches[1]; $opened = $true }
   }
   if (-not $p.HasExited) { $p.Kill() }
 }
