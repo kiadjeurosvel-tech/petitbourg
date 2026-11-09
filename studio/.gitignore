@@ -1,0 +1,5 @@
+donnees/
+.venv/
+__pycache__/
+*.pyc
+tests/_tmp.mp4

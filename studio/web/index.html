@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0d12">
+<meta name="color-scheme" content="dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https: http: data: blob:; media-src 'self' https: http: blob:; connect-src 'self' https: http:; base-uri 'none'; form-action 'self'">
+<meta name="referrer" content="no-referrer">
+<title>Mon Studio</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app" class="app" hidden>
+  <aside class="side">
+    <div class="brand"><span class="rec"></span><span>Mon Studio</span></div>
+    <nav class="nav" id="nav">
+      <a href="#/studio" data-nav="studio"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H4zM8 20h8M12 16v4"/></svg><span>Studio</span></a>
+      <a href="#/production" data-nav="production"><svg viewBox="0 0 24 24"><path d="M4 18V9M10 18V5M16 18v-6M22 18H2"/></svg><span>Production</span><b class="badge" id="badge-jobs" hidden></b></a>
+      <a href="#/bibliotheque" data-nav="bibliotheque"><svg viewBox="0 0 24 24"><path d="M4 4h6v16H4zM14 4l6 2-4 14-6-2z"/></svg><span>Bibliothèque</span></a>
+      <a href="#/reglages" data-nav="reglages"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg><span>Réglages</span></a>
+    </nav>
+    <div class="engine" id="engine-pill" title="État du moteur"><i></i><span>Connexion…</span></div>
+  </aside>
+  <main class="main" id="view" tabindex="-1"></main>
+</div>
+
+<div id="login" class="login" hidden>
+  <form class="login-card" id="login-form" autocomplete="on">
+    <div class="brand big"><span class="rec"></span><span>Mon Studio</span></div>
+    <p class="muted">Centre de commande de votre studio d'animation.</p>
+    <label class="field" id="api-field" hidden>
+      <span>Adresse du moteur</span>
+      <input id="login-api" type="url" inputmode="url" placeholder="https://mon-pc.mon-tailnet.ts.net" autocomplete="url">
+      <small class="muted">L'adresse sécurisée de votre ordinateur (voir la documentation « Accès à distance »).</small>
+    </label>
+    <label class="field">
+      <span>Mot de passe</span>
+      <input id="login-pw" type="password" autocomplete="current-password" required>
+    </label>
+    <button class="btn primary wide" type="submit">Se connecter</button>
+    <p class="error" id="login-err" role="alert"></p>
+    <p class="small muted">Ordinateur éteint ? <a href="https://github.com/kiadjeurosvel-tech/petitbourg/actions/workflows/studio-cloud.yml" target="_blank" rel="noopener">Produire dans le cloud GitHub</a> (sans mémoire des histoires).</p>
+  </form>
+</div>
+
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>

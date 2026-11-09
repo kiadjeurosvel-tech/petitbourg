@@ -1,0 +1,54 @@
+name: Studio — production cloud (ordinateur éteint)
+# Produit une vidéo sur les serveurs GitHub quand votre ordinateur est éteint.
+# Déclenchement : Actions → « Studio — production cloud » → Run workflow (application GitHub mobile),
+# ou en ouvrant une issue dont le titre commence par [studio] (uniquement par le propriétaire du dépôt).
+# Limites : pas d'accès à la mémoire des histoires de votre PC ; CPU uniquement (rendu plus lent) ;
+# minutes Actions limitées sur un dépôt privé (2000 min/mois sur l'offre gratuite).
+on:
+  workflow_dispatch:
+    inputs:
+      texte: { description: "Décrivez la vidéo", required: true }
+      duree: { description: "Durée en secondes", required: false, default: "30" }
+      format: { description: "9:16, 16:9 ou 1:1", required: false, default: "9:16" }
+      qualite: { description: "brouillon, standard ou final", required: false, default: "standard" }
+  issues:
+    types: [opened]
+permissions:
+  contents: write
+  issues: write
+concurrency: { group: studio-cloud, cancel-in-progress: false }
+jobs:
+  produire:
+    if: github.event_name == 'workflow_dispatch' || (startsWith(github.event.issue.title, '[studio]') && github.event.issue.author_association == 'OWNER')
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    defaults: { run: { working-directory: studio } }
+    env:
+      # Les textes passent par des variables d'environnement (jamais interpolés dans le script : anti-injection).
+      TEXTE: ${{ github.event.inputs.texte || github.event.issue.body || github.event.issue.title }}
+      DUREE: ${{ github.event.inputs.duree || '30' }}
+      FORMAT: ${{ github.event.inputs.format || '9:16' }}
+      QUALITE: ${{ github.event.inputs.qualite || 'standard' }}
+      ISSUE: ${{ github.event.issue.number }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng blender xvfb libgl1-mesa-dri libegl1
+      - run: pip install -q fastapi uvicorn numpy pillow piper-tts
+      - uses: actions/cache@v4
+        with: { path: "studio/donnees/voix", key: piper-voix-fr-v1 }
+      - run: python scripts/telecharger_voix.py || echo "voix Piper indisponibles → espeak-ng"
+      - name: Production
+        run: |
+          [ -n "$ISSUE" ] && gh issue comment "$ISSUE" --body "Production lancée : $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" || true
+          CLEAN=$(printf '%s' "$TEXTE" | sed 's/^\[studio\]//I')
+          python -m serveur produire "$CLEAN" --duree "$DUREE" --format "$FORMAT" --qualite "$QUALITE" --sortie sortie/video.mp4
+      - name: Publication
+        run: |
+          TAG="studio-$GITHUB_RUN_ID"
+          gh release create "$TAG" sortie/* --title "Studio — $(date -u +%F) #$GITHUB_RUN_NUMBER" --notes "$(printf 'Demande : %s' "$TEXTE" | head -c 1500)"
+          [ -n "$ISSUE" ] && gh issue comment "$ISSUE" --body "Vidéo prête : $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/tag/$TAG" && gh issue close "$ISSUE" || true
+      - if: failure() && env.ISSUE != ''
+        run: gh issue comment "$ISSUE" --body "La production a échoué : $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"

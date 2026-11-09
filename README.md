@@ -17,3 +17,6 @@ Avatars : `assets/avatars/<pseudo>.png` (uniquement si ce n'est pas un vrai visa
 
 ## Test local sans voix
 `python3 engine/render.py docs/example_jour2.json out --dry --preview 1,10,20`
+
+## Studio d’animation (application web)
+Voir [studio/README.md](studio/README.md) : interface web + moteur local (Blender, FFmpeg, voix open source), indépendant de Claude.

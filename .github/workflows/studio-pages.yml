@@ -1,0 +1,26 @@
+name: Studio — interface (GitHub Pages)
+# L'interface est 100 % statique : aucun secret n'y est inclus. Elle se connecte à VOTRE moteur
+# (adresse saisie à la connexion). Nécessite GitHub Pages activé (Settings → Pages → Source : GitHub Actions).
+# Attention : sur un dépôt privé, GitHub Pages exige un abonnement payant ; sinon utilisez l'interface
+# servie directement par le moteur (voir studio/docs/ACCES_DISTANT.md).
+on:
+  push:
+    branches: [main]
+    paths: ["studio/web/**", ".github/workflows/studio-pages.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency: { group: pages, cancel-in-progress: true }
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: { name: github-pages, url: "${{ steps.d.outputs.page_url }}" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: studio/web }
+      - id: d
+        uses: actions/deploy-pages@v4
