@@ -16,7 +16,7 @@ except Exception: pass
 sc.render.resolution_x, sc.render.resolution_y = 540, 960
 sc.render.fps = FPS; sc.frame_start, sc.frame_end = 1, FPS*SEC
 sc.render.image_settings.file_format = 'PNG'; sc.render.filepath = OUT + "/f_"
-try: sc.view_settings.view_transform = 'Standard'
+try: sc.view_settings.view_transform = 'Standard'; sc.view_settings.look = 'None'
 except Exception: pass
 
 def mat(rgb, rough=.55):
@@ -64,15 +64,26 @@ mx, my = 0, 15.5
 sphere(mx, my, .9, .8, mc, (1, .8, 1.2)); sphere(mx, my, 2.2, .6, skin)
 box(mx, my, 2.7, 1.3, 1.3, .1, hatm); box(mx, my, 2.75, .8, .8, .5, hatm)
 sphere(mx-.2, my-.5, 2.3, .1, mat((0, 0, 0))); sphere(mx+.2, my-.5, 2.3, .1, mat((0, 0, 0)))
+brown = mat((.45, .22, .08)); gold = mat((1, .8, .1), .3); wh = mat((1, 1, 1))
+box(mx, my-.55, 1.9, 1.0, .18, .22, brown)
+for sx in (-1, 1):
+    sphere(mx+sx*.95, my-.1, 1.2, .28, mc, (1, 1, 2.2)); sphere(mx+sx*1.0, my-.15, .6, .22, skin)
+    bpy.ops.mesh.primitive_torus_add(location=(mx+sx*.22, my-.52, 2.3), major_radius=.2, minor_radius=.03, rotation=(math.pi/2, 0, 0)); bpy.context.object.data.materials.append(gold)
+box(mx, my-.62, 1.5, .18, .1, 1.1, mat((.85, .15, .15))); sphere(mx, my-.55, 1.7, .12, gold)
+for i, (cx, cy) in enumerate([(-9, 8), (9, 8), (-9, -8), (9, -8), (-3, 11), (3, 11)]):
+    bpy.ops.mesh.primitive_cone_add(vertices=12, radius1=.35, radius2=.12, depth=.8, location=(cx, cy, .4)); bpy.context.object.data.materials.append(mat((1, .4, .05)))
+for fx in range(-8, 9, 2):
+    box(fx, -7, 0, .15, .15, .9, wh)
+box(0, -7, .6, 17, .08, .12, wh)
 # lumieres
-bpy.ops.object.light_add(type='SUN', rotation=(math.radians(50), 0, math.radians(30))); bpy.context.object.data.energy = 4
+bpy.ops.object.light_add(type='SUN', rotation=(math.radians(50), 0, math.radians(30))); bpy.context.object.data.energy = 2.2
 w = bpy.data.worlds.new("w"); sc.world = w; w.use_nodes = True
-w.node_tree.nodes["Background"].inputs[0].default_value = (.55, .75, 1, 1)
+w.node_tree.nodes["Background"].inputs[0].default_value = (.35, .6, 1, 1)
 # camera : survol -> gros plan maisons -> maire
 bpy.ops.object.camera_add(); cam = bpy.context.object; sc.camera = cam; cam.data.lens = 30
 tgt = bpy.data.objects.new("t", None); sc.collection.objects.link(tgt)
 tr = cam.constraints.new('TRACK_TO'); tr.target = tgt; tr.track_axis = 'TRACK_NEGATIVE_Z'; tr.up_axis = 'UP_Y'
-keys = [(1, (30, -40, 30), (0, 8, 0)), (int(FPS*2.5), (6, -14, 5), (0, 4, 1.5)), (int(FPS*4.5), (-5, 8, 4), (0, 18, 2)), (FPS*SEC, (0, 11, 3.2), (0, 16, 2.2))]
+keys = [(1, (30, -40, 30), (0, 8, 0)), (int(FPS*2.5), (6, -14, 5), (0, 4, 1.5)), (int(FPS*4.5), (-3, 10.5, 4.2), (0, 16, 2.4)), (FPS*SEC, (0, 11.5, 3.0), (0, 15.5, 2.2))]
 for f, c, t in keys:
     cam.location = c; cam.keyframe_insert("location", frame=f); tgt.location = t; tgt.keyframe_insert("location", frame=f)
 for o in (cam, tgt):
