@@ -22,25 +22,40 @@ def rgb(h):  # '#rrggbb' or tuple
 def root(name):
     o = bpy.data.objects.new(name, None); bpy.context.scene.collection.objects.link(o); return o
 
+import bmesh
+_U = {}
+def _unit(kind, n=24):
+    k = (kind, n)
+    if k not in _U:
+        me = bpy.data.meshes.new("u"); bm = bmesh.new()
+        if kind == 'cube': bmesh.ops.create_cube(bm, size=1.0)
+        elif kind == 'cyl': bmesh.ops.create_cone(bm, cap_ends=True, cap_tris=False, segments=n, radius1=1.0, radius2=1.0, depth=1.0)
+        elif kind == 'cone': bmesh.ops.create_cone(bm, cap_ends=True, cap_tris=False, segments=n, radius1=1.0, radius2=0.0, depth=1.0)
+        elif kind == 'sph': bmesh.ops.create_uvsphere(bm, u_segments=n, v_segments=max(6, n // 2), radius=1.0)
+        bm.to_mesh(me); bm.free()
+        if kind in ('sph', 'cyl', 'cone'):
+            for p_ in me.polygons: p_.use_smooth = (kind == 'sph')
+        _U[k] = me
+    return _U[k]
+def _obj(kind, n, loc, scale, rot=(0, 0, 0)):
+    o = bpy.data.objects.new("o", _unit(kind, n).copy()); bpy.context.scene.collection.objects.link(o)
+    o.location = loc; o.scale = scale; o.rotation_euler = rot; return o
+
 def _fin(o, par, c, rough, metal=0.0):
     o.data.materials.append(mat(rgb(c), rough, metal)); o.parent = par; return o
 
 def box(par, x, y, z, w, d, h, c, rough=.55):
     """box with its BOTTOM at z, centred on x,y"""
-    bpy.ops.mesh.primitive_cube_add(size=1, location=(x, y, z + h / 2)); o = bpy.context.object
-    o.scale = (w, d, h); return _fin(o, par, c, rough)
+    return _fin(_obj('cube', 0, (x, y, z + h / 2), (w, d, h)), par, c, rough)
 
 def cyl(par, x, y, z, r, h, c, rough=.5, v=24, rx=0):
-    bpy.ops.mesh.primitive_cylinder_add(vertices=v, radius=r, depth=h, location=(x, y, z + h / 2), rotation=(rx, 0, 0))
-    return _fin(bpy.context.object, par, c, rough)
+    return _fin(_obj('cyl', min(v, 16), (x, y, z + h / 2), (r, r, h), (rx, 0, 0)), par, c, rough)
 
 def sph(par, x, y, z, r, c, s=(1, 1, 1), rough=.5, seg=24):
-    bpy.ops.mesh.primitive_uv_sphere_add(radius=r, location=(x, y, z), segments=seg, ring_count=seg // 2); o = bpy.context.object
-    o.scale = s; bpy.ops.object.shade_smooth(); return _fin(o, par, c, rough)
+    return _fin(_obj('sph', min(seg, 16), (x, y, z), (r * s[0], r * s[1], r * s[2])), par, c, rough)
 
 def cone4(par, x, y, z, w, d, h, c):
-    bpy.ops.mesh.primitive_cone_add(vertices=4, radius1=.7071, depth=1, location=(x, y, z + h / 2), rotation=(0, 0, math.pi / 4))
-    o = bpy.context.object; o.scale = (w, d, h); return _fin(o, par, c, .6)
+    return _fin(_obj('cone', 4, (x, y, z + h / 2), (w * .7071, d * .7071, h), (0, 0, math.pi / 4)), par, c, .6)
 
 def gable(par, x, y, z, w, d, h, c, ov=.5):
     """gable roof, ridge along x"""
@@ -300,7 +315,7 @@ def person(name, coat=(.3, .5, .9), hair=(.2, .13, .08), skin=(.95, .73, .55), p
         box(r, 0, -.24 * s, 1.5 * s, .26 * s, .06 * s, .06 * s, (.45, .22, .08))
         box(r, 0, 0, 1.8 * s, .75 * s, .75 * s, .05 * s, (.1, .3, .15)); box(r, 0, 0, 1.82 * s, .46 * s, .46 * s, .32 * s, (.1, .3, .15))
         for sx in (-.1, .1):
-            bpy.ops.mesh.primitive_torus_add(location=(sx * s, -.25 * s, 1.63 * s), major_radius=.07 * s, minor_radius=.012 * s, rotation=(math.pi / 2, 0, 0)); o = bpy.context.object; o.data.materials.append(mat((1, .8, .1), .3)); o.parent = r
+            sph(r, sx * s, -.25 * s, 1.63 * s, .07 * s, (1, .8, .1), (1, .3, 1), seg=10)
     elif hat == "cap": box(r, 0, 0, 1.78 * s, .5 * s, .5 * s, .12 * s, coat)
     elif hat == "hair": sph(r, 0, .03 * s, 1.68 * s, .27 * s, hair, (1, 1, .7), seg=12)
     else: sph(r, 0, .03 * s, 1.68 * s, .27 * s, hair, (1, 1, .7), seg=12)

@@ -49,7 +49,7 @@ jobs:
       - name: Rendu 3D
         run: |
           [ "$RMODE" != "preview" ] && RMODE=full
-          mkdir -p fr; xvfb-run -a blender -b -noaudio -P blender/render3d.py -- ${{ matrix.file }} work/timing.json fr $RMODE 2>&1 | grep -v "^Fra:\|^Time:\|Saved:" | tail -30
+          mkdir -p fr; xvfb-run -a blender -b -noaudio -P blender/render3d.py -- ${{ matrix.file }} work/timing.json fr $RMODE 2>&1 | grep -v "^Fra:\|^Time:\|Saved:" | tail -40
       - name: Aperçu (planche)
         if: needs.plan.outputs.mode == 'preview'
         env: { GH_TOKEN: "${{ github.token }}" }

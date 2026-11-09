@@ -125,7 +125,7 @@ for si, s in enumerate(scenes):
         o = C.get(k, mayor); kf(o, "scale", f0, (1, 1, 1)); kf(o, "scale", f0 + 1, (.001, .001, .001))
     shots = s["shots"]; wts = [sh.get("w", 1) for sh in shots]; tot = sum(wts); acc = 0; fr = f0
     for n, sh in enumerate(shots):
-        a = fr; acc += wts[n]; b = f1 if n == len(shots) - 1 else f0 + int((f1 - f0) * acc / tot) - 1
+        a = fr; acc += wts[n]; b = f1 - 1 if n == len(shots) - 1 else f0 + int((f1 - f0) * acc / tot) - 1
         fr = b + 1
         if "lot" in sh: x, y = pos[sh["lot"]]; c0 = c1 = (x + sh.get("dx", 0), y + sh.get("dy", -4), sh.get("cz", 2.5))
         elif "who" in sh:
