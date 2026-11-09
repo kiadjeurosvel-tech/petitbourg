@@ -6,8 +6,8 @@ FPS, SEC = 12, 6
 sc = bpy.context.scene
 bpy.ops.wm.read_factory_settings(use_empty=True)
 sc = bpy.context.scene
-sc.render.engine = 'CYCLES'; sc.cycles.samples = 24; sc.cycles.device = 'CPU'
-try: sc.cycles.use_denoising = True
+sc.render.engine = 'CYCLES'; sc.cycles.samples = 48; sc.cycles.device = 'CPU'
+try: sc.cycles.use_denoising = False
 except Exception: pass
 sc.render.resolution_x, sc.render.resolution_y = 540, 960
 sc.render.fps = FPS; sc.frame_start, sc.frame_end = 1, FPS*SEC
