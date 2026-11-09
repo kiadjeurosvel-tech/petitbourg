@@ -1,0 +1,255 @@
+{
+ "out_name": "petitbourg_jour4_partie1",
+ "day": 4,
+ "date": "2026-11-09",
+ "rev": 1,
+ "highlight": [
+  "jour",
+  "école",
+  "caisse",
+  "stade",
+  "équipe",
+  "maisons",
+  "villa",
+  "commerces",
+  "vote",
+  "parc",
+  "hôpital",
+  "caserne",
+  "top",
+  "commentaire",
+  "merci"
+ ],
+ "scenes": [
+  {
+   "lines": [
+    "Jour quatre ! Hier, l'école a gagné le vote.",
+    "Merci à tous d'avoir voté !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      320,
+      0
+     ],
+     "d0": 330,
+     "d1": 230,
+     "a0": -20,
+     "a1": 12,
+     "e0": 38,
+     "e1": 32,
+     "w": 1.2
+    },
+    {
+     "lot": "mairie",
+     "d0": 26,
+     "d1": 15,
+     "a0": -18,
+     "a1": -6,
+     "e0": 10,
+     "e1": 5,
+     "mayor": "mairie",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 1/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Voici l'école de Petitbourg, grande, avec sa cour et son drapeau.",
+    "C'est l'idée de La Vie en Couleur. Elle coûte deux mille euros."
+   ],
+   "new": [
+    "ecole"
+   ],
+   "show": [
+    "o_ecole"
+   ],
+   "shots": [
+    {
+     "lot": "ecole",
+     "d0": 70,
+     "d1": 34,
+     "a0": -30,
+     "a1": -10,
+     "e0": 14,
+     "e1": 5,
+     "mayor": "ecole",
+     "cz": 4
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 1/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "ÉCOLE · 2 000 €",
+     "color": "green",
+     "y": 250,
+     "size": 56
+    },
+    {
+     "type": "card",
+     "user": "la.vie.en.couleur69",
+     "text": "Une école",
+     "likes": 1,
+     "y": 380
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Grâce à vous, la caisse se remplit.",
+    "Merci à Je Reviens, deux mille euros.",
+    "Merci à Cindy, trois mille euros.",
+    "Merci à Riad, cinq cents euros, puis trois mille de plus pour son entreprise."
+   ],
+   "shots": [
+    {
+     "lot": "mairie",
+     "d0": 16,
+     "d1": 8,
+     "a0": -22,
+     "a1": -6,
+     "e0": 8,
+     "e1": 4,
+     "mayor": "mairie",
+     "dx": -2.6,
+     "dy": -7,
+     "cz": 1.6
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 1/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "DONS POUR LA CAISSE",
+     "color": "gold",
+     "y": 250,
+     "size": 56
+    },
+    {
+     "type": "card",
+     "user": "je.reviens",
+     "text": "+ 2 000 €",
+     "likes": 3,
+     "y": 380,
+     "t1": 6
+    },
+    {
+     "type": "card",
+     "user": "cindydoudie",
+     "text": "+ 3 000 € pour la caserne",
+     "likes": 3,
+     "y": 380,
+     "t0": 6,
+     "t1": 13
+    },
+    {
+     "type": "card",
+     "user": "rdz4k8",
+     "text": "+ 500 € puis + 3 000 €",
+     "likes": 2,
+     "y": 380,
+     "t0": 13
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Nouvelles demandes aujourd'hui : un centre commercial, une salle gaming, une boulangerie, un cinéma, une clinique vétérinaire, un garage.",
+    "Tout est noté, rien n'est oublié."
+   ],
+   "shots": [
+    {
+     "c0": [
+      -80,
+      480,
+      0
+     ],
+     "d0": 210,
+     "d1": 140,
+     "a0": -15,
+     "a1": 14,
+     "e0": 34,
+     "e1": 26
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 1/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "TOUT EST NOTÉ",
+     "color": "orange",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Le maire ne peut pas tout construire en une journée.",
+    "Alors voici quatre vidéos : le stade, les maisons, les commerces, puis le vote !"
+   ],
+   "shots": [
+    {
+     "lot": "mairie",
+     "d0": 14,
+     "d1": 7,
+     "a0": -14,
+     "a1": -4,
+     "e0": 6,
+     "e1": 3,
+     "mayor": "mairie",
+     "dx": -2.6,
+     "dy": -7,
+     "cz": 1.6
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 1/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "4 VIDÉOS AUJOURD'HUI",
+     "color": "blue",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  }
+ ],
+ "description": "Jour 4 (1/4) : l'école est construite et les dons remplissent la caisse. #petitbourg #jour4 #village #3d #pourtoi",
+ "pinned_comment": "Ta demande est notée ! Écris-la ici, le maire s'en occupe 👇"
+}

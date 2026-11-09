@@ -1,0 +1,362 @@
+{
+ "out_name": "petitbourg_jour4_partie2",
+ "day": 4,
+ "date": "2026-11-09",
+ "rev": 1,
+ "highlight": [
+  "jour",
+  "école",
+  "caisse",
+  "stade",
+  "équipe",
+  "maisons",
+  "villa",
+  "commerces",
+  "vote",
+  "parc",
+  "hôpital",
+  "caserne",
+  "top",
+  "commentaire",
+  "merci"
+ ],
+ "scenes": [
+  {
+   "lines": [
+    "Partie deux : le stade du FC Petitbourg est prêt, avec ses tribunes.",
+    "Maintenant, il lui faut une équipe !"
+   ],
+   "show": [
+    "evan"
+   ],
+   "shots": [
+    {
+     "c0": [
+      80,
+      320,
+      0
+     ],
+     "d0": 230,
+     "d1": 120,
+     "a0": -15,
+     "a1": 10,
+     "e0": 38,
+     "e1": 28,
+     "w": 1
+    },
+    {
+     "c0": [
+      76,
+      311,
+      2
+     ],
+     "d0": 30,
+     "d1": 17,
+     "a0": -20,
+     "a1": -5,
+     "e0": 9,
+     "e1": 5,
+     "mayor": [
+      67,
+      309
+     ],
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 2/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "FC PETITBOURG",
+     "color": "red",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Dans les buts, trois gardiens : Gaëtan, numéro un, Timéo, numéro seize, et Dan, numéro douze."
+   ],
+   "show": [
+    "gaetan",
+    "timeo",
+    "dan"
+   ],
+   "shots": [
+    {
+     "c0": [
+      73,
+      313,
+      1.6
+     ],
+     "c1": [
+      83,
+      313,
+      1.6
+     ],
+     "d0": 13,
+     "d1": 13,
+     "a0": -6,
+     "a1": 6,
+     "e0": 5,
+     "e1": 5,
+     "mayor": [
+      67,
+      309
+     ]
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 2/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "LES GARDIENS",
+     "color": "green",
+     "y": 250,
+     "size": 56
+    },
+    {
+     "type": "card",
+     "user": "gaetanguery993",
+     "text": "Gaetan gardien de but",
+     "likes": 1,
+     "y": 380
+    },
+    {
+     "type": "card",
+     "user": "timeo_bc_1",
+     "text": "moi gardien au foot stp",
+     "likes": 2,
+     "y": 560
+    }
+   ]
+  },
+  {
+   "lines": [
+    "En défense, Robin, latéral droit, numéro deux.",
+    "Au milieu, Brjc, numéro six.",
+    "Et Sidy, le capitaine, veut le numéro dix, milieu de terrain."
+   ],
+   "show": [
+    "robin",
+    "brjc",
+    "sidy"
+   ],
+   "shots": [
+    {
+     "c0": [
+      72,
+      308,
+      1.6
+     ],
+     "c1": [
+      81,
+      308,
+      1.6
+     ],
+     "d0": 12,
+     "d1": 12,
+     "a0": -8,
+     "a1": 8,
+     "e0": 4,
+     "e1": 4,
+     "mayor": [
+      67,
+      309
+     ]
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 2/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "DÉFENSE ET MILIEU",
+     "color": "blue",
+     "y": 250,
+     "size": 56
+    },
+    {
+     "type": "card",
+     "user": "robinfichaux",
+     "text": "Latéral droittt",
+     "likes": 1,
+     "y": 380
+    },
+    {
+     "type": "card",
+     "user": "sidyyyy013",
+     "text": "Je suis le capitaine, je veux être numéro 10 milieu de terrain",
+     "likes": 1,
+     "y": 560
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Eden prend le onze, ailier droit.",
+    "Mak et Marlon, attaquants, portent le neuf et le sept."
+   ],
+   "show": [
+    "eden",
+    "mak",
+    "marlon"
+   ],
+   "shots": [
+    {
+     "c0": [
+      83,
+      308,
+      1.6
+     ],
+     "c1": [
+      91,
+      308,
+      1.6
+     ],
+     "d0": 12,
+     "d1": 12,
+     "a0": -8,
+     "a1": 8,
+     "e0": 4,
+     "e1": 4,
+     "mayor": [
+      67,
+      309
+     ]
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 2/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "L'ATTAQUE",
+     "color": "red",
+     "y": 250,
+     "size": 56
+    },
+    {
+     "type": "card",
+     "user": "eden__mllx",
+     "text": "ailier droit numéro 11 pour le club de foot stp",
+     "likes": 1,
+     "y": 380
+    },
+    {
+     "type": "card",
+     "user": "mak2ptueur",
+     "text": "je peux être attaquant droit de l'équipe de foot stp",
+     "likes": 2,
+     "y": 560
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Le coach Evan et le capitaine Sidy composent l'équipe avec vous.",
+    "Chaque numéro est choisi par un habitant.",
+    "Qui veut jouer ? Écrivez votre poste en commentaire !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      77,
+      310,
+      1.7
+     ],
+     "d0": 26,
+     "d1": 15,
+     "a0": -10,
+     "a1": 6,
+     "e0": 8,
+     "e1": 5,
+     "mayor": [
+      67,
+      309
+     ]
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 2/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "QUI VEUT JOUER ?",
+     "color": "orange",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Et un habitant en gilet jaune rejoint la ville : Billie Jean !"
+   ],
+   "show": [
+    "gilet"
+   ],
+   "shots": [
+    {
+     "lot": "mairie",
+     "d0": 16,
+     "d1": 9,
+     "a0": -14,
+     "a1": -4,
+     "e0": 8,
+     "e1": 4,
+     "mayor": "mairie",
+     "dx": 2,
+     "dy": -6,
+     "cz": 1.6
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 2/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "GILET JAUNE",
+     "color": "gold",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  }
+ ],
+ "description": "Jour 4 (2/4) : le stade du FC Petitbourg et son équipe. #petitbourg #jour4 #village #3d #pourtoi",
+ "pinned_comment": "Ta demande est notée ! Écris-la ici, le maire s'en occupe 👇"
+}

@@ -1,0 +1,366 @@
+{
+ "out_name": "petitbourg_jour4_partie4",
+ "day": 4,
+ "date": "2026-11-09",
+ "rev": 1,
+ "highlight": [
+  "jour",
+  "école",
+  "caisse",
+  "stade",
+  "équipe",
+  "maisons",
+  "villa",
+  "commerces",
+  "vote",
+  "parc",
+  "hôpital",
+  "caserne",
+  "top",
+  "commentaire",
+  "merci"
+ ],
+ "scenes": [
+  {
+   "lines": [
+    "Partie quatre : les commerces ! Ceux qui ont offert de l'argent passent en premier."
+   ],
+   "shots": [
+    {
+     "c0": [
+      -80,
+      480,
+      0
+     ],
+     "d0": 230,
+     "d1": 150,
+     "a0": -15,
+     "a1": 14,
+     "e0": 36,
+     "e1": 28
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 4/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Une boulangerie pour Bhgd, avec quatre mille quatre cents euros offerts !"
+   ],
+   "new": [
+    "boul"
+   ],
+   "show": [
+    "o_boul"
+   ],
+   "shots": [
+    {
+     "lot": "boul",
+     "d0": 48,
+     "d1": 24,
+     "a0": -28,
+     "a1": -8,
+     "e0": 14,
+     "e1": 6,
+     "cz": 3.5,
+     "dx": 2,
+     "mayor": "boul"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 4/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "BOULANGERIE · +4 400 €",
+     "color": "orange",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Un grand centre commercial avec coiffeur et magasins, pour Théo. Il offre aussi les grues."
+   ],
+   "new": [
+    "mall"
+   ],
+   "show": [
+    "o_mall"
+   ],
+   "shots": [
+    {
+     "lot": "mall",
+     "d0": 95,
+     "d1": 52,
+     "a0": -28,
+     "a1": -8,
+     "e0": 14,
+     "e1": 6,
+     "cz": 5,
+     "dx": 2,
+     "mayor": "mall"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 4/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "CENTRE COMMERCIAL",
+     "color": "blue",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Une salle gaming pour tout le monde, demandée par Goku."
+   ],
+   "new": [
+    "gaming"
+   ],
+   "show": [
+    "o_gaming"
+   ],
+   "shots": [
+    {
+     "lot": "gaming",
+     "d0": 48,
+     "d1": 24,
+     "a0": -28,
+     "a1": -8,
+     "e0": 14,
+     "e1": 6,
+     "cz": 3.5,
+     "dx": 2,
+     "mayor": "gaming"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 4/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "SALLE GAMING",
+     "color": "blue",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Le cinéma Ciné Clap, géré par Nathan."
+   ],
+   "new": [
+    "cine"
+   ],
+   "show": [
+    "o_cine"
+   ],
+   "shots": [
+    {
+     "lot": "cine",
+     "d0": 56,
+     "d1": 28,
+     "a0": -28,
+     "a1": -8,
+     "e0": 14,
+     "e1": 6,
+     "cz": 3.5,
+     "dx": 2,
+     "mayor": "cine"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 4/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "CINÉ CLAP",
+     "color": "red",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Une clinique vétérinaire pour Raph."
+   ],
+   "new": [
+    "vet"
+   ],
+   "show": [
+    "o_vet"
+   ],
+   "shots": [
+    {
+     "lot": "vet",
+     "d0": 44,
+     "d1": 22,
+     "a0": -28,
+     "a1": -8,
+     "e0": 14,
+     "e1": 6,
+     "cz": 3.5,
+     "dx": 2,
+     "mayor": "vet"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 4/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "CLINIQUE VÉTÉRINAIRE",
+     "color": "green",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Et un grand garage pour Gabibel."
+   ],
+   "new": [
+    "garage"
+   ],
+   "show": [
+    "o_garage"
+   ],
+   "shots": [
+    {
+     "lot": "garage",
+     "d0": 50,
+     "d1": 26,
+     "a0": -28,
+     "a1": -8,
+     "e0": 14,
+     "e1": 6,
+     "cz": 3.5,
+     "dx": 2,
+     "mayor": "garage"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 4/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "GARAGE",
+     "color": "orange",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Maintenant, le vote : parc, hôpital ou caserne ?",
+    "Lacsorbx offre trois cents euros par jour avec son parc, et Cindy trois mille euros pour la caserne.",
+    "Dans la file aussi : un bar, une ferme, un aéroport avec pilote, et Br Land.",
+    "Votez en commentaire : le top commentaire décide !"
+   ],
+   "new": [
+    "hopital",
+    "parc",
+    "caserne"
+   ],
+   "show": [
+    "o_hopital",
+    "o_parc",
+    "o_caserne"
+   ],
+   "shots": [
+    {
+     "c0": [
+      80,
+      320,
+      0
+     ],
+     "d0": 360,
+     "d1": 240,
+     "a0": -12,
+     "a1": 12,
+     "e0": 36,
+     "e1": 30,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4 · 4/4",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "option",
+     "letter": "A",
+     "text": "PARC",
+     "color": "green",
+     "y": 1000
+    },
+    {
+     "type": "option",
+     "letter": "B",
+     "text": "HÔPITAL",
+     "color": "blue",
+     "y": 1150
+    },
+    {
+     "type": "option",
+     "letter": "C",
+     "text": "CASERNE",
+     "color": "orange",
+     "y": 1300
+    }
+   ]
+  }
+ ],
+ "description": "Jour 4 (4/4) : les commerces et le vote parc, hôpital ou caserne. #petitbourg #jour4 #village #3d #pourtoi",
+ "pinned_comment": "Ta demande est notée ! Écris-la ici, le maire s'en occupe 👇"
+}

@@ -1,0 +1,78 @@
+name: Épisode 3D
+on:
+  workflow_dispatch:
+    inputs:
+      files: { description: "fichiers (séparés par espace), vide = tous s3d_*", required: false, default: "" }
+      mode: { description: "full ou preview", required: false, default: "full" }
+  push:
+    paths: ["episodes/s3d_*.json", "blender/**", "scripts/prep3d.py", "scripts/mux3d.py"]
+permissions:
+  contents: write
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs: { files: "${{ steps.p.outputs.files }}", mode: "${{ steps.p.outputs.mode }}" }
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 2 }
+      - id: p
+        run: |
+          MODE="${{ github.event.inputs.mode }}"; [ -z "$MODE" ] && MODE=full
+          F="${{ github.event.inputs.files }}"
+          if [ -z "$F" ]; then
+            if [ "${{ github.event_name }}" = "push" ] && git diff --name-only HEAD~1 HEAD | grep -qE '^episodes/s3d_'; then
+              F=$(git diff --name-only HEAD~1 HEAD | grep -E '^episodes/s3d_.*\.json$' | tr '\n' ' ')
+            elif [ "${{ github.event_name }}" = "push" ]; then F=""
+            else F=$(ls episodes/s3d_*.json | tr '\n' ' '); fi
+          fi
+          echo "files=$(python3 -c "import json,sys;print(json.dumps(sys.argv[1].split()))" "$F")" >> $GITHUB_OUTPUT
+          echo "mode=$MODE" >> $GITHUB_OUTPUT
+  render:
+    needs: plan
+    if: needs.plan.outputs.files != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix: { file: "${{ fromJson(needs.plan.outputs.files) }}" }
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq blender ffmpeg xvfb libgl1-mesa-dri libegl1 && pip install -q pillow numpy
+      - name: Voix, textes, surcouches
+        env: { ELEVENLABS_API_KEY: "${{ secrets.ELEVENLABS_API_KEY }}" }
+        run: |
+          DRY=""; [ "${{ needs.plan.outputs.mode }}" = "preview" ] && DRY="--dry"
+          python3 scripts/prep3d.py ${{ matrix.file }} work $DRY
+      - name: Rendu 3D
+        run: |
+          mkdir -p fr; xvfb-run -a blender -b -noaudio -P blender/render3d.py -- ${{ matrix.file }} work/timing.json fr ${{ needs.plan.outputs.mode == 'preview' && 'preview' || 'full' }} 2>&1 | grep -v "^Fra:\|^Time:\|Saved:" | tail -30
+      - name: Aperçu (planche)
+        if: needs.plan.outputs.mode == 'preview'
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          python3 - <<'PY'
+          import glob
+          from PIL import Image
+          fs = sorted(glob.glob("fr/p_*.png")); w, h = 270, 480; cols = 8; rows = (len(fs) + cols - 1) // cols
+          im = Image.new("RGB", (w * cols, h * rows), (0, 0, 0))
+          for i, f in enumerate(fs): im.paste(Image.open(f).resize((w, h)), ((i % cols) * w, (i // cols) * h))
+          im.save("sheet.jpg", quality=85)
+          PY
+          N=$(basename ${{ matrix.file }} .json)
+          gh release delete "prev_$N" --yes --cleanup-tag 2>/dev/null || true
+          gh release create "prev_$N" sheet.jpg --title "prev_$N" --notes "aperçu"
+      - name: Montage + publication
+        if: needs.plan.outputs.mode != 'preview'
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          N=$(python3 -c "import json;print(json.load(open('${{ matrix.file }}'))['out_name'])")
+          python3 scripts/mux3d.py work fr $N.mp4
+          gh release delete "$N" --yes --cleanup-tag 2>/dev/null || true
+          gh release create "$N" $N.mp4 --title "$N" --notes-file work/description.txt
+      - name: Sauver la voix
+        if: always()
+        run: |
+          git config user.name "petitbourg-bot"; git config user.email "bot@users.noreply.github.com"
+          git add episodes/voice_cache 2>/dev/null || true
+          git commit -qm "cache voix 3d" || exit 0
+          for i in 1 2 3 4; do git pull -q --rebase origin main && git push -q origin main && break; sleep 5; done
