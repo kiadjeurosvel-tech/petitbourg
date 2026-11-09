@@ -1,0 +1,319 @@
+{
+ "out_name": "petitbourg_jour4_partie3",
+ "weather": "clear",
+ "day": 4,
+ "date": "2026-11-09",
+ "rev": 4,
+ "highlight": [
+  "jour",
+  "école",
+  "dons",
+  "caisse",
+  "équipe",
+  "maisons",
+  "villa",
+  "hôpital",
+  "parc",
+  "caserne",
+  "vote",
+  "top",
+  "tout"
+ ],
+ "characters": {
+  "gilet": {
+   "coat": [
+    250,
+    215,
+    40
+   ],
+   "hair": [
+    60,
+    40,
+    25
+   ]
+  }
+ },
+ "scenes": [
+  {
+   "type": "place",
+   "aerial": {
+    "built": [
+     "mairie",
+     "eglise",
+     "police",
+     "mosquee",
+     "stade",
+     "ilyes",
+     "kvn",
+     "villa23",
+     "lara",
+     "pain",
+     "napo",
+     "sauc",
+     "pop",
+     "lac",
+     "licorne",
+     "banane",
+     "cabane",
+     "chalet",
+     "choco",
+     "capy",
+     "poulet",
+     "ecole"
+    ],
+    "cam": [
+     [
+      0,
+      630,
+      2040,
+      1.2
+     ],
+     [
+      6,
+      630,
+      2040,
+      2.4
+     ]
+    ],
+    "new": []
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "wx": 570,
+     "wy": 2086,
+     "ws": 0.09,
+     "talk": true,
+     "jump_line": 0
+    }
+   ],
+   "lines": [
+    "Partie 3 : les maisons de la communauté !",
+    "Ça fait des jours que vous attendez.",
+    "Merci pour votre patience, voici vos maisons."
+   ],
+   "badge": {
+    "text": "JOUR 4 · 3/4",
+    "color": "red",
+    "size": 90
+   }
+  },
+  {
+   "type": "place",
+   "aerial": {
+    "built": [
+     "mairie",
+     "eglise",
+     "police",
+     "mosquee",
+     "stade",
+     "ilyes",
+     "kvn",
+     "villa23",
+     "lara",
+     "pain",
+     "napo",
+     "sauc",
+     "pop",
+     "lac",
+     "licorne",
+     "banane",
+     "cabane",
+     "chalet",
+     "choco",
+     "capy",
+     "poulet",
+     "ecole"
+    ],
+    "cam": [
+     [
+      0,
+      630,
+      2040,
+      2.6
+     ]
+    ],
+    "new": [
+     {
+      "id": "omar",
+      "line": 0
+     },
+     {
+      "id": "rose",
+      "line": 1
+     }
+    ],
+    "tags": [
+     "omar",
+     "rose"
+    ]
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "wx": 570,
+     "wy": 2086,
+     "ws": 0.09,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "La maison d'Omar, avec son chat et sa balançoire.",
+    "La villa rose avec piscine de nd.k601.",
+    "Chaque maison est construite selon sa description."
+   ],
+   "badge2": {
+    "text": "3 PERS. MAX PAR VILLA",
+    "color": "green",
+    "at_line": 1,
+    "y": 520
+   }
+  },
+  {
+   "type": "place",
+   "aerial": {
+    "built": [
+     "mairie",
+     "eglise",
+     "police",
+     "mosquee",
+     "stade",
+     "ilyes",
+     "kvn",
+     "villa23",
+     "lara",
+     "pain",
+     "napo",
+     "sauc",
+     "pop",
+     "lac",
+     "licorne",
+     "banane",
+     "cabane",
+     "chalet",
+     "choco",
+     "capy",
+     "poulet",
+     "ecole",
+     "omar",
+     "rose"
+    ],
+    "cam": [
+     [
+      0,
+      630,
+      2040,
+      2.6
+     ]
+    ],
+    "new": [
+     {
+      "id": "elina",
+      "line": 0
+     },
+     {
+      "id": "igloo",
+      "line": 1
+     }
+    ],
+    "tags": [
+     "elina",
+     "igloo"
+    ]
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "wx": 570,
+     "wy": 2086,
+     "ws": 0.09,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "La villa d'Elina, avec piscine et jacuzzi.",
+    "Un igloo pour Keiton, qui n'aura jamais chaud !",
+    "Les villas hébergent trois habitants au maximum."
+   ],
+   "badge2": {
+    "text": "VILLA + JACUZZI · IGLOO",
+    "color": "blue",
+    "at_line": 0,
+    "y": 520,
+    "confetti": true
+   }
+  },
+  {
+   "type": "place",
+   "aerial": {
+    "built": [
+     "mairie",
+     "eglise",
+     "police",
+     "mosquee",
+     "stade",
+     "ilyes",
+     "kvn",
+     "villa23",
+     "lara",
+     "pain",
+     "napo",
+     "sauc",
+     "pop",
+     "lac",
+     "licorne",
+     "banane",
+     "cabane",
+     "chalet",
+     "choco",
+     "capy",
+     "poulet",
+     "ecole",
+     "omar",
+     "rose",
+     "elina",
+     "igloo"
+    ],
+    "cam": [
+     [
+      0,
+      630,
+      2740,
+      2.6
+     ]
+    ],
+    "new": [
+     {
+      "id": "husky",
+      "line": 0
+     }
+    ],
+    "tags": [
+     "husky"
+    ]
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "wx": 570,
+     "wy": 2926,
+     "ws": 0.09,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Et une maison moderne avec un husky pour Raph.",
+    "Partie 4 : tous les autres projets.",
+    "Mais ce n'est pas fini : d'autres maisons arrivent bientôt."
+   ],
+   "badge2": {
+    "text": "MAISON MODERNE + HUSKY",
+    "color": "orange",
+    "at_line": 0,
+    "y": 520
+   }
+  }
+ ],
+ "description": "Jour 4 (3/4) : les maisons de la communauté, villas limitées à trois habitants. #petitbourg #jour4 #village #dessinanime #pourtoi",
+ "pinned_comment": "Ta demande est notée ! Écris-la ici, le maire s'en occupe 👇"
+}

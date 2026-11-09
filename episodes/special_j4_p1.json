@@ -1,0 +1,316 @@
+{
+ "out_name": "petitbourg_jour4_partie1",
+ "weather": "clear",
+ "day": 4,
+ "date": "2026-11-09",
+ "rev": 3,
+ "highlight": [
+  "jour",
+  "école",
+  "dons",
+  "caisse",
+  "équipe",
+  "maisons",
+  "villa",
+  "hôpital",
+  "parc",
+  "caserne",
+  "vote",
+  "top",
+  "tout"
+ ],
+ "characters": {
+  "gilet": {
+   "coat": [
+    250,
+    215,
+    40
+   ],
+   "hair": [
+    60,
+    40,
+    25
+   ]
+  }
+ },
+ "scenes": [
+  {
+   "type": "place",
+   "aerial": {
+    "built": [
+     "mairie",
+     "eglise",
+     "police",
+     "mosquee",
+     "stade",
+     "ilyes",
+     "kvn",
+     "villa23",
+     "lara",
+     "pain",
+     "napo",
+     "sauc",
+     "pop",
+     "lac",
+     "licorne",
+     "banane",
+     "cabane",
+     "chalet",
+     "choco",
+     "capy",
+     "poulet"
+    ],
+    "cam": [
+     [
+      0,
+      1470,
+      2150,
+      0.9
+     ],
+     [
+      7,
+      1470,
+      2460,
+      1.9
+     ]
+    ],
+    "new": []
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "wx": 1470,
+     "wy": 2506,
+     "ws": 0.09,
+     "talk": true,
+     "jump_line": 0
+    }
+   ],
+   "lines": [
+    "Jour 4 : l'école de Petitbourg !",
+    "Le vote est tombé.",
+    "Merci d'être aussi nombreux, Petitbourg grandit chaque jour."
+   ],
+   "badge": {
+    "text": "JOUR 4 · 1/4",
+    "color": "red",
+    "size": 90
+   },
+   "comment": {
+    "user": "la.vie.en.couleur69",
+    "text": "Une école",
+    "likes": 1,
+    "top": true,
+    "at_line": 0
+   }
+  },
+  {
+   "type": "place",
+   "aerial": {
+    "built": [
+     "mairie",
+     "eglise",
+     "police",
+     "mosquee",
+     "stade",
+     "ilyes",
+     "kvn",
+     "villa23",
+     "lara",
+     "pain",
+     "napo",
+     "sauc",
+     "pop",
+     "lac",
+     "licorne",
+     "banane",
+     "cabane",
+     "chalet",
+     "choco",
+     "capy",
+     "poulet"
+    ],
+    "cam": [
+     [
+      0,
+      630,
+      2460,
+      1.2
+     ],
+     [
+      6,
+      630,
+      2460,
+      2.2
+     ]
+    ],
+    "new": [
+     {
+      "id": "ecole",
+      "line": 0
+     }
+    ],
+    "tags": [
+     "ecole"
+    ]
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "wx": 590,
+     "wy": 2506,
+     "ws": 0.09,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Vous avez voté l'école, et elle sort de terre !",
+    "Deux mille euros pour apprendre à tous les habitants.",
+    "Chaque classe sera pleine d'habitants motivés."
+   ],
+   "badge2": {
+    "text": "ÉCOLE CONSTRUITE",
+    "color": "green",
+    "at_line": 0,
+    "y": 520,
+    "confetti": true
+   }
+  },
+  {
+   "type": "cards",
+   "aerial": {
+    "built": [
+     "mairie",
+     "eglise",
+     "police",
+     "mosquee",
+     "stade",
+     "ilyes",
+     "kvn",
+     "villa23",
+     "lara",
+     "pain",
+     "napo",
+     "sauc",
+     "pop",
+     "lac",
+     "licorne",
+     "banane",
+     "cabane",
+     "chalet",
+     "choco",
+     "capy",
+     "poulet",
+     "ecole"
+    ],
+    "cam": [
+     [
+      0,
+      630,
+      2460,
+      2.2
+     ]
+    ],
+    "new": []
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "wx": 590,
+     "wy": 2506,
+     "ws": 0.09,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Mais la caisse est presque vide : cent euros seulement.",
+    "Heureusement, des mécènes ont répondu à l'appel !",
+    "Chaque euro compte pour construire la ville de vos rêves."
+   ],
+   "cards": [
+    {
+     "user": "je.reviens.en.203663",
+     "text": "Je te rajoute 2000 €, et tu fais une entreprise de maçon",
+     "likes": 3
+    },
+    {
+     "user": "cindydoudie",
+     "text": "Ma caserne des pompiers j’ajoute 3000€ dans la caisse",
+     "likes": 1
+    },
+    {
+     "user": "rdz4k8",
+     "text": "je te rajoute 500€ mes se moi le mère",
+     "likes": 1
+    }
+   ],
+   "end_badge": {
+    "text": "MERCI AUX MÉCÈNES"
+   }
+  },
+  {
+   "type": "place",
+   "kasse": true,
+   "aerial": {
+    "built": [
+     "mairie",
+     "eglise",
+     "police",
+     "mosquee",
+     "stade",
+     "ilyes",
+     "kvn",
+     "villa23",
+     "lara",
+     "pain",
+     "napo",
+     "sauc",
+     "pop",
+     "lac",
+     "licorne",
+     "banane",
+     "cabane",
+     "chalet",
+     "choco",
+     "capy",
+     "poulet",
+     "ecole"
+    ],
+    "cam": [
+     [
+      0,
+      630,
+      2460,
+      2.0
+     ]
+    ],
+    "new": []
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "wx": 590,
+     "wy": 2506,
+     "ws": 0.09,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Cent euros, plus cinq mille cinq cents de dons : cinq mille six cents euros.",
+    "Moins deux mille pour l'école : il reste trois mille six cents euros.",
+    "Partie 2 : l'équipe du FC Petitbourg !"
+   ],
+   "badge": {
+    "text": "CAISSE : 3 600 €",
+    "color": "white"
+   },
+   "amount": {
+    "from": 5600,
+    "to": 3600,
+    "at_line": 1
+   }
+  }
+ ],
+ "description": "Jour 4 (1/4) : l'école est construite, les mécènes remplissent la caisse. #petitbourg #jour4 #village #dessinanime #pourtoi",
+ "pinned_comment": "Ta demande est notée ! Écris-la ici, le maire s'en occupe 👇"
+}

@@ -1,0 +1,300 @@
+{
+ "out_name": "petitbourg_jour4_partie4",
+ "weather": "clear",
+ "day": 4,
+ "date": "2026-11-09",
+ "rev": 3,
+ "highlight": [
+  "jour",
+  "école",
+  "dons",
+  "caisse",
+  "équipe",
+  "maisons",
+  "villa",
+  "hôpital",
+  "parc",
+  "caserne",
+  "vote",
+  "top",
+  "tout"
+ ],
+ "characters": {
+  "gilet": {
+   "coat": [
+    250,
+    215,
+    40
+   ],
+   "hair": [
+    60,
+    40,
+    25
+   ]
+  }
+ },
+ "scenes": [
+  {
+   "type": "place",
+   "aerial": {
+    "built": [
+     "mairie",
+     "eglise",
+     "police",
+     "mosquee",
+     "stade",
+     "ilyes",
+     "kvn",
+     "villa23",
+     "lara",
+     "pain",
+     "napo",
+     "sauc",
+     "pop",
+     "lac",
+     "licorne",
+     "banane",
+     "cabane",
+     "chalet",
+     "choco",
+     "capy",
+     "poulet",
+     "ecole",
+     "omar",
+     "rose",
+     "elina",
+     "igloo",
+     "husky"
+    ],
+    "cam": [
+     [
+      0,
+      1470,
+      2300,
+      0.6
+     ],
+     [
+      6,
+      2310,
+      2300,
+      0.8
+     ]
+    ],
+    "new": []
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "wx": 2310,
+     "wy": 2560,
+     "ws": 0.09,
+     "talk": true,
+     "jump_line": 0
+    }
+   ],
+   "lines": [
+    "Partie 4 : tous les autres projets !",
+    "Rien n'est oublié, tout est noté.",
+    "On va tout construire, étape par étape."
+   ],
+   "badge": {
+    "text": "JOUR 4 · 4/4",
+    "color": "red",
+    "size": 90
+   }
+  },
+  {
+   "type": "place",
+   "aerial": {
+    "built": [
+     "mairie",
+     "eglise",
+     "police",
+     "mosquee",
+     "stade",
+     "ilyes",
+     "kvn",
+     "villa23",
+     "lara",
+     "pain",
+     "napo",
+     "sauc",
+     "pop",
+     "lac",
+     "licorne",
+     "banane",
+     "cabane",
+     "chalet",
+     "choco",
+     "capy",
+     "poulet",
+     "ecole",
+     "omar",
+     "rose",
+     "elina",
+     "igloo",
+     "husky"
+    ],
+    "cam": [
+     [
+      0,
+      2310,
+      2300,
+      0.75
+     ],
+     [
+      8,
+      2310,
+      2300,
+      0.95
+     ]
+    ],
+    "new": [
+     {
+      "id": "hopital",
+      "line": 0
+     },
+     {
+      "id": "parc",
+      "line": 0
+     },
+     {
+      "id": "caserne",
+      "line": 1
+     },
+     {
+      "id": "cinema",
+      "line": 1
+     },
+     {
+      "id": "vet",
+      "line": 1
+     }
+    ],
+    "tags": [
+     "hopital",
+     "parc",
+     "caserne",
+     "cinema",
+     "vet"
+    ]
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "wx": 2310,
+     "wy": 2560,
+     "ws": 0.09,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Un hôpital pour I-Abdhi, un parc d'attractions pour Lacsorbx.",
+    "Une caserne pour Cindy, un cinéma pour Nathan, une clinique vétérinaire pour Raph.",
+    "Tous les chantiers sont ouverts !"
+   ],
+   "badge2": {
+    "text": "TOUT EST PRIS EN COMPTE",
+    "color": "green",
+    "at_line": 2,
+    "y": 520,
+    "confetti": true
+   }
+  },
+  {
+   "type": "vote",
+   "aerial": {
+    "built": [
+     "mairie",
+     "eglise",
+     "police",
+     "mosquee",
+     "stade",
+     "ilyes",
+     "kvn",
+     "villa23",
+     "lara",
+     "pain",
+     "napo",
+     "sauc",
+     "pop",
+     "lac",
+     "licorne",
+     "banane",
+     "cabane",
+     "chalet",
+     "choco",
+     "capy",
+     "poulet",
+     "ecole",
+     "omar",
+     "rose",
+     "elina",
+     "igloo",
+     "husky",
+     "hopital",
+     "parc",
+     "caserne",
+     "cinema",
+     "vet"
+    ],
+    "cam": [
+     [
+      0,
+      2310,
+      2300,
+      0.8
+     ]
+    ],
+    "new": [],
+    "tags": [
+     "hopital",
+     "parc",
+     "caserne",
+     "cinema",
+     "vet"
+    ]
+   },
+   "chars": [
+    {
+     "kind": "mayor",
+     "wx": 2310,
+     "wy": 2560,
+     "ws": 0.09,
+     "talk": true
+    }
+   ],
+   "lines": [
+    "Il reste trois mille six cents euros.",
+    "On construit quoi en premier ? Le parc, l'hôpital ou la caserne ?",
+    "Le top commentaire décide !"
+   ],
+   "options": [
+    {
+     "label": [
+      "PARC",
+      "D'ATTRACTIONS ?"
+     ],
+     "color": "green"
+    },
+    {
+     "label": [
+      "L'HÔPITAL ?"
+     ],
+     "color": "red"
+    },
+    {
+     "label": [
+      "LA CASERNE ?"
+     ],
+     "color": "orange"
+    }
+   ],
+   "end_badge": {
+    "text": "DÉCIDE EN COMMENTAIRE"
+   }
+  }
+ ],
+ "description": "Jour 4 (4/4) : tous les projets sont lancés, nouveau vote : parc, hôpital ou caserne ? #petitbourg #jour4 #village #dessinanime #pourtoi",
+ "pinned_comment": "Ta demande est notée ! Écris-la ici, le maire s'en occupe 👇"
+}

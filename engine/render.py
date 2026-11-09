@@ -8,6 +8,7 @@ import base as B
 from base import *  # noqa
 from PIL import Image, ImageDraw, ImageChops
 import buildings as BL
+import city as CT
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 AV_DIR = os.path.join(ROOT, "assets", "avatars")
@@ -337,6 +338,8 @@ def main():
 
     def place_char(fr, c, i, t, sc):
         x, y, s = c.get("x", 540), c.get("y", 1520), c.get("scale", .9)
+        if "wx" in c and sc.get("_view"):
+            vx, vy, vz = sc["_view"]; x = (c["wx"] - vx) * vz; y = (c["wy"] - vy) * vz; s = c.get("ws", .055) * vz
         if (sc.get("build") or {}).get("type") in NEWT: s *= sc.get("char_k", .78)
         ang = 0; walk = False; wave = False
         if c.get("enter"):
@@ -364,8 +367,9 @@ def main():
 
     def draw_scene(sc, t):
         a = sc["_t"]; typ = sc.get("type", "place"); L = max(.5, sc["_end"] - a)
-        fr = scene_bg(sc, t, a)
-        if CLEAR and sc.get("build", {}).get("type") != "desk": clouds(fr, t); BL.birds(fr, t)
+        aer = bool(sc.get("aerial"))
+        fr = CT.render(sc, t, a, at, W, H) if aer else scene_bg(sc, t, a)
+        if CLEAR and not aer and sc.get("build", {}).get("type") != "desk": clouds(fr, t); BL.birds(fr, t)
         if sc.get("letters"):
             d = ImageDraw.Draw(fr); r = random.Random(3)
             for k in range(14):
