@@ -58,6 +58,10 @@ def setup_logging(cfg: Config) -> None:
     crash = open(cfg.data_dir / "plantage.log", "a", encoding="utf-8")  # noqa: SIM115 — reste ouvert pour faulthandler
     faulthandler.enable(file=crash)
     log = logging.getLogger("studio")
+    if sys.stdout is None or sys.stderr is None:  # lancé par pythonw.exe (sans console)
+        out = open(cfg.data_dir / "serveur.log", "a", encoding="utf-8", buffering=1)  # noqa: SIM115
+        sys.stdout = sys.stdout or out
+        sys.stderr = sys.stderr or out
     sys.excepthook = lambda t, v, tb: log.critical("Erreur fatale", exc_info=(t, v, tb))
     threading.excepthook = lambda a: log.critical("Erreur dans %s", a.thread.name if a.thread else "?",
                                                   exc_info=(a.exc_type, a.exc_value, a.exc_traceback))

@@ -60,5 +60,15 @@ jobs:
           .venv\Scripts\python.exe -c "import piper; print('piper OK')"
       - name: Tests
         run: .venv\Scripts\python.exe -m pytest -q tests
+      - name: Lanceur (le moteur doit survivre a la fermeture du lanceur)
+        shell: pwsh
+        run: |
+          $env:STUDIO_SANS_NAVIGATEUR = "1"; $env:STUDIO_PASSWORD = "mot-de-passe-ci-123"
+          powershell -NoProfile -ExecutionPolicy Bypass -File scripts\lancer_windows.ps1
+          Start-Sleep 8
+          $r = Invoke-WebRequest http://127.0.0.1:8765/api/health -UseBasicParsing
+          Write-Host $r.Content
+          if ($r.StatusCode -ne 200) { exit 1 }
+          Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -like "*-m serveur*" } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }
       - name: Production en ligne de commande
         run: .venv\Scripts\python.exe -m serveur produire "Léa et Hugo se disputent au restaurant, 15 secondes" --qualite brouillon --donnees "$env:RUNNER_TEMP\d" --sortie "$env:RUNNER_TEMP\out\video.mp4"
