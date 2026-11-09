@@ -258,6 +258,7 @@ async function viewStudio() {
       </div>
     </div>
     <div class="stack">
+      ${phoneCardHtml()}
       <div class="card understood" id="interp"><h3>Ce que le moteur a compris</h3><p class="muted small">Commencez à écrire : l'interprétation s'affiche ici avant de lancer quoi que ce soit.</p></div>
       <div id="studio-jobs" class="stack"></div>
     </div>
@@ -360,8 +361,26 @@ async function viewStudio() {
       viewStudio();
     } catch (err) { toast(err.message, 'err'); }
   });
+  loadQr();
   if ((draft.text || '').trim()) interpret();
   renderJobs($('#studio-jobs'), S.jobs.slice(-2).reverse(), false);
+}
+
+// ------------------------------------------------------------------ accès téléphone (QR code)
+function phoneCardHtml() {
+  const u = S.sys && S.sys.phone_url;
+  if (!u || location.hostname.endsWith('.ts.net')) return '';
+  return `<div class="card stack phone"><h3>Sur votre téléphone</h3>
+    <div class="row" style="align-items:flex-start;flex-wrap:nowrap"><img id="qr" alt="QR code" width="128" height="128">
+    <div class="small stack" style="gap:6px"><span>1. Installez l'app <b>Tailscale</b> sur le téléphone et connectez-vous avec le même compte.</span>
+    <span>2. Scannez ce code avec l'appareil photo.</span><span class="mono" style="overflow-wrap:anywhere">${esc(u)}</span></div></div></div>`;
+}
+async function loadQr() {
+  const img = $('#qr'); if (!img || !S.sys?.phone_url) return;
+  try {
+    const r = await fetch(S.api + '/api/qr?u=' + encodeURIComponent(S.sys.phone_url), { headers: { Authorization: 'Bearer ' + S.token } });
+    if (r.ok) img.src = URL.createObjectURL(await r.blob());
+  } catch { /* QR facultatif */ }
 }
 
 function interpHtml(r) {
@@ -649,9 +668,11 @@ async function viewSettings() {
     <div class="card stack"><h2>Origines autorisées</h2>
       <p class="small muted">Sites autorisés à appeler votre moteur (ex. votre page GitHub Pages). Une par ligne, en https.</p>
       <textarea id="s-origins" rows="3" class="mono">${esc(origins.join('\n'))}</textarea></div>
+    ${phoneCardHtml() || `<div class="card stack"><h2>Sur votre téléphone</h2><p class="small muted">${location.hostname.endsWith('.ts.net') ? 'Vous utilisez déjà l\'accès téléphone.' : 'Tailscale n\'est pas connecté sur ce PC : relancez l\'installateur (étape 7) pour obtenir l\'adresse du téléphone.'}</p></div>`}
     <div class="card stack"><h2>Accès à distance</h2><p class="small muted">Pour utiliser le studio depuis votre téléphone hors de chez vous : Tailscale (recommandé, gratuit, privé) ou Cloudflare Tunnel.
       Voir <span class="mono">studio/docs/ACCES_DISTANT.md</span>. Ordinateur éteint : mode « cloud » via GitHub Actions (voir la documentation).</p></div>
   </div></div>`;
+  loadQr();
   $('#s-llm-test').addEventListener('click', async () => {
     const r = await api(`/api/llm/models?provider=${encodeURIComponent($('#s-llm').value)}&url=${encodeURIComponent($('#s-llm-url').value)}`);
     $('#llm-res').innerHTML = r.ok ? (r.models.length ? 'Installés : ' + r.models.map((m) => `<button class="chip" data-m="${esc(m)}">${esc(m)}</button>`).join(' ') : esc(r.note || 'Aucun modèle installé (ex. : ollama pull qwen2.5:7b-instruct).')) : `<span class="error">${esc(r.error)}</span>`;

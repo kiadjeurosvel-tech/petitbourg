@@ -401,7 +401,7 @@ class Studio:
         self.db.update("stories", st["id"], memory=mem)
         d = self.story_dir(st["id"])
         d.mkdir(parents=True, exist_ok=True)
-        (d / "memoire.json").write_text(json.dumps(mem, ensure_ascii=False, indent=1))
+        (d / "memoire.json").write_text(json.dumps(mem, ensure_ascii=False, indent=1), encoding="utf-8")
 
     # ------------------------------------------------------------------ exports
     def _export(self, job, rep: JobReporter):

@@ -1,0 +1,27 @@
+MON STUDIO — INSTALLATION SUR WINDOWS (une seule fois)
+======================================================
+
+1. Faites un clic droit sur le fichier ZIP téléchargé → « Extraire tout… » → « Extraire ».
+   (Ne lancez rien depuis l'intérieur du ZIP.)
+
+2. Dans le dossier extrait, ouvrez le dossier « studio » et double-cliquez sur :
+      INSTALLER_WINDOWS.bat
+
+   - Si Windows affiche « Windows a protégé votre ordinateur » :
+     cliquez « Informations complémentaires » puis « Exécuter quand même ».
+   - Quand Windows demande « Voulez-vous autoriser… » : cliquez « Oui ».
+   - Choisissez un mot de passe quand on vous le demande (notez-le).
+   - Une page Tailscale s'ouvre : connectez-vous (Google, Microsoft ou Apple).
+     Si une 2e page demande d'activer HTTPS : cliquez « Enable ».
+
+3. C'est fini. L'icône « Mon Studio » est sur le Bureau.
+   Le studio démarre aussi tout seul quand l'ordinateur s'allume.
+
+SUR LE TÉLÉPHONE
+   - Installez l'application « Tailscale » (App Store / Play Store),
+     connectez-vous avec le MÊME compte.
+   - Sur le PC, dans le studio, un QR code s'affiche : scannez-le avec le téléphone.
+   - Sur le téléphone : menu du navigateur → « Ajouter à l'écran d'accueil ».
+
+ARRÊTER LE STUDIO : clic droit sur scripts\arreter_windows.ps1 → « Exécuter avec PowerShell ».
+PROBLÈME ? Envoyez le contenu de studio\donnees\serveur_erreurs.log

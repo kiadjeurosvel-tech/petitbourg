@@ -32,3 +32,33 @@ jobs:
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng blender xvfb libgl1-mesa-dri libegl1
       - run: pip install -q fastapi uvicorn numpy pillow pytest httpx
       - run: STUDIO_TEST_BLENDER=1 STUDIO_TEST_TTS=espeak-ng python -m pytest -q tests/test_api.py -k production
+  windows:
+    # Vérifie le studio sur un vrai Windows : syntaxe des scripts PowerShell, installation, tests (rendu 2D).
+    runs-on: windows-latest
+    timeout-minutes: 30
+    defaults: { run: { working-directory: studio } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Syntaxe des scripts PowerShell
+        shell: pwsh
+        run: |
+          $bad = 0
+          Get-ChildItem scripts\*.ps1 | ForEach-Object {
+            $e = $null; [void][System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$null, [ref]$e)
+            if ($e) { $e | ForEach-Object { Write-Host "$($_.Extent.File):$($_.Extent.StartLineNumber) $($_.Message)" }; $bad++ } else { Write-Host "OK $($_.Name)" }
+          }
+          exit $bad
+      - name: FFmpeg
+        run: choco install ffmpeg -y --no-progress
+      - name: Installation (comme l'installateur)
+        run: |
+          python -m venv .venv
+          .venv\Scripts\python.exe -m pip install -q fastapi uvicorn numpy pillow qrcode pytest httpx
+          .venv\Scripts\python.exe -m pip install -q piper-tts
+          .venv\Scripts\python.exe -c "import piper; print('piper OK')"
+      - name: Tests
+        run: .venv\Scripts\python.exe -m pytest -q tests
+      - name: Production en ligne de commande
+        run: .venv\Scripts\python.exe -m serveur produire "Léa et Hugo se disputent au restaurant, 15 secondes" --qualite brouillon --donnees "$env:RUNNER_TEMP\d" --sortie "$env:RUNNER_TEMP\out\video.mp4"

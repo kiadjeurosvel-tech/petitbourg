@@ -5,3 +5,4 @@ numpy>=1.24
 pillow>=10
 # Voix neuronales hors ligne (facultatif mais recommandé)
 piper-tts>=1.2 ; platform_machine != "armv7l"
+qrcode>=7

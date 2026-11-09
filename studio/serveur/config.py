@@ -37,7 +37,7 @@ class Config:
             (self.data_dir / sub).mkdir(exist_ok=True)
         self.path = self.data_dir / "config.json"
         self._lock = threading.Lock()
-        self.data = json.loads(self.path.read_text()) if self.path.exists() else {}
+        self.data = json.loads(self.path.read_text(encoding="utf-8")) if self.path.exists() else {}
         changed = False
         if not self.data.get("secret"):
             self.data["secret"] = secrets.token_hex(32)
@@ -65,7 +65,7 @@ class Config:
 
     def save(self):
         tmp = self.path.with_suffix(".tmp")
-        tmp.write_text(json.dumps(self.data, indent=1, ensure_ascii=False))
+        tmp.write_text(json.dumps(self.data, indent=1, ensure_ascii=False), encoding="utf-8")
         try:
             os.chmod(tmp, 0o600)
         except OSError:

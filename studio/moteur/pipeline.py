@@ -99,7 +99,7 @@ def plan(spec: dict, settings: dict, data_dir: Path, eng: dict | None = None) ->
 
 def produce(spec: dict, version_dir: Path, story_dir: Path, settings: dict, data_dir: Path, rep: Reporter) -> dict:
     version_dir.mkdir(parents=True, exist_ok=True)
-    (version_dir / "spec.json").write_text(json.dumps(spec, ensure_ascii=False, indent=1))
+    (version_dir / "spec.json").write_text(json.dumps(spec, ensure_ascii=False, indent=1), encoding="utf-8")
     eng = engines(settings, data_dir)
     rep.log(f"Moteur de rendu : {eng['renderer']}" + (f" ({eng['blender_version']})" if eng["blender_version"] else "") + f" · voix : {eng['tts']}")
     q = QUALITIES[spec["quality"]]
@@ -138,7 +138,7 @@ def produce(spec: dict, version_dir: Path, story_dir: Path, settings: dict, data
     n = len(pl["scenes"])
     rep.stage("scenes", "done", n, n, "scènes",
               f"{sum(not s['visual_cached'] for s in pl['scenes'])} à produire, {sum(s['visual_cached'] for s in pl['scenes'])} réutilisée(s)")
-    (version_dir / "plan.json").write_text(json.dumps(pl, indent=1))
+    (version_dir / "plan.json").write_text(json.dumps(pl, indent=1), encoding="utf-8")
 
     # ------------------------------------------------------------ audio
     need_audio = [(sc, s) for sc, s in zip(spec["scenes"], pl["scenes"]) if not s["audio_cached"]]
@@ -155,7 +155,7 @@ def produce(spec: dict, version_dir: Path, story_dir: Path, settings: dict, data
         tmp.rename(d)
         rep.stage("audio", "running", i + 1, len(need_audio), "scènes")
     for s in pl["scenes"]:
-        timings[s["id"]] = json.loads((cache / "audio" / s["audio_key"] / "timing.json").read_text()) \
+        timings[s["id"]] = json.loads((cache / "audio" / s["audio_key"] / "timing.json").read_text(encoding="utf-8")) \
             if (cache / "audio" / s["audio_key"] / "timing.json").exists() else None
     rep.stage("audio", "done", len(need_audio), len(need_audio), "scènes")
 
@@ -165,7 +165,7 @@ def produce(spec: dict, version_dir: Path, story_dir: Path, settings: dict, data
         if timings[s["id"]] is None:  # audio absent du cache alors que l'image l'est plus → recalcul
             d = cache / "audio" / s["audio_key"]
             audio.build_scene_audio(sc, chars, eng["tts"], eng["voice_dir"], d)
-            timings[s["id"]] = json.loads((d / "timing.json").read_text())
+            timings[s["id"]] = json.loads((d / "timing.json").read_text(encoding="utf-8"))
     total_frames = sum(int(round(timings[s["id"]]["duration"] * q["fps"])) for _, s in need_vis)
     done_before = 0
     t0 = time.time()
@@ -194,7 +194,7 @@ def produce(spec: dict, version_dir: Path, story_dir: Path, settings: dict, data
             raise Cancelled() from ex
         render.encode_clip(work / "frames", cache / "audio" / s["audio_key"] / "audio.wav", q["fps"], ri["frames"] / q["fps"], work / "clip.mp4")
         shutil.rmtree(work / "frames", ignore_errors=True)
-        (work / "meta.json").write_text(json.dumps({"scene": sc["n"], "engine": used_engine, "frames": ri["frames"]}))
+        (work / "meta.json").write_text(json.dumps({"scene": sc["n"], "engine": used_engine, "frames": ri["frames"]}), encoding="utf-8")
         shutil.rmtree(d, ignore_errors=True)
         d.parent.mkdir(parents=True, exist_ok=True)
         work.rename(d)
@@ -208,7 +208,7 @@ def produce(spec: dict, version_dir: Path, story_dir: Path, settings: dict, data
     total = sum(durs)
     cues, t = [], 0.0
     for s, dd in zip(pl["scenes"], durs):
-        tm = timings[s["id"]] or json.loads((cache / "audio" / s["audio_key"] / "timing.json").read_text())
+        tm = timings[s["id"]] or json.loads((cache / "audio" / s["audio_key"] / "timing.json").read_text(encoding="utf-8"))
         for ln in tm["lines"]:
             cues.append({"who": ln["who"], "text": ln["text"], "start": t + ln["start"], "end": t + ln["end"]})
         t += dd
@@ -225,7 +225,7 @@ def produce(spec: dict, version_dir: Path, story_dir: Path, settings: dict, data
     _check(rep)
     rep.stage("controle", "running", 0, 1, "contrôle")
     qc = montage.quality_control(master, {"width": w, "height": h, "duration": total}, eng["tts"] != "silence")
-    (version_dir / "qc.json").write_text(json.dumps(qc, ensure_ascii=False, indent=1))
+    (version_dir / "qc.json").write_text(json.dumps(qc, ensure_ascii=False, indent=1), encoding="utf-8")
     warn = [c for c in qc["checks"] if not c["ok"]]
     rep.stage("controle", "done" if qc["ok"] else "error", 1, 1, "contrôle",
               "tous les contrôles sont passés" if not warn else "; ".join(f"{c['name']} : {c['detail']}" for c in warn))

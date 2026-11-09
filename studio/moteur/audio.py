@@ -174,7 +174,7 @@ def build_scene_audio(scene: dict, chars_by_id: dict, engine: str, voice_dir: Pa
         wf.writeframes(pcm.tobytes())
     shutil.rmtree(out_dir / "tmp", ignore_errors=True)
     timing = {"duration": round(len(buf) / SR, 3), "lines": lines, "engine": engine}
-    (out_dir / "timing.json").write_text(json.dumps(timing))
+    (out_dir / "timing.json").write_text(json.dumps(timing), encoding="utf-8")
     return timing
 
 

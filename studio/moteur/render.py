@@ -41,7 +41,7 @@ def blender_version(path: str | None) -> str | None:
     if path in _BLENDER_CACHE:
         return _BLENDER_CACHE[path]
     try:
-        out = subprocess.run([path, "--version"], capture_output=True, text=True, timeout=60).stdout
+        out = subprocess.run([path, "--version"], capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=60).stdout
         v = out.splitlines()[0].strip() if out else None
     except Exception:  # noqa: BLE001
         v = None
@@ -102,7 +102,7 @@ def _run_blender(blender: str, ri_path: str, ri: dict, progress, cancel, log) ->
         logf.close()
     progress(_count(ri["out_dir"]))
     if proc.returncode != 0 or _count(ri["out_dir"]) < ri["frames"]:
-        tail = (Path(ri["out_dir"]).parent / "blender.log").read_text(errors="replace")[-1500:]
+        tail = (Path(ri["out_dir"]).parent / "blender.log").read_text(encoding="utf-8", errors="replace")[-1500:]
         raise RuntimeError(f"Blender a échoué (code {proc.returncode}). Fin du journal :\n{tail}")
 
 
@@ -116,7 +116,7 @@ def render_frames(ri: dict, work: Path, kind: str, blender: str | None, progress
         render_2d.render(ri, progress=progress, cancel=cancel)
         return "2d"
     ri_path = work / "render_input.json"
-    ri_path.write_text(json.dumps(ri))
+    ri_path.write_text(json.dumps(ri), encoding="utf-8")
     try:
         _run_blender(blender, str(ri_path), ri, progress, cancel, log)
         return f"blender/{ri['engine']}"
@@ -128,7 +128,7 @@ def render_frames(ri: dict, work: Path, kind: str, blender: str | None, progress
             shutil.rmtree(frames, ignore_errors=True)
             frames.mkdir()
             ri["engine"] = "workbench"
-            ri_path.write_text(json.dumps(ri))
+            ri_path.write_text(json.dumps(ri), encoding="utf-8")
             _run_blender(blender, str(ri_path), ri, progress, cancel, log)
             return "blender/workbench"
         raise

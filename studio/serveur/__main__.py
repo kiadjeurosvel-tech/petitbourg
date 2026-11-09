@@ -32,7 +32,7 @@ def ensure_password(cfg: Config) -> None:
     if not pw:
         pw = "-".join(secrets.token_urlsafe(4) for _ in range(3))
         f = cfg.data_dir / "MOT_DE_PASSE_INITIAL.txt"
-        f.write_text(pw + "\n")
+        f.write_text(pw + "\n", encoding="utf-8")
         try:
             os.chmod(f, 0o600)
         except OSError:
@@ -42,10 +42,19 @@ def ensure_password(cfg: Config) -> None:
     cfg.save()
 
 
-def cmd_password(cfg: Config):
-    pw = getpass.getpass("Nouveau mot de passe (10 caractères min.) : ")
-    if len(pw) < 10 or pw != getpass.getpass("Confirmez : "):
-        sys.exit("Mot de passe trop court ou différent.")
+def cmd_password(cfg: Config, from_stdin=False):
+    if from_stdin:  # utilisé par l'installateur Windows (le mot de passe n'apparaît pas dans la ligne de commande)
+        raw = sys.stdin.buffer.readline()
+        try:
+            pw = raw.decode("utf-8").strip().lstrip("\ufeff")
+        except UnicodeDecodeError:
+            pw = raw.decode("cp1252", errors="replace").strip()
+        if len(pw) < 10:
+            sys.exit("Mot de passe trop court (10 caractères minimum).")
+    else:
+        pw = getpass.getpass("Nouveau mot de passe (10 caractères min.) : ")
+        if len(pw) < 10 or pw != getpass.getpass("Confirmez : "):
+            sys.exit("Mot de passe trop court ou différent.")
     cfg.data["password_hash"] = auth.hash_password(pw)
     cfg.data["token_gen"] = cfg.data.get("token_gen", 0) + 1
     cfg.save()
@@ -114,10 +123,11 @@ def main():
     ap.add_argument("--qualite", default=None)
     ap.add_argument("--style", default=None)
     ap.add_argument("--sortie", default=None)
+    ap.add_argument("--stdin", action="store_true", help="mot-de-passe : lu sur l'entrée standard")
     a = ap.parse_args()
     cfg = Config(Path(a.donnees) if a.donnees else None)
     if a.action == "mot-de-passe":
-        return cmd_password(cfg)
+        return cmd_password(cfg, a.stdin)
     if a.action == "diagnostic":
         return cmd_diag(cfg)
     if a.action == "produire":

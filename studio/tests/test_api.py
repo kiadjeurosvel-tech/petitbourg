@@ -131,3 +131,33 @@ def test_annulation(client):
     j, _ = wait(client, jid)
     assert j["status"] == "cancelled"
     assert client.post(f"/api/jobs/{jid}/retry").status_code == 200
+
+
+@pytest.mark.skipif(os.name == "nt", reason="faux binaire shell")
+def test_qr_et_adresse_telephone(client, tmp_path, monkeypatch):
+    # faux binaire « tailscale » connecté
+    fake = tmp_path / "tailscale"
+    fake.write_text('#!/bin/sh\necho \'{"BackendState":"Running","Self":{"DNSName":"mon-pc.tail1234.ts.net."}}\'\n')
+    fake.chmod(0o755)
+    monkeypatch.setenv("PATH", f"{tmp_path}{os.pathsep}{os.environ['PATH']}")
+    sysinfo = client.get("/api/system").json()
+    if sysinfo["phone_url"] is None:  # cache de 60 s rempli par un test précédent
+        pytest.skip("cache de détection Tailscale déjà rempli")
+    assert sysinfo["phone_url"] == "https://mon-pc.tail1234.ts.net"
+    r = client.get("/api/qr", params={"u": sysinfo["phone_url"]})
+    assert r.status_code == 200 and b"<svg" in r.content
+    assert client.get("/api/qr", params={"u": "javascript:alert(1)"}).status_code == 400
+
+
+def test_mot_de_passe_par_entree_standard(tmp_path):
+    import sys
+    env = dict(os.environ, PYTHONPATH=os.path.dirname(os.path.dirname(__file__)))
+    r = subprocess.run([sys.executable, "-m", "serveur", "mot-de-passe", "--stdin", "--donnees", str(tmp_path)],
+                       input="un-mot-de-passe-solide\n", text=True, capture_output=True, env=env,
+                       cwd=os.path.dirname(os.path.dirname(__file__)))
+    assert r.returncode == 0, r.stderr
+    cfg = Config(tmp_path)
+    assert auth.check_password("un-mot-de-passe-solide", cfg.data["password_hash"])
+    r = subprocess.run([sys.executable, "-m", "serveur", "mot-de-passe", "--stdin", "--donnees", str(tmp_path)],
+                       input="court\n", text=True, capture_output=True, env=env, cwd=os.path.dirname(os.path.dirname(__file__)))
+    assert r.returncode != 0

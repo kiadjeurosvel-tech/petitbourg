@@ -6,4 +6,4 @@ if (-not (Test-Path .venv)) { py -3 -m venv .venv }
 if (Get-Command ffmpeg -ErrorAction SilentlyContinue) { "OK FFmpeg" } else { "FFmpeg ABSENT : winget install Gyan.FFmpeg" }
 if (Test-Path "C:\Program Files\Blender Foundation") { "OK Blender" } else { "Blender absent : winget install BlenderFoundation.Blender" }
 "Voix : .\.venv\Scripts\python.exe scripts\telecharger_voix.py"
-"Démarrer : scripts\demarrer.bat"
+"Demarrer : scripts\demarrer.bat"

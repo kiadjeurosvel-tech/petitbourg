@@ -12,7 +12,7 @@ import sys
 import bpy
 
 ARGS = sys.argv[sys.argv.index("--") + 1:]
-RI = json.load(open(ARGS[0]))
+RI = json.load(open(ARGS[0], encoding="utf-8"))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import perf  # noqa: E402
 

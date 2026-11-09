@@ -11,7 +11,7 @@ from .spec import FORMATS
 
 def ffprobe(path: Path) -> dict:
     out = subprocess.run(["ffprobe", "-v", "error", "-show_streams", "-show_format", "-of", "json", str(path)],
-                         capture_output=True, text=True, check=True).stdout
+                         capture_output=True, text=True, encoding="utf-8", errors="replace", check=True).stdout
     return json.loads(out)
 
 
@@ -22,7 +22,7 @@ def duration_of(path: Path) -> float:
 def run_ffmpeg(args: list[str], total: float, progress=None, cancel=None, cwd=None) -> None:
     """Lance ffmpeg et remonte la progression réelle (temps encodé / durée totale)."""
     cmd = ["ffmpeg", "-y", "-v", "error", "-progress", "pipe:1", "-nostats"] + args
-    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, cwd=cwd)
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding="utf-8", errors="replace", cwd=cwd)
     for line in p.stdout:
         if cancel and cancel():
             p.kill()
@@ -74,7 +74,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 def montage(clips: list[Path], out: Path, w: int, h: int, subs_ass: Path | None, music: Path | None, total: float,
             progress=None, cancel=None) -> None:
     lst = out.parent / "concat.txt"
-    lst.write_text("".join(f"file '{c.resolve().as_posix()}'\n" for c in clips))
+    lst.write_text("".join(f"file '{c.resolve().as_posix()}'\n" for c in clips), encoding="utf-8")
     vf = f"scale={w}:{h}:flags=lanczos,setsar=1"
     if subs_ass:
         vf += f",ass={subs_ass.name}"
@@ -111,12 +111,12 @@ def quality_control(path: Path, expected: dict, voices_expected: bool) -> dict:
     add("Durée", abs(dur - expected["duration"]) < .6, f"{dur:.2f} s (attendu {expected['duration']:.2f} s)")
     # passages noirs
     res = subprocess.run(["ffmpeg", "-v", "info", "-i", str(path), "-vf", "blackdetect=d=1.0:pix_th=0.06", "-an", "-f", "null", "-"],
-                         capture_output=True, text=True)
+                         capture_output=True, text=True, encoding="utf-8", errors="replace")
     blacks = re.findall(r"black_start:([\d.]+) black_end:([\d.]+)", res.stderr)
     add("Écrans noirs", not blacks, "aucun" if not blacks else f"{len(blacks)} passage(s) noir(s) > 1 s", "avertissement")
     # niveau audio
     res = subprocess.run(["ffmpeg", "-v", "info", "-i", str(path), "-af", "volumedetect", "-vn", "-f", "null", "-"],
-                         capture_output=True, text=True)
+                         capture_output=True, text=True, encoding="utf-8", errors="replace")
     m = re.search(r"max_volume: (-?[\d.]+) dB", res.stderr)
     mx = float(m.group(1)) if m else -91.0
     if voices_expected:

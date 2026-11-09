@@ -12,7 +12,7 @@ from urllib.parse import quote
 
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from fastapi.responses import FileResponse, JSONResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
 from moteur import audio, llm, render
@@ -109,6 +109,38 @@ def create_app(cfg: Config | None = None, start_worker: bool = True) -> FastAPI:
         kw = {"filename": p.name} if download else {}
         return FileResponse(p, headers={"Cache-Control": "private, max-age=3600"}, **kw)
 
+    # ------------------------------------------------------------------ accès téléphone (Tailscale)
+    _phone = {"t": 0, "url": None}
+
+    def phone_url():
+        if time.time() - _phone["t"] < 60:
+            return _phone["url"]
+        url = None
+        exe = shutil.which("tailscale") or next((p for p in (r"C:\Program Files\Tailscale\tailscale.exe",
+                                                             "/Applications/Tailscale.app/Contents/MacOS/Tailscale") if os.path.exists(p)), None)
+        if exe:
+            try:
+                import subprocess
+                out = subprocess.run([exe, "status", "--json"], capture_output=True, text=True, timeout=5).stdout
+                st = json.loads(out)
+                dns = (st.get("Self") or {}).get("DNSName", "").rstrip(".")
+                if dns and st.get("BackendState") == "Running":
+                    url = f"https://{dns}"
+            except Exception:  # noqa: BLE001
+                url = None
+        _phone.update(t=time.time(), url=url)
+        return url
+
+    @app.get("/api/qr", dependencies=[Depends(require)])
+    def qr(u: str):
+        import qrcode
+        import qrcode.image.svg
+        if not u.startswith(("https://", "http://")) or len(u) > 300:
+            raise UserError("Adresse invalide.")
+        buf = io.BytesIO()
+        qrcode.make(u, image_factory=qrcode.image.svg.SvgPathFillImage, box_size=10, border=2).save(buf)
+        return Response(buf.getvalue(), media_type="image/svg+xml")
+
     # ------------------------------------------------------------------ système
     @app.get("/api/system", dependencies=[Depends(require)])
     def system():
@@ -125,7 +157,7 @@ def create_app(cfg: Config | None = None, start_worker: bool = True) -> FastAPI:
             "virtual_display": render.needs_virtual_display(), "xvfb": bool(shutil.which("xvfb-run")),
             "ffmpeg": bool(shutil.which("ffmpeg")), "tts": st, "tts_selected": audio.pick_engine(s.get("tts_engine", "auto"), cfg.data_dir / "voix"),
             "llm": {"provider": s["llm_provider"], "model": s["llm_model"], "suggested": llm.SUGGESTED_MODELS},
-            "disk_free_gb": round(usage.free / 1e9, 1), "data_dir": str(cfg.data_dir),
+            "disk_free_gb": round(usage.free / 1e9, 1), "data_dir": str(cfg.data_dir), "phone_url": phone_url(),
             "queue": studio.db.one("SELECT COUNT(*) n FROM jobs WHERE status='queued'")["n"], "current_job": studio.current_job,
             "options": {"formats": list(FORMATS), "qualities": list(QUALITIES), "styles": STYLES, "sets": SETS, "commands": COMMANDS},
         }
@@ -329,7 +361,7 @@ def create_app(cfg: Config | None = None, start_worker: bool = True) -> FastAPI:
         if "memory" in vals:
             d = studio.story_dir(sid)
             d.mkdir(parents=True, exist_ok=True)
-            (d / "memoire.json").write_text(json.dumps(vals["memory"], ensure_ascii=False, indent=1))
+            (d / "memoire.json").write_text(json.dumps(vals["memory"], ensure_ascii=False, indent=1), encoding="utf-8")
         return story(sid)
 
     @app.get("/api/characters", dependencies=[Depends(require)])
