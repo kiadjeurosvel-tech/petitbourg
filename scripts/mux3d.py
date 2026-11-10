@@ -4,7 +4,7 @@ w, fr, out = sys.argv[1:4]; ov = json.load(open(w + "/overlays.json")); dur = js
 cmd = ["ffmpeg", "-loglevel", "error", "-y", "-framerate", "15", "-i", fr + "/f_%04d.png"]
 for o in ov: cmd += ["-i", w + "/" + o["png"]]
 cmd += ["-i", w + "/voice.mp3"]
-f = ["[0:v]scale=1080:1920:flags=lanczos,fps=30,eq=saturation=1.5:contrast=1.1:brightness=0.02:gamma=0.95[b0]"]
+f = ["[0:v]scale=1080:1920:flags=lanczos,fps=30,eq=saturation=1.6:contrast=1.15:brightness=-0.03:gamma=1.05[b0]"]
 for i, o in enumerate(ov):
     f.append(f"[b{i}][{i+1}:v]overlay={o['x']}:{o['y']}:enable='between(t,{o['t0']:.2f},{o['t1']:.2f})'[b{i+1}]")
 f.append(f"[b{len(ov)}]ass={w}/subs.ass:fontsdir=assets,format=yuv420p[v]")
