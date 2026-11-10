@@ -1,0 +1,68 @@
+{
+ "out_name": "petitbourg_special_groupe",
+ "day": 5,
+ "date": "2026-11-10",
+ "rev": 1,
+ "highlight": [
+  "groupe",
+  "discussion",
+  "vidéos",
+  "commentaire",
+  "bio",
+  "Theoxtar",
+  "merci"
+ ],
+ "scenes": [
+  {
+   "lines": [
+    "Habitants de Petitbourg, grande nouvelle : le village a maintenant son groupe de discussion !",
+    "Vous y retrouvez les nouvelles vidéos, vous discutez entre voisins et vous partagez vos idées.",
+    "Pour qu'une demande soit construite, elle reste en commentaire sous la vidéo. Le lien est en bio. Merci à Theoxtar, qui s'occupe du groupe !"
+   ],
+   "shots": [
+    {
+     "lot": "mairie",
+     "d0": 46,
+     "d1": 30,
+     "a0": -25,
+     "a1": -5,
+     "e0": 12,
+     "e1": 6,
+     "cz": 2,
+     "dy": -14,
+     "mayor": "mairie",
+     "w": 1
+    },
+    {
+     "who": "mayor",
+     "d0": 9,
+     "d1": 5,
+     "a0": -15,
+     "a1": 10,
+     "e0": 8,
+     "e1": 4,
+     "cz": 1.7,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "NOUVEAU : LE GROUPE",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "LIEN EN BIO 👆",
+     "color": "orange",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  }
+ ],
+ "description": "Petitbourg a son groupe de discussion ! Lien en bio. Les demandes restent en commentaire. #petitbourg #village #groupe #pourtoi",
+ "pinned_comment": "Rejoins le groupe du village (lien en bio) et écris ta demande ici 👇"
+}
