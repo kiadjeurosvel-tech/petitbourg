@@ -1,0 +1,392 @@
+{
+ "out_name": "petitbourg_jour5_partie2",
+ "day": 5,
+ "date": "2026-11-10",
+ "rev": 1,
+ "highlight": [
+  "jour",
+  "caserne",
+  "hôpital",
+  "parc",
+  "bijouterie",
+  "architecte",
+  "gare",
+  "basilique",
+  "bunker",
+  "tacos",
+  "chats",
+  "merci",
+  "file"
+ ],
+ "scenes": [
+  {
+   "lines": [
+    "Partie deux : les nouvelles demandes de la ville !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      640,
+      0
+     ],
+     "d0": 300,
+     "d1": 190,
+     "a0": -18,
+     "a1": 16,
+     "e0": 36,
+     "e1": 28
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "NOUVELLES DEMANDES",
+     "color": "orange",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Une gare pour Bourgogne Spotteur, avec un train rouge."
+   ],
+   "new": [
+    "gare"
+   ],
+   "show": [
+    "o_gare"
+   ],
+   "shots": [
+    {
+     "lot": "gare",
+     "d0": 100,
+     "d1": 62,
+     "a0": -24,
+     "a1": -8,
+     "e0": 10,
+     "e1": 4,
+     "cz": 4,
+     "dy": -6,
+     "dx": 2,
+     "mayor": "gare"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "GARE",
+     "color": "blue",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Une basilique pour Noah, avec sa grande coupole."
+   ],
+   "new": [
+    "basilique"
+   ],
+   "show": [
+    "o_basilique"
+   ],
+   "shots": [
+    {
+     "lot": "basilique",
+     "d0": 85,
+     "d1": 52,
+     "a0": -24,
+     "a1": -8,
+     "e0": 10,
+     "e1": 4,
+     "cz": 7,
+     "dy": -6,
+     "dx": 2,
+     "mayor": "basilique"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "BASILIQUE",
+     "color": "orange",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Un bunker pour Arnaud et sa mafia."
+   ],
+   "new": [
+    "bunker"
+   ],
+   "show": [
+    "o_bunker"
+   ],
+   "shots": [
+    {
+     "lot": "bunker",
+     "d0": 60,
+     "d1": 32,
+     "a0": -24,
+     "a1": -8,
+     "e0": 10,
+     "e1": 4,
+     "cz": 2.5,
+     "dy": -6,
+     "dx": 2,
+     "mayor": "bunker"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "BUNKER",
+     "color": "green",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Une maison tacos pour celui qui n'a pas oublié."
+   ],
+   "new": [
+    "tacos"
+   ],
+   "show": [
+    "o_tacos"
+   ],
+   "shots": [
+    {
+     "lot": "tacos",
+     "d0": 60,
+     "d1": 32,
+     "a0": -24,
+     "a1": -8,
+     "e0": 10,
+     "e1": 4,
+     "cz": 3.5,
+     "dy": -6,
+     "dx": 2,
+     "mayor": "tacos"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "MAISON TACOS",
+     "color": "orange",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Une maison pleine de chats pour Chloé."
+   ],
+   "new": [
+    "chats"
+   ],
+   "show": [
+    "o_chats"
+   ],
+   "shots": [
+    {
+     "lot": "chats",
+     "d0": 48,
+     "d1": 26,
+     "a0": -24,
+     "a1": -8,
+     "e0": 10,
+     "e1": 4,
+     "cz": 2.8,
+     "dy": -6,
+     "dx": 2,
+     "mayor": "chats"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "MAISON AUX CHATS",
+     "color": "blue",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Une villa jaune avec chat et piscine pour Lina."
+   ],
+   "new": [
+    "jaune"
+   ],
+   "show": [
+    "o_jaune"
+   ],
+   "shots": [
+    {
+     "lot": "jaune",
+     "d0": 70,
+     "d1": 40,
+     "a0": -24,
+     "a1": -8,
+     "e0": 10,
+     "e1": 4,
+     "cz": 3,
+     "dy": -6,
+     "dx": 2,
+     "mayor": "jaune"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "VILLA JAUNE + PISCINE",
+     "color": "gold",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Une infirmerie et une animalerie pour Youyou."
+   ],
+   "new": [
+    "infirm"
+   ],
+   "show": [
+    "o_infirm"
+   ],
+   "shots": [
+    {
+     "lot": "infirm",
+     "d0": 48,
+     "d1": 26,
+     "a0": -24,
+     "a1": -8,
+     "e0": 10,
+     "e1": 4,
+     "cz": 3,
+     "dy": -6,
+     "dx": 2,
+     "mayor": "infirm"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "INFIRMERIE + ANIMALERIE",
+     "color": "green",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Dans la file : un aéroport avec pilote, une ferme, un bar.",
+    "Écrivez votre idée en commentaire !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      480,
+      0
+     ],
+     "d0": 330,
+     "d1": 200,
+     "a0": 14,
+     "a1": -12,
+     "e0": 34,
+     "e1": 40
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "QUI VEUT QUOI ?",
+     "color": "orange",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  }
+ ],
+ "description": "Jour 5 (2/2) : gare, basilique, bunker, maison tacos, maison aux chats, villa jaune. #petitbourg #jour5 #village #3d #pourtoi",
+ "pinned_comment": "Ta demande est notée ! Écris-la ici, le maire s'en occupe 👇"
+}

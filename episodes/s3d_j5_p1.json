@@ -1,0 +1,269 @@
+{
+ "out_name": "petitbourg_jour5_partie1",
+ "day": 5,
+ "date": "2026-11-10",
+ "rev": 1,
+ "highlight": [
+  "jour",
+  "caserne",
+  "hôpital",
+  "parc",
+  "bijouterie",
+  "architecte",
+  "gare",
+  "basilique",
+  "bunker",
+  "tacos",
+  "chats",
+  "merci",
+  "file"
+ ],
+ "scenes": [
+  {
+   "lines": [
+    "Jour cinq ! Hier, la caserne a gagné le vote, grâce à Nathan.",
+    "Cindy ajoute dix mille euros pour la construire. Merci !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      240,
+      320,
+      0
+     ],
+     "d0": 240,
+     "d1": 120,
+     "a0": -20,
+     "a1": 10,
+     "e0": 36,
+     "e1": 24,
+     "w": 1
+    },
+    {
+     "lot": "caserne",
+     "d0": 40,
+     "d1": 28,
+     "a0": -22,
+     "a1": -6,
+     "e0": 10,
+     "e1": 5,
+     "cz": 2.5,
+     "dy": -14,
+     "mayor": [
+      236,
+      296
+     ],
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5 · 1/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "LA CASERNE GAGNE",
+     "color": "orange",
+     "y": 250,
+     "size": 56
+    },
+    {
+     "type": "card",
+     "user": "nathan.2402",
+     "text": "la caserne c le plus important pour le moment",
+     "likes": 2,
+     "y": 380
+    },
+    {
+     "type": "card",
+     "user": "cindydoudie",
+     "text": "je donne encore 10 000€",
+     "likes": 1,
+     "y": 560
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Voici la caserne de Petitbourg : trois grands garages, une tour d'entraînement et un camion rouge.",
+    "Cindy en est la cheffe."
+   ],
+   "new": [
+    "caserne_b"
+   ],
+   "gone": [
+    "caserne"
+   ],
+   "show": [
+    "o_caserne_b"
+   ],
+   "shots": [
+    {
+     "lot": "caserne_b",
+     "d0": 75,
+     "d1": 42,
+     "a0": -26,
+     "a1": -8,
+     "e0": 10,
+     "e1": 4,
+     "cz": 5,
+     "dy": -6,
+     "dx": 2,
+     "mayor": "caserne_b"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5 · 1/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "CASERNE · +10 000 €",
+     "color": "red",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "L'hôpital arrive juste après : I-Abdhi sera cheffe, et le parc de Lacsorbx suivra."
+   ],
+   "shots": [
+    {
+     "c0": [
+      20,
+      320,
+      0
+     ],
+     "d0": 300,
+     "d1": 220,
+     "a0": -16,
+     "a1": 16,
+     "e0": 34,
+     "e1": 28
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5 · 1/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "BIENTÔT : HÔPITAL · PARC",
+     "color": "green",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Elina donne cinq mille euros pour une bijouterie moderne et vitrée, dont elle sera la patronne."
+   ],
+   "new": [
+    "bijou"
+   ],
+   "show": [
+    "o_bijou"
+   ],
+   "shots": [
+    {
+     "lot": "bijou",
+     "d0": 60,
+     "d1": 34,
+     "a0": -24,
+     "a1": -8,
+     "e0": 10,
+     "e1": 4,
+     "cz": 3.5,
+     "dy": -6,
+     "dx": 2,
+     "mayor": "bijou"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5 · 1/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "BIJOUTERIE · +5 000 €",
+     "color": "gold",
+     "y": 250,
+     "size": 56
+    },
+    {
+     "type": "card",
+     "user": "elina.2286",
+     "text": "je donne 5000€ pour un magasin de bijoux, beau et moderne vitré",
+     "likes": 1,
+     "y": 380
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Fan Napoléon devient l'architecte de la ville : il dessine avec moi chaque bâtiment."
+   ],
+   "show": [
+    "archi"
+   ],
+   "shots": [
+    {
+     "lot": "mairie",
+     "d0": 48,
+     "d1": 30,
+     "a0": -14,
+     "a1": -4,
+     "e0": 8,
+     "e1": 4,
+     "cz": 3.5,
+     "dy": -6,
+     "mayor": "mairie"
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5 · 1/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "UN ARCHITECTE !",
+     "color": "blue",
+     "y": 250,
+     "size": 56
+    },
+    {
+     "type": "card",
+     "user": "fan_2napoleon",
+     "text": "je peux être l'architecte",
+     "likes": 1,
+     "y": 380
+    }
+   ]
+  }
+ ],
+ "description": "Jour 5 (1/2) : la caserne est construite, l'architecte arrive, la bijouterie d'Elina. #petitbourg #jour5 #village #3d #pourtoi",
+ "pinned_comment": "Ta demande est notée ! Écris-la ici, le maire s'en occupe 👇"
+}

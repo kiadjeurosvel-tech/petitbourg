@@ -52,6 +52,8 @@ LOTS = {
  "elina": (L.villa, 0, 2, dict(jac=True, wall=(.98, .98, .95), rf=(.2, .22, .3))),
  "keiton": (L.igloo, 1, 2, {}), "raph": (L.modern, 2, 2, {}), "hvk": (L.futur, 3, 2, {}),
  "hopital": (L.chantier, -2, 4, dict(label="HOPITAL ?")), "parc": (L.chantier, 2, 4, dict(label="PARC ?")), "caserne": (L.chantier, 3, 4, dict(label="CASERNE ?")),
+ "caserne_b": (L.caserne, 3, 4, {}), "bijou": (L.bijouterie, -3, 8, {}), "gare": (L.gare, -2, 8, {}), "basilique": (L.basilique, -1, 8, {}), "bunker": (L.bunker, 0, 8, {}),
+ "tacos": (L.tacos, 1, 8, {}), "chats": (L.chats, 2, 8, {}), "jaune": (L.villa, 3, 8, dict(wall=(1, .88, .3), rf=(.55, .35, .15))), "infirm": (L.infirm, 3, 6, {}),
  "boul": (L.bakery, -3, 6, {}), "mall": (L.mall, -2, 6, {}), "gaming": (L.gaming, -1, 6, {}), "vet": (L.vet, 0, 6, {}),
  "cine": (L.cinema, 1, 6, {}), "garage": (L.garage, 2, 6, {}),
 }
@@ -60,10 +62,10 @@ roots, pos = {}, {}
 for k, (fn, i, j, kw) in LOTS.items():
     r = fn(k, **kw); x, y = P(i, j); r.location = (x, y, 0); roots[k] = r; pos[k] = (x, y)
 for i in range(-3, 4):
-    for j in range(0, 7):
+    for j in range(0, 9):
         if (i, j) in used: continue
         r = L.filler(f"f{i}_{j}", i * 31 + j); r.location = P(i, j) + (0,)
-L.roads([CELL * i + CELL / 2 for i in range(-5, 4)], [CELL * j + CELL / 2 for j in range(-1, 8)], -300, 300, 0, 560)
+L.roads([CELL * i + CELL / 2 for i in range(-5, 4)], [CELL * j + CELL / 2 for j in range(-1, 10)], -300, 300, 0, 720)
 
 # --- characters
 def lotp(k, dx=2.6, dy=-7.5): x, y = pos[k]; return (x + dx, y + dy)
@@ -77,10 +79,11 @@ owners = {"omar": ("@mar_64kk", (.2, .5, .9)), "rose": ("@nd.k601", (.9, .4, .6)
           "raph": ("@raph_ikih", (.35, .35, .4)), "pikta": ("@pikta", (.95, .6, .2)), "hvk": ("@hvksilix", (.3, .9, .9)),
           "boul": ("@bhgd.974", (.9, .75, .5)), "mall": ("@theoxtar", (.2, .3, .7)), "gaming": ("@goku25603", (.5, .2, .8)),
           "cine": ("@nathan.2402", (.8, .2, .3)), "garage": ("@gabibel803", (.95, .5, .1)), "vet": ("@raph_ikih", (.2, .7, .4)),
-          "ecole": ("@la.vie.en.couleur69", (.95, .8, .2)), "parc": ("@lacsorbx", (.2, .7, .3)), "hopital": ("@i.abdhi", (.9, .9, .95)), "caserne": ("@cindydoudie", (.4, .5, .3))}
+          "ecole": ("@la.vie.en.couleur69", (.95, .8, .2)), "parc": ("@lacsorbx", (.2, .7, .3)), "hopital": ("@i.abdhi", (.9, .9, .95)), "caserne": ("@cindydoudie", (.4, .5, .3)), "caserne_b": ("@cindydoudie", (.4, .5, .3)), "bijou": ("@elina.2286", (.7, .3, .8)), "gare": ("@bourgogne_spotteur", (.3, .4, .6)), "basilique": ("@noah_y15", (.9, .85, .7)),
+          "bunker": ("@arnaud_6411", (.3, .3, .3)), "tacos": ("@user6767676736466467", (.95, .75, .2)), "chats": ("@ussr.chlo2", (.9, .6, .8)), "jaune": ("@lina1k08", (.95, .85, .3)), "infirm": ("@youyou123101", (.95, .95, .95))}
 for n, (k, (tag, coat)) in enumerate(owners.items()):
     off = (2.6, -7.5)
-    if k in ("mall", "cine", "garage", "gaming", "boul"): off = (4, -9)
+    if k in ("mall", "cine", "garage", "gaming", "boul", "caserne_b", "gare", "basilique", "bunker", "bijou", "tacos"): off = (4, -9)
     if k in ("hopital", "parc", "caserne"): off = (0, -19)
     mk("o_" + k, tag, lotp(k, *off), coat=coat, hair=hair(n), pants=(.2, .2, .3))
 sx, sy = pos["stade"]
@@ -90,6 +93,7 @@ TEAM = [("gaetan", "Gaetan  GK", 1, GRN, (-8, -3)), ("timeo", "Timeo  GK", 16, G
 for n, (cid, tag, num, col, (dx, dy)) in enumerate(TEAM):
     mk(cid, tag, (sx + dx, sy + dy - 4), coat=col, hair=hair(n), pants=(1, 1, 1), number=num)
 mk("evan", "Coach Evan", (sx - 11, sy - 12), coat=(.1, .1, .12), pants=(.1, .1, .12), hair=hair(1))
+mk("archi", "Architecte @fan_2napoleon", (-6, 311), coat=(.3, .3, .35), hair=hair(3))
 mk("gilet", "@billiejean130", (6, 311), coat=(1, .85, .1), hair=hair(2))
 
 lg('built'); joinall(); lg('joined')
@@ -120,6 +124,7 @@ for s in scenes:
 for si, s in enumerate(scenes):
     f0 = F(TS[si]["t0"]); f1 = F(TS[si]["t1"])
     for k in s.get("new", []): pop(roots[k], f0 + 6)
+    for k in s.get("gone", []): kf(roots[k], "scale", f0 + 5, (1, 1, 1)); kf(roots[k], "scale", f0 + 6, (.001, .001, .001))
     for k in s.get("show", []): pop(C.get(k, mayor) if k != "mayor" else mayor, f0 + 4)
     for k in s.get("hide", []):
         o = C.get(k, mayor); kf(o, "scale", f0, (1, 1, 1)); kf(o, "scale", f0 + 1, (.001, .001, .001))
