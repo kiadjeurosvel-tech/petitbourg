@@ -96,6 +96,14 @@ mk("evan", "Coach Evan", (sx - 11, sy - 12), coat=(.1, .1, .12), pants=(.1, .1, 
 mk("archi", "Architecte @fan_2napoleon", (-6, 311), coat=(.3, .3, .35), hair=hair(3))
 mk("gilet", "@billiejean130", (6, 311), coat=(1, .85, .1), hair=hair(2))
 
+if EP.get("crowd"):
+    _cc = [(.9, .3, .3), (.3, .6, .9), (.95, .8, .2), (.4, .8, .4), (.8, .4, .8), (.95, .55, .2), (.3, .85, .85)]
+    for i in range(18):
+        r_, c_ = divmod(i, 9)
+        mk("crowd%d" % i, None, lotp("mairie", -17 + c_ * 4.2 + (r_ % 2) * 2, -11.5 - r_ * 4)[:2], coat=_cc[i % 7], hair=hair(i + 1), pants=(.2, .2, .3))
+    _t = lotp("mairie", 7.5, -9.5)[:2]
+    C["o_mall"].location = (_t[0], _t[1], 0)
+
 lg('built'); joinall(); lg('joined')
 
 # --- animation helpers
