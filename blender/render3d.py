@@ -73,7 +73,7 @@ C = {}
 def mk(cid, tag, at, **kw):
     kw.setdefault("tag", tag); r = L.person(cid, **kw); r.location = (at[0], at[1], 0); C[cid] = r; return r
 BLUE, RED, GRN, YEL = (.15, .35, .85), (.85, .15, .15), (.1, .65, .25), (.95, .8, .1)
-mayor = L.person("mayor", coat=(.12, .5, .28), mayor=True, s=1.0, tag="LE MAIRE"); mayor.location = (0, 0, 0)
+mayor = L.person("mayor", coat=(.48, .29, .17), mayor=True, s=1.0, tag="LE MAIRE"); mayor.location = (0, 0, 0)
 hair = lambda i: [(.1, .07, .05), (.45, .25, .1), (.8, .6, .2), (.05, .05, .05)][i % 4]
 owners = {"omar": ("@mar_64kk", (.2, .5, .9)), "rose": ("@nd.k601", (.9, .4, .6)), "elina": ("@elina.2286", (.7, .3, .8)), "keiton": ("@keitonakamuraaaalp", (.3, .75, .85)),
           "raph": ("@raph_ikih", (.35, .35, .4)), "pikta": ("@pikta", (.95, .6, .2)), "hvk": ("@hvksilix", (.3, .9, .9)),
