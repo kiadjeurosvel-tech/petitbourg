@@ -1,0 +1,67 @@
+{
+ "out_name": "petitbourg_special_maire",
+ "day": 5,
+ "date": "2026-11-10",
+ "rev": 1,
+ "highlight": [
+  "maire",
+  "3d",
+  "costume",
+  "chapeau",
+  "merci",
+  "commentaires"
+ ],
+ "scenes": [
+  {
+   "lines": [
+    "Habitants, une explication. Le village est passé en 3D, et on a changé mon costume sans me demander mon avis !",
+    "Chapeau vert plat, nœud rouge… ce n'était pas moi. Voilà, j'ai retrouvé mon haut-de-forme.",
+    "Le village est plus beau, mais le maire reste le même. Dites-moi en commentaire si vous aimez la 3D !"
+   ],
+   "shots": [
+    {
+     "lot": "mairie",
+     "d0": 46,
+     "d1": 30,
+     "a0": -25,
+     "a1": -5,
+     "e0": 12,
+     "e1": 6,
+     "cz": 2,
+     "dy": -14,
+     "mayor": "mairie",
+     "w": 1
+    },
+    {
+     "who": "mayor",
+     "d0": 9,
+     "d1": 5,
+     "a0": -15,
+     "a1": 10,
+     "e0": 8,
+     "e1": 4,
+     "cz": 1.7,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "LE MAIRE S'EXPLIQUE",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "CE N'ÉTAIT PAS MOI 😅",
+     "color": "orange",
+     "y": 250,
+     "size": 56
+    }
+   ]
+  }
+ ],
+ "description": "Le maire s'explique : son costume avait changé, il a retrouvé son look ! Tu aimes la 3D ? Dis-le en commentaire. #petitbourg #village #3d #pourtoi",
+ "pinned_comment": "Tu préfères la 3D ou l'ancien style ? Dis-le ici 👇"
+}
