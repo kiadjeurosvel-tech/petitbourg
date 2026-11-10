@@ -1,5 +1,36 @@
 {
  "regle": "Villa = 3 habitants maximum. Max 3 maisons par épisode, par likes puis ordre d'arrivée. Marques/personnages protégés = versions génériques.",
- "styles": {"villa":"villa avec piscine","pastel":"maison violette + chien golden","pain_depices":"pain d'épices","saucisson":"saucisson","miel":"maison à miel (ours générique)","licorne":"licorne rose","cabane":"cabane dans l'arbre","bunker":"bunker","eponge":"éponge de mer jaune","chalet":"chalet + cheminée","banane":"banane","oeuf":"oeuf chocolat surprise","speculoos":"spéculoos","napolitain":"gâteau napolitain","tacos":"tacos","pizza":"pâte à pizza","chocolat":"fontaine de chocolat","chat":"maison chat rose","poupee":"maison de rêve rose","musique":"maison pop star","capybara":"capybara","poulailler":"poulet","mosquee":"mosquée"},
- "usage": "dans un épisode: build {type:'custom', styles:['villa','pastel','chocolat'], opts:[{},{wall:[196,160,232]},{}]} ou {type:'mosque'}"
+ "styles": {
+  "villa": "villa avec piscine",
+  "pastel": "maison violette + chien golden",
+  "pain_depices": "pain d'épices",
+  "saucisson": "saucisson",
+  "miel": "maison à miel (ours générique)",
+  "licorne": "licorne rose",
+  "cabane": "cabane dans l'arbre",
+  "bunker": "bunker",
+  "eponge": "éponge de mer jaune",
+  "chalet": "chalet + cheminée",
+  "banane": "banane",
+  "oeuf": "oeuf chocolat surprise",
+  "speculoos": "spéculoos",
+  "napolitain": "gâteau napolitain",
+  "tacos": "tacos",
+  "pizza": "pâte à pizza",
+  "chocolat": "fontaine de chocolat",
+  "chat": "maison chat rose",
+  "poupee": "maison de rêve rose",
+  "musique": "maison pop star",
+  "capybara": "capybara",
+  "poulailler": "poulet",
+  "mosquee": "mosquée"
+ },
+ "usage": "dans un épisode: build {type:'custom', styles:['villa','pastel','chocolat'], opts:[{},{wall:[196,160,232]},{}]} ou {type:'mosque'}",
+ "jour6_demandes": [
+  {
+   "user": "P.A.T.O.C.H.E",
+   "demande": "habitant avec son bateau, voire un bateau de croisière : compagnie Patoche (port/quai à prévoir)",
+   "source": "message privé, voulu par Holy pour demain (Jour 6)"
+  }
+ ]
 }
