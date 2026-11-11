@@ -37,5 +37,12 @@
    "demande": "construire le parc (chantier existant en lot parc, 2,4)",
    "source": "Holy, pour Jour 6"
   }
+ ],
+ "jour7_demandes": [
+  {
+   "user": "Tao",
+   "demande": "salle de basket + il est joueur (équipe de basket, maillot/numéro à demander)",
+   "source": "message privé, voulu par Holy pour demain (Jour 7)"
+  }
  ]
 }
