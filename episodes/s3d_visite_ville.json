@@ -1,0 +1,1510 @@
+{
+ "out_name": "petitbourg_visite_ville",
+ "day": 6,
+ "date": "2026-11-11",
+ "rev": 1,
+ "highlight": [
+  "Petitbourg",
+  "quatre cents",
+  "habitants",
+  "visite",
+  "jour",
+  "construit",
+  "mairie",
+  "chapelle",
+  "commissariat",
+  "mosquée",
+  "stade",
+  "école",
+  "hôpital",
+  "parc",
+  "port",
+  "commentaire",
+  "groupe",
+  "bio"
+ ],
+ "scenes": [
+  {
+   "lines": [
+    "Bienvenue à Petitbourg ! Plus de quatre cents habitants vivent déjà ici. Suivez le maire pour une visite complète de la ville, jour après jour."
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      170,
+      0
+     ],
+     "c1": [
+      0,
+      170,
+      0
+     ],
+     "d0": 360,
+     "d1": 160,
+     "a0": -30,
+     "a1": 20,
+     "e0": 40,
+     "e1": 24,
+     "w": 1
+    },
+    {
+     "c0": [
+      0,
+      320,
+      0
+     ],
+     "c1": [
+      0,
+      320,
+      0
+     ],
+     "d0": 160,
+     "d1": 230,
+     "a0": 20,
+     "a1": -25,
+     "e0": 24,
+     "e1": 34,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "VISITE DE LA VILLE",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "PLUS DE 400 HABITANTS",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    }
+   ],
+   "gone": [
+    "caserne",
+    "hopital",
+    "parc"
+   ],
+   "hide": [
+    "o_caserne"
+   ],
+   "new": [
+    "aeroport",
+    "ferme",
+    "bar",
+    "base",
+    "arcade"
+   ]
+  },
+  {
+   "lines": [
+    "Tout commence à la mairie, au centre du village. C'est ici que le maire note chaque demande."
+   ],
+   "shots": [
+    {
+     "lot": "mairie",
+     "d0": 82,
+     "d1": 58,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "mairie",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 1",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "MAIRIE",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Jour deux : avec cinq cents euros, la toute petite chapelle est construite. Amau en est le prêtre."
+   ],
+   "shots": [
+    {
+     "lot": "chapelle",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "chapelle",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 2",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "MINI CHAPELLE",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    },
+    {
+     "type": "label",
+     "text": "@amau",
+     "color": "green",
+     "y": 370,
+     "size": 42
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Voici la maison d'Ilyes, la numéro un de la ville. Son colocataire, Matemat, a emménagé avec lui."
+   ],
+   "shots": [
+    {
+     "lot": "ilyes",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "ilyes",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 2",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "MAISON N 1 · ILYES",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    },
+    {
+     "type": "label",
+     "text": "@matemat734",
+     "color": "green",
+     "y": 370,
+     "size": 42
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Jour trois : le commissariat. Batchess en est le chef, Louh est policière, et Kenzo, sergent K9."
+   ],
+   "shots": [
+    {
+     "lot": "commissariat",
+     "d0": 82,
+     "d1": 58,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "commissariat",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 3",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "COMMISSARIAT",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    },
+    {
+     "type": "label",
+     "text": "@batchess4",
+     "color": "green",
+     "y": 370,
+     "size": 42
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Puis la mosquée de Petitbourg, réclamée par plus de dix habitants, dont Sidyyyy, Manissa, Sofiane et Butters. Elle est ouverte à tous."
+   ],
+   "shots": [
+    {
+     "lot": "mosquee",
+     "d0": 82,
+     "d1": 58,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "mosquee",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 3",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "MOSQUEE",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Les premières maisons sur mesure : la maison violette de Lara avec son golden retriever, la maison de Kvn, et la villa de vingt-trois F G vingt-neuf."
+   ],
+   "shots": [
+    {
+     "lot": "lara",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "lara",
+     "w": 1
+    },
+    {
+     "lot": "kvn",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "kvn",
+     "w": 1
+    },
+    {
+     "lot": "villa23",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "villa23",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 3",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "MAISONS SUR MESURE",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    },
+    {
+     "type": "label",
+     "text": "LARA · KVN · @23_fg_29",
+     "color": "green",
+     "y": 370,
+     "size": 42
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Ensuite, trois maisons de rêve : la maison en pain d'épices, le gâteau napolitain et la maison saucisson."
+   ],
+   "shots": [
+    {
+     "lot": "pain",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "pain",
+     "w": 1
+    },
+    {
+     "lot": "napo",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "napo",
+     "w": 1
+    },
+    {
+     "lot": "sauciss",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "sauciss",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 3",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "PAIN D'EPICES · NAPOLITAIN · SAUCISSON",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Une villa avec lac et jeux aquatiques, la maison pop star et la maison licorne."
+   ],
+   "shots": [
+    {
+     "lot": "lacvilla",
+     "d0": 82,
+     "d1": 58,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "lacvilla",
+     "w": 1
+    },
+    {
+     "lot": "popstar",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "popstar",
+     "w": 1
+    },
+    {
+     "lot": "licorne",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "licorne",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 3",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "VILLA LAC · POP STAR · LICORNE",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    }
+   ]
+  },
+  {
+   "lines": [
+    "La maison banane, la cabane dans les arbres et le chalet avec sa cheminée."
+   ],
+   "shots": [
+    {
+     "lot": "banane",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "banane",
+     "w": 1
+    },
+    {
+     "lot": "cabane",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "cabane",
+     "w": 1
+    },
+    {
+     "lot": "chalet",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "chalet",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 3",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "BANANE · CABANE · CHALET",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Une fontaine au chocolat, la maison capybara et la maison poulet. Rien n'est trop fou à Petitbourg !"
+   ],
+   "shots": [
+    {
+     "lot": "choco",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "choco",
+     "w": 1
+    },
+    {
+     "lot": "capy",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "capy",
+     "w": 1
+    },
+    {
+     "lot": "poulet",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "poulet",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 3",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "CHOCOLAT · CAPYBARA · POULET",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Le stade du FC Petitbourg, avec ses tribunes. Le capitaine est Sidy, et le coach, Evan."
+   ],
+   "shots": [
+    {
+     "lot": "stade",
+     "d0": 66,
+     "d1": 40,
+     "a0": -20,
+     "a1": 18,
+     "e0": 14,
+     "e1": 8,
+     "cz": 3,
+     "dy": -18,
+     "w": 1
+    },
+    {
+     "lot": "stade",
+     "d0": 34,
+     "d1": 26,
+     "a0": 18,
+     "a1": -12,
+     "e0": 8,
+     "e1": 6,
+     "cz": 2,
+     "dy": -18,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 3",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "STADE FC PETITBOURG",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    },
+    {
+     "type": "label",
+     "text": "SIDY · EVAN",
+     "color": "green",
+     "y": 370,
+     "size": 42
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Jour quatre : l'école de Petitbourg, grande, avec sa cour et son drapeau. C'est l'idée de La Vie en Couleur."
+   ],
+   "shots": [
+    {
+     "lot": "ecole",
+     "d0": 82,
+     "d1": 58,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "ecole",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "ECOLE",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    },
+    {
+     "type": "label",
+     "text": "@la.vie.en.couleur69",
+     "color": "green",
+     "y": 370,
+     "size": 42
+    }
+   ]
+  },
+  {
+   "lines": [
+    "L'équipe est au complet : Gaëtan, Timéo et Dan dans les buts, puis Robin, Brjc, Sidy, Eden, Mak et Marlon."
+   ],
+   "shots": [
+    {
+     "lot": "stade",
+     "d0": 26,
+     "d1": 18,
+     "a0": -14,
+     "a1": 14,
+     "e0": 7,
+     "e1": 5,
+     "cz": 1.8,
+     "dy": -18,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "L'EQUIPE DU FC",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Les maisons du jour quatre : la villa lac de Pikta, la maison d'Omar avec son chat, et la villa rose de Rose."
+   ],
+   "shots": [
+    {
+     "lot": "pikta",
+     "d0": 82,
+     "d1": 58,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "pikta",
+     "w": 1
+    },
+    {
+     "lot": "omar",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "omar",
+     "w": 1
+    },
+    {
+     "lot": "rose",
+     "d0": 82,
+     "d1": 58,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "rose",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "PIKTA · OMAR · ROSE",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    }
+   ]
+  },
+  {
+   "lines": [
+    "La villa luxe d'Elina avec jacuzzi, l'igloo de Keiton, la maison moderne de Raph et la maison futuriste de Hvksilix."
+   ],
+   "shots": [
+    {
+     "lot": "elina",
+     "d0": 82,
+     "d1": 58,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "elina",
+     "w": 1
+    },
+    {
+     "lot": "keiton",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "keiton",
+     "w": 1
+    },
+    {
+     "lot": "raph",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "raph",
+     "w": 1
+    },
+    {
+     "lot": "hvk",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "hvk",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "ELINA · KEITON · RAPH · HVKSILIX",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Les commerces : la boulangerie de Bhgd, le grand centre commercial de Théo, et la salle gaming de Goku."
+   ],
+   "shots": [
+    {
+     "lot": "boul",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "boul",
+     "w": 1
+    },
+    {
+     "lot": "mall",
+     "d0": 82,
+     "d1": 58,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "mall",
+     "w": 1
+    },
+    {
+     "lot": "gaming",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "gaming",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "BOULANGERIE · CENTRE COMMERCIAL · GAMING",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Le cinéma Ciné Clap de Nathan, la clinique vétérinaire de Raph, et le grand garage de Gabibel."
+   ],
+   "shots": [
+    {
+     "lot": "cine",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "cine",
+     "w": 1
+    },
+    {
+     "lot": "vet",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "vet",
+     "w": 1
+    },
+    {
+     "lot": "garage",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "garage",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 4",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "CINE CLAP · CLINIQUE VETO · GARAGE",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Jour cinq : la caserne de pompiers. Grâce au vote de Nathan et aux dix mille euros de Cindy, elle est enfin construite."
+   ],
+   "shots": [
+    {
+     "lot": "caserne_b",
+     "d0": 82,
+     "d1": 58,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "caserne_b",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "CASERNE",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    },
+    {
+     "type": "label",
+     "text": "@cindydoudie",
+     "color": "green",
+     "y": 370,
+     "size": 42
+    }
+   ]
+  },
+  {
+   "lines": [
+    "La bijouterie moderne et vitrée d'Elina, qu'elle a financée avec cinq mille euros."
+   ],
+   "shots": [
+    {
+     "lot": "bijou",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "bijou",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "BIJOUTERIE",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    },
+    {
+     "type": "label",
+     "text": "@elina.2286",
+     "color": "green",
+     "y": 370,
+     "size": 42
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Une gare pour Bourgogne Spotteur, une basilique pour Noah, et un bunker pour Arnaud et sa mafia."
+   ],
+   "shots": [
+    {
+     "lot": "gare",
+     "d0": 82,
+     "d1": 58,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "gare",
+     "w": 1
+    },
+    {
+     "lot": "basilique",
+     "d0": 82,
+     "d1": 58,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "basilique",
+     "w": 1
+    },
+    {
+     "lot": "bunker",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "bunker",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "GARE · BASILIQUE · BUNKER",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    }
+   ]
+  },
+  {
+   "lines": [
+    "La maison tacos, la maison aux chats de Chloé, et la villa jaune de Lina avec sa piscine."
+   ],
+   "shots": [
+    {
+     "lot": "tacos",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "tacos",
+     "w": 1
+    },
+    {
+     "lot": "chats",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "chats",
+     "w": 1
+    },
+    {
+     "lot": "jaune",
+     "d0": 82,
+     "d1": 58,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "jaune",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "TACOS · CHATS · VILLA JAUNE",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Et l'infirmerie avec l'animalerie de Youyou."
+   ],
+   "shots": [
+    {
+     "lot": "infirm",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "infirm",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 5",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "INFIRMERIE + ANIMALERIE",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    },
+    {
+     "type": "label",
+     "text": "@youyou123101",
+     "color": "green",
+     "y": 370,
+     "size": 42
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Jour six : l'hôpital, dirigé par I-Abdhi, avec son héliport et ses ambulances."
+   ],
+   "shots": [
+    {
+     "lot": "hopital_b",
+     "d0": 82,
+     "d1": 58,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "hopital_b",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "HOPITAL",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    },
+    {
+     "type": "label",
+     "text": "@i.abdhi",
+     "color": "green",
+     "y": 370,
+     "size": 42
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Le parc de Lacsorbx, avec son étang, sa fontaine et son aire de jeux."
+   ],
+   "shots": [
+    {
+     "lot": "parc_b",
+     "d0": 82,
+     "d1": 58,
+     "a0": -22,
+     "a1": 8,
+     "e0": 22,
+     "e1": 14,
+     "cz": 3.2,
+     "dy": -2,
+     "mayor": "parc_b",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "PARC",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    },
+    {
+     "type": "label",
+     "text": "@lacsorbx",
+     "color": "green",
+     "y": 370,
+     "size": 42
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Le port de la compagnie Patoche, avec son bateau et son énorme bateau de croisière."
+   ],
+   "shots": [
+    {
+     "lot": "port",
+     "d0": 90,
+     "d1": 62,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "port",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "PORT · COMPAGNIE PATOCHE",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    },
+    {
+     "type": "label",
+     "text": "@p.a.t.o.c.h.e",
+     "color": "green",
+     "y": 370,
+     "size": 42
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Et la maison de glace de Nostr, avec ses pingouins."
+   ],
+   "shots": [
+    {
+     "lot": "glace",
+     "d0": 58,
+     "d1": 42,
+     "a0": -22,
+     "a1": 8,
+     "e0": 12,
+     "e1": 7,
+     "cz": 3.2,
+     "dy": -8,
+     "mayor": "glace",
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "MAISON DE GLACE",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    },
+    {
+     "type": "label",
+     "text": "@nostrgvwmm4",
+     "color": "green",
+     "y": 370,
+     "size": 42
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Voilà tout ce qui est déjà construit ! Et la file continue : un aéroport, une ferme, un bar, une base militaire et une salle d'arcade. Écrivez votre demande en commentaire, et rejoignez le groupe du village, le lien est en bio !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      10,
+      0
+     ],
+     "c1": [
+      0,
+      10,
+      0
+     ],
+     "d0": 250,
+     "d1": 110,
+     "a0": -28,
+     "a1": 22,
+     "e0": 34,
+     "e1": 20,
+     "w": 1
+    },
+    {
+     "c0": [
+      0,
+      170,
+      0
+     ],
+     "c1": [
+      0,
+      170,
+      0
+     ],
+     "d0": 150,
+     "d1": 260,
+     "a0": 22,
+     "a1": -20,
+     "e0": 22,
+     "e1": 38,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "A SUIVRE",
+     "color": "red",
+     "y": 110,
+     "size": 64
+    },
+    {
+     "type": "label",
+     "text": "AEROPORT · FERME · BAR · BASE · ARCADE",
+     "color": "orange",
+     "y": 250,
+     "size": 52
+    },
+    {
+     "type": "label",
+     "text": "LIEN DU GROUPE EN BIO",
+     "color": "green",
+     "y": 370,
+     "size": 42
+    }
+   ]
+  }
+ ],
+ "description": "Visite complète de Petitbourg : tout ce qui a déjà été construit, jour après jour, avec le nom des propriétaires ! Plus de 400 habitants. Écris ta demande en commentaire et rejoins le groupe (lien en bio). #petitbourg #visite #village #3d #pourtoi",
+ "pinned_comment": "Plus de 400 habitants ! Écris ta demande ici, le maire s'en occupe 👇"
+}
