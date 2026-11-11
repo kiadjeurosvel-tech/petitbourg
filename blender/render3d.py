@@ -54,6 +54,7 @@ LOTS = {
  "hopital": (L.chantier, -2, 4, dict(label="HOPITAL ?")), "parc": (L.chantier, 2, 4, dict(label="PARC ?")), "caserne": (L.chantier, 3, 4, dict(label="CASERNE ?")),
  "caserne_b": (L.caserne, 3, 4, {}), "bijou": (L.bijouterie, -3, 8, {}), "gare": (L.gare, -2, 8, {}), "basilique": (L.basilique, -1, 8, {}), "bunker": (L.bunker, 0, 8, {}),
  "tacos": (L.tacos, 1, 8, {}), "chats": (L.chats, 2, 8, {}), "jaune": (L.villa, 3, 8, dict(wall=(1, .88, .3), rf=(.55, .35, .15))), "infirm": (L.infirm, 3, 6, {}),
+ "hopital_b": (L.hopital, -2, 4, {}), "parc_b": (L.parc, 2, 4, {}), "port": (L.port, -3, 0, {}), "aeroport": (L.aeroport, -2, 0, {}), "ferme": (L.ferme, -1, 0, {}), "bar": (L.bar, 0, 0, {}), "base": (L.base, 1, 0, {}), "arcade": (L.arcade, 2, 0, {}), "glace": (L.glace, 3, 0, {}),
  "boul": (L.bakery, -3, 6, {}), "mall": (L.mall, -2, 6, {}), "gaming": (L.gaming, -1, 6, {}), "vet": (L.vet, 0, 6, {}),
  "cine": (L.cinema, 1, 6, {}), "garage": (L.garage, 2, 6, {}),
 }
@@ -80,10 +81,11 @@ owners = {"omar": ("@mar_64kk", (.2, .5, .9)), "rose": ("@nd.k601", (.9, .4, .6)
           "boul": ("@bhgd.974", (.9, .75, .5)), "mall": ("@theoxtar", (.2, .3, .7)), "gaming": ("@goku25603", (.5, .2, .8)),
           "cine": ("@nathan.2402", (.8, .2, .3)), "garage": ("@gabibel803", (.95, .5, .1)), "vet": ("@raph_ikih", (.2, .7, .4)),
           "ecole": ("@la.vie.en.couleur69", (.95, .8, .2)), "parc": ("@lacsorbx", (.2, .7, .3)), "hopital": ("@i.abdhi", (.9, .9, .95)), "caserne": ("@cindydoudie", (.4, .5, .3)), "caserne_b": ("@cindydoudie", (.4, .5, .3)), "bijou": ("@elina.2286", (.7, .3, .8)), "gare": ("@bourgogne_spotteur", (.3, .4, .6)), "basilique": ("@noah_y15", (.9, .85, .7)),
-          "bunker": ("@arnaud_6411", (.3, .3, .3)), "tacos": ("@user6767676736466467", (.95, .75, .2)), "chats": ("@ussr.chlo2", (.9, .6, .8)), "jaune": ("@lina1k08", (.95, .85, .3)), "infirm": ("@youyou123101", (.95, .95, .95))}
+          "bunker": ("@arnaud_6411", (.3, .3, .3)), "tacos": ("@user6767676736466467", (.95, .75, .2)), "chats": ("@ussr.chlo2", (.9, .6, .8)), "jaune": ("@lina1k08", (.95, .85, .3)), "infirm": ("@youyou123101", (.95, .95, .95)),
+          "port": ("@p.a.t.o.c.h.e", (.1, .35, .75)), "aeroport": ("Pilote", (.15, .2, .45)), "ferme": ("Fermier", (.2, .55, .2)), "bar": ("Barman", (.25, .1, .3)), "base": ("Commandant", (.35, .4, .25)), "arcade": ("Gerant arcade", (.6, .2, .85)), "glace": ("@nostrgvwmm4", (.7, .9, 1))}
 for n, (k, (tag, coat)) in enumerate(owners.items()):
     off = (2.6, -7.5)
-    if k in ("mall", "cine", "garage", "gaming", "boul", "caserne_b", "gare", "basilique", "bunker", "bijou", "tacos"): off = (4, -9)
+    if k in ("mall", "cine", "garage", "gaming", "boul", "caserne_b", "gare", "basilique", "bunker", "bijou", "tacos", "port", "aeroport", "ferme", "bar", "base", "arcade", "glace"): off = (4, -9)
     if k in ("hopital", "parc", "caserne"): off = (0, -19)
     mk("o_" + k, tag, lotp(k, *off), coat=coat, hair=hair(n), pants=(.2, .2, .3))
 sx, sy = pos["stade"]

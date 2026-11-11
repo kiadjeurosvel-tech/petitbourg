@@ -1,0 +1,436 @@
+{
+ "out_name": "petitbourg_jour6_partie2",
+ "day": 6,
+ "date": "2026-11-11",
+ "rev": 1,
+ "highlight": [
+  "aéroport",
+  "ferme",
+  "bar",
+  "base",
+  "militaire",
+  "arcade",
+  "commentaire",
+  "groupe",
+  "bio"
+ ],
+ "scenes": [
+  {
+   "lines": [
+    "Partie deux ! Cinq grandes constructions pour la ville."
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      10,
+      0
+     ],
+     "c1": [
+      0,
+      10,
+      0
+     ],
+     "d0": 240,
+     "d1": 120,
+     "a0": -28,
+     "a1": 22,
+     "e0": 34,
+     "e1": 20,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "5 NOUVELLES CONSTRUCTIONS",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Un aéroport avec sa piste, sa tour de contrôle et un avion. Le pilote est prêt à décoller !"
+   ],
+   "shots": [
+    {
+     "lot": "aeroport",
+     "d0": 80,
+     "d1": 54,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "mayor": "aeroport",
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1
+    },
+    {
+     "lot": "aeroport",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "new": [
+    "aeroport"
+   ],
+   "show": [
+    "o_aeroport"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "AEROPORT",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "PILOTE",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Une ferme avec sa grange rouge, son silo, ses vaches et son tracteur."
+   ],
+   "shots": [
+    {
+     "lot": "ferme",
+     "d0": 80,
+     "d1": 54,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "mayor": "ferme",
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1
+    },
+    {
+     "lot": "ferme",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "new": [
+    "ferme"
+   ],
+   "show": [
+    "o_ferme"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "FERME",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "FERMIER",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Un bar avec sa terrasse et ses lumières. Le barman vous attend !"
+   ],
+   "shots": [
+    {
+     "lot": "bar",
+     "d0": 62,
+     "d1": 42,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "mayor": "bar",
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1
+    },
+    {
+     "lot": "bar",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "new": [
+    "bar"
+   ],
+   "show": [
+    "o_bar"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "BAR",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "BARMAN",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Une base militaire avec quartier général, chars et tour de contrôle."
+   ],
+   "shots": [
+    {
+     "lot": "base",
+     "d0": 78,
+     "d1": 52,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "mayor": "base",
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1
+    },
+    {
+     "lot": "base",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "new": [
+    "base"
+   ],
+   "show": [
+    "o_base"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "BASE MILITAIRE",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "COMMANDANT",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Et une salle d'arcade, avec toutes ses bornes de jeu."
+   ],
+   "shots": [
+    {
+     "lot": "arcade",
+     "d0": 62,
+     "d1": 42,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "mayor": "arcade",
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1
+    },
+    {
+     "lot": "arcade",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "new": [
+    "arcade"
+   ],
+   "show": [
+    "o_arcade"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "SALLE D'ARCADE",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "GERANT",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Écrivez votre demande en commentaire : le maire s'en occupe. Et rejoignez le groupe du village, le lien est en bio !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      170,
+      0
+     ],
+     "c1": [
+      0,
+      170,
+      0
+     ],
+     "d0": 340,
+     "d1": 150,
+     "a0": -30,
+     "a1": 20,
+     "e0": 40,
+     "e1": 24,
+     "w": 1
+    },
+    {
+     "c0": [
+      0,
+      320,
+      0
+     ],
+     "c1": [
+      0,
+      320,
+      0
+     ],
+     "d0": 150,
+     "d1": 210,
+     "a0": 20,
+     "a1": -25,
+     "e0": 24,
+     "e1": 34,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6 · 2/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "QUI VEUT QUOI ?",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "LIEN DU GROUPE EN BIO",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  }
+ ],
+ "description": "Jour 6 (2/2) : aéroport, ferme, bar, base militaire et salle d'arcade ! Écris ta demande en commentaire. #petitbourg #jour6 #village #3d #pourtoi",
+ "pinned_comment": "Ta demande est notée ! Écris-la ici, le maire s'en occupe 👇"
+}

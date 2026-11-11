@@ -1,0 +1,379 @@
+{
+ "out_name": "petitbourg_jour6_partie1",
+ "day": 6,
+ "date": "2026-11-11",
+ "rev": 1,
+ "highlight": [
+  "jour",
+  "hôpital",
+  "parc",
+  "port",
+  "croisière",
+  "glace",
+  "pingouins",
+  "construit"
+ ],
+ "scenes": [
+  {
+   "lines": [
+    "Jour six ! Aujourd'hui, la ville construit tout ce qui attendait dans la file."
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      170,
+      0
+     ],
+     "c1": [
+      0,
+      170,
+      0
+     ],
+     "d0": 340,
+     "d1": 150,
+     "a0": -30,
+     "a1": 20,
+     "e0": 40,
+     "e1": 24,
+     "w": 1
+    },
+    {
+     "c0": [
+      0,
+      320,
+      0
+     ],
+     "c1": [
+      0,
+      320,
+      0
+     ],
+     "d0": 150,
+     "d1": 210,
+     "a0": 20,
+     "a1": -25,
+     "e0": 24,
+     "e1": 34,
+     "w": 1
+    }
+   ],
+   "gone": [
+    "caserne"
+   ],
+   "hide": [
+    "o_caserne"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6 · 1/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "ON CONSTRUIT TOUT",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    }
+   ]
+  },
+  {
+   "lines": [
+    "L'hôpital est enfin terminé : un grand bâtiment blanc avec héliport et ambulances. I-Abdhi en est la cheffe."
+   ],
+   "shots": [
+    {
+     "lot": "hopital_b",
+     "d0": 80,
+     "d1": 56,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "mayor": "hopital_b",
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1
+    },
+    {
+     "lot": "hopital_b",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "new": [
+    "hopital_b"
+   ],
+   "gone": [
+    "hopital"
+   ],
+   "show": [
+    "o_hopital"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6 · 1/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "HOPITAL",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "@i.abdhi",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Voici le parc de Lacsorbx : un étang, une fontaine, une aire de jeux, un kiosque et des bancs partout."
+   ],
+   "shots": [
+    {
+     "lot": "parc_b",
+     "d0": 82,
+     "d1": 56,
+     "a0": -24,
+     "a1": 6,
+     "e0": 24,
+     "e1": 14,
+     "mayor": "parc_b",
+     "dy": -2,
+     "cz": 2,
+     "w": 1
+    },
+    {
+     "lot": "parc_b",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 2,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "new": [
+    "parc_b"
+   ],
+   "gone": [
+    "parc"
+   ],
+   "show": [
+    "o_parc"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6 · 1/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "PARC",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "@lacsorbx",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Patoche reçoit son port, avec son bateau et un énorme bateau de croisière : la compagnie Patoche !"
+   ],
+   "shots": [
+    {
+     "lot": "port",
+     "d0": 90,
+     "d1": 60,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "mayor": "port",
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1
+    },
+    {
+     "lot": "port",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "new": [
+    "port"
+   ],
+   "show": [
+    "o_port"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6 · 1/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "PORT · COMPAGNIE PATOCHE",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "@p.a.t.o.c.h.e",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Et Nostr a sa maison de glace, avec ses pingouins."
+   ],
+   "shots": [
+    {
+     "lot": "glace",
+     "d0": 62,
+     "d1": 42,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "mayor": "glace",
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1
+    },
+    {
+     "lot": "glace",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "new": [
+    "glace"
+   ],
+   "show": [
+    "o_glace"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6 · 1/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "MAISON DE GLACE",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "@nostrgvwmm4",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Partie deux : un aéroport, une ferme, un bar, une base militaire et une salle d'arcade !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      10,
+      0
+     ],
+     "c1": [
+      0,
+      10,
+      0
+     ],
+     "d0": 230,
+     "d1": 120,
+     "a0": -28,
+     "a1": 22,
+     "e0": 34,
+     "e1": 20,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 6 · 1/2",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "PARTIE 2 : 5 NOUVEAUTES",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    }
+   ]
+  }
+ ],
+ "description": "Jour 6 (1/2) : l'hôpital, le parc, le port de Patoche et la maison de glace sont construits ! #petitbourg #jour6 #village #3d #pourtoi",
+ "pinned_comment": "Ta demande est notée ! Écris-la ici, le maire s'en occupe 👇"
+}
