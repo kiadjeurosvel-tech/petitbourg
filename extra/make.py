@@ -7,7 +7,7 @@ CH = [("Habitants de Port-Lanterne,", .53, 3.33), ("grande nouvelle :", 3.33, 5.
       ("Vous y retrouvez les", 10.2, 12.33), ("nouvelles vidéos,", 12.33, 14.2), ("vous discutez entre", 14.2, 16.33), ("voisins et vous partagez", 16.33, 18.87), ("vos idées.", 18.87, 20.07),
       ("Pour qu'une demande", 20.07, 22.2), ("soit construite,", 22.2, 24.0), ("elle reste en commentaire", 24.0, 26.6), ("sous la vidéo.", 26.6, 28.2),
       ("Le lien est en", 28.2, 29.93), ("bio. Merci au maire,", 29.93, 32.0), ("qui s'occupe du groupe !", 32.0, 34.3)]
-SPEED = float(os.environ.get("SPEED", "0.82"))
+SPEED = float(os.environ.get("SPEED", "0.88"))
 r = requests.post("https://api.elevenlabs.io/v1/text-to-speech/TX3LPaxmHKxFdv7VOQHJ/with-timestamps?output_format=mp3_44100_128",
                   headers={"xi-api-key": os.environ["ELEVENLABS_API_KEY"]},
                   json={"text": TEXT, "model_id": "eleven_multilingual_v2", "language_code": "fr",
@@ -21,13 +21,21 @@ for txt, w0, w1 in CH:
     k = i + len(txt) - 1; pos = k + 1
     while full[i] == " ": i += 1
     a, b = st[i], en[k]; segs.append((txt, a, b, w0, w1))
-parts = []; fc = []
+segs2 = []
+t = 0.35  # new timeline cursor
+fa = []; fv = []; labs = []
+fv.append("[1:v]trim=start=0:end=0.53,setpts=(PTS-STARTPTS)*%.4f,fps=30[v_i]" % (0.35 / 0.53)); labs.append("[v_i]")
 for n, (txt, a, b, w0, w1) in enumerate(segs):
     a0 = max(0, a - .03); b0 = b + .05; nat = b0 - a0
-    T = (w1 - w0) - .12; ratio = min(1.35, max(.85, nat / T)); outd = nat / ratio
-    print(f"{n+1:2d} {txt:28s} nat={nat:.2f} win={w1-w0:.2f} ratio={ratio:.2f} out={outd:.2f} start={w0+.03:.2f}")
-    fc.append(f"[0:a]atrim=start={a0:.3f}:end={b0:.3f},asetpts=PTS-STARTPTS,atempo={ratio:.4f},afade=t=in:d=0.015,afade=t=out:st={max(0,outd-.03):.3f}:d=0.03,adelay={int((w0+.03)*1000)}|{int((w0+.03)*1000)}[c{n}]")
-    parts.append(f"[c{n}]")
-fc.append("".join(parts) + f"amix=inputs={len(segs)}:normalize=0,loudnorm=I=-15:TP=-1.5:LRA=7,apad=whole_dur=35.02[aout]")
-subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", "voice.mp3", "-i", "extra/video.mp4", "-filter_complex", ";".join(fc), "-map", "1:v", "-map", "[aout]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-t", "35.02", "out.mp4"], check=True)
-print("done")
+    end = txt.rstrip()[-1]; pause = .5 if end in "!." else (.3 if end in ",:" else .12)
+    nd = nat + pause; old = w1 - w0; f = nd / old
+    print(f"{n+1:2d} {txt:28s} nat={nat:.2f} old={old:.2f} new={nd:.2f} videofactor={f:.2f} start={t:.2f}")
+    fa.append(f"[0:a]atrim=start={a0:.3f}:end={b0:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.015,afade=t=out:st={max(0,nat-.04):.3f}:d=0.04,adelay={int(t*1000)}|{int(t*1000)}[c{n}]")
+    fv.append(f"[1:v]trim=start={w0}:end={w1},setpts=(PTS-STARTPTS)*{f:.4f},fps=30[v{n}]"); labs.append(f"[v{n}]")
+    t += nd
+fv.append("[1:v]trim=start=34.3:end=35.02,setpts=PTS-STARTPTS,fps=30[v_t]"); labs.append("[v_t]"); total = t + .72
+fc = fv + fa
+fc.append("".join(labs) + f"concat=n={len(labs)}:v=1:a=0[vout]")
+fc.append("".join(f"[c{n}]" for n in range(len(segs))) + f"amix=inputs={len(segs)}:normalize=0,loudnorm=I=-15:TP=-1.5:LRA=7,apad=whole_dur={total:.2f}[aout]")
+subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", "voice.mp3", "-i", "extra/video.mp4", "-filter_complex", ";".join(fc), "-map", "[vout]", "-map", "[aout]", "-c:v", "libx264", "-crf", "18", "-preset", "medium", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-t", f"{total:.2f}", "-movflags", "+faststart", "out.mp4"], check=True)
+print("done total", total)
