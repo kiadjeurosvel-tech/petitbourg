@@ -4,6 +4,7 @@ on:
     inputs:
       files: { description: "fichiers (séparés par espace), vide = tous s3d_*", required: false, default: "" }
       mode: { description: "full ou preview", required: false, default: "full" }
+      voix: { description: "oui ou non (non = vidéo muette, sans ElevenLabs)", required: false, default: "oui" }
   push:
     paths: ["episodes/s3d_*.json", "blender/**", "scripts/prep3d.py", "scripts/mux3d.py"]
 permissions:
@@ -44,7 +45,7 @@ jobs:
       - name: Voix, textes, surcouches
         env: { ELEVENLABS_API_KEY: "${{ secrets.ELEVENLABS_API_KEY }}" }
         run: |
-          DRY=""; [ "${{ needs.plan.outputs.mode }}" = "preview" ] && DRY="--dry"
+          DRY=""; [ "${{ needs.plan.outputs.mode }}" = "preview" ] && DRY="--dry"; [ "${{ github.event.inputs.voix }}" = "non" ] && DRY="--dry"
           python3 scripts/prep3d.py ${{ matrix.file }} work $DRY
       - name: Rendu 3D
         run: |
@@ -70,6 +71,7 @@ jobs:
         env: { GH_TOKEN: "${{ github.token }}" }
         run: |
           N=$(python3 -c "import json;print(json.load(open('${{ matrix.file }}'))['out_name'])")
+          [ "${{ github.event.inputs.voix }}" = "non" ] && N="${N}_sansvoix"
           python3 scripts/mux3d.py work fr $N.mp4
           gh release delete "$N" --yes --cleanup-tag 2>/dev/null || true
           gh release create "$N" $N.mp4 --title "$N" --notes-file work/description.txt
