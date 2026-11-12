@@ -1,0 +1,487 @@
+{
+ "out_name": "petitbourg_jour7",
+ "day": 7,
+ "date": "2026-11-12",
+ "rev": 1,
+ "flat": true,
+ "highlight": [
+  "jour",
+  "2D",
+  "3D",
+  "basket",
+  "logistique",
+  "villa",
+  "terrain",
+  "coach"
+ ],
+ "description": "Jour 7 : les habitants passent en 2D dans la ville 3D ! Salle de basket, logistique, villas, terrain de foot. Écris ta demande en commentaire. #petitbourg #jour7 #village #2d3d #pourtoi",
+ "pinned_comment": "Ta demande est notée ! Écris-la ici, le maire s'en occupe 👇",
+ "scenes": [
+  {
+   "lines": [
+    "Jour sept ! Nouveauté : les habitants sont maintenant dessinés en 2D, dans une ville toute en 3D. Voici vos constructions !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      10,
+      0
+     ],
+     "c1": [
+      0,
+      10,
+      0
+     ],
+     "d0": 240,
+     "d1": 120,
+     "a0": -28,
+     "a1": 22,
+     "e0": 34,
+     "e1": 20,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 7",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "2D + 3D",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "6 NOUVEAUTES",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Une salle de basket avec son terrain et ses tribunes. Tao est le joueur numéro vingt-trois, avec son équipe !"
+   ],
+   "shots": [
+    {
+     "lot": "basket",
+     "d0": 80,
+     "d1": 54,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1,
+     "mayor": "basket"
+    },
+    {
+     "lot": "basket",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 7",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "SALLE DE BASKET",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "TAO · JOUEUR N°23",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ],
+   "new": [
+    "basket"
+   ],
+   "show": [
+    "tao",
+    "tm1",
+    "tm2",
+    "tm3",
+    "tm4"
+   ]
+  },
+  {
+   "lines": [
+    "Une chaîne logistique pour approvisionner tous les habitants : entrepôt, camions et conteneurs. Elle est dirigée par Bysym."
+   ],
+   "shots": [
+    {
+     "lot": "logis",
+     "d0": 80,
+     "d1": 54,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1,
+     "mayor": "logis"
+    },
+    {
+     "lot": "logis",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 7",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "LOGISTIQUE",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "BYSYM · DIRECTEUR",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ],
+   "new": [
+    "logis"
+   ],
+   "show": [
+    "o_logis"
+   ]
+  },
+  {
+   "lines": [
+    "Une grande villa de luxe, avec piscine et jacuzzi, pour Benjis."
+   ],
+   "shots": [
+    {
+     "lot": "luxe",
+     "d0": 80,
+     "d1": 54,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1,
+     "mayor": "luxe"
+    },
+    {
+     "lot": "luxe",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 7",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "VILLA DE LUXE",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "BENJIS",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ],
+   "new": [
+    "luxe"
+   ],
+   "show": [
+    "o_luxe"
+   ]
+  },
+  {
+   "lines": [
+    "Une villa bleue avec piscine et un petit chiot pour Aya. Elle travaillera au cinéma du village !"
+   ],
+   "shots": [
+    {
+     "lot": "bleue",
+     "d0": 80,
+     "d1": 54,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1,
+     "mayor": "bleue"
+    },
+    {
+     "lot": "bleue",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 7",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "VILLA BLEUE",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "AYA + SON CHIOT",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ],
+   "new": [
+    "bleue"
+   ],
+   "show": [
+    "o_bleue"
+   ]
+  },
+  {
+   "lines": [
+    "Un terrain de foot au nom de Xy, comme il le demandait depuis longtemps."
+   ],
+   "shots": [
+    {
+     "lot": "terrain",
+     "d0": 80,
+     "d1": 54,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1,
+     "mayor": "terrain"
+    },
+    {
+     "lot": "terrain",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 7",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "TERRAIN DE FOOT",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "XY",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ],
+   "new": [
+    "terrain"
+   ],
+   "show": [
+    "o_terrain",
+    "xy"
+   ]
+  },
+  {
+   "lines": [
+    "Et Kvn devient enfin coach de l'équipe du stade !"
+   ],
+   "shots": [
+    {
+     "lot": "stade",
+     "d0": 120,
+     "d1": 80,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "dy": -14,
+     "cz": 3,
+     "w": 1,
+     "mayor": "stade"
+    },
+    {
+     "lot": "stade",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3,
+     "dy": -16,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 7",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "COACH KVN",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "STADE FC PETITBOURG",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ],
+   "show": [
+    "coach_kvn"
+   ]
+  },
+  {
+   "lines": [
+    "Écrivez votre demande en commentaire : le maire s'en occupe. Demain, jour huit. Et rejoignez le groupe du village, le lien est en bio !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      10,
+      0
+     ],
+     "c1": [
+      0,
+      10,
+      0
+     ],
+     "d0": 240,
+     "d1": 120,
+     "a0": -28,
+     "a1": 22,
+     "e0": 34,
+     "e1": 20,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 7",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "QUI VEUT QUOI ?",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "LIEN DU GROUPE EN BIO",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  }
+ ]
+}

@@ -2,7 +2,7 @@
  "out_name": "petitbourg_jour6_partie2",
  "day": 6,
  "date": "2026-11-11",
- "rev": 1,
+ "rev": 2,
  "highlight": [
   "aéroport",
   "ferme",
@@ -59,7 +59,7 @@
   },
   {
    "lines": [
-    "Un aéroport avec sa piste, sa tour de contrôle et un avion. Le pilote est prêt à décoller !"
+    "L'aéroport de Roro le boss : piste, tour de contrôle et avion. Il est prêt à décoller !"
    ],
    "shots": [
     {
@@ -111,7 +111,7 @@
     },
     {
      "type": "label",
-     "text": "PILOTE",
+     "text": "@RORO_LE_BOSS",
      "color": "green",
      "y": 370,
      "size": 44
@@ -120,7 +120,7 @@
   },
   {
    "lines": [
-    "Une ferme avec sa grange rouge, son silo, ses vaches et son tracteur."
+    "La ferme de Cilian, avec sa grange rouge, son silo, ses vaches et son tracteur."
    ],
    "shots": [
     {
@@ -172,7 +172,7 @@
     },
     {
      "type": "label",
-     "text": "FERMIER",
+     "text": "@CILIAN087",
      "color": "green",
      "y": 370,
      "size": 44
@@ -242,7 +242,7 @@
   },
   {
    "lines": [
-    "Une base militaire avec quartier général, chars et tour de contrôle."
+    "La base militaire, avec quartier général, chars et tour de contrôle. Maxfly est dans l'armée !"
    ],
    "shots": [
     {
@@ -294,7 +294,7 @@
     },
     {
      "type": "label",
-     "text": "COMMANDANT",
+     "text": "@MAXFLY6620",
      "color": "green",
      "y": 370,
      "size": 44
@@ -303,7 +303,7 @@
   },
   {
    "lines": [
-    "Et une salle d'arcade, avec toutes ses bornes de jeu."
+    "Et la salle d'arcade de Goku, avec toutes ses bornes de jeu."
    ],
    "shots": [
     {
@@ -355,7 +355,7 @@
     },
     {
      "type": "label",
-     "text": "GERANT",
+     "text": "@GOKU25603",
      "color": "green",
      "y": 370,
      "size": 44

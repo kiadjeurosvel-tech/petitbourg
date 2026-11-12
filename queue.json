@@ -40,9 +40,43 @@
  ],
  "jour7_demandes": [
   {
-   "user": "Tao",
-   "demande": "salle de basket + il est joueur (équipe de basket, maillot/numéro à demander)",
-   "source": "message privé, voulu par Holy pour demain (Jour 7)"
+   "user": "@intrvbl.0141 (Tao)",
+   "demande": "salle de basket + joueur",
+   "statut": "fait Jour 7"
+  }
+ ],
+ "jour8_demandes": [
+  {
+   "user": "@physicsdivision",
+   "demande": "23940 EUR pour la base militaire (à confirmer par Holy)"
+  },
+  {
+   "user": "@ahi8909",
+   "demande": "sous-sol + coin techno, Ahi tech"
+  },
+  {
+   "user": "@elina.2286",
+   "demande": "bijouterie/villa piscine jacuzzi rose"
+  },
+  {
+   "user": "@corentin2727",
+   "demande": "villa + restaurant"
+  },
+  {
+   "user": "@hk_le_goat78",
+   "demande": "T-rex gentil + maison"
+  },
+  {
+   "user": "@manon.spellig",
+   "demande": "un Mac do"
+  },
+  {
+   "user": "@raph_ikih",
+   "demande": "clinique vétérinaire (existe: vet)"
+  },
+  {
+   "user": "@fan_2napoleon",
+   "demande": "monument"
   }
  ]
 }
