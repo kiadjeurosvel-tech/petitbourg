@@ -12,7 +12,8 @@
   "logistique",
   "villa",
   "terrain",
-  "coach"
+  "coach",
+  "investissement"
  ],
  "description": "Jour 7 : les habitants passent en 2D dans la ville 3D ! Salle de basket, logistique, villas, terrain de foot. Écris ta demande en commentaire. #petitbourg #jour7 #village #2d3d #pourtoi",
  "pinned_comment": "Ta demande est notée ! Écris-la ici, le maire s'en occupe 👇",
@@ -432,6 +433,61 @@
    ],
    "show": [
     "coach_kvn"
+   ]
+  },
+  {
+   "lines": [
+    "Et la base militaire reçoit un investissement de vingt-trois mille neuf cent quarante euros de Physics Division. Merci !"
+   ],
+   "shots": [
+    {
+     "lot": "base",
+     "d0": 90,
+     "d1": 60,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "dy": -8,
+     "cz": 3.5,
+     "mayor": "base",
+     "w": 1
+    },
+    {
+     "lot": "base",
+     "d0": 55,
+     "d1": 70,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 7",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "INVESTISSEMENT 23 940 €",
+     "color": "gold",
+     "y": 250,
+     "size": 50
+    },
+    {
+     "type": "label",
+     "text": "@PHYSICSDIVISION",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
    ]
   },
   {
