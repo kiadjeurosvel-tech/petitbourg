@@ -690,7 +690,7 @@ def _fl(par, x, z, w, h, c, y=0.0, ell=False):
 
 def person2d(name, coat=(.3, .5, .9), hair=(.2, .13, .08), skin=(.95, .73, .55), pants=(.15, .15, .25), hat=None,
              number=None, tag=None, mayor=False, s=1.0, gk=False):
-    r = root(name); K = (.04, .04, .06); s = s * 1.1
+    r = root(name); K = (.04, .04, .06); s = s * 1.55
     def F(x, z, w, h, c, y=0.0, ell=False): _fl(r, x * s, z * s, w * s, h * s, c, y, ell)
     for sx in (-.17, .17):
         F(sx, 0, .42, .82, K, .06); F(sx, .02, .3, .78, pants, 0)
