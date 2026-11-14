@@ -1,11 +1,12 @@
 """Petitbourg 3D library (Blender). 1 unit = 1 metre. Everything is parented to a root empty so it can pop in."""
-import bpy, math, random
+import bpy, math, random, colorsys
 from mathutils import Vector
 
 _M = {}
 def mat(c, rough=.5, metal=0.0):
     k = (round(c[0], 3), round(c[1], 3), round(c[2], 3), rough, metal)
     if k not in _M:
+        _h, _s, _v = colorsys.rgb_to_hsv(*[max(0, min(1, x)) for x in c[:3]]); c = colorsys.hsv_to_rgb(_h, min(1, _s * 1.3), min(1, _v * 1.04))
         m = bpy.data.materials.new("m"); m.use_nodes = True
         b = m.node_tree.nodes["Principled BSDF"]
         b.inputs["Base Color"].default_value = (c[0], c[1], c[2], 1)
@@ -285,12 +286,22 @@ def chantier(name, label):
 
 def filler(name, seed):
     rr = random.Random(seed); pal = [(1, .78, .55), (.95, .6, .7), (.7, .88, .95), (.98, .95, .8), (.75, .95, .75)]
-    return house(name, rr.choice(pal), rr.choice([(.8, .25, .2), (.3, .35, .8), (.4, .3, .25)]), 11 + rr.random() * 3, 8.5)
+    def ex(r, by):
+        for k, (x, y) in enumerate(((-10, -9), (11, -10))):
+            wc = rr.choice(pal); box(r, x, y, .15, 5.5, 4.5, 3.2, wc, .6); gable(r, x, y, 3.35, 5.5, 4.5, 2, rr.choice([(.85, .2, .2), (.2, .35, .85), (.95, .55, .1), (.5, .25, .6)]))
+            door(r, x, y - 2.3, .15, 1, 1.9)
+        car(r, 12, -4, rr.choice([(.9, .15, .15), (.15, .4, .9), (1, .8, .1), (.2, .75, .3)]), 1.57)
+        tree(r, 4, -13, .8); tree(r, -14, 2, .9); tree(r, 14, 9, .8)
+    return house(name, rr.choice(pal), rr.choice([(.8, .25, .2), (.3, .35, .8), (.4, .3, .25), (.9, .5, .1), (.5, .25, .6)]), 11 + rr.random() * 3, 8.5, extra=ex)
 
 def roads(xs, ys, x0, x1, y0, y1, rw=10):
     r = root("roads"); box(r, (x0 + x1) / 2, (y0 + y1) / 2, -.2, x1 - x0 + 200, y1 - y0 + 200, .2, (.42, .8, .3), .95)
     for x in xs: box(r, x, (y0 + y1) / 2, -.02, rw, y1 - y0 + 100, .06, (.2, .21, .25), .8)
     for y in ys: box(r, (x0 + x1) / 2, y, -.02, x1 - x0 + 100, rw, .06, (.2, .21, .25), .8)
+    for x in xs:
+        for sx in (-1, 1): box(r, x + sx * (rw / 2 + 1.1), (y0 + y1) / 2, -.01, 2.2, y1 - y0 + 100, .12, (.85, .83, .78), .8)
+    for y in ys:
+        for sy in (-1, 1): box(r, (x0 + x1) / 2, y + sy * (rw / 2 + 1.1), -.01, x1 - x0 + 100, 2.2, .12, (.85, .83, .78), .8)
     for x in xs:
         for yy in range(int(y0 - 40), int(y1 + 40), 8): box(r, x, yy, .05, .3, 3.6, .02, (1, 1, 1))
     for y in ys:

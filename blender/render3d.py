@@ -24,10 +24,10 @@ cam = bpy.data.objects.new("cam", bpy.data.cameras.new("cam")); sc.collection.ob
 L.TRACK["cam"] = cam
 tgt = bpy.data.objects.new("tgt", None); sc.collection.objects.link(tgt)
 tc = cam.constraints.new('TRACK_TO'); tc.target = tgt; tc.track_axis = 'TRACK_NEGATIVE_Z'; tc.up_axis = 'UP_Y'
-sun = bpy.data.lights.new("sun", 'SUN'); sun.energy = 3.0; sun.angle = .08
+sun = bpy.data.lights.new("sun", 'SUN'); sun.energy = 3.8; sun.color = (1, .94, .82); sun.angle = .08
 so = bpy.data.objects.new("sun", sun); sc.collection.objects.link(so); so.rotation_euler = (math.radians(48), math.radians(8), math.radians(28))
 w = bpy.data.worlds.new("w"); sc.world = w; w.use_nodes = True
-w.node_tree.nodes["Background"].inputs[0].default_value = (.5, .72, 1, 1); w.node_tree.nodes["Background"].inputs[1].default_value = .55
+w.node_tree.nodes["Background"].inputs[0].default_value = (.3, .6, 1, 1); w.node_tree.nodes["Background"].inputs[1].default_value = .75
 
 def join(rt):
     ms = [o for o in bpy.data.objects if o.parent == rt and o.type == 'MESH']
