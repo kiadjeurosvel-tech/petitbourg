@@ -1,0 +1,600 @@
+{
+ "out_name": "petitbourg_jour8",
+ "day": 8,
+ "date": "2026-11-14",
+ "rev": 1,
+ "flat": true,
+ "feux": true,
+ "highlight": [
+  "jour",
+  "statue",
+  "maison",
+  "villa",
+  "circuit",
+  "bijouterie",
+  "feux",
+  "habitants"
+ ],
+ "description": "Jour 8 : statue en or, maison singe, ultra villa, maison chien, circuit de F1, feux de signalisation ! Écris ta demande en commentaire. #petitbourg #jour8 #village #2d3d #pourtoi",
+ "pinned_comment": "Ta demande est notée ! Écris-la ici, le maire s'en occupe 👇",
+ "scenes": [
+  {
+   "lines": [
+    "Jour huit ! Nous sommes déjà quatre cent soixante-dix-huit habitants. Aujourd'hui : la statue en or, trois maisons, un circuit de F1 et des feux de signalisation !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      10,
+      0
+     ],
+     "c1": [
+      0,
+      10,
+      0
+     ],
+     "d0": 240,
+     "d1": 120,
+     "a0": -28,
+     "a1": 22,
+     "e0": 34,
+     "e1": 20,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 8",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "478 HABITANTS",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "JOUR 8",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "La statue en or de Theoxtar, vingt-cinq carats, qu'il attendait depuis le début. La voilà !"
+   ],
+   "shots": [
+    {
+     "lot": "statue",
+     "d0": 60,
+     "d1": 40,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "dy": -10,
+     "cz": 6,
+     "w": 1,
+     "mayor": "statue"
+    },
+    {
+     "lot": "statue",
+     "d0": 34,
+     "d1": 48,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 6,
+     "dy": -12,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 8",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "STATUE EN OR",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "THEOXTAR",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ],
+   "new": [
+    "statue"
+   ]
+  },
+  {
+   "lines": [
+    "La maison singe de Riox, avec sa piscine géante : deux euros l'entrée, pour remplir la caisse de la mairie !"
+   ],
+   "shots": [
+    {
+     "lot": "singe",
+     "d0": 80,
+     "d1": 54,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1,
+     "mayor": "singe"
+    },
+    {
+     "lot": "singe",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 8",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "MAISON SINGE",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "RIOX · PISCINE 2 EUROS",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ],
+   "new": [
+    "singe"
+   ],
+   "show": [
+    "o_singe"
+   ]
+  },
+  {
+   "lines": [
+    "L'ultra villa de Zazy, avec sa Bugatti et sa Koenigsegg dans le jardin."
+   ],
+   "shots": [
+    {
+     "lot": "zazy",
+     "d0": 80,
+     "d1": 54,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1,
+     "mayor": "zazy"
+    },
+    {
+     "lot": "zazy",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 8",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "ULTRA VILLA",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "ZAZY",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ],
+   "new": [
+    "zazy"
+   ],
+   "show": [
+    "o_zazy"
+   ]
+  },
+  {
+   "lines": [
+    "La maison chien de B95j, juste à côté de la maison chat."
+   ],
+   "shots": [
+    {
+     "lot": "chien",
+     "d0": 80,
+     "d1": 54,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1,
+     "mayor": "chien"
+    },
+    {
+     "lot": "chien",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 8",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "MAISON CHIEN",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "B95J",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ],
+   "new": [
+    "chien"
+   ],
+   "show": [
+    "o_chien"
+   ]
+  },
+  {
+   "lines": [
+    "Un circuit de F1 pour Dedsec, qui habite en plein milieu de la piste !"
+   ],
+   "shots": [
+    {
+     "lot": "f1",
+     "d0": 110,
+     "d1": 70,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1,
+     "mayor": "f1"
+    },
+    {
+     "lot": "f1",
+     "d0": 64,
+     "d1": 78,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 8",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "CIRCUIT F1",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "DEDSEC",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ],
+   "new": [
+    "f1"
+   ],
+   "show": [
+    "o_f1"
+   ]
+  },
+  {
+   "lines": [
+    "La bijouterie d'Elina passe au rose, comme elle le demandait."
+   ],
+   "shots": [
+    {
+     "lot": "bijou",
+     "d0": 80,
+     "d1": 54,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "dy": -8,
+     "cz": 3.5,
+     "w": 1,
+     "mayor": "bijou"
+    },
+    {
+     "lot": "bijou",
+     "d0": 48,
+     "d1": 62,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -10,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 8",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "BIJOUTERIE ROSE",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "ELINA",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Batchess voulait des feux et des panneaux de signalisation : ils sont installés au centre du village !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      40,
+      300,
+      0
+     ],
+     "c1": [
+      40,
+      340,
+      0
+     ],
+     "d0": 90,
+     "d1": 60,
+     "a0": -25,
+     "a1": 15,
+     "e0": 22,
+     "e1": 16,
+     "w": 1
+    },
+    {
+     "c0": [
+      -40,
+      300,
+      0
+     ],
+     "c1": [
+      -40,
+      340,
+      0
+     ],
+     "d0": 70,
+     "d1": 90,
+     "a0": 20,
+     "a1": -20,
+     "e0": 14,
+     "e1": 20,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 8",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "FEUX DE SIGNALISATION",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "BATCHESS4",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Et pardon, Inaya : ton prénom, c'est bien Inaya, pas Aya !"
+   ],
+   "shots": [
+    {
+     "lot": "bleue",
+     "d0": 70,
+     "d1": 50,
+     "a0": -24,
+     "a1": 6,
+     "e0": 15,
+     "e1": 8,
+     "dy": -12,
+     "cz": 3.5,
+     "w": 1,
+     "mayor": "bleue"
+    },
+    {
+     "lot": "bleue",
+     "d0": 44,
+     "d1": 58,
+     "a0": 22,
+     "a1": -14,
+     "e0": 7,
+     "e1": 12,
+     "cz": 3.5,
+     "dy": -14,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 8",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "INAYA",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "VILLA BLEUE",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Écrivez votre demande en commentaire : le maire s'en occupe. Et rejoignez le groupe du village, le lien est en bio !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      10,
+      0
+     ],
+     "c1": [
+      0,
+      10,
+      0
+     ],
+     "d0": 240,
+     "d1": 120,
+     "a0": -28,
+     "a1": 22,
+     "e0": 34,
+     "e1": 20,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 8",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "QUI VEUT QUOI ?",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "LIEN DU GROUPE EN BIO",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  }
+ ]
+}

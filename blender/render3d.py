@@ -52,12 +52,13 @@ LOTS = {
  "elina": (L.villa, 0, 2, dict(jac=True, wall=(.98, .98, .95), rf=(.2, .22, .3))),
  "keiton": (L.igloo, 1, 2, {}), "raph": (L.modern, 2, 2, {}), "hvk": (L.futur, 3, 2, {}),
  "hopital": (L.chantier, -2, 4, dict(label="HOPITAL ?")), "parc": (L.chantier, 2, 4, dict(label="PARC ?")), "caserne": (L.chantier, 3, 4, dict(label="CASERNE ?")),
- "caserne_b": (L.caserne, 3, 4, {}), "bijou": (L.bijouterie, -3, 8, {}), "gare": (L.gare, -2, 8, {}), "basilique": (L.basilique, -1, 8, {}), "bunker": (L.bunker, 0, 8, {}),
+ "caserne_b": (L.caserne, 3, 4, {}), "bijou": (L.bijouterie, -3, 8, dict(pink=True)), "gare": (L.gare, -2, 8, {}), "basilique": (L.basilique, -1, 8, {}), "bunker": (L.bunker, 0, 8, {}),
  "tacos": (L.tacos, 1, 8, {}), "chats": (L.chats, 2, 8, {}), "jaune": (L.villa, 3, 8, dict(wall=(1, .88, .3), rf=(.55, .35, .15))), "infirm": (L.infirm, 3, 6, {}),
  "hopital_b": (L.hopital, -2, 4, {}), "parc_b": (L.parc, 2, 4, {}), "port": (L.port, -3, 0, {}), "aeroport": (L.aeroport, -2, 0, {}), "ferme": (L.ferme, -1, 0, {}), "bar": (L.bar, 0, 0, {}), "base": (L.base, 1, 0, {}), "arcade": (L.arcade, 2, 0, {}), "glace": (L.glace, 3, 0, {}),
  "chapelle": (L.chapelle, -3, -1, {}), "commissariat": (L.commissariat, -2, -1, {}), "mosquee": (L.mosquee, -1, -1, {}), "ilyes": (L.maison_ilyes, 0, -1, {}), "lara": (L.maison_lara, 1, -1, {}), "kvn": (L.maison_kvn, 2, -1, {}), "villa23": (L.villa, 3, -1, dict(wall=(.98, .98, .95), rf=(.25, .3, .45))),
  "pain": (L.maison_pain, -3, -2, {}), "napo": (L.maison_napo, -2, -2, {}), "sauciss": (L.maison_sauciss, -1, -2, {}), "lacvilla": (L.villa, 0, -2, dict(lake=True, wall=(.95, .98, 1), rf=(.2, .3, .5))), "popstar": (L.maison_popstar, 1, -2, {}), "licorne": (L.maison_licorne, 2, -2, {}), "banane": (L.maison_banane, 3, -2, {}),
  "cabane": (L.cabane, -3, -3, {}), "chalet": (L.chalet, -2, -3, {}), "choco": (L.fontaine_choco, -1, -3, {}), "capy": (L.maison_capy, 0, -3, {}), "poulet": (L.maison_poulet, 1, -3, {}),
+ "statue": (L.statue_or, -4, 4, {}), "singe": (L.maison_singe, -3, -5, {}), "zazy": (L.villa_zazy, -2, -5, {}), "chien": (L.maison_chien, 2, 9, {}), "f1": (L.circuit_f1, 0, -5, {}),
  "basket": (L.basket, -3, -4, {}), "logis": (L.logistique, -2, -4, {}), "luxe": (L.villa, -1, -4, dict(wall=(1, .93, .7), rf=(.25, .22, .2), jac=True)), "bleue": (L.villa_bleue, 0, -4, {}), "terrain": (L.terrain, 1, -4, {}),
  "boul": (L.bakery, -3, 6, {}), "mall": (L.mall, -2, 6, {}), "gaming": (L.gaming, -1, 6, {}), "vet": (L.vet, 0, 6, {}),
  "cine": (L.cinema, 1, 6, {}), "garage": (L.garage, 2, 6, {}),
@@ -72,6 +73,9 @@ for i in range(-3, 4):
         r = L.filler(f"f{i}_{j}", i * 31 + j); r.location = P(i, j) + (0,)
 L.roads([CELL * i + CELL / 2 for i in range(-5, 4)], [CELL * j + CELL / 2 for j in range(-5, 10)], -300, 300, -480, 720)
 
+if EP.get("feux"):
+    for _i, _j in ((0, 3), (-1, 3), (0, 4), (1, 4), (-1, 4), (2, 3), (0, 6), (-1, 6)):
+        _f = L.feu(f"feu{_i}_{_j}"); _f.location = (CELL * _i + 46, CELL * _j + 46, 0)
 # --- characters
 def lotp(k, dx=2.6, dy=-7.5): x, y = pos[k]; return (x + dx, y + dy)
 C = {}
@@ -88,10 +92,11 @@ owners = {"omar": ("@mar_64kk", (.2, .5, .9)), "rose": ("@nd.k601", (.9, .4, .6)
           "bunker": ("@arnaud_6411", (.3, .3, .3)), "tacos": ("@user6767676736466467", (.95, .75, .2)), "chats": ("@ussr.chlo2", (.9, .6, .8)), "jaune": ("@lina1k08", (.95, .85, .3)), "infirm": ("@youyou123101", (.95, .95, .95)),
           "port": ("@p.a.t.o.c.h.e", (.1, .35, .75)), "aeroport": ("@roro_le_boss", (.15, .2, .45)), "ferme": ("@cilian087", (.2, .55, .2)), "bar": ("Barman", (.25, .1, .3)), "base": ("@maxfly6620", (.35, .4, .25)), "arcade": ("@goku25603", (.6, .2, .85)), "glace": ("@nostrgvwmm4", (.7, .9, 1)),
           "chapelle": ("Amau", (.95, .95, .95)), "commissariat": ("@batchess4", (.15, .25, .6)), "ilyes": ("Ilyes", (.95, .6, .3)), "lara": ("Lara", (.7, .4, .9)), "kvn": ("Kvn", (.3, .5, .3)), "villa23": ("@23_fg_29", (.9, .3, .3)),
-          "logis": ("@.bysym70", (.2, .4, .8)), "luxe": ("@benjis1708", (.9, .75, .3)), "bleue": ("@in_aya38k", (.4, .6, .95)), "terrain": ("@xyabcw67", (.2, .7, .3))}
+          "logis": ("@.bysym70", (.2, .4, .8)), "luxe": ("@benjis1708", (.9, .75, .3)), "bleue": ("@in_aya38k", (.4, .6, .95)), "terrain": ("@xyabcw67", (.2, .7, .3)),
+          "singe": ("@rioxinvr", (.6, .4, .2)), "zazy": ("@zazyofficiel", (.1, .1, .12)), "chien": ("@user.b95j", (.9, .65, .25)), "f1": ("@dedsec588", (.9, .1, .1))}
 for n, (k, (tag, coat)) in enumerate(owners.items()):
     off = (2.6, -7.5)
-    if k in ("mall", "cine", "garage", "gaming", "boul", "caserne_b", "gare", "basilique", "bunker", "bijou", "tacos", "port", "aeroport", "ferme", "bar", "base", "arcade", "glace", "commissariat", "mosquee", "logis", "terrain"): off = (4, -9)
+    if k in ("mall", "cine", "garage", "gaming", "boul", "caserne_b", "gare", "basilique", "bunker", "bijou", "tacos", "port", "aeroport", "ferme", "bar", "base", "arcade", "glace", "commissariat", "mosquee", "logis", "terrain", "singe", "zazy", "f1"): off = (4, -9)
     if k in ("hopital", "parc", "caserne"): off = (0, -19)
     mk("o_" + k, tag, lotp(k, *off), coat=coat, hair=hair(n), pants=(.2, .2, .3))
 mk("o_louh", "Louh", lotp("commissariat", -3, -9), coat=(.15, .25, .6), hair=hair(2), pants=(.1, .1, .2)); mk("o_kenzo", "Kenzo K9", lotp("commissariat", 9, -9), coat=(.15, .25, .6), hair=hair(3), pants=(.1, .1, .2)); mk("o_matemat", "@matemat734", lotp("ilyes", -1.5, -9), coat=(.3, .7, .5), hair=hair(1), pants=(.2, .2, .3))
