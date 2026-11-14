@@ -1,0 +1,1891 @@
+{
+ "out_name": "petitbourg_jour10",
+ "day": 10,
+ "date": "2026-11-16",
+ "rev": 1,
+ "flat": true,
+ "lots_extra": [
+  {
+   "key": "d10_-10_0",
+   "fn": "maison_p",
+   "i": -3,
+   "j": -10,
+   "kw": {
+    "wall": [
+     0.95,
+     0.8,
+     0.4
+    ],
+    "roof": [
+     0.8,
+     0.25,
+     0.2
+    ],
+    "feat": "car",
+    "villa_": false,
+    "label": "FAN CLUB"
+   },
+   "owner": "@la_fan_de_mj",
+   "coat": [
+    0.25,
+    0.25,
+    0.3
+   ]
+  },
+  {
+   "key": "d10_-10_1",
+   "fn": "maison_p",
+   "i": -2,
+   "j": -10,
+   "kw": {
+    "wall": [
+     1,
+     0.7,
+     0.85
+    ],
+    "roof": [
+     1,
+     0.35,
+     0.6
+    ],
+    "feat": "pool",
+    "villa_": false,
+    "label": "MAISON ROSE"
+   },
+   "owner": "@intrvbll_mcn06k",
+   "coat": [
+    0.48125,
+    0.58125,
+    0.7437499999999999
+   ]
+  },
+  {
+   "key": "d10_-10_2",
+   "fn": "maison_p",
+   "i": -1,
+   "j": -10,
+   "kw": {
+    "wall": [
+     0.85,
+     0.7,
+     0.95
+    ],
+    "roof": [
+     0.3,
+     0.35,
+     0.8
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "SELIM"
+   },
+   "owner": "@selim.star.du.29",
+   "coat": [
+    0.7125,
+    0.2875,
+    0.5625
+   ]
+  },
+  {
+   "key": "d10_-10_3",
+   "fn": "maison_p",
+   "i": 0,
+   "j": -10,
+   "kw": {
+    "wall": [
+     0.95,
+     0.8,
+     0.4
+    ],
+    "roof": [
+     0.8,
+     0.25,
+     0.2
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "DANIELA"
+   },
+   "owner": "@incognitalvs95",
+   "coat": [
+    0.31875,
+    0.61875,
+    0.38125
+   ]
+  },
+  {
+   "key": "d10_-10_4",
+   "fn": "maison_p",
+   "i": 1,
+   "j": -10,
+   "kw": {
+    "wall": [
+     1,
+     0.78,
+     0.55
+    ],
+    "roof": [
+     0.4,
+     0.3,
+     0.25
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "LOLMAN"
+   },
+   "owner": "@lolman7224",
+   "coat": [
+    0.55,
+    0.325,
+    0.825
+   ]
+  },
+  {
+   "key": "d10_-10_5",
+   "fn": "maison_p",
+   "i": 2,
+   "j": -10,
+   "kw": {
+    "wall": [
+     0.75,
+     0.95,
+     0.75
+    ],
+    "roof": [
+     0.7,
+     0.2,
+     0.3
+    ],
+    "feat": "garage",
+    "villa_": false,
+    "label": "MAX"
+   },
+   "owner": "@maxzhomme",
+   "coat": [
+    0.78125,
+    0.65625,
+    0.64375
+   ]
+  },
+  {
+   "key": "d10_-10_6",
+   "fn": "maison_p",
+   "i": 3,
+   "j": -10,
+   "kw": {
+    "wall": [
+     1,
+     0.78,
+     0.55
+    ],
+    "roof": [
+     0.4,
+     0.3,
+     0.25
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "GLOBEX"
+   },
+   "owner": "@globexzkillyou",
+   "coat": [
+    0.3875,
+    0.3625,
+    0.4625
+   ]
+  },
+  {
+   "key": "d10_-11_0",
+   "fn": "commerce",
+   "i": -3,
+   "j": -11,
+   "kw": {
+    "kind": "resto",
+    "label": "RESTAURANT",
+    "wall": [
+     0.95,
+     0.8,
+     0.4
+    ],
+    "roof": [
+     0.2,
+     0.5,
+     0.4
+    ]
+   },
+   "owner": "@corentin2727",
+   "coat": [
+    0.25,
+    0.25,
+    0.3
+   ]
+  },
+  {
+   "key": "d10_-11_1",
+   "fn": "commerce",
+   "i": -2,
+   "j": -11,
+   "kw": {
+    "kind": "resto",
+    "label": "CHEZ LES CAZO",
+    "wall": [
+     0.75,
+     0.95,
+     0.75
+    ],
+    "roof": [
+     0.5,
+     0.25,
+     0.6
+    ]
+   },
+   "owner": "@etan_115",
+   "coat": [
+    0.48125,
+    0.58125,
+    0.7437499999999999
+   ]
+  },
+  {
+   "key": "d10_-11_2",
+   "fn": "commerce",
+   "i": -1,
+   "j": -11,
+   "kw": {
+    "kind": "shop",
+    "label": "EPICERIE",
+    "wall": [
+     0.7,
+     0.88,
+     0.95
+    ],
+    "roof": [
+     0.4,
+     0.3,
+     0.25
+    ]
+   },
+   "owner": "@yani..21",
+   "coat": [
+    0.7125,
+    0.2875,
+    0.5625
+   ]
+  },
+  {
+   "key": "d10_-11_3",
+   "fn": "commerce",
+   "i": 0,
+   "j": -11,
+   "kw": {
+    "kind": "shop",
+    "label": "EPICERIE NOE",
+    "wall": [
+     0.75,
+     0.95,
+     0.75
+    ],
+    "roof": [
+     0.5,
+     0.25,
+     0.6
+    ]
+   },
+   "owner": "@noe.titom",
+   "coat": [
+    0.31875,
+    0.61875,
+    0.38125
+   ]
+  },
+  {
+   "key": "d10_-11_4",
+   "fn": "commerce",
+   "i": 1,
+   "j": -11,
+   "kw": {
+    "kind": "boite",
+    "label": "BOITE DE NUIT",
+    "wall": [
+     0.75,
+     0.95,
+     0.75
+    ],
+    "roof": [
+     0.5,
+     0.25,
+     0.6
+    ]
+   },
+   "owner": "@lt_31k",
+   "coat": [
+    0.55,
+    0.325,
+    0.825
+   ]
+  },
+  {
+   "key": "d10_-11_5",
+   "fn": "commerce",
+   "i": 2,
+   "j": -11,
+   "kw": {
+    "kind": "defile",
+    "label": "DEFILE DE MODE",
+    "wall": [
+     0.98,
+     0.95,
+     0.8
+    ],
+    "roof": [
+     0.9,
+     0.5,
+     0.1
+    ]
+   },
+   "owner": "@soline5868",
+   "coat": [
+    0.78125,
+    0.65625,
+    0.64375
+   ]
+  },
+  {
+   "key": "d10_-11_6",
+   "fn": "commerce",
+   "i": 3,
+   "j": -11,
+   "kw": {
+    "kind": "hotel",
+    "label": "HOTEL DE NAVET",
+    "wall": [
+     1,
+     0.78,
+     0.55
+    ],
+    "roof": [
+     0.8,
+     0.25,
+     0.2
+    ]
+   },
+   "owner": "@_navet_8",
+   "coat": [
+    0.3875,
+    0.3625,
+    0.4625
+   ]
+  },
+  {
+   "key": "d10_-12_0",
+   "fn": "commerce",
+   "i": -3,
+   "j": -12,
+   "kw": {
+    "kind": "bib",
+    "label": "BIBLIOTHEQUE",
+    "wall": [
+     0.95,
+     0.8,
+     0.4
+    ],
+    "roof": [
+     0.2,
+     0.5,
+     0.4
+    ]
+   },
+   "owner": "@aze7482",
+   "coat": [
+    0.25,
+    0.25,
+    0.3
+   ]
+  },
+  {
+   "key": "d10_-12_1",
+   "fn": "commerce",
+   "i": -2,
+   "j": -12,
+   "kw": {
+    "kind": "theatre",
+    "label": "THEATRE",
+    "wall": [
+     0.85,
+     0.7,
+     0.95
+    ],
+    "roof": [
+     0.7,
+     0.2,
+     0.3
+    ]
+   },
+   "owner": "@3ldrisius",
+   "coat": [
+    0.48125,
+    0.58125,
+    0.7437499999999999
+   ]
+  },
+  {
+   "key": "d10_-12_2",
+   "fn": "commerce",
+   "i": -1,
+   "j": -12,
+   "kw": {
+    "kind": "equestre",
+    "label": "CENTRE EQUESTRE",
+    "wall": [
+     0.95,
+     0.6,
+     0.7
+    ],
+    "roof": [
+     0.3,
+     0.35,
+     0.8
+    ]
+   },
+   "owner": "@lola.laplusdepenssiere",
+   "coat": [
+    0.7125,
+    0.2875,
+    0.5625
+   ]
+  },
+  {
+   "key": "d10_-12_3",
+   "fn": "commerce",
+   "i": 0,
+   "j": -12,
+   "kw": {
+    "kind": "usine",
+    "label": "USINE",
+    "wall": [
+     1,
+     0.78,
+     0.55
+    ],
+    "roof": [
+     0.8,
+     0.25,
+     0.2
+    ]
+   },
+   "owner": "@valentin.begu41",
+   "coat": [
+    0.31875,
+    0.61875,
+    0.38125
+   ]
+  },
+  {
+   "key": "d10_-12_4",
+   "fn": "commerce",
+   "i": 1,
+   "j": -12,
+   "kw": {
+    "kind": "refuge",
+    "label": "REFUGE ANIMAUX",
+    "wall": [
+     0.85,
+     0.7,
+     0.95
+    ],
+    "roof": [
+     0.7,
+     0.2,
+     0.3
+    ]
+   },
+   "owner": "@malo..02234",
+   "coat": [
+    0.55,
+    0.325,
+    0.825
+   ]
+  },
+  {
+   "key": "d10_-12_5",
+   "fn": "commerce",
+   "i": 2,
+   "j": -12,
+   "kw": {
+    "kind": "concess",
+    "label": "CONCESSIONNAIRE",
+    "wall": [
+     0.95,
+     0.6,
+     0.7
+    ],
+    "roof": [
+     0.3,
+     0.35,
+     0.8
+    ]
+   },
+   "owner": "@sadow3430",
+   "coat": [
+    0.78125,
+    0.65625,
+    0.64375
+   ]
+  },
+  {
+   "key": "d10_-12_6",
+   "fn": "commerce",
+   "i": 3,
+   "j": -12,
+   "kw": {
+    "kind": "shop",
+    "label": "PECHE",
+    "wall": [
+     0.95,
+     0.6,
+     0.7
+    ],
+    "roof": [
+     0.3,
+     0.35,
+     0.8
+    ]
+   },
+   "owner": "@thefisher_14",
+   "coat": [
+    0.3875,
+    0.3625,
+    0.4625
+   ]
+  },
+  {
+   "key": "d10_-13_0",
+   "fn": "commerce",
+   "i": -3,
+   "j": -13,
+   "kw": {
+    "kind": "fleurs",
+    "label": "FLEURISTE",
+    "wall": [
+     0.98,
+     0.95,
+     0.8
+    ],
+    "roof": [
+     0.9,
+     0.5,
+     0.1
+    ]
+   },
+   "owner": "@jonathancouty418",
+   "coat": [
+    0.25,
+    0.25,
+    0.3
+   ]
+  },
+  {
+   "key": "d10_-13_1",
+   "fn": "commerce",
+   "i": -2,
+   "j": -13,
+   "kw": {
+    "kind": "moto",
+    "label": "MOTOS",
+    "wall": [
+     0.98,
+     0.95,
+     0.8
+    ],
+    "roof": [
+     0.9,
+     0.5,
+     0.1
+    ]
+   },
+   "owner": "@nathanminier5",
+   "coat": [
+    0.48125,
+    0.58125,
+    0.7437499999999999
+   ]
+  },
+  {
+   "key": "d10_-13_2",
+   "fn": "commerce",
+   "i": -1,
+   "j": -13,
+   "kw": {
+    "kind": "fusee",
+    "label": "FUSEE",
+    "wall": [
+     0.95,
+     0.8,
+     0.4
+    ],
+    "roof": [
+     0.2,
+     0.5,
+     0.4
+    ]
+   },
+   "owner": "@vixo4824",
+   "coat": [
+    0.7125,
+    0.2875,
+    0.5625
+   ]
+  },
+  {
+   "key": "d10_-13_3",
+   "fn": "commerce",
+   "i": 0,
+   "j": -13,
+   "kw": {
+    "kind": "banque",
+    "label": "BANQUE",
+    "wall": [
+     0.95,
+     0.8,
+     0.4
+    ],
+    "roof": [
+     0.2,
+     0.5,
+     0.4
+    ]
+   },
+   "owner": "@at_30k4",
+   "coat": [
+    0.31875,
+    0.61875,
+    0.38125
+   ]
+  },
+  {
+   "key": "d10_-13_4",
+   "fn": "commerce",
+   "i": 1,
+   "j": -13,
+   "kw": {
+    "kind": "roue",
+    "label": "PARC D'ATTRACTIONS",
+    "wall": [
+     0.95,
+     0.8,
+     0.4
+    ],
+    "roof": [
+     0.2,
+     0.5,
+     0.4
+    ]
+   },
+   "owner": "@ayso_345",
+   "coat": [
+    0.55,
+    0.325,
+    0.825
+   ]
+  },
+  {
+   "key": "d10_-13_5",
+   "fn": "commerce",
+   "i": 2,
+   "j": -13,
+   "kw": {
+    "kind": "burger",
+    "label": "BURGER",
+    "wall": [
+     0.95,
+     0.6,
+     0.7
+    ],
+    "roof": [
+     0.3,
+     0.35,
+     0.8
+    ]
+   },
+   "owner": "@manon.spellig",
+   "coat": [
+    0.78125,
+    0.65625,
+    0.64375
+   ]
+  },
+  {
+   "key": "d10_-13_6",
+   "fn": "commerce",
+   "i": 3,
+   "j": -13,
+   "kw": {
+    "kind": "poulet",
+    "label": "POULET FRIT",
+    "wall": [
+     1,
+     0.78,
+     0.55
+    ],
+    "roof": [
+     0.8,
+     0.25,
+     0.2
+    ]
+   },
+   "owner": "@jasminekitty60",
+   "coat": [
+    0.3875,
+    0.3625,
+    0.4625
+   ]
+  }
+ ],
+ "people": [
+  {
+   "tag": "@usrr51410",
+   "coat": [
+    0.15,
+    0.25,
+    0.6
+   ],
+   "lot": "commissariat"
+  },
+  {
+   "tag": "@moha31toulouse",
+   "coat": [
+    0.15,
+    0.25,
+    0.6
+   ],
+   "lot": "commissariat"
+  },
+  {
+   "tag": "@nastasieiosif.0",
+   "coat": [
+    0.15,
+    0.25,
+    0.6
+   ],
+   "lot": "commissariat"
+  },
+  {
+   "tag": "@ld.57kk",
+   "coat": [
+    0.15,
+    0.25,
+    0.6
+   ],
+   "lot": "commissariat"
+  },
+  {
+   "tag": "@levraifandanime1",
+   "coat": [
+    0.15,
+    0.25,
+    0.6
+   ],
+   "lot": "commissariat"
+  },
+  {
+   "tag": "@gasp1280",
+   "coat": [
+    0.15,
+    0.25,
+    0.6
+   ],
+   "lot": "commissariat"
+  },
+  {
+   "tag": "@riffi4kz",
+   "coat": [
+    0.15,
+    0.25,
+    0.6
+   ],
+   "lot": "commissariat"
+  },
+  {
+   "tag": "@anakin.bottemanne",
+   "coat": [
+    0.15,
+    0.25,
+    0.6
+   ],
+   "lot": "commissariat"
+  },
+  {
+   "tag": "@clecle14",
+   "coat": [
+    0.15,
+    0.25,
+    0.6
+   ],
+   "lot": "commissariat"
+  },
+  {
+   "tag": "@elbendito4756",
+   "coat": [
+    0.15,
+    0.25,
+    0.6
+   ],
+   "lot": "commissariat"
+  },
+  {
+   "tag": "@piscinemunicipale65",
+   "coat": [
+    0.15,
+    0.25,
+    0.6
+   ],
+   "lot": "commissariat"
+  },
+  {
+   "tag": "@user394282",
+   "coat": [
+    0.15,
+    0.25,
+    0.6
+   ],
+   "lot": "commissariat"
+  },
+  {
+   "tag": "@orianneroro62",
+   "coat": [
+    0.9,
+    0.9,
+    0.95
+   ],
+   "lot": "hopital_b"
+  },
+  {
+   "tag": "@uji4248",
+   "coat": [
+    0.9,
+    0.9,
+    0.95
+   ],
+   "lot": "hopital_b"
+  },
+  {
+   "tag": "@user6789346170",
+   "coat": [
+    0.9,
+    0.9,
+    0.95
+   ],
+   "lot": "hopital_b"
+  },
+  {
+   "tag": "@telxtz",
+   "coat": [
+    0.9,
+    0.9,
+    0.95
+   ],
+   "lot": "hopital_b"
+  },
+  {
+   "tag": "@cindydoudie",
+   "coat": [
+    0.9,
+    0.9,
+    0.95
+   ],
+   "lot": "hopital_b"
+  },
+  {
+   "tag": "@pompier934",
+   "coat": [
+    0.9,
+    0.9,
+    0.95
+   ],
+   "lot": "hopital_b"
+  },
+  {
+   "tag": "@liam.roulenq1",
+   "coat": [
+    0.35,
+    0.4,
+    0.25
+   ],
+   "lot": "base"
+  },
+  {
+   "tag": "@louis_grd06",
+   "coat": [
+    0.35,
+    0.4,
+    0.25
+   ],
+   "lot": "base"
+  },
+  {
+   "tag": "@clement_brottier",
+   "coat": [
+    0.35,
+    0.4,
+    0.25
+   ],
+   "lot": "base"
+  },
+  {
+   "tag": "@lyc29.beta",
+   "coat": [
+    0.35,
+    0.4,
+    0.25
+   ],
+   "lot": "base"
+  },
+  {
+   "tag": "@willmann.00",
+   "coat": [
+    0.35,
+    0.4,
+    0.25
+   ],
+   "lot": "base"
+  },
+  {
+   "tag": "@eden__mllx",
+   "coat": [
+    0.35,
+    0.4,
+    0.25
+   ],
+   "lot": "base"
+  },
+  {
+   "tag": "@collin.heritier11",
+   "coat": [
+    0.35,
+    0.4,
+    0.25
+   ],
+   "lot": "base"
+  },
+  {
+   "tag": "@lunaguerre8",
+   "coat": [
+    0.35,
+    0.4,
+    0.25
+   ],
+   "lot": "base"
+  },
+  {
+   "tag": "@nln.3008",
+   "coat": [
+    0.35,
+    0.4,
+    0.25
+   ],
+   "lot": "base"
+  },
+  {
+   "tag": "@nico.lfutur.agri",
+   "coat": [
+    0.3,
+    0.65,
+    0.3
+   ],
+   "lot": "mairie"
+  },
+  {
+   "tag": "@uto.mbailleul",
+   "coat": [
+    0.3,
+    0.65,
+    0.3
+   ],
+   "lot": "mairie"
+  },
+  {
+   "tag": "@fan2voiture16",
+   "coat": [
+    0.3,
+    0.65,
+    0.3
+   ],
+   "lot": "mairie"
+  },
+  {
+   "tag": "@moussbzhacab",
+   "coat": [
+    0.3,
+    0.65,
+    0.3
+   ],
+   "lot": "mairie"
+  },
+  {
+   "tag": "@le_routier_72",
+   "coat": [
+    0.3,
+    0.65,
+    0.3
+   ],
+   "lot": "mairie"
+  },
+  {
+   "tag": "@tmhbt21",
+   "coat": [
+    0.3,
+    0.65,
+    0.3
+   ],
+   "lot": "mairie"
+  },
+  {
+   "tag": "@izkoo0",
+   "coat": [
+    0.3,
+    0.65,
+    0.3
+   ],
+   "lot": "mairie"
+  },
+  {
+   "tag": "@m2aa9711",
+   "coat": [
+    0.3,
+    0.65,
+    0.3
+   ],
+   "lot": "mairie"
+  },
+  {
+   "tag": "@l.69k534",
+   "coat": [
+    0.3,
+    0.65,
+    0.3
+   ],
+   "lot": "mairie"
+  },
+  {
+   "tag": "@hanslprlt",
+   "coat": [
+    0.3,
+    0.65,
+    0.3
+   ],
+   "lot": "mairie"
+  },
+  {
+   "tag": "@rafael_cnx",
+   "coat": [
+    0.3,
+    0.65,
+    0.3
+   ],
+   "lot": "mairie"
+  },
+  {
+   "tag": "@tom470006",
+   "coat": [
+    0.3,
+    0.65,
+    0.3
+   ],
+   "lot": "mairie"
+  }
+ ],
+ "highlight": [
+  "jour",
+  "commerces",
+  "métiers",
+  "police",
+  "hôpital",
+  "armée",
+  "parc"
+ ],
+ "description": "Jour 10 : commerces, services et métiers pour tous les habitants ! Écris ton métier en commentaire. #petitbourg #jour10 #village #2d3d #pourtoi",
+ "pinned_comment": "Ton métier n'est pas là ? Écris-le ici, le maire s'en occupe 👇",
+ "scenes": [
+  {
+   "lines": [
+    "Jour dix ! Plus de maisons, mais des commerces, des services et des métiers : chacun trouve sa place dans la ville !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      10,
+      0
+     ],
+     "c1": [
+      0,
+      10,
+      0
+     ],
+     "d0": 240,
+     "d1": 120,
+     "a0": -28,
+     "a1": 22,
+     "e0": 34,
+     "e1": 20,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 10",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "METIERS ET COMMERCES",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "TOUT LE MONDE A SA PLACE",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "D'abord sept dernières maisons : La fan de M J, Intrvbll, Selim, Daniela, Lolman, Max et Globex !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      -200,
+      -800,
+      0
+     ],
+     "c1": [
+      -70,
+      -800,
+      0
+     ],
+     "d0": 130,
+     "d1": 120,
+     "a0": -20,
+     "a1": 10,
+     "e0": 32,
+     "e1": 28,
+     "w": 1
+    },
+    {
+     "c0": [
+      -70,
+      -800,
+      0
+     ],
+     "c1": [
+      70,
+      -800,
+      0
+     ],
+     "d0": 120,
+     "d1": 125,
+     "a0": 10,
+     "a1": -10,
+     "e0": 28,
+     "e1": 30,
+     "w": 1
+    },
+    {
+     "c0": [
+      70,
+      -800,
+      0
+     ],
+     "c1": [
+      200,
+      -800,
+      0
+     ],
+     "d0": 125,
+     "d1": 135,
+     "a0": -10,
+     "a1": 18,
+     "e0": 30,
+     "e1": 32,
+     "w": 1
+    }
+   ],
+   "new": [
+    "d10_-10_0",
+    "d10_-10_1",
+    "d10_-10_2",
+    "d10_-10_3",
+    "d10_-10_4",
+    "d10_-10_5",
+    "d10_-10_6"
+   ],
+   "show": [
+    "o_d10_-10_0",
+    "o_d10_-10_1",
+    "o_d10_-10_2",
+    "o_d10_-10_3",
+    "o_d10_-10_4",
+    "o_d10_-10_5",
+    "o_d10_-10_6"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 10",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "DERNIERES MAISONS",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "BIENVENUE",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Ensuite, les commerces : le restaurant de Corentin, chez les Cazo d'Etan, les épiceries de Yani et de Noé, la boîte de nuit, le défilé de mode de Soline et l'hôtel de Navet !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      -200,
+      -880,
+      0
+     ],
+     "c1": [
+      -70,
+      -880,
+      0
+     ],
+     "d0": 130,
+     "d1": 120,
+     "a0": -20,
+     "a1": 10,
+     "e0": 32,
+     "e1": 28,
+     "w": 1
+    },
+    {
+     "c0": [
+      -70,
+      -880,
+      0
+     ],
+     "c1": [
+      70,
+      -880,
+      0
+     ],
+     "d0": 120,
+     "d1": 125,
+     "a0": 10,
+     "a1": -10,
+     "e0": 28,
+     "e1": 30,
+     "w": 1
+    },
+    {
+     "c0": [
+      70,
+      -880,
+      0
+     ],
+     "c1": [
+      200,
+      -880,
+      0
+     ],
+     "d0": 125,
+     "d1": 135,
+     "a0": -10,
+     "a1": 18,
+     "e0": 30,
+     "e1": 32,
+     "w": 1
+    }
+   ],
+   "new": [
+    "d10_-11_0",
+    "d10_-11_1",
+    "d10_-11_2",
+    "d10_-11_3",
+    "d10_-11_4",
+    "d10_-11_5",
+    "d10_-11_6"
+   ],
+   "show": [
+    "o_d10_-11_0",
+    "o_d10_-11_1",
+    "o_d10_-11_2",
+    "o_d10_-11_3",
+    "o_d10_-11_4",
+    "o_d10_-11_5",
+    "o_d10_-11_6"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 10",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "COMMERCES 1",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "POUR VOUS TOUS",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "La bibliothèque d'Aze, le théâtre d'Eldrisius, le centre équestre de Lola, l'usine de Valentin, le refuge de Malo, le concessionnaire de Sadow et le magasin de pêche de Fisher !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      -200,
+      -960,
+      0
+     ],
+     "c1": [
+      -70,
+      -960,
+      0
+     ],
+     "d0": 130,
+     "d1": 120,
+     "a0": -20,
+     "a1": 10,
+     "e0": 32,
+     "e1": 28,
+     "w": 1
+    },
+    {
+     "c0": [
+      -70,
+      -960,
+      0
+     ],
+     "c1": [
+      70,
+      -960,
+      0
+     ],
+     "d0": 120,
+     "d1": 125,
+     "a0": 10,
+     "a1": -10,
+     "e0": 28,
+     "e1": 30,
+     "w": 1
+    },
+    {
+     "c0": [
+      70,
+      -960,
+      0
+     ],
+     "c1": [
+      200,
+      -960,
+      0
+     ],
+     "d0": 125,
+     "d1": 135,
+     "a0": -10,
+     "a1": 18,
+     "e0": 30,
+     "e1": 32,
+     "w": 1
+    }
+   ],
+   "new": [
+    "d10_-12_0",
+    "d10_-12_1",
+    "d10_-12_2",
+    "d10_-12_3",
+    "d10_-12_4",
+    "d10_-12_5",
+    "d10_-12_6"
+   ],
+   "show": [
+    "o_d10_-12_0",
+    "o_d10_-12_1",
+    "o_d10_-12_2",
+    "o_d10_-12_3",
+    "o_d10_-12_4",
+    "o_d10_-12_5",
+    "o_d10_-12_6"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 10",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "COMMERCES 2",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "POUR VOUS TOUS",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Le fleuriste de Jonathan, les motos de Nathan, la fusée de Vixo, la banque d'At, le parc d'attractions d'Ayso, le burger de Manon et le poulet frit de Jasmine !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      -200,
+      -1040,
+      0
+     ],
+     "c1": [
+      -70,
+      -1040,
+      0
+     ],
+     "d0": 130,
+     "d1": 120,
+     "a0": -20,
+     "a1": 10,
+     "e0": 32,
+     "e1": 28,
+     "w": 1
+    },
+    {
+     "c0": [
+      -70,
+      -1040,
+      0
+     ],
+     "c1": [
+      70,
+      -1040,
+      0
+     ],
+     "d0": 120,
+     "d1": 125,
+     "a0": 10,
+     "a1": -10,
+     "e0": 28,
+     "e1": 30,
+     "w": 1
+    },
+    {
+     "c0": [
+      70,
+      -1040,
+      0
+     ],
+     "c1": [
+      200,
+      -1040,
+      0
+     ],
+     "d0": 125,
+     "d1": 135,
+     "a0": -10,
+     "a1": 18,
+     "e0": 30,
+     "e1": 32,
+     "w": 1
+    }
+   ],
+   "new": [
+    "d10_-13_0",
+    "d10_-13_1",
+    "d10_-13_2",
+    "d10_-13_3",
+    "d10_-13_4",
+    "d10_-13_5",
+    "d10_-13_6"
+   ],
+   "show": [
+    "o_d10_-13_0",
+    "o_d10_-13_1",
+    "o_d10_-13_2",
+    "o_d10_-13_3",
+    "o_d10_-13_4",
+    "o_d10_-13_5",
+    "o_d10_-13_6"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 10",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "COMMERCES 3",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "POUR VOUS TOUS",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Au commissariat, douze policiers prennent leur poste : tous ceux qui l'ont demandé !"
+   ],
+   "shots": [
+    {
+     "lot": "commissariat",
+     "d0": 70,
+     "d1": 48,
+     "a0": -18,
+     "a1": 8,
+     "e0": 16,
+     "e1": 10,
+     "dy": -14,
+     "cz": 2.5,
+     "w": 1
+    },
+    {
+     "lot": "commissariat",
+     "d0": 46,
+     "d1": 64,
+     "a0": 18,
+     "a1": -12,
+     "e0": 9,
+     "e1": 14,
+     "dy": -16,
+     "cz": 2.5,
+     "w": 1
+    }
+   ],
+   "show": [
+    "p0",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "p6",
+    "p7",
+    "p8",
+    "p9",
+    "p10",
+    "p11"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 10",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "POLICIERS",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "TOUS RECRUTES",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "À l'hôpital et à la caserne : trois médecins, un pharmacien et deux pompiers !"
+   ],
+   "shots": [
+    {
+     "lot": "hopital_b",
+     "d0": 70,
+     "d1": 48,
+     "a0": -18,
+     "a1": 8,
+     "e0": 16,
+     "e1": 10,
+     "dy": -14,
+     "cz": 2.5,
+     "w": 1
+    },
+    {
+     "lot": "hopital_b",
+     "d0": 46,
+     "d1": 64,
+     "a0": 18,
+     "a1": -12,
+     "e0": 9,
+     "e1": 14,
+     "dy": -16,
+     "cz": 2.5,
+     "w": 1
+    }
+   ],
+   "show": [
+    "p12",
+    "p13",
+    "p14",
+    "p15",
+    "p16",
+    "p17"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 10",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "SANTE ET POMPIERS",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "TOUS RECRUTES",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "À la base militaire : Liam, chef de l'armée Petitbourg, son adjoint Louis, des soldats, un pilote de chasse et un sergent !"
+   ],
+   "shots": [
+    {
+     "lot": "base",
+     "d0": 70,
+     "d1": 48,
+     "a0": -18,
+     "a1": 8,
+     "e0": 16,
+     "e1": 10,
+     "dy": -14,
+     "cz": 2.5,
+     "w": 1
+    },
+    {
+     "lot": "base",
+     "d0": 46,
+     "d1": 64,
+     "a0": 18,
+     "a1": -12,
+     "e0": 9,
+     "e1": 14,
+     "dy": -16,
+     "cz": 2.5,
+     "w": 1
+    }
+   ],
+   "show": [
+    "p18",
+    "p19",
+    "p20",
+    "p21",
+    "p22",
+    "p23",
+    "p24",
+    "p25",
+    "p26"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 10",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "ARMEE",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "TOUS RECRUTES",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Des agriculteurs, des routiers, un taxi, des assistants du maire, un prêtre : chaque métier a ses habitants !"
+   ],
+   "shots": [
+    {
+     "lot": "mairie",
+     "d0": 70,
+     "d1": 48,
+     "a0": -18,
+     "a1": 8,
+     "e0": 16,
+     "e1": 10,
+     "dy": -14,
+     "cz": 2.5,
+     "w": 1
+    },
+    {
+     "lot": "mairie",
+     "d0": 46,
+     "d1": 64,
+     "a0": 18,
+     "a1": -12,
+     "e0": 9,
+     "e1": 14,
+     "dy": -16,
+     "cz": 2.5,
+     "w": 1
+    }
+   ],
+   "show": [
+    "p27",
+    "p28",
+    "p29",
+    "p30",
+    "p31",
+    "p32",
+    "p33",
+    "p34",
+    "p35",
+    "p36",
+    "p37",
+    "p38"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 10",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "CAMPAGNE ET VILLE",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "TOUS RECRUTES",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Si ton métier n'était pas là, écris-le en commentaire : le maire s'en occupe. Et rejoins le groupe du village, le lien est en bio !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      10,
+      0
+     ],
+     "c1": [
+      0,
+      10,
+      0
+     ],
+     "d0": 240,
+     "d1": 120,
+     "a0": -28,
+     "a1": 22,
+     "e0": 34,
+     "e1": 20,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 10",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "TON METIER ?",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "LIEN DU GROUPE EN BIO",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  }
+ ]
+}

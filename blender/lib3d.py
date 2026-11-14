@@ -843,3 +843,82 @@ def feu(name):
     for z, c in ((5.6, (1, .1, .1)), (5.2, (1, .8, .1)), (4.8, (.1, 1, .2))): sph(r, 0, -.5, z, .2, c, seg=8)
     box(r, 1.2, 0, 3.5, 1.4, .1, 1.4, (.9, .1, .1)); box(r, 1.2, -.07, 3.5, 1.1, .05, 1.1, (1, 1, 1))
     return r
+
+# ------------------------------------------------------------------ Jour 9-10 : quartiers génériques pilotés par JSON
+def maison_p(name, wall=(1, .78, .55), roof=(.8, .25, .2), feat="", villa_=False, label=None):
+    r = villa(name, wall=wall, rf=roof, pool_=(feat != "nopool")) if villa_ else house(name, wall, roof, 13, 9.5)
+    fy = 1.2 if villa_ else -.9
+    if feat == "pool" and not villa_: pool(r, 7, -12, 11, 5)
+    if feat == "dog": sph(r, 9, -9, .8, 1, (.9, .65, .25), (1.8, 1, 1), seg=10); sph(r, 10.6, -9, 1.5, .7, (.9, .65, .25), seg=10)
+    if feat == "cloud":
+        for i, (x, z, rr_) in enumerate(((-3, 8.4, 2.2), (0, 9.2, 2.8), (3.2, 8.4, 2.2))): sph(r, x, 4, z, rr_, (1, 1, 1), seg=12)
+        pool(r, 7, -12, 11, 5)
+    if feat == "kitty":
+        sph(r, 10, -9, 2.4, 2.2, (1, 1, 1), (1.1, .5, 1), seg=12); sph(r, 8.6, -9.5, 4.6, .8, (1, 1, 1), seg=8); sph(r, 11.4, -9.5, 4.6, .8, (1, 1, 1), seg=8)
+        sph(r, 11.5, -9.6, 3.6, .7, (1, .2, .4), (1.4, .5, 1), seg=8)
+    if feat == "bear": sph(r, 10, -9, 2.2, 2.2, (.85, .6, .25), seg=12); sph(r, 10, -9.3, 4.9, 1.3, (.85, .6, .25), seg=10); box(r, 7.4, -9, .15, 1.8, 1.8, 1.6, (1, .8, .1))
+    if feat == "trex":
+        sph(r, 10, -9, 2.6, 2.4, (.3, .75, .3), (1.5, 1, 1.2), seg=12); sph(r, 12.6, -9, 5.4, 1.2, (.3, .75, .3), seg=10); cone4(r, 6.5, -9, 1.2, 1.5, 1.5, 1.8, (.3, .75, .3))
+        for sx in (-.5, .5): sph(r, 13.4, -9 + sx, 5.7, .22, (0, 0, 0), seg=6)
+    if feat == "techno": box(r, 8, -4, .15, 3.5, 3.5, 3, (.35, .4, .5)); cyl(r, 8, -4, 3.1, .12, 4, (.8, .8, .85), v=6); sph(r, 8, -4, 7.2, .5, (1, .2, .2), seg=8)
+    if feat == "garage" or feat == "car": car(r, 10, -10, (.2, .5, .9))
+    if feat == "fire": box(r, 8, -6, .15, 3, 2, 1.8, (.9, .1, .1)); sph(r, 8, -6, 2, .7, (1, .6, .1), seg=8)
+    if feat == "cross": box(r, 5, 4, 8.8, .5, .5, 3, (1, 1, 1)); box(r, 5, 4, 10.2, 2, .5, .5, (1, 1, 1))
+    if label: sign(r, label, 0, fy, 6.2 if not villa_ else 5.8, min(13, 2.5 + len(label) * .62), 1.5, (.12, .12, .18), (1, 1, 1))
+    return r
+
+def commerce(name, kind="shop", label="", wall=(.9, .85, .7), roof=(.5, .3, .2)):
+    r = _lot(name, 42, 38, (.7, .72, .72)); by = 5; Wl = (1, 1, 1)
+    def shop(w=18, d=11, h=6.5):
+        box(r, 0, by, .15, w, d, h, wall, .5); box(r, 0, by, h + .15, w + 1, d + 1, .4, roof, .5)
+        door(r, 0, by - d / 2 - .05, .15, 2.2, 2.6, (.25, .2, .3))
+        for dx in (-5.5, 5.5): window(r, dx, by - d / 2 - .06, 1.8, 3, 2.4)
+    if kind == "hotel": box(r, 0, by, .15, 10, 9, 18, wall, .5); box(r, 0, by, 18.15, 11, 10, .5, roof)
+    elif kind == "usine":
+        box(r, 0, by, .15, 22, 12, 7, (.6, .6, .65)); box(r, 0, by, 7.15, 23, 13, .4, (.35, .35, .4))
+        for sx in (-7, 0, 7): cyl(r, sx, by + 3, 7.5, 1.2, 9, (.55, .3, .25), v=10)
+    elif kind == "roue":
+        for k in range(24):
+            a = k / 24 * 6.2832; col = [(1, .2, .2), (.2, .5, 1), (1, .85, .1), (.3, .85, .4)][k % 4]
+            sph(r, 12 * math.cos(a), by, 14 + 12 * math.sin(a), .7 if k % 3 else 1.1, col, seg=6)
+        for sx in (-1, 1): box(r, sx * 5, by, .15, .8, .8, 14, (.8, .8, .85)); box(r, 0, by, 14, 1.6, 1.6, 1.6, (.9, .9, .2))
+        box(r, 0, by - 13, .15, 12, 5, 3, (.9, .3, .3)); sign(r, label or "PARC", 0, by - 15.6, 2.4, 11, 1.6, (.9, .3, .3), (1, 1, 1))
+    elif kind == "fusee":
+        cyl(r, 0, by, .15, 2, 14, (.95, .95, .98), v=14); cone4(r, 0, by, 14.1, 4.2, 4.2, 5, (.9, .15, .15))
+        for sx in (-1, 1): box(r, sx * 2.4, by, .15, .6, 3, 4, (.9, .15, .15))
+        box(r, -9, by, .15, 9, 7, 3.5, (.6, .65, .75))
+    elif kind == "equestre":
+        for sx in (-12, 12): box(r, sx, by - 2, .15, .3, 18, 1.4, (.6, .4, .2))
+        for sy in (-11, 7): box(r, 0, by + sy, .15, 24, .3, 1.4, (.6, .4, .2))
+        sph(r, -3, by - 2, 1.5, 1.3, (.5, .3, .15), (1.8, .8, 1)); sph(r, -1.2, by - 2, 2.6, .7, (.5, .3, .15)); box(r, -5, by + 6, .15, 6, 4, 3.5, (.8, .3, .25))
+    elif kind == "fusee2": shop()
+    elif kind == "boite":
+        box(r, 0, by, .15, 18, 11, 6.5, (.1, .08, .18)); box(r, 0, by, 6.65, 19, 12, .4, (.2, .1, .3))
+        for i, c in enumerate([(1, .2, .6), (.2, .9, 1), (1, .9, .2), (.5, .3, 1), (.2, 1, .5)]): sph(r, -7 + i * 3.5, by - 5.7, 5, .8, c, seg=8)
+    elif kind == "defile": shop(); box(r, 0, by - 13, .15, 4, 14, .5, (1, .6, .8)); [sph(r, 0, by - 9 - k * 3, 1.4, .45, (.2, .2, .25), seg=6) for k in range(3)]
+    elif kind == "resto":
+        shop()
+        for k, x in enumerate((-8, 0, 8)): cyl(r, x, by - 9, .15, 1.3, .15, (1, 1, 1), v=10); sph(r, x, by - 9, 1.3, .5, (.9, .3, .2), seg=6)
+    elif kind == "bib":
+        shop(); box(r, 0, by - 6.5, 6.5, 14, 3, .4, (.95, .95, .95))
+        for sx in (-6, -2, 2, 6): cyl(r, sx, by - 7.5, .15, .5, 6.5, (.95, .95, .95), v=10)
+    elif kind == "theatre":
+        shop(); [cyl(r, sx, by - 7.5, .15, .5, 6.5, (.9, .8, .4), v=10) for sx in (-6, -2, 2, 6)]; box(r, 0, by - 5.7, 1.2, 4, .2, 3, (.8, .1, .15))
+    elif kind == "concess":
+        shop(); box(r, 0, by - 5.6, .6, 16, .15, 4.5, (.7, .9, 1), .05)
+        for i, c in enumerate([(.9, .1, .1), (.1, .3, .9), (1, .8, .1)]): car(r, -8 + i * 8, by - 11, c, 0)
+    elif kind == "fleurs":
+        shop(); [sph(r, -10 + i * 2.5, by - 8, .6, .6, [(1, .3, .4), (1, .85, .2), (.8, .3, 1), (1, .5, .1)][i % 4], seg=6) for i in range(9)]
+    elif kind == "moto":
+        shop(); [box(r, -7 + i * 3.5, by - 9, .15, 1.2, 3, 1.2, [(.9, .1, .1), (.1, .1, .1), (.2, .4, .9), (1, .7, .1)][i % 4]) for i in range(5)]
+    elif kind == "refuge":
+        shop(); [box(r, -9 + i * 4.5, by - 9, .15, 2.4, 2.4, 1.8, (.85, .65, .4)) for i in range(5)]; [sph(r, -9 + i * 4.5, by - 10.4, 1, .6, (.9, .8, .6), (1, .6, .8), seg=6) for i in range(5)]
+    elif kind == "burger":
+        shop(); sph(r, 0, by, 9.8, 2.8, (.95, .65, .25), (1, 1, .55), seg=12); sph(r, 0, by, 8.1, 2.6, (.4, .2, .1), (1, 1, .3), seg=12)
+    elif kind == "poulet":
+        shop(); cyl(r, 0, by, 6.9, 2.4, 3.4, (.9, .1, .1), v=14); cyl(r, 0, by, 8.8, 2.5, .6, (1, 1, 1), v=14); sph(r, 0, by, 10.4, 1.4, (.95, .7, .3), seg=8)
+    elif kind == "banque": shop(); [cyl(r, sx, by - 7.5, .15, .5, 6.5, (.95, .95, .9), v=10) for sx in (-6, -2, 2, 6)]; box(r, 0, by - 7, 6.6, 16, 3, .6, (.9, .75, .2))
+    else: shop()
+    if kind not in ("roue",) and label: sign(r, label, 0, by - 7.2 if kind not in ("hotel", "fusee", "usine", "equestre") else by - 8.5, 7.4 if kind not in ("hotel", "usine", "fusee") else 3, min(15, 3 + len(label) * .7), 1.6, (.1, .1, .15), (1, .9, .3))
+    tree(r, -17, 14, .8); tree(r, 17, 14, .8)
+    return r

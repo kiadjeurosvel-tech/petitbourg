@@ -1,0 +1,1295 @@
+{
+ "out_name": "petitbourg_jour9",
+ "day": 9,
+ "date": "2026-11-15",
+ "rev": 1,
+ "flat": true,
+ "lots_extra": [
+  {
+   "key": "d9_-6_0",
+   "fn": "maison_p",
+   "i": -3,
+   "j": -6,
+   "kw": {
+    "wall": [
+     0.7,
+     0.88,
+     0.95
+    ],
+    "roof": [
+     0.5,
+     0.25,
+     0.6
+    ],
+    "feat": "pool",
+    "villa_": true,
+    "label": "LCRT"
+   },
+   "owner": "@l.crt99",
+   "coat": [
+    0.25,
+    0.25,
+    0.3
+   ]
+  },
+  {
+   "key": "d9_-6_1",
+   "fn": "maison_p",
+   "i": -2,
+   "j": -6,
+   "kw": {
+    "wall": [
+     0.95,
+     0.6,
+     0.7
+    ],
+    "roof": [
+     0.9,
+     0.5,
+     0.1
+    ],
+    "feat": "pool",
+    "villa_": true,
+    "label": "ENZO"
+   },
+   "owner": "@enzo.barrios71",
+   "coat": [
+    0.48125,
+    0.58125,
+    0.7437499999999999
+   ]
+  },
+  {
+   "key": "d9_-6_2",
+   "fn": "maison_p",
+   "i": -1,
+   "j": -6,
+   "kw": {
+    "wall": [
+     0.98,
+     0.95,
+     0.8
+    ],
+    "roof": [
+     0.2,
+     0.5,
+     0.4
+    ],
+    "feat": "pool",
+    "villa_": true,
+    "label": "ROBIN T"
+   },
+   "owner": "@rbn.tln",
+   "coat": [
+    0.7125,
+    0.2875,
+    0.5625
+   ]
+  },
+  {
+   "key": "d9_-6_3",
+   "fn": "maison_p",
+   "i": 0,
+   "j": -6,
+   "kw": {
+    "wall": [
+     0.75,
+     0.95,
+     0.75
+    ],
+    "roof": [
+     0.7,
+     0.2,
+     0.3
+    ],
+    "feat": "pool",
+    "villa_": true,
+    "label": "ADAM"
+   },
+   "owner": "@adam51693",
+   "coat": [
+    0.31875,
+    0.61875,
+    0.38125
+   ]
+  },
+  {
+   "key": "d9_-6_4",
+   "fn": "maison_p",
+   "i": 1,
+   "j": -6,
+   "kw": {
+    "wall": [
+     0.95,
+     0.8,
+     0.4
+    ],
+    "roof": [
+     0.8,
+     0.25,
+     0.2
+    ],
+    "feat": "pool",
+    "villa_": true,
+    "label": "ANIS"
+   },
+   "owner": "@anis.aimeur",
+   "coat": [
+    0.55,
+    0.325,
+    0.825
+   ]
+  },
+  {
+   "key": "d9_-6_5",
+   "fn": "maison_p",
+   "i": 2,
+   "j": -6,
+   "kw": {
+    "wall": [
+     0.95,
+     0.6,
+     0.7
+    ],
+    "roof": [
+     0.9,
+     0.5,
+     0.1
+    ],
+    "feat": "pool",
+    "villa_": true,
+    "label": "MELVINE"
+   },
+   "owner": "@melvine799",
+   "coat": [
+    0.78125,
+    0.65625,
+    0.64375
+   ]
+  },
+  {
+   "key": "d9_-6_6",
+   "fn": "maison_p",
+   "i": 3,
+   "j": -6,
+   "kw": {
+    "wall": [
+     0.98,
+     0.95,
+     0.8
+    ],
+    "roof": [
+     0.2,
+     0.5,
+     0.4
+    ],
+    "feat": "pool",
+    "villa_": true,
+    "label": "MARLON"
+   },
+   "owner": "@marlon.sanchez019",
+   "coat": [
+    0.3875,
+    0.3625,
+    0.4625
+   ]
+  },
+  {
+   "key": "d9_-7_0",
+   "fn": "maison_p",
+   "i": -3,
+   "j": -7,
+   "kw": {
+    "wall": [
+     0.95,
+     0.8,
+     0.4
+    ],
+    "roof": [
+     0.8,
+     0.25,
+     0.2
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "THÉO"
+   },
+   "owner": "@th3o_792",
+   "coat": [
+    0.25,
+    0.25,
+    0.3
+   ]
+  },
+  {
+   "key": "d9_-7_1",
+   "fn": "maison_p",
+   "i": -2,
+   "j": -7,
+   "kw": {
+    "wall": [
+     0.85,
+     0.7,
+     0.95
+    ],
+    "roof": [
+     0.3,
+     0.35,
+     0.8
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "JAMAL"
+   },
+   "owner": "@jamal93k0",
+   "coat": [
+    0.48125,
+    0.58125,
+    0.7437499999999999
+   ]
+  },
+  {
+   "key": "d9_-7_2",
+   "fn": "maison_p",
+   "i": -1,
+   "j": -7,
+   "kw": {
+    "wall": [
+     0.98,
+     0.95,
+     0.8
+    ],
+    "roof": [
+     0.2,
+     0.5,
+     0.4
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "LOUTRE"
+   },
+   "owner": "@_loutre3",
+   "coat": [
+    0.7125,
+    0.2875,
+    0.5625
+   ]
+  },
+  {
+   "key": "d9_-7_3",
+   "fn": "maison_p",
+   "i": 0,
+   "j": -7,
+   "kw": {
+    "wall": [
+     0.75,
+     0.95,
+     0.75
+    ],
+    "roof": [
+     0.7,
+     0.2,
+     0.3
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "USSER"
+   },
+   "owner": "@usssser.000000",
+   "coat": [
+    0.31875,
+    0.61875,
+    0.38125
+   ]
+  },
+  {
+   "key": "d9_-7_4",
+   "fn": "maison_p",
+   "i": 1,
+   "j": -7,
+   "kw": {
+    "wall": [
+     0.95,
+     0.6,
+     0.7
+    ],
+    "roof": [
+     0.9,
+     0.5,
+     0.1
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "GHOST"
+   },
+   "owner": "@ghostledur94",
+   "coat": [
+    0.55,
+    0.325,
+    0.825
+   ]
+  },
+  {
+   "key": "d9_-7_5",
+   "fn": "maison_p",
+   "i": 2,
+   "j": -7,
+   "kw": {
+    "wall": [
+     0.7,
+     0.88,
+     0.95
+    ],
+    "roof": [
+     0.5,
+     0.25,
+     0.6
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "RAY"
+   },
+   "owner": "@ray__584",
+   "coat": [
+    0.78125,
+    0.65625,
+    0.64375
+   ]
+  },
+  {
+   "key": "d9_-7_6",
+   "fn": "maison_p",
+   "i": 3,
+   "j": -7,
+   "kw": {
+    "wall": [
+     0.95,
+     0.8,
+     0.4
+    ],
+    "roof": [
+     0.8,
+     0.25,
+     0.2
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "MATHÉO"
+   },
+   "owner": "@matheo01_02",
+   "coat": [
+    0.3875,
+    0.3625,
+    0.4625
+   ]
+  },
+  {
+   "key": "d9_-8_0",
+   "fn": "maison_p",
+   "i": -3,
+   "j": -8,
+   "kw": {
+    "wall": [
+     0.98,
+     0.95,
+     0.8
+    ],
+    "roof": [
+     0.2,
+     0.5,
+     0.4
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "ECKOW"
+   },
+   "owner": "@eckow_39",
+   "coat": [
+    0.25,
+    0.25,
+    0.3
+   ]
+  },
+  {
+   "key": "d9_-8_1",
+   "fn": "maison_p",
+   "i": -2,
+   "j": -8,
+   "kw": {
+    "wall": [
+     0.98,
+     0.95,
+     0.8
+    ],
+    "roof": [
+     0.2,
+     0.5,
+     0.4
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "ELIOTT"
+   },
+   "owner": "@eliott_51300",
+   "coat": [
+    0.48125,
+    0.58125,
+    0.7437499999999999
+   ]
+  },
+  {
+   "key": "d9_-8_2",
+   "fn": "maison_p",
+   "i": -1,
+   "j": -8,
+   "kw": {
+    "wall": [
+     0.75,
+     0.95,
+     0.75
+    ],
+    "roof": [
+     0.7,
+     0.2,
+     0.3
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "YLAN"
+   },
+   "owner": "@ylan.75",
+   "coat": [
+    0.7125,
+    0.2875,
+    0.5625
+   ]
+  },
+  {
+   "key": "d9_-8_3",
+   "fn": "maison_p",
+   "i": 0,
+   "j": -8,
+   "kw": {
+    "wall": [
+     0.7,
+     0.88,
+     0.95
+    ],
+    "roof": [
+     0.5,
+     0.25,
+     0.6
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "LINA"
+   },
+   "owner": "@linaeden8",
+   "coat": [
+    0.31875,
+    0.61875,
+    0.38125
+   ]
+  },
+  {
+   "key": "d9_-8_4",
+   "fn": "maison_p",
+   "i": 1,
+   "j": -8,
+   "kw": {
+    "wall": [
+     0.98,
+     0.95,
+     0.8
+    ],
+    "roof": [
+     0.2,
+     0.5,
+     0.4
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "YONKO"
+   },
+   "owner": "@yonko_75",
+   "coat": [
+    0.55,
+    0.325,
+    0.825
+   ]
+  },
+  {
+   "key": "d9_-8_5",
+   "fn": "maison_p",
+   "i": 2,
+   "j": -8,
+   "kw": {
+    "wall": [
+     0.98,
+     0.95,
+     0.8
+    ],
+    "roof": [
+     0.2,
+     0.5,
+     0.4
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "ROBIN"
+   },
+   "owner": "@robinfichaux",
+   "coat": [
+    0.78125,
+    0.65625,
+    0.64375
+   ]
+  },
+  {
+   "key": "d9_-8_6",
+   "fn": "maison_p",
+   "i": 3,
+   "j": -8,
+   "kw": {
+    "wall": [
+     0.85,
+     0.7,
+     0.95
+    ],
+    "roof": [
+     0.3,
+     0.35,
+     0.8
+    ],
+    "feat": "",
+    "villa_": false,
+    "label": "MAYRON"
+   },
+   "owner": "@mgpap2",
+   "coat": [
+    0.3875,
+    0.3625,
+    0.4625
+   ]
+  },
+  {
+   "key": "d9_-9_0",
+   "fn": "maison_p",
+   "i": -3,
+   "j": -9,
+   "kw": {
+    "wall": [
+     1,
+     0.78,
+     0.55
+    ],
+    "roof": [
+     0.4,
+     0.3,
+     0.25
+    ],
+    "feat": "pool",
+    "villa_": false,
+    "label": "NOÉ"
+   },
+   "owner": "@nono14mn",
+   "coat": [
+    0.25,
+    0.25,
+    0.3
+   ]
+  },
+  {
+   "key": "d9_-9_1",
+   "fn": "maison_p",
+   "i": -2,
+   "j": -9,
+   "kw": {
+    "wall": [
+     0.75,
+     0.95,
+     0.75
+    ],
+    "roof": [
+     0.7,
+     0.2,
+     0.3
+    ],
+    "feat": "techno",
+    "villa_": false,
+    "label": "ANDRIA"
+   },
+   "owner": "@andriaasaura",
+   "coat": [
+    0.48125,
+    0.58125,
+    0.7437499999999999
+   ]
+  },
+  {
+   "key": "d9_-9_2",
+   "fn": "maison_p",
+   "i": -1,
+   "j": -9,
+   "kw": {
+    "wall": [
+     0.75,
+     0.95,
+     0.75
+    ],
+    "roof": [
+     0.7,
+     0.2,
+     0.3
+    ],
+    "feat": "dog",
+    "villa_": false,
+    "label": "LOLA"
+   },
+   "owner": "@lola.humbert0",
+   "coat": [
+    0.7125,
+    0.2875,
+    0.5625
+   ]
+  },
+  {
+   "key": "d9_-9_3",
+   "fn": "maison_p",
+   "i": 0,
+   "j": -9,
+   "kw": {
+    "wall": [
+     0.75,
+     0.95,
+     0.75
+    ],
+    "roof": [
+     0.7,
+     0.2,
+     0.3
+    ],
+    "feat": "cloud",
+    "villa_": false,
+    "label": "ALICIA"
+   },
+   "owner": "@alicia.gnst",
+   "coat": [
+    0.31875,
+    0.61875,
+    0.38125
+   ]
+  },
+  {
+   "key": "d9_-9_4",
+   "fn": "maison_p",
+   "i": 1,
+   "j": -9,
+   "kw": {
+    "wall": [
+     0.95,
+     0.6,
+     0.7
+    ],
+    "roof": [
+     0.9,
+     0.5,
+     0.1
+    ],
+    "feat": "kitty",
+    "villa_": false,
+    "label": "JUJU"
+   },
+   "owner": "@juju851903",
+   "coat": [
+    0.55,
+    0.325,
+    0.825
+   ]
+  },
+  {
+   "key": "d9_-9_5",
+   "fn": "maison_p",
+   "i": 2,
+   "j": -9,
+   "kw": {
+    "wall": [
+     0.7,
+     0.88,
+     0.95
+    ],
+    "roof": [
+     0.5,
+     0.25,
+     0.6
+    ],
+    "feat": "bear",
+    "villa_": false,
+    "label": "FANNY"
+   },
+   "owner": "@fanny8694",
+   "coat": [
+    0.78125,
+    0.65625,
+    0.64375
+   ]
+  },
+  {
+   "key": "d9_-9_6",
+   "fn": "maison_p",
+   "i": 3,
+   "j": -9,
+   "kw": {
+    "wall": [
+     0.95,
+     0.6,
+     0.7
+    ],
+    "roof": [
+     0.9,
+     0.5,
+     0.1
+    ],
+    "feat": "trex",
+    "villa_": false,
+    "label": "H K"
+   },
+   "owner": "@hk_le_goat78",
+   "coat": [
+    0.3875,
+    0.3625,
+    0.4625
+   ]
+  }
+ ],
+ "highlight": [
+  "jour",
+  "maison",
+  "villa",
+  "quartier",
+  "habitants",
+  "chacun"
+ ],
+ "description": "Jour 9 : 28 nouvelles maisons, une pour chaque habitant qui l'attendait ! Écris ton nom en commentaire. #petitbourg #jour9 #village #2d3d #pourtoi",
+ "pinned_comment": "Ton nom n'est pas là ? Écris-le ici, le maire s'en occupe 👇",
+ "scenes": [
+  {
+   "lines": [
+    "Jour neuf ! Aujourd'hui, personne ne reste sans maison : vingt-huit habitants emménagent dans un tout nouveau quartier !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      10,
+      0
+     ],
+     "c1": [
+      0,
+      10,
+      0
+     ],
+     "d0": 240,
+     "d1": 120,
+     "a0": -28,
+     "a1": 22,
+     "e0": 34,
+     "e1": 20,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 9",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "28 NOUVEAUX HABITANTS",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "TOUT LE MONDE EST LA",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Rangée des villas : Lcrt, Enzo, Robin T, Adam, Anis, Melvine et Marlon !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      -200,
+      -480,
+      0
+     ],
+     "c1": [
+      -70,
+      -480,
+      0
+     ],
+     "d0": 130,
+     "d1": 120,
+     "a0": -20,
+     "a1": 10,
+     "e0": 32,
+     "e1": 28,
+     "w": 1
+    },
+    {
+     "c0": [
+      -70,
+      -480,
+      0
+     ],
+     "c1": [
+      70,
+      -480,
+      0
+     ],
+     "d0": 120,
+     "d1": 125,
+     "a0": 10,
+     "a1": -10,
+     "e0": 28,
+     "e1": 30,
+     "w": 1
+    },
+    {
+     "c0": [
+      70,
+      -480,
+      0
+     ],
+     "c1": [
+      200,
+      -480,
+      0
+     ],
+     "d0": 125,
+     "d1": 135,
+     "a0": -10,
+     "a1": 18,
+     "e0": 30,
+     "e1": 32,
+     "w": 1
+    }
+   ],
+   "new": [
+    "d9_-6_0",
+    "d9_-6_1",
+    "d9_-6_2",
+    "d9_-6_3",
+    "d9_-6_4",
+    "d9_-6_5",
+    "d9_-6_6"
+   ],
+   "show": [
+    "o_d9_-6_0",
+    "o_d9_-6_1",
+    "o_d9_-6_2",
+    "o_d9_-6_3",
+    "o_d9_-6_4",
+    "o_d9_-6_5",
+    "o_d9_-6_6"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 9",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "LES VILLAS",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "VILLAS POUR TOUS",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Rangée des maisons : Théo, Jamal, Loutre, Usser, Ghost, Ray et Mathéo !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      -200,
+      -560,
+      0
+     ],
+     "c1": [
+      -70,
+      -560,
+      0
+     ],
+     "d0": 130,
+     "d1": 120,
+     "a0": -20,
+     "a1": 10,
+     "e0": 32,
+     "e1": 28,
+     "w": 1
+    },
+    {
+     "c0": [
+      -70,
+      -560,
+      0
+     ],
+     "c1": [
+      70,
+      -560,
+      0
+     ],
+     "d0": 120,
+     "d1": 125,
+     "a0": 10,
+     "a1": -10,
+     "e0": 28,
+     "e1": 30,
+     "w": 1
+    },
+    {
+     "c0": [
+      70,
+      -560,
+      0
+     ],
+     "c1": [
+      200,
+      -560,
+      0
+     ],
+     "d0": 125,
+     "d1": 135,
+     "a0": -10,
+     "a1": 18,
+     "e0": 30,
+     "e1": 32,
+     "w": 1
+    }
+   ],
+   "new": [
+    "d9_-7_0",
+    "d9_-7_1",
+    "d9_-7_2",
+    "d9_-7_3",
+    "d9_-7_4",
+    "d9_-7_5",
+    "d9_-7_6"
+   ],
+   "show": [
+    "o_d9_-7_0",
+    "o_d9_-7_1",
+    "o_d9_-7_2",
+    "o_d9_-7_3",
+    "o_d9_-7_4",
+    "o_d9_-7_5",
+    "o_d9_-7_6"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 9",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "LES MAISONS",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "UNE MAISON POUR CHACUN",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Et la suite : Eckow, Eliott, Ylan, Lina, Yonko, Robin et Mayron !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      -200,
+      -640,
+      0
+     ],
+     "c1": [
+      -70,
+      -640,
+      0
+     ],
+     "d0": 130,
+     "d1": 120,
+     "a0": -20,
+     "a1": 10,
+     "e0": 32,
+     "e1": 28,
+     "w": 1
+    },
+    {
+     "c0": [
+      -70,
+      -640,
+      0
+     ],
+     "c1": [
+      70,
+      -640,
+      0
+     ],
+     "d0": 120,
+     "d1": 125,
+     "a0": 10,
+     "a1": -10,
+     "e0": 28,
+     "e1": 30,
+     "w": 1
+    },
+    {
+     "c0": [
+      70,
+      -640,
+      0
+     ],
+     "c1": [
+      200,
+      -640,
+      0
+     ],
+     "d0": 125,
+     "d1": 135,
+     "a0": -10,
+     "a1": 18,
+     "e0": 30,
+     "e1": 32,
+     "w": 1
+    }
+   ],
+   "new": [
+    "d9_-8_0",
+    "d9_-8_1",
+    "d9_-8_2",
+    "d9_-8_3",
+    "d9_-8_4",
+    "d9_-8_5",
+    "d9_-8_6"
+   ],
+   "show": [
+    "o_d9_-8_0",
+    "o_d9_-8_1",
+    "o_d9_-8_2",
+    "o_d9_-8_3",
+    "o_d9_-8_4",
+    "o_d9_-8_5",
+    "o_d9_-8_6"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 9",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "ENCORE DES MAISONS",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "BIENVENUE !",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Et enfin les maisons spéciales : Noé et sa piscine, Andria et sa pièce secrète, Lola et son chien, Alicia et son nuage, Juju, Fanny, et H K avec son gentil T-rex ! Les personnages connus sont en version générique."
+   ],
+   "shots": [
+    {
+     "c0": [
+      -200,
+      -720,
+      0
+     ],
+     "c1": [
+      -70,
+      -720,
+      0
+     ],
+     "d0": 130,
+     "d1": 120,
+     "a0": -20,
+     "a1": 10,
+     "e0": 32,
+     "e1": 28,
+     "w": 1
+    },
+    {
+     "c0": [
+      -70,
+      -720,
+      0
+     ],
+     "c1": [
+      70,
+      -720,
+      0
+     ],
+     "d0": 120,
+     "d1": 125,
+     "a0": 10,
+     "a1": -10,
+     "e0": 28,
+     "e1": 30,
+     "w": 1
+    },
+    {
+     "c0": [
+      70,
+      -720,
+      0
+     ],
+     "c1": [
+      200,
+      -720,
+      0
+     ],
+     "d0": 125,
+     "d1": 135,
+     "a0": -10,
+     "a1": 18,
+     "e0": 30,
+     "e1": 32,
+     "w": 1
+    }
+   ],
+   "new": [
+    "d9_-9_0",
+    "d9_-9_1",
+    "d9_-9_2",
+    "d9_-9_3",
+    "d9_-9_4",
+    "d9_-9_5",
+    "d9_-9_6"
+   ],
+   "show": [
+    "o_d9_-9_0",
+    "o_d9_-9_1",
+    "o_d9_-9_2",
+    "o_d9_-9_3",
+    "o_d9_-9_4",
+    "o_d9_-9_5",
+    "o_d9_-9_6"
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 9",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "MAISONS SPECIALES",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "VERSIONS GENERIQUES",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  },
+  {
+   "lines": [
+    "Si ton nom n'était pas dans la liste, écris-le en commentaire : le maire s'en occupe. Et rejoins le groupe du village, le lien est en bio !"
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      10,
+      0
+     ],
+     "c1": [
+      0,
+      10,
+      0
+     ],
+     "d0": 240,
+     "d1": 120,
+     "a0": -28,
+     "a1": 22,
+     "e0": 34,
+     "e1": 20,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "JOUR 9",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "TON NOM ?",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    },
+    {
+     "type": "label",
+     "text": "LIEN DU GROUPE EN BIO",
+     "color": "green",
+     "y": 370,
+     "size": 44
+    }
+   ]
+  }
+ ]
+}

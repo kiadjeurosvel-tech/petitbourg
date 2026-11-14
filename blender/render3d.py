@@ -63,6 +63,7 @@ LOTS = {
  "boul": (L.bakery, -3, 6, {}), "mall": (L.mall, -2, 6, {}), "gaming": (L.gaming, -1, 6, {}), "vet": (L.vet, 0, 6, {}),
  "cine": (L.cinema, 1, 6, {}), "garage": (L.garage, 2, 6, {}),
 }
+for _d in EP.get("lots_extra", []): LOTS[_d["key"]] = (getattr(L, _d["fn"]), _d["i"], _d["j"], _d.get("kw", {}))
 used = {(v[1], v[2]) for v in LOTS.values()}
 roots, pos = {}, {}
 for k, (fn, i, j, kw) in LOTS.items():
@@ -71,7 +72,7 @@ for i in range(-3, 4):
     for j in range(0, 9):
         if (i, j) in used: continue
         r = L.filler(f"f{i}_{j}", i * 31 + j); r.location = P(i, j) + (0,)
-L.roads([CELL * i + CELL / 2 for i in range(-5, 4)], [CELL * j + CELL / 2 for j in range(-5, 10)], -300, 300, -480, 720)
+L.roads([CELL * i + CELL / 2 for i in range(-5, 4)], [CELL * j + CELL / 2 for j in range(-14, 10)], -300, 300, -1200, 720)
 
 if EP.get("feux"):
     for _i, _j in ((0, 3), (-1, 3), (0, 4), (1, 4), (-1, 4), (2, 3), (0, 6), (-1, 6)):
@@ -94,6 +95,8 @@ owners = {"omar": ("@mar_64kk", (.2, .5, .9)), "rose": ("@nd.k601", (.9, .4, .6)
           "chapelle": ("Amau", (.95, .95, .95)), "commissariat": ("@batchess4", (.15, .25, .6)), "ilyes": ("Ilyes", (.95, .6, .3)), "lara": ("Lara", (.7, .4, .9)), "kvn": ("Kvn", (.3, .5, .3)), "villa23": ("@23_fg_29", (.9, .3, .3)),
           "logis": ("@.bysym70", (.2, .4, .8)), "luxe": ("@benjis1708", (.9, .75, .3)), "bleue": ("@in_aya38k", (.4, .6, .95)), "terrain": ("@xyabcw67", (.2, .7, .3)),
           "singe": ("@rioxinvr", (.6, .4, .2)), "zazy": ("@zazyofficiel", (.1, .1, .12)), "chien": ("@user.b95j", (.9, .65, .25)), "f1": ("@dedsec588", (.9, .1, .1))}
+for _d in EP.get("lots_extra", []):
+    if _d.get("owner"): owners[_d["key"]] = (_d["owner"], tuple(_d.get("coat", (.5, .5, .85))))
 for n, (k, (tag, coat)) in enumerate(owners.items()):
     off = (2.6, -7.5)
     if k in ("mall", "cine", "garage", "gaming", "boul", "caserne_b", "gare", "basilique", "bunker", "bijou", "tacos", "port", "aeroport", "ferme", "bar", "base", "arcade", "glace", "commissariat", "mosquee", "logis", "terrain", "singe", "zazy", "f1"): off = (4, -9)
@@ -111,6 +114,9 @@ for _n, (_c, _t, _no, _col, _dx, _dy) in enumerate([("tm1", "Noa", 7, (.95, .5, 
 mk("tao", "Tao", lotp("basket", 1, 0), coat=(.95, .5, .1), hair=hair(3), pants=(.15, .15, .2), number=23)
 mk("coach_kvn", "Coach @kvnmlt30", (sx - 7, sy - 12), coat=(.1, .1, .12), pants=(.1, .1, .12), hair=hair(2))
 mk("xy", "Xy", lotp("terrain", -2, 0), coat=(.2, .7, .3), hair=hair(0), pants=(1, 1, 1), number=10)
+for _k, _d in enumerate(EP.get("people", [])):
+    _r, _c = divmod(_k % 12, 6)
+    mk("p%d" % _k, _d["tag"], lotp(_d.get("lot", "mairie"), -13 + _c * 5.2 + (_r % 2) * 2.2, -11.5 - _r * 4.2)[:2], coat=tuple(_d["coat"]), hair=hair(_k), pants=(.2, .2, .3))
 mk("evan", "Coach Evan", (sx - 11, sy - 12), coat=(.1, .1, .12), pants=(.1, .1, .12), hair=hair(1))
 mk("archi", "Architecte @fan_2napoleon", (-6, 311), coat=(.3, .3, .35), hair=hair(3))
 mk("gilet", "@billiejean130", (6, 311), coat=(1, .85, .1), hair=hair(2))
