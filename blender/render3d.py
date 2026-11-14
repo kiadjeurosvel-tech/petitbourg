@@ -127,12 +127,26 @@ lg('built'); joinall(); lg('joined')
 
 # --- animation helpers
 def F(t): return int(round(t * FPS)) + 1
+def fcs(o):
+    ad = o.animation_data
+    if not ad or not ad.action: return []
+    a = ad.action
+    if hasattr(a, "fcurves"): return a.fcurves
+    try:
+        out = []
+        for ly in a.layers:
+            for st in ly.strips:
+                cb = st.channelbag(ad.action_slot)
+                if cb: out += list(cb.fcurves)
+        return out
+    except Exception as ex:
+        print("fcs fail", ex); return []
 def kf(o, prop, f, v=None, interp='LINEAR', idx=-1):
     if v is not None: setattr(o, prop, v)
     o.keyframe_insert(prop, frame=f, index=idx)
     ad = o.animation_data
     if ad and ad.action:
-        for fc in ad.action.fcurves:
+        for fc in fcs(o):
             if fc.data_path == prop:
                 for p in fc.keyframe_points:
                     if p.co[0] == f: p.interpolation = interp
@@ -179,7 +193,7 @@ for o in list(C.values()) + [mayor]:
     for f, z in ((1 + ph, 0), (5 + ph, .07), (9 + ph, 0)):
         o.location.z = z; o.keyframe_insert("location", frame=f, index=2)
     try:
-        fc = [c for c in o.animation_data.action.fcurves if c.data_path == "location" and c.array_index == 2][0]; fc.modifiers.new('CYCLES')
+        fc = [c for c in fcs(o) if c.data_path == "location" and c.array_index == 2][0]; fc.modifiers.new('CYCLES')
     except Exception: pass
 
 if MODE == "preview":
