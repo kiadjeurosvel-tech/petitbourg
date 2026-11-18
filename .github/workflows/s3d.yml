@@ -41,7 +41,10 @@ jobs:
         file: ${{ fromJson(needs.plan.outputs.files) }}
     steps:
       - uses: actions/checkout@v4
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq blender ffmpeg xvfb libgl1-mesa-dri libegl1 && pip install -q pillow numpy
+      - name: Installation
+        timeout-minutes: 15
+        env: { DEBIAN_FRONTEND: noninteractive, NEEDRESTART_MODE: a }
+        run: sudo -E apt-get update -qq && sudo -E apt-get install -y -qq -o Dpkg::Options::=--force-confold blender ffmpeg xvfb libgl1-mesa-dri libegl1 && pip install -q --break-system-packages pillow numpy || pip install -q pillow numpy
       - name: Voix, textes, surcouches
         env: { ELEVENLABS_API_KEY: "${{ secrets.ELEVENLABS_API_KEY }}" }
         run: |
