@@ -1,0 +1,196 @@
+{
+ "out_name": "petitbourg_test_dialogue",
+ "day": 0,
+ "date": "2026-11-18",
+ "rev": 1,
+ "flat": true,
+ "feux": true,
+ "highlight": [],
+ "description": "Test dialogues",
+ "pinned_comment": "",
+ "scenes": [
+  {
+   "lines": [
+    "Petitbourg, neuf heures du matin. Une rumeur court dans le village."
+   ],
+   "shots": [
+    {
+     "c0": [
+      0,
+      10,
+      0
+     ],
+     "c1": [
+      0,
+      10,
+      0
+     ],
+     "d0": 240,
+     "d1": 120,
+     "a0": -28,
+     "a1": 22,
+     "e0": 34,
+     "e1": 20,
+     "w": 1
+    }
+   ],
+   "overlays": [
+    {
+     "type": "badge",
+     "text": "SPÉCIAL",
+     "color": "red",
+     "y": 110,
+     "size": 72
+    },
+    {
+     "type": "label",
+     "text": "LA RUMEUR",
+     "color": "orange",
+     "y": 250,
+     "size": 54
+    }
+   ]
+  },
+  {
+   "lines": [
+    "J'ai entendu dire que le maire ferme la boîte de nuit !"
+   ],
+   "shots": [
+    {
+     "who": "o_singe",
+     "dx": 0,
+     "cz": 2.3,
+     "d0": 13,
+     "d1": 9,
+     "a0": 14,
+     "a1": -7.0,
+     "e0": 7,
+     "e1": 5,
+     "w": 1
+    }
+   ],
+   "speaker": {
+    "name": "@rioxinvr",
+    "role": "Maison du singe",
+    "color": [
+     255,
+     170,
+     60
+    ]
+   }
+  },
+  {
+   "lines": [
+    "Quoi ? Il vend le village ?"
+   ],
+   "shots": [
+    {
+     "who": "o_bijou",
+     "dx": 0,
+     "cz": 2.3,
+     "d0": 13,
+     "d1": 9,
+     "a0": -14,
+     "a1": 7.0,
+     "e0": 7,
+     "e1": 5,
+     "w": 1
+    }
+   ],
+   "speaker": {
+    "name": "@elina.2286",
+    "role": "Bijouterie",
+    "color": [
+     255,
+     110,
+     200
+    ]
+   }
+  },
+  {
+   "lines": [
+    "Calmez-vous ! Personne ne vend rien !"
+   ],
+   "shots": [
+    {
+     "who": "o_commissariat",
+     "dx": 0,
+     "cz": 2.3,
+     "d0": 13,
+     "d1": 9,
+     "a0": 14,
+     "a1": -7.0,
+     "e0": 7,
+     "e1": 5,
+     "w": 1
+    }
+   ],
+   "speaker": {
+    "name": "@batchess4",
+    "role": "Commissaire",
+    "color": [
+     90,
+     150,
+     255
+    ]
+   }
+  },
+  {
+   "lines": [
+    "Moi je dis qu'il va augmenter les impôts !"
+   ],
+   "shots": [
+    {
+     "who": "o_gaming",
+     "dx": 0,
+     "cz": 2.3,
+     "d0": 13,
+     "d1": 9,
+     "a0": -14,
+     "a1": 7.0,
+     "e0": 7,
+     "e1": 5,
+     "w": 1
+    }
+   ],
+   "speaker": {
+    "name": "@goku25603",
+    "role": "Arcade",
+    "color": [
+     190,
+     120,
+     255
+    ]
+   }
+  },
+  {
+   "lines": [
+    "Mais non ! Je prépare une surprise pour vous tous !"
+   ],
+   "shots": [
+    {
+     "who": "mayor",
+     "dx": 0,
+     "cz": 2.3,
+     "d0": 13,
+     "d1": 9,
+     "a0": 14,
+     "a1": -7.0,
+     "e0": 7,
+     "e1": 5,
+     "w": 1,
+     "mayor": "mairie"
+    }
+   ],
+   "speaker": {
+    "name": "LE MAIRE",
+    "role": "Petitbourg",
+    "color": [
+     200,
+     60,
+     60
+    ]
+   }
+  }
+ ]
+}

@@ -32,8 +32,12 @@ ass = ["[Script Info]", "ScriptType: v4.00+", "PlayResX: 1080", "PlayResY: 1920"
        "Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding",
        "Style: D,Poppins,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,8,0,2,60,60,300,1", "", "[Events]",
        "Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text"]
+def scol(a):
+    si = max([i for i in range(len(tm["scenes"])) if tm["scenes"][i]["t0"] <= a + 0.05] or [0]); sp = scenes[si].get("speaker")
+    return "&H00%02X%02X%02X&" % (sp["color"][2], sp["color"][1], sp["color"][0]) if sp else "&HFFFFFF&"
 for a, b, t in caps:
-    t = re.sub(r"\[(.*?)\]", r"{\\c&H00D7FF&}\1{\\c&HFFFFFF&}", t)
+    cc = scol(a)
+    t = re.sub(r"\[(.*?)\]", lambda m: "{\\c&H00D7FF&}" + m.group(1) + "{\\c" + cc + "}", t); t = "{\\c" + cc + "}" + t
     ass.append(f"Dialogue: 0,{tc(a)},{tc(b)},D,,0,0,0,,{t}")
 open(out + "/subs.ass", "w").write("\n".join(ass))
 # ---- surcouches
@@ -63,12 +67,23 @@ def mk_opt(letter, txt, color):
     f = Fn(60); w = int(f.getlength(txt)) + 190; im = Image.new("RGBA", (w, 130), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     rr(d, (0, 0, w - 1, 129), 34, (255, 255, 255), COL.get(color, (40, 40, 40)), 8); d.ellipse((16, 16, 114, 114), fill=COL.get(color, (40, 40, 40)))
     d.text((65, 65), letter, font=Fn(72), fill=(255, 255, 255), anchor="mm"); d.text((140, 65), txt, font=f, fill=(20, 20, 20), anchor="lm"); return im
+def mk_speaker(user, role, color):
+    f = Fn(64)
+    while f.size > 34 and f.getlength(user) > 800: f = Fn(f.size - 4)
+    w = int(max(f.getlength(user) + 110, 520)); h = 190
+    im = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    rr(d, (0, 0, w - 1, h - 1), 34, COL.get(color, color), (255, 255, 255), 8)
+    d.text((w // 2, 62), user, font=f, fill=(255, 255, 255), anchor="mm")
+    rr(d, (24, 112, w - 25, h - 22), 22, (255, 255, 255)); d.text((w // 2, 149), role, font=Fn(40), fill=(20, 20, 25), anchor="mm"); return im
 ovs = []
 for si, s in enumerate(scenes):
+    sp = s.get("speaker")
+    if sp: s.setdefault("overlays", []).append({"type": "speaker", "user": sp["name"], "role": sp["role"], "color": sp["color"], "y": 210})
     for k, o in enumerate(s.get("overlays", [])):
         t = o["type"]
         if t == "badge" or t == "label": im = mk_label(o["text"], o.get("color", "red"), o.get("size", 64))
         elif t == "card": im = mk_card(o["user"], o["text"], o.get("likes", 1))
+        elif t == "speaker": im = mk_speaker(o["user"], o["role"], tuple(o["color"]))
         elif t == "goal": im = mk_goal(o["text"], o["frac"])
         elif t == "option": im = mk_opt(o["letter"], o["text"], o.get("color", "blue"))
         fn = f"ov/s{si}_{k}.png"; im.save(out + "/" + fn)
